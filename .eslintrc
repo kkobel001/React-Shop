@@ -11,7 +11,7 @@
     "document": true
   },
   "rules": {
-    "import/prefer-default-export": "off",
+    "import/prefer-default-export": 0,
     "import/no-unresolved": 1,
     "react/jsx-filename-extension": [
       1,

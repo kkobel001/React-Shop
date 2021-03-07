@@ -1,26 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import LogoIcon from '../../../assets/images/logo-01.png';
 
 const Nav = styled.div`
   z-index: 99999;
   position: sticky;
-  color: ${({ theme }) => theme.font.dark};
+  color: ${({ theme }) => theme.colorDark};
+  background-color: ${({ theme }) => theme.colorLight};
+  height: 150px;
 `;
 
-const NavMenu = styled.div`
+const NavMenu = styled.ul`
   margin: auto;
 `;
 
-const NavItem = styled.div`
+const NavItem = styled.li`
   margin: auto;
 `;
 
 const NavLinks = styled(NavLink)`
   margin: auto;
 `;
+
+const Logo = styled.div``;
+
 const Navbar = () => (
   <Nav>
+    <Logo>
+      <img src={LogoIcon} alt="logo" />
+    </Logo>
+
     <NavMenu>
       <NavItem>
         <NavLinks exact to="/home" activeclass="active">
