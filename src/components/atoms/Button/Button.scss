@@ -1,0 +1,35 @@
+@import 'theme/variable.scss';
+
+
+btn-main {
+  display: inline-block;
+  border-radius: $button-border-radius;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $purple-color;
+  padding: 16px 64px;
+  cursor: pointer;
+  font-size: $bigfont-size;
+  color: $light-color;
+
+  &:hover {
+    transition: all 0.3s ease-out;
+    background-color:  $dark-color;
+  }
+}
+  
+// btn-second {
+//   @include button;
+//     background-color: $dark-color;
+//     font-size: $bigfont-size;
+//     color: $light-color;
+
+//   &:hover {
+//     background-color:  $purple-color;
+//   }
+// }
+
+
+
+
+

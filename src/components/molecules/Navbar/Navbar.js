@@ -39,17 +39,17 @@ const Navbar = () => (
       </NavItem>
       <NavItem>
         <NavLinks exact to="/shop" activeclass="active">
-          About
+          Shop
         </NavLinks>
       </NavItem>
       <NavItem>
         <NavLinks exact to="/blog" activeclass="active">
-          Gallery
+          Blog
         </NavLinks>
       </NavItem>
       <NavItem>
         <NavLinks exact to="/about" activeclass="active">
-          Contact
+          About
         </NavLinks>
       </NavItem>
       <NavItem>
