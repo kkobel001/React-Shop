@@ -1,0 +1,16 @@
+@import '../../../theme/variable';
+
+
+.navbar{
+    height:200px;
+    z-index: 99999;
+    position: sticky;
+    color: $white-color;
+    background-color: $purple-color;
+}
+
+.nav-menu {
+    display: grid;
+  grid-template-columns: repeat(2, 50px 1fr) 100px;
+  grid-gap: 5px;
+}
