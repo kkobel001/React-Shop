@@ -1,16 +1,33 @@
 @import '../../../theme/variable';
 
 
-.navbar{
-    height:200px;
+.navbar {
+    
+    width:100%;
     z-index: 99999;
     position: sticky;
     color: $white-color;
-    background-color: $purple-color;
+    background-color: transparent;
+    display:flex;
+    height:65px;
+    text-align: center;
+    .logo{
+      justify-content: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+  }
+  .nav-menu {
+    display: grid;
+  grid-template-columns: repeat( 5, 2fr) ;
+  grid-gap: 25px;
+
+
+  .nav-item{
+    text-align: center;
+  }
+}
 }
 
-.nav-menu {
-    display: grid;
-  grid-template-columns: repeat(2, 50px 1fr) 100px;
-  grid-gap: 5px;
-}
+
+

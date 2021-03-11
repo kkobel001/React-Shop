@@ -1,24 +1,30 @@
-// import React from 'react';
-// import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-// import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-// import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
+import './NavIconMenu.scss';
 
-// const icons = [
-//   { id: 0, name: ShoppingCartIcon },
-//   { id: 0, name: FavoriteBorderOutlinedIcon  },
-//   { id: 0, name: SearchTwoToneIcon },
-// ];
+const NavIconMenu = () => (
+  <div className="IconWrapper">
+    <ul className="IconRow">
+      <li className="IconItem">
+        <Link to="./" className="ItemLink">
+          <ShoppingCartIcon />
+        </Link>
+      </li>
+      <li className="IconItem">
+        <Link to="./" className="ItemLink">
+          <FavoriteBorderOutlinedIcon />
+        </Link>
+      </li>
+      <li className="IconItem">
+        <Link to="./" className="ItemLink">
+          <SearchTwoToneIcon />
+        </Link>
+      </li>
+    </ul>
+  </div>
+);
 
-// const NavIconMenu = () => (
-//   <>
-//     <ul>
-//       {icons.map(icon => (
-//         <li>
-//           {icon.id},{icon.name}
-//         </li>
-//       ))}
-//     </ul>
-//   </>
-// );
-
-// export default NavIconMenu;
+export default NavIconMenu;

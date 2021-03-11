@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-// import SearchTwoToneIcon from '@material-ui/icons/SearchTwoTone';
 import LogoIcon from '../../../assets/images/logo-01.png';
 import './Navbar.scss';
 import NavIconMenu from '../../atoms/NavIconMenu/NavIconMenu';
@@ -39,8 +37,6 @@ const Navbar = () => (
       </li>
     </ul>
     <NavIconMenu />
-    {/* <FavoriteBorderOutlinedIcon />
-    <SearchTwoToneIcon /> */}
   </nav>
 );
 

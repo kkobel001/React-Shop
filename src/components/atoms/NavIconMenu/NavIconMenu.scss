@@ -1,0 +1,40 @@
+@import '../../../theme/variable';
+
+.IconWrapper{
+  height: 84px;
+  margin: 0px;
+  flex-grow: 1;
+  cursor: pointer;
+
+
+  .IconRow{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    list-style-type: none;
+   
+  }
+
+    .IconItem{
+    float: left;
+    padding: 0px 10px 0px 10px;
+    color: $dark-color;
+    justify-content: flex-end;
+
+
+      .ItemLink
+      {
+        text-decoration: none;
+        color: $dark-color;
+
+          &:hover{
+            color: $purple-color;
+          }
+          
+  }
+
+
+  
+
+}
+}
