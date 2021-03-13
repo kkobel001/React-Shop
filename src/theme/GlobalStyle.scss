@@ -1,6 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,300;1,600&display=swap');
 
 *, *::before, *::after{
@@ -13,17 +12,17 @@ const GlobalStyle = createGlobalStyle`
 body {
   font-family: Poppins-Regular;
   margin:0;
-    padding:0;
+  padding:0;
    
 } 
 
 html {
     font-size: 62,5%;
 };
-`;
-export default GlobalStyle;
 
-export const Container = styled.div`
+
+
+.container{
   z-index: 1;
   width: 100%;
   /* max-width: 1300px; */
@@ -36,9 +35,11 @@ export const Container = styled.div`
     padding-right: 30px;
     padding-left: 30px;
   }
-`;
-
-export const Wrapper = styled.div`
+};
+.wrapper{
   height: auto;
   width: 100%;
-`;
+
+}
+  
+

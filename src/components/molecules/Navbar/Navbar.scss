@@ -2,15 +2,18 @@
 
 
 .navbar {
-    
+    margin:15px auto auto auto;
     width:100%;
     z-index: 99999;
     position: sticky;
     color: $white-color;
-    background-color: transparent;
+    background-color: red;
     display:flex;
     height:65px;
     text-align: center;
+    font-size: $bigfont-size;
+   
+
     .logo{
       justify-content: center;
       cursor: pointer;
@@ -18,14 +21,43 @@
       align-items: center;
   }
   .nav-menu {
-    display: grid;
+    display: flex;
   grid-template-columns: repeat( 5, 2fr) ;
   grid-gap: 25px;
-
+  margin-top:20px;
+  @media screen and (max-width: 1230px) {
+    padding-left: 60px;
+    grid-template-columns: auto auto auto auto;
+  }
+  @media screen and (max-width: 960px) {
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 100px;
+  
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: #4e5938;
+  }
 
   .nav-item{
     text-align: center;
   }
+}
+.mobile-icon {
+  display: none;
+@media screen and (max-width: 960px) {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-100%, 60%);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 }
 }
 

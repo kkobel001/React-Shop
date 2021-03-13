@@ -5,8 +5,8 @@ import Shop from './Shop';
 import About from './About/About';
 import Contact from './Contact/Contact';
 import Blog from './Blog/Blog';
-// import MainTemplate from '../theme/MainTemplate';
 import Navbar from '../components/molecules/Navbar/Navbar';
+import '../theme/GlobalStyle.scss';
 
 const Root = () => (
   <Router>
