@@ -6,12 +6,20 @@
   flex-grow: 1;
   cursor: pointer;
 
+  // @media screen and (max-width: 960px){
+  //   width:80%;
+    
+  // }
 
   .IconRow{
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
     list-style-type: none;
+    @media screen and (max-width: 960px){
+      width:90%;
+      
+    }
    
   }
 

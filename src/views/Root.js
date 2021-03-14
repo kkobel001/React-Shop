@@ -6,7 +6,8 @@ import About from './About/About';
 import Contact from './Contact/Contact';
 import Blog from './Blog/Blog';
 import Navbar from '../components/molecules/Navbar/Navbar';
-import '../theme/GlobalStyle.scss';
+import Footer from '../components/molecules/Footer/Footer';
+// import '../theme/globalStyle.scss';
 
 const Root = () => (
   <Router>
@@ -19,6 +20,7 @@ const Root = () => (
       <Route exact path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
     </Switch>
+    <Footer />
   </Router>
 );
 

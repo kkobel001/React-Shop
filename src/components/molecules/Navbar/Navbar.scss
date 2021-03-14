@@ -1,65 +1,100 @@
 @import '../../../theme/variable';
 
-
 .navbar {
-    margin:15px auto auto auto;
-    width:100%;
-    z-index: 99999;
-    position: sticky;
-    color: $white-color;
-    background-color: red;
-    display:flex;
-    height:65px;
-    text-align: center;
-    font-size: $bigfont-size;
-   
+  margin: 15px auto auto auto;
+  z-index: 99999;
+  position: sticky;
+  color: $white-color;
+  justify-content: center;
+  display: flex;
+  height: 65px;
+  text-align: center;
+  font-size: $bigfont-size;
+  width: 70vw;
 
-    .logo{
-      justify-content: center;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-  }
-  .nav-menu {
+  .logo {
+    justify-content: center;
+    cursor: pointer;
     display: flex;
-  grid-template-columns: repeat( 5, 2fr) ;
+    align-items: center;
+  }
+}
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
   grid-gap: 25px;
-  margin-top:20px;
-  @media screen and (max-width: 1230px) {
+  margin-top: 20px;
+  list-style-type: none;
+
+  .nav-items {
+    text-align: center;
+    cursor: pointer;
+  }
+}
+.nav-links {
+  color: $dark-color;
+  text-decoration: none;
+  padding: 0.5 rem 1rem;
+
+  &:hover {
+    color: $purple-color;
+    transition: all 0.2s ease-out;
+  }
+}
+.menu-icon {
+  display: none;
+  color: $dark-color;
+}
+
+@media screen and (max-width: 960px) {
+  .navbar {
+    width: 100%;
+    margin: 0px;
+    position: relative;
+  }
+
+  .nav-menu {
+    overflow: visible;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    top: 70px;
+    padding: 0;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    background-color: $purple-color;
+
+    &.active {
+      display: block;
+      left: 0%;
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+  .nav-items {
+    width: 100%;
+    padding: 20px 0px 20px 0px;
+    &:hover {
+      background-color: $inner-color;
+    }
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+@media screen and (max-width: 1230px) {
+  .nav-menu {
+    margin-top: 0px;
     padding-left: 60px;
     grid-template-columns: auto auto auto auto;
   }
-  @media screen and (max-width: 960px) {
-    overflow: visible;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 90vh;
-    position: absolute;
-    top: 100px;
-  
-    opacity: 1;
-    transition: all 0.5s ease;
-    background-color: #4e5938;
-  }
-
-  .nav-item{
-    text-align: center;
-  }
 }
-.mobile-icon {
-  display: none;
-@media screen and (max-width: 960px) {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(-100%, 60%);
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-}
-}
-
-
-

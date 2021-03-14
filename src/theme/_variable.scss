@@ -1,10 +1,10 @@
-
 // Colors
-$purple-color: hsl(232.4,64.2%,66.1%);
-$dark-color: hsl(0,0%,13.3%);
-$light-color: hsl(0,0%,60%);
-$medium-color: hsl(0,0%,40%);
-$white-color:hsl(0, 100%, 100%);
+$purple-color: hsl(232.4, 64.2%, 66.1%);
+$inner-color: rgb(72, 88, 193);
+$dark-color: hsl(0, 0%, 13.3%);
+$light-color: hsl(0, 0%, 60%);
+$medium-color: hsl(0, 0%, 40%);
+$white-color: hsl(0, 100%, 100%);
 
 // Globals
 
@@ -15,5 +15,4 @@ $bold-weight: 600;
 $line-height: 1.466667;
 
 // Button-Radius
-$button-border-radius:25px;
-
+$button-border-radius: 25px;
