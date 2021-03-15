@@ -1,6 +1,15 @@
 @import '../../../theme/globalStyle.scss';
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
 
 .container {
-  background-color: black;
+  background-color: $dark-color;
   height: 300px;
+  color:$medium-color;
+
+  h4{
+    color:$white-color;
+    font-weight: $bold-weight;
+    font-size: $bigfont-size;
+  }
 }
