@@ -1,8 +1,7 @@
 @import '../../../theme/variable';
-@import '../../../theme/mixin';
+
 
 .navbar {
-  @include wrapper;
   margin: 15px auto auto auto;
   z-index: 99999;
   position: sticky;
@@ -12,7 +11,7 @@
   height: 65px;
   text-align: center;
   font-size: $bigfont-size;
-  // width: 70vw;
+  width: 70vw;
 
   .logo {
     justify-content: center;

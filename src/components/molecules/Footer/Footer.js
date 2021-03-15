@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footes.scss';
+import { CardOne, CardTwo } from './FooterItems';
 
 const Footer = () => (
   <div className="container">
@@ -8,27 +9,38 @@ const Footer = () => (
       <div className="column">
         <h4>Categories</h4>
         <ul className="footer-list">
-          <li>
-            <Link to="./">
-              <p> Women</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="./">
-              <p>Men</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="./">
-              <p>Shoes</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="./">
-              <p> Watches</p>
-            </Link>
-          </li>
+          {CardOne.map(item => (
+            <li className="footer-items" item={item} key={item.id}>
+              <Link className={item.cName} exact to={item.url}>
+                {item.title}
+              </Link>
+            </li>
+          ))}
         </ul>
+      </div>
+      <div className="column">
+        <h4>Help</h4>
+        <ul className="footer-list">
+          {CardTwo.map(item => (
+            <li className="footer-items" item={item} key={item.id}>
+              <Link className={item.cName} exact to={item.url}>
+                {item.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="column">
+          <h4>Get in touch</h4>
+          <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>
+          <div className="social-media">dhhdhdh</div>
+        </div>
+        <div className="column">
+          <h4>Newsletter</h4>
+          <button className="btn-main" type="button">
+            {' '}
+            Subscribe
+          </button>
+        </div>
       </div>
     </div>
   </div>
