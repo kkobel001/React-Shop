@@ -1,0 +1,33 @@
+@import '../../../theme/mixin';
+@import '../../../theme/variable';
+
+
+
+
+.social-list{
+    list-style-type: none;
+    height:100%;
+    padding-left:0px;
+    text-align:center;
+    margin-top:20px;
+
+        li {
+            padding: 0px 10px 0px 10px;
+            float:left;
+            
+
+            .linki {
+                @include links ;
+            }
+                .MuiSvgIcon-root{
+                   color:$light-color;
+
+                   &:hover {
+                       color:$purple-color;
+                   }
+                 }
+            
+            }
+        }
+        
+

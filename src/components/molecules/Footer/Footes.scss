@@ -17,5 +17,84 @@
 
 .wrapper {
   @include wrapper;
-  background-color: red;;
+  // background-color: red;
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-gap: 6px;
+  height:100%;
 }
+
+.column {
+  
+  text-align: start;
+
+  h4 {
+    text-transform: uppercase; 
+  }
+
+  p {
+    color:$light-color;
+    max-width:150px;
+    text-align:justify;
+   
+  }
+}
+
+.footer-list{
+  list-style-type: none;
+  color:$white-color;
+  padding-left: 0px;
+
+   li {
+      padding-bottom:10px;
+   }
+}
+
+.footer-items {
+ margin:0px;
+
+}
+.nav-links {
+  @include links;
+  color:$light-color;
+ }
+.input {
+  margin-bottom: 15px;
+}
+ .newsletter{
+   margin:0px;
+   text-decoration: none;
+   position: relative;
+   border-bottom: 2px solid rgba(204,204,204, 0.1);
+   margin-bottom:20px;
+  
+    &::after {
+      content: "";
+      
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      transition: -webkit-transform 250ms ease-in;
+      transition: transform 250ms ease-in;
+      transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
+    }
+   
+    &:hover::after {
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+  -webkit-transform-origin: left;
+      transform-origin: left;
+      color:$purple-color;
+     
+    }
+  }
+   
+
+ 

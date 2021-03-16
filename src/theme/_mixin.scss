@@ -4,8 +4,7 @@
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  // padding-right: 50px;
-  // padding-left: 50px;
+
 }
   // @media screen and (max-width: 991px) {
   //   padding-right: 30px;
@@ -14,6 +13,26 @@
 
 @mixin wrapper {
   height: auto;
-  width: 70vh;
+  width: 90vh;
   margin: auto;
+}
+
+@mixin links {
+  color: $dark-color;
+  text-decoration: none;
+  padding: 0.5 rem 1rem;
+
+  &:hover {
+    color: $purple-color;
+    transition: all 0.2s ease-out;
+  }
+}
+
+@mixin icon {
+  text-decoration: none;
+  color: $dark-color;
+
+    &:hover{
+      color: $purple-color;
+    }
 }
