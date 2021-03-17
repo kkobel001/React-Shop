@@ -1,22 +1,30 @@
-@import 'theme/variable.scss';
+// @import 'theme/variable.scss';
 
-.btn-main {
-  display: inline-block;
-  border-radius: $button-border-radius;
-  text-decoration: none;
-  text-transform: uppercase;
-  background-color: $purple-color;
-  padding: 12px 26px;
-  cursor: pointer;
-  font-size: $smallfont-size;
-  color: $white-color;
+// .btn-main {
+//   display: inline-block;
+//   border-radius: $button-border-radius;
+//   text-decoration: none;
+//   text-transform: uppercase;
+//   background-color: $purple-color;
+//   padding: 10px 23px;
+//   cursor: pointer;
+//   font-size: $smallfont-size;
+//   color: $white-color;
   
 
-  &:hover {
-    transition: all 0.3s ease-out;
-    background-color:  $dark-color;
-  }
-}
+//   &:hover {
+//     transition: all 0.3s ease-out;
+//     background-color:  $dark-color;
+//   }
+
+//   .btn-second{
+    
+//     :hover {
+//       background-color: $light-color;
+//       color:$purple-color;
+//     }
+//   }
+// }
   
 // btn-second {
 //   @include button;
