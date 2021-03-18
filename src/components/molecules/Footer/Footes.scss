@@ -2,137 +2,129 @@
 @import '../../../theme/variable';
 @import '../../../theme/mixin';
 
-.container {
+.container-footer {
   @include container;
   background-color: $dark-color;
   color: $medium-color;
   padding: 50px 0px 50px 0px;
 
-  h4{
+  h4 {
     color: $white-color;
     font-weight: $bold-weight;
     font-size: $bigfont-size;
   }
   p {
-    color:$light-color;
-    width:100%;
-    text-align:center;
+    color: $light-color;
+    width: 100%;
+    text-align: center;
   }
 }
 
-.wrapper {
+.wrapper-footer {
   @include wrapper;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 6px;
-  height:100%;
+  height: 100%;
   margin-bottom: 60px;
-
-
 }
 
 .column {
   text-align: start;
 
   h4 {
-    text-transform: uppercase; 
+    text-transform: uppercase;
   }
   p {
-    color:$light-color;
-    max-width:200px;
+    color: $light-color;
+    max-width: 200px;
     text-align: justify;
-    
   }
 }
 .footer-list {
   list-style-type: none;
-  color:$white-color;
+  color: $white-color;
   padding-left: 0px;
 
-   li {
-      padding-bottom:10px;
-   }
+  li {
+    padding-bottom: 10px;
+  }
 }
-
 
 .nav-links {
   @include links;
-  color:$light-color;
- }
+  color: $light-color;
+}
 .input {
   margin-bottom: 15px;
 }
-.newsletter{
-   margin: 0px;
-   text-decoration: none;
-   position: relative;
-   border-bottom: 2px solid rgba(204,204,204, 0.1);
-   margin-bottom: 20px;
-   color:$light-color;
-  
-    &::after {
-      content: "";
-      margin-top:30px;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: 2px;
-      background: currentColor;
-      -webkit-transform: scaleX(0);
-              transform: scaleX(0);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-      transition: -webkit-transform 250ms ease-in;
-      transition: transform 250ms ease-in;
-      transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
-    }
-   
-    &:hover::after {
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-      -webkit-transform-origin: left;
-      transform-origin: left;
-      color:$purple-color;
-     
-    }
-    .input-newsletter{
-      width:100%;
-      padding:15px 15px 15px 60px;
-      border-radius:5px;
-      border:none;
-      background-color: transparent;
-        color:$light-color;
+.newsletter {
+  margin: 0px;
+  text-decoration: none;
+  position: relative;
+  border-bottom: 2px solid rgba(204, 204, 204, 0.1);
+  margin-bottom: 20px;
+  color: $light-color;
 
- 
+  &::after {
+    content: '';
+    margin-top: 30px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition: -webkit-transform 250ms ease-in;
+    transition: transform 250ms ease-in;
+    transition: transform 250ms ease-in, -webkit-transform 250ms ease-in;
   }
-  .MuiSvgIcon-root{
-    position:absolute;
+
+  &:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    color: $purple-color;
+  }
+  .input-newsletter {
+    width: 100%;
+    padding: 15px 15px 15px 60px;
+    border-radius: 5px;
+    border: none;
+    background-color: transparent;
+    color: $light-color;
+  }
+  .MuiSvgIcon-root {
+    position: absolute;
     top: 29%;
     transform: translate(-50%);
-    left:20px;
-    font-size:20px;
+    left: 20px;
+    font-size: 20px;
   }
-  }
+}
 .btn-main {
-  @include btn-main; 
-  
+  @include btn-main;
+
   &:hover {
-    @include hov-one ;
-  };
-}  
-@media screen and (max-width: 960px) {
-    .wrapper{
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      padding:0px;
-    }
+    @include hov-one;
   }
+}
+@media screen and (max-width: 960px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px;
+  }
+}
 
 @media screen and (max-width: 500px) {
-    .wrapper{
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-     
-    }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
+}

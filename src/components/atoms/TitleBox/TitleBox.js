@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './TitleBox.scss';
 
-const TitleBox = ({ bgimage, names }) => (
+const TitleBox = ({ names }) => (
   <div className="title-box">
-    <img src={bgimage} alt="boximage" />
     <h2>{names}</h2>
   </div>
 );
 TitleBox.propTypes = {
-  bgimage: PropTypes.string.isRequired,
+  // bgimage: PropTypes.string.isRequired,
   names: PropTypes.string.isRequired,
 };
 

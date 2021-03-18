@@ -8,7 +8,7 @@ import './SocialMedia.scss';
 const SocialMedia = () => (
   <ul className="social-list">
     <li>
-      <Link to="./" classname="linki">
+      <Link to="./" className="linki">
         <FacebookIcon />
       </Link>
     </li>

@@ -15,14 +15,14 @@ const Footer = () => {
     getYear();
   }, []);
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="container-footer">
+      <div className="wrapper-footer">
         <div className="column">
           <h4>Categories</h4>
           <ul className="footer-list">
             {CardOne.map(item => (
               <li item={item} key={item.id}>
-                <Link className={item.cName} exact to={item.url}>
+                <Link className={item.cName} exact="true" to={item.url}>
                   {item.title}
                 </Link>
               </li>
@@ -34,7 +34,7 @@ const Footer = () => {
           <ul className="footer-list">
             {CardTwo.map(item => (
               <li item={item} key={item.id}>
-                <Link className={item.cName} exact to={item.url}>
+                <Link className={item.cName} exact="true" to={item.url}>
                   {item.title}
                 </Link>
               </li>

@@ -1,0 +1,41 @@
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
+
+.container-about {
+  @include container;
+  height: auto;
+}
+.wrapper-about {
+  @include wrapper;
+  color: $medium-color;
+
+  h2 {
+    color: $dark-color;
+  }
+}
+.section {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding: 70px 0px 35px 0px;
+
+  .text-section {
+    max-width: 65%;
+  }
+
+  .image-section {
+    @include margY;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 320px;
+      height: 320px;
+      transition: all 0.3s;
+      display: block;
+      transform: scale(1);
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
