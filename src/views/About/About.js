@@ -24,7 +24,7 @@ const About = () => (
             <img src={AbIm01} alt="picOne" />
           </div>
         </div>
-        <div className="section">
+        <div className="section-second">
           <div className="image-section">
             <img src={AbIm02} alt="picOne" />
           </div>
