@@ -1,0 +1,24 @@
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+
+  li {
+    margin-left: 20px;
+    margin-top: 40px;
+    img {
+      width: 250px;
+      height: 300px;
+    }
+  }
+}
+
+.product-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,15 +1,11 @@
 import React from 'react';
-import ProductsItems from '../components/organism/ShopProducts/ProductsItems';
-import CardProduct from '../components/organism/ShopProducts/CardProduct';
+// import ProductsItems from '../components/organism/ShopProducts/ProductsItems';
+import Product from '../components/organism/ShopProducts/Product';
 
-const Shop = () => {
-  const { products } = ProductsItems;
-
-  return (
-    <div className="wrapper">
-      <h1> Shop</h1>
-      <CardProduct>products={products}</CardProduct>
-    </div>
-  );
-};
+const Shop = () => (
+  <div className="wrapper">
+    <h1> Shop</h1>
+    <Product />
+  </div>
+);
 export default Shop;
