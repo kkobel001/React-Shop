@@ -1,6 +1,12 @@
-.products {
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
+
+.wrapper-shop {
+  @include wrapper;
   display: flex;
   flex-wrap: wrap;
+}
+.products {
   justify-content: center;
   align-items: center;
   padding: 0px;
@@ -10,9 +16,22 @@
   li {
     margin-left: 20px;
     margin-top: 40px;
+  }
+  .section {
+    @include margY;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+
     img {
-      width: 250px;
-      height: 300px;
+      width: 320px;
+      height: 320px;
+      transition: all 0.3s;
+      display: block;
+      transform: scale(1);
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

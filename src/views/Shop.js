@@ -1,11 +1,11 @@
 import React from 'react';
-// import ProductsItems from '../components/organism/ShopProducts/ProductsItems';
-import Product from '../components/organism/ShopProducts/Product';
+
+import Filter from '../components/organism/ShopProducts/Filter/Filter';
 
 const Shop = () => (
   <div className="wrapper">
     <h1> Shop</h1>
-    <Product />
+    <Filter />
   </div>
 );
 export default Shop;
