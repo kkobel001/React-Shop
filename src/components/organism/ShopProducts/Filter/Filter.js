@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import button from '../../../atoms/Button/Button.scss';
 import { productsIt } from '../ProductsItems';
 import formatCurrency from '../until';
 import '../Products.scss';
+import ModalButton from '../Modal/ModalButton';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -50,6 +50,9 @@ class Filter extends Component {
         <li item={item} key={item.id}>
           <div className="section">
             <img src={item.image} alt={item.title} />
+
+            <ModalButton />
+            {/* <Modal showModal={showModal} setShowModal={setShowModal} /> */}
           </div>
 
           <h3>{item.title}</h3>
@@ -60,15 +63,14 @@ class Filter extends Component {
 
     return (
       <>
-        <div className="row-info">
-          <div className="row-button">
-            {categories.map(({ name, value }) => (
-              <button type="button" key={name} value={value} onClick={this.handleClick(name)}>
-                {name}
-              </button>
-            ))}
-          </div>
+        <div className="row-button">
+          {categories.map(({ name, value }) => (
+            <button className="btn-description" type="button" key={name} value={value} onClick={this.handleClick(name)}>
+              {name}
+            </button>
+          ))}
         </div>
+
         <div className="wrapper-shop">{renderAll}</div>
       </>
     );

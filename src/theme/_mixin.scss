@@ -48,17 +48,31 @@
   font-size: $smallfont-size;
   color: $white-color;
   font-weight: $bold-weight;
-
-  // &:hover {
-  //   transition: all 0.3s ease-out;
-  //   background-color:  $dark-color;
-  // }
 }
 
 @mixin hov-one {
   transition: all 0.3s ease-out;
   background-color: $white-color;
   color: $purple-color;
+}
+
+@mixin btn-second {
+  display: inline-block;
+  border-radius: $button-border-radius;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $white-color;
+  padding: 10px 23px;
+  cursor: pointer;
+  font-size: $smallfont-size;
+  color: $dark-color;
+  font-weight: $bold-weight;
+}
+
+@mixin hov-second {
+  transition: all 0.3s ease-out;
+  background-color: $dark-color;
+  color: $white-color;
 }
 
 @mixin margY {
