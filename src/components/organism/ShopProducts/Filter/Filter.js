@@ -50,11 +50,8 @@ class Filter extends Component {
         <li item={item} key={item.id}>
           <div className="section">
             <img src={item.image} alt={item.title} />
-
             <ModalButton />
-            {/* <Modal showModal={showModal} setShowModal={setShowModal} /> */}
           </div>
-
           <h3>{item.title}</h3>
           <div className="product-price">{formatCurrency(item.price)}</div>
         </li>

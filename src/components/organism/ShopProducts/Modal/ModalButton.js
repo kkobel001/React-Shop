@@ -10,12 +10,14 @@ const ModalButton = () => {
   };
 
   return (
-    <div className="row">
-      <button className="btn-filer" type="button" onClick={openModal}>
-        view More
-      </button>
-      <Modal showModal={showModal} setShowModal={setShowModal} />
-    </div>
+    <>
+      <div className="row">
+        <button className="btn-filter" type="button" onClick={openModal}>
+          view More
+        </button>
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+      </div>
+    </>
   );
 };
 
