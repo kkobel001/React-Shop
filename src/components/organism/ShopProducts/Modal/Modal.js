@@ -5,11 +5,13 @@ import PropTypes from 'prop-types';
 const Modal = ({ showModal, setShowModal }) => (
   <>
     {showModal ? (
-      <div className="wrapper" showModal={showModal}>
-        <h1>gggggg</h1>
-        <button type="button" className="close-modal" onClick={() => setShowModal(prev => !prev)}>
-          Close
-        </button>
+      <div className="modal" showModal={showModal}>
+        <div className="wrapper-modal">
+          <h1>gggggg</h1>
+          <button type="button" className="close-modal" onClick={() => setShowModal(prev => !prev)}>
+            Close
+          </button>
+        </div>
       </div>
     ) : null}
   </>

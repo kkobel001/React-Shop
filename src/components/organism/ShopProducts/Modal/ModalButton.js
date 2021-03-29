@@ -13,8 +13,9 @@ const ModalButton = () => {
     <>
       <div className="row">
         <button className="btn-filter" type="button" onClick={openModal}>
-          view More
+          view more
         </button>
+
         <Modal showModal={showModal} setShowModal={setShowModal} />
       </div>
     </>
