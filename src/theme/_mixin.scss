@@ -79,3 +79,8 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+
+@mixin margX {
+  margin-left: auto;
+  margin-right: auto;
+}
