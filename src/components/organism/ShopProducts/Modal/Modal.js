@@ -1,9 +1,29 @@
 import React from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
-import imgModal1 from '../../../../assets/images/products/product-detail-01.png';
-import imgModal2 from '../../../../assets/images/products/product-detail-02.png';
-import imgModal3 from '../../../../assets/images/products/product-detail-03.png';
+
+import Slider from '../../../atoms/Slider/Slider';
+
+const sliderImages = [
+  {
+    id: 0,
+    image: 'https://preview.colorlib.com/theme/cozastore/images/product-detail-01.jpg',
+    nameclass: 'presentation-img',
+    imgclass: 'imgModal',
+  },
+  {
+    image: 'https://preview.colorlib.com/theme/cozastore/images/product-detail-02.jpg',
+    id: 1,
+    nameclass: 'presentation-img',
+    imgclass: 'imgModal',
+  },
+  {
+    image: 'https://preview.colorlib.com/theme/cozastore/images/product-detail-03.jpg',
+    id: 2,
+    nameclass: 'presentation-img',
+    imgclass: 'imgModal',
+  },
+];
 
 const Modal = ({ showModal, setShowModal }) => (
   <>
@@ -14,17 +34,7 @@ const Modal = ({ showModal, setShowModal }) => (
         </button>
         <div className="wrapper-modal">
           <div className=" section-image">
-            <ul className="small-sectionImg">
-              <li className="presentation-img">
-                <img src={imgModal1} alt="imgModal" className="modal-img" />
-              </li>
-              <li className="presentation-img">
-                <img src={imgModal2} alt="imgModal" className="modal-img" />
-              </li>
-              <li className="presentation-img">
-                <img src={imgModal3} alt="imgModal" className="modal-img" />
-              </li>
-            </ul>
+            <Slider slides={sliderImages} />
           </div>
           <div className="section-add">
             <h1>ahahshhshsh</h1>

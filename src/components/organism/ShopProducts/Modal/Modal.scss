@@ -23,7 +23,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 90%;
-  height: 70%;
+  // height: 70%;
 
   opacity: 1;
   display: flex;
@@ -32,23 +32,27 @@
 .section-image {
   width: 50%;
   display: flex;
+  justify-content: center;
+ 
 
-  .small-sectionImg {
-    width: 90px;
-    padding: 0px;
-    list-style-type: none;
-    .presentation-img {
-      width: 100%;
-      height: 70px;
-      margin: 0px 0px 20px 0px;
+  .presentation-img {
+  height: 500px;
+
+   .imgModal {
+      width: 470px;
+      height: 630px;
+      // position:none;
+      // padding:40px;
+
+      &:hover{
+        transform:none;
+      }
     }
-    .modal-img {
-      width: 90px;
-      height: 70px;
-    }
-  }
+}
+
 }
 
 .section-add {
   width: 50%;
 }
+
