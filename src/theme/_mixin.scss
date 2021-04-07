@@ -84,3 +84,21 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+
+@mixin box-effect {
+  box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
+-webkit-box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
+-moz-box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
+}
+
+
+@mixin effect-icon {
+  
+    color:$light-color;
+
+    &:hover {
+        color:$purple-color;
+    }
+  
+}

@@ -25,9 +25,8 @@ function Slider({ slides }) {
         <ChevronLeftIcon onClick={prevSlide} />
       </div>
       {slides.map(slide => (
-        <div className={slide.id === current ? '<slideactive/>' : '<slide />'} key={slide.id}>
-          <div className={slide.nameclass}>{slide.id === current && <img className={slide.imgclass} src={slide.image} alt="sliderimg" />}</div>
-        </div>
+        // <div className={slide.id === current ? '<slideactive/>' : '<slide />'} key={slide.id}>
+        <div className={slide.nameclass}>{slide.id === current && <img className={slide.imgclass} src={slide.image} alt="sliderimg" />}</div>
       ))}
 
       <div className="next-icon">

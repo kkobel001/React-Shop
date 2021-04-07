@@ -20,11 +20,7 @@
                 @include links ;
             }
                 .MuiSvgIcon-root{
-                   color:$light-color;
-
-                   &:hover {
-                       color:$purple-color;
-                   }
+                  @include effect-icon;
                  }
             
             }
