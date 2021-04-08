@@ -2,8 +2,10 @@ import React from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
-import Slider from '../../../atoms/Slider/Slider';
 // import { productsIt } from '../ProductsItems';
+// import AddQuality from '../AddProducts/AddQuality';
+import Slider from '../../../atoms/Slider/Slider';
+import SocialMedia from '../../../atoms/SocialMedia/SocialMedia';
 
 const sliderImages = [
   {
@@ -61,9 +63,11 @@ const Modal = ({ showModal, setShowModal }) => (
                   <option>Yellow</option>
                 </select>
               </div>
+              {/* <AddQuality /> */}
               <button className="btn-main" type="button">
                 ADD to card
               </button>
+              <SocialMedia />
             </div>
           </div>
         </div>

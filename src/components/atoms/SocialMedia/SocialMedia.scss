@@ -1,28 +1,24 @@
 @import '../../../theme/mixin';
 @import '../../../theme/variable';
 
-
-
-
 .social-list{
     list-style-type: none;
-    height:100%;
+    height:40px;
     padding-left:0px;
     text-align:center;
     margin-top:20px;
-
-        li {
-            padding: 0px 10px 0px 10px;
-            float:left;
-            
-
-            .linki {
-                @include links ;
+   & li {
+        padding: 0px 10px 0px 10px;
+        float:left;
+        margin:0px;
+          .linki 
+           {
+            @include links ;
             }
-                .MuiSvgIcon-root{
+            .MuiSvgIcon-root
+                {
                   @include effect-icon;
                  }
-            
             }
         }
         

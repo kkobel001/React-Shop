@@ -1,19 +1,14 @@
-
-
 .prev-icon {
- left: 42px;
-  position: absolute;
-  top: 50%;
-  font-size: 15px;
-  color: #000000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-
-
+    left: 42px;
+    position: absolute;
+    top: 50%;
+    font-size: 15px;
+    color: #000000;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
 }
-
-  .next-icon{
+.next-icon{
   right: 42px;
   position: absolute;
   top: 50%;
@@ -22,19 +17,14 @@
   z-index: 10;
   cursor: pointer;
   user-select: none;
-  }
-
-  .wrapper-slides { 
-    //   position: relative;
+}
+.wrapper-slides { 
   width: 470px;
   box-sizing: border-box;
-//   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 0;
   height:630px;
   overflow: hidden;
-      position: relative;
-  
-
-  }
+  position: relative;
+ }
