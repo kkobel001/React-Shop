@@ -6,11 +6,15 @@
     height:40px;
     padding-left:0px;
     text-align:center;
-    margin-top:20px;
-   & li {
+    margin-top:40px;
+    width:200px;
+    @include margX;
+  
+
+   .item-list {
         padding: 0px 10px 0px 10px;
         float:left;
-        margin:0px;
+        margin-top:0px;
           .linki 
            {
             @include links ;

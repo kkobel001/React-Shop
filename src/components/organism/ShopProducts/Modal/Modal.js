@@ -3,7 +3,7 @@ import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
 // import { productsIt } from '../ProductsItems';
-// import AddQuality from '../AddProducts/AddQuality';
+import AddQuality from '../AddProducts/AddQuality';
 import Slider from '../../../atoms/Slider/Slider';
 import SocialMedia from '../../../atoms/SocialMedia/SocialMedia';
 
@@ -46,11 +46,11 @@ const Modal = ({ showModal, setShowModal }) => (
               <div className="filter-size">
                 <h4>Size</h4>
                 <select className="selected-products">
-                  <option>Size XS</option>
-                  <option>Size S</option>
-                  <option>Size M</option>
-                  <option>Size L</option>
-                  <option>Size XL</option>
+                  <option className="option-products">Size XS</option>
+                  <option className="option-products">Size S</option>
+                  <option className="option-products">Size M</option>
+                  <option className="option-products">Size L</option>
+                  <option className="option-products">Size XL</option>
                 </select>
               </div>
               <div className="filter-color">
@@ -63,10 +63,13 @@ const Modal = ({ showModal, setShowModal }) => (
                   <option>Yellow</option>
                 </select>
               </div>
-              {/* <AddQuality /> */}
-              <button className="btn-main" type="button">
-                ADD to card
-              </button>
+              <div className="add-section">
+                <AddQuality />
+                <button className="btn-main" type="button">
+                  ADD to card
+                </button>
+              </div>
+
               <SocialMedia />
             </div>
           </div>

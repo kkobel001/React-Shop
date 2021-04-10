@@ -1,0 +1,42 @@
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
+
+.products-number{
+    width: 135px;
+    height: 45px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    margin-top:40px;
+    display: flex;
+    margin-right:40px;
+    // @include margX ;
+  
+  }
+  .number-box{
+   width:45px;
+    height:100%;
+    color:$dark-color;
+    margin-top:8px;
+    border:$medium-color;
+  }
+  
+  .icon-number{
+  
+    text-align:center;
+    width: 45px;
+    height: 100%;
+    cursor: pointer;
+    border: $light-color;
+    color:$medium-color;
+   
+ 
+    &:hover{
+      color:$white-color;
+      background-color:$purple-color;
+      border-color: $purple-color;
+    }
+  }
+
+  .icon-design {
+      padding:3px;
+  }

@@ -9,7 +9,6 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  
   display: block;
   align-items: center;
 }
@@ -85,6 +84,23 @@
 .selected-products{
   height: 40px;
   width: 250px;
+  position: relative;
+  display: block;
+ 
+  margin: 0 auto;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+  font-size: 18px;
+  color: #60666d;
+}
+
+.option-products{
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 20px;
+  opacity: 0.3;
+  transition: 0.2s ease;
 }
 .section-option{
   margin-top: 70px;
@@ -92,41 +108,15 @@
   text-align: center;
 }
 .btn-main {
-  margin-top: 30px;
+  margin-top: 40px;
+  height: 45px;
   @include btn-main ;
 }
-.select-items {
-  position: absolute;
-  background-color: DodgerBlue;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-.products-number{
-  width: 135px;
-  height: 45px;
-  border: 1px solid #e6e6e6;
-  border-radius: 3px;
-  margin-top:60px;
-  @include margX ;
-
-}
-.number-box{
-  max-width:45px;
-  height:100%;
+.add-section{
+  display: flex;
+  justify-content: center;
 }
 
-.icon-number{
+@media screen and (max-width: 1100px) {}
 
-  text-align:center;
-  width: 45px;
-  height: 100%;
-  cursor: pointer;
-
-  &:hover{
-    color:$white-color;
-    background-color:$purple-color;
-    border-color: $purple-color;
-  }
-}
+@media screen and (max-width: 960px) {}
