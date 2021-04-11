@@ -1,0 +1,11 @@
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
+
+
+.home-item{
+    background-image: url("https://preview.colorlib.com/theme/cozastore/images/slide-01.jpg");
+    height:800px;
+    width:100%;
+    @include img-position;
+
+}

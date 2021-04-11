@@ -65,6 +65,7 @@
     background-color: $purple-color;
 
     &.active {
+      height:auto;
       display: block;
       left: 0%;
       opacity: 1;

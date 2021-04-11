@@ -1,0 +1,9 @@
+@import '../../../theme/variable';
+@import '../../../theme/mixin';
+
+
+.container-shop{
+    @include container;
+    margin-top:70px;
+
+}

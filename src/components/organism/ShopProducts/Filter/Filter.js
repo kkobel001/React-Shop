@@ -47,7 +47,7 @@ class Filter extends Component {
 
     const renderAll = filteredProducts.map(item => (
       <ul className="products">
-        <li item={item} key={item.id}>
+        <li key={item.id} item={item}>
           <div className="section">
             <img src={item.image} alt={item.title} />
             <ModalButton />
