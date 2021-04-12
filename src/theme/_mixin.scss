@@ -85,7 +85,11 @@
   margin-right: auto;
 }
 
-
+@mixin box-center{
+  justify-content: center;
+    align-items: center;
+    display: flex;
+}
 @mixin box-effect {
   box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
 -webkit-box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);

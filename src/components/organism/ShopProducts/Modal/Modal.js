@@ -32,12 +32,12 @@ const Modal = ({ showModal, setShowModal }) => (
   <>
     {showModal ? (
       <div className="modal" showModal={showModal}>
+        <ClearIcon className="close-modal" onClick={() => setShowModal(prev => !prev)} />
         <div className="wrapper-modal">
           <div className=" section-image">
             <Slider slides={sliderImages} />
           </div>
           <div className="section-add">
-            <ClearIcon className="close-modal" onClick={() => setShowModal(prev => !prev)} />
             <div className="section-text">
               <h2>Lighweight Jacket</h2>
               <div>$57.55</div>
@@ -65,7 +65,7 @@ const Modal = ({ showModal, setShowModal }) => (
               </div>
               <div className="add-section">
                 <AddQuality />
-                <button className="btn-main" type="button">
+                <button className="btn-modal" type="button">
                   ADD to card
                 </button>
               </div>

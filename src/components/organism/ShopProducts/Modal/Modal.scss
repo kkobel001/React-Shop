@@ -9,9 +9,11 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  display: block;
+  // display: block;
   align-items: center;
+  
 }
+
 .wrapper-modal {
   position: fixed;
   top: 50%;
@@ -23,20 +25,24 @@
   @include box-effect;
   opacity: 1;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
+
 .section-image {
   width: 50%;
   display: flex;
   justify-content: center;
  
   .presentation-img {
-    height: 500px;
-    position:absolute;
+    // height: 500px;
+    // position:absolute;
 
     .imgModal {
-        width: 470px;
-        height: 630px;
+        // width: 470px;
+        // height: 630px;
+        @include img-position;
   
         &:hover{
           transform:none;
@@ -49,9 +55,10 @@
   
 }
 .close-modal{
-  right: 20px;
+  top: 10%;
+  right: 0%;
   position: absolute;
-  font-size: 2.5rem!important;
+  // font-size: 2.5rem!important;
 
     :hover{
       @include box-effect;
@@ -107,7 +114,7 @@
   color: $light-color;
   text-align: center;
 }
-.btn-main {
+.btn-modal {
   margin-top: 40px;
   height: 45px;
   @include btn-main ;
@@ -117,6 +124,54 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 1100px) {}
+@media screen and (max-width: 1100px) {
 
-@media screen and (max-width: 960px) {}
+  .wrapper-modal{
+
+    height:75%;
+    margin:5% auto;
+    max-height: 57em;
+     max-width:66em;
+     width:85%;
+     display: block;
+     .section-image {
+       width:100%;
+       margin-bottom:50px;
+     }
+     .section-add{
+       width:100%;
+     }
+  }
+
+
+
+}
+@media screen and (min-width: 1100px) and (max-width:1700px){ 
+  .close-modal{
+    top: 10%;
+    right: 0%;
+  }
+}
+    
+@media screen and (max-width: 870px) {
+  .wrapper-modal{
+     width:100%;
+     left:0px;
+    
+  }
+  .selected-products{
+    width:200px;
+  }
+  .btn-modal{
+    font-size: 13px;
+  }
+  .imgModal{
+    @include img-position;
+    // width:100%;
+    height:auto;
+  }
+  .close-modal{
+    top: 10%;
+    right: 0%;
+  }
+}

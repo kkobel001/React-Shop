@@ -1,5 +1,5 @@
 .prev-icon {
-    left: 42px;
+    left: 10px;
     position: absolute;
     top: 50%;
     font-size: 15px;
@@ -9,7 +9,7 @@
     user-select: none;
 }
 .next-icon{
-  right: 42px;
+  right: 10px;
   position: absolute;
   top: 50%;
   font-size: 15px;
@@ -27,4 +27,16 @@
   height:630px;
   overflow: hidden;
   position: relative;
+ }
+
+//  @media screen and (max-width: 110px) {
+//   .wrapper-slides{
+//     height:100%;
+//   }
+// }
+ @media screen and (max-width: 500px) {
+
+  .wrapper-slides{
+    height:400px;
+  }
  }

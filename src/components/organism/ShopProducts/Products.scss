@@ -3,7 +3,7 @@
 
 .wrapper-shop {
   @include wrapper;
-  display: flex;
+  @include box-center;
   flex-wrap: wrap;
   margin-bottom: 150px;
   position:relative;
