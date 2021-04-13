@@ -100,7 +100,6 @@
 @mixin effect-icon {
   
     color:$light-color;
-
     &:hover {
         color:$purple-color;
     }
@@ -110,4 +109,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+}
+
+@mixin img-effect{
+  transition: transform 1.5s ease-out;
+  
+  &:hover{
+    transform: scale(1.1);
+  }
 }

@@ -19,6 +19,8 @@
         "extensions": [".js"]
       }
     ],
+    "no-plusplus": "off",
+    "no-param-reassign": 0,
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
