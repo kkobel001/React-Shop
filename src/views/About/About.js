@@ -1,7 +1,7 @@
 import React from 'react';
-import Titlebox from '../../components/atoms/TitleBox/TitleBox';
-import AbIm01 from '../../assets/images/about-01.png';
-import AbIm02 from '../../assets/images/about-02.png';
+import Titlebox from 'components/atoms/TitleBox/TitleBox';
+import AbIm01 from 'assets/images/about-01.png';
+import AbIm02 from 'assets/images/about-02.png';
 import { AboutCardOne, AboutCardTwo } from './AboutItems';
 import './About.scss';
 

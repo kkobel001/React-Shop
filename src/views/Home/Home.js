@@ -1,6 +1,6 @@
 import React from 'react';
-import ModalButton from '../../components/organism/ShopProducts/Modal/ModalButton';
-import SelectBox1 from '../../components/organism/ShopProducts/SelectDropdown/SelectDropdown';
+import MainModal from 'components/organism/ShopProducts/Modal/MainModal';
+import SelectBox1 from 'components/organism/ShopProducts/SelectDropdown/SelectDropdown';
 import './Home.scss';
 
 const Home = () => (
@@ -10,7 +10,7 @@ const Home = () => (
       <h2>hfhfhffhh</h2>
     </div>
 
-    <ModalButton />
+    <MainModal />
     <SelectBox1 />
   </>
 );

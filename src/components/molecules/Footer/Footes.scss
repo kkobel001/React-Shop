@@ -1,6 +1,6 @@
-@import '../../../theme/globalStyle.scss';
-@import '../../../theme/variable';
-@import '../../../theme/mixin';
+@import 'theme/globalStyle.scss';
+@import 'theme/variable';
+@import 'theme/mixin';
 
 .container-footer {
   @include container;

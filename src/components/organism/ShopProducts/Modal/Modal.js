@@ -2,10 +2,10 @@ import React from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
-// import { productsIt } from '../ProductsItems';
-import AddQuality from '../AddProducts/AddQuality';
-import Slider from '../../../atoms/Slider/Slider';
-import SocialMedia from '../../../atoms/SocialMedia/SocialMedia';
+import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
+import AddQuality from 'components/organism/ShopProducts/AddProducts/AddQuality';
+import Slider from 'components/atoms/Slider/Slider';
+// import SubModal from './SubModal';
 
 const sliderImages = [
   {
@@ -65,11 +65,19 @@ const Modal = ({ showModal, setShowModal }) => (
               </div>
               <div className="add-section">
                 <AddQuality />
-                <button className="btn-modal" type="button">
-                  ADD to card
-                </button>
-              </div>
 
+                {/* <button type="button" className="btn btn-primary" onClick={openSubModal}>
+                  Open Sub Modal
+                </button> */}
+
+                {/* {showSubModal ? (
+                  <div className="wrap" showSubModal={showSubModal}>
+                    <button type="button" className="close-modal" onClick={() => setSubModal(prev => !prev)}>
+                      close
+                    </button>
+                  </div>
+                ) : null} */}
+              </div>
               <SocialMedia />
             </div>
           </div>
@@ -80,8 +88,9 @@ const Modal = ({ showModal, setShowModal }) => (
 );
 
 Modal.propTypes = {
-  showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.bool.isRequired,
+  showModal: PropTypes.func.isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  // openSubModal: PropTypes.bool.isRequired,
 };
 
 export default Modal;

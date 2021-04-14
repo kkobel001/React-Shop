@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import './Footes.scss';
 import { CardOne, CardTwo } from './FooterItems';
-import SocialMedia from '../../atoms/SocialMedia/SocialMedia';
-import '../../atoms/Button/Button.scss';
+import 'components/atoms/Button/Button.scss';
 
 const Footer = () => {
   const [date, setDate] = useState();

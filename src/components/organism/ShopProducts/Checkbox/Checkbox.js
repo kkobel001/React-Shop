@@ -27,14 +27,12 @@ class Checkbox extends Component {
       <div className="row">
         <label>
           <input type="checkbox" value={label} checked={isChecked} onChange={this.toggleCheckboxChange} />
-
           <span className="checkmark">{label}</span>
         </label>
       </div>
     );
   }
 }
-
 Checkbox.propTypes = {
   handleCheckboxChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,

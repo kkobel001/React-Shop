@@ -1,5 +1,5 @@
-@import '../../../theme/variable';
-@import '../../../theme/mixin';
+@import 'theme/variable';
+@import 'theme/mixin';
 
 .modal {
   position: fixed;
@@ -60,8 +60,7 @@
   position: absolute;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  // font-size: 2.5rem!important;
-
+  
     :hover{
       @include box-effect;
       color: $purple-color;

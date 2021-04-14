@@ -1,5 +1,5 @@
 import React from 'react';
-import Filter from '../../components/organism/ShopProducts/Filter/Filter';
+import Filter from 'components/organism/ShopProducts/Filter/Filter';
 import './Shop.scss';
 
 const Shop = () => (

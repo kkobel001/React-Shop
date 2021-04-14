@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { productsIt } from '../ProductsItems';
 import formatCurrency from '../until';
 import '../Products.scss';
-import ModalButton from '../Modal/ModalButton';
+import MainModal from '../Modal/MainModal';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -50,7 +50,7 @@ class Filter extends Component {
         <li key={item.id} item={item}>
           <div className="section">
             <img src={item.image} alt={item.title} />
-            <ModalButton />
+            <MainModal />
           </div>
           <h3>{item.title}</h3>
           <div className="product-price">{formatCurrency(item.price)}</div>

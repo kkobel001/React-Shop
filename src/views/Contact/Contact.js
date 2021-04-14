@@ -1,6 +1,6 @@
 import React from 'react';
 import './Contact.scss';
-import Titlebox from '../../components/atoms/TitleBox/TitleBox';
+import Titlebox from 'components/atoms/TitleBox/TitleBox';
 
 const Contact = () => (
   <div className="Contact">

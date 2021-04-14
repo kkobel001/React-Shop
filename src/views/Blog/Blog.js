@@ -1,5 +1,5 @@
 import React from 'react';
-import Titlebox from '../../components/atoms/TitleBox/TitleBox';
+import Titlebox from 'components/atoms/TitleBox/TitleBox';
 
 const Blog = () => (
   <>
