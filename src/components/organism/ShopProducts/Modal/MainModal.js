@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-
 import './MainModal.scss';
 
 const MainModal = () => {
@@ -9,6 +8,7 @@ const MainModal = () => {
   const openModal = () => {
     setShowModal(prev => !prev);
   };
+
   // const handleKeyup = e => e.keyCode === 27 && setShowModal(false);
   // useEffect(() => {
   //   if (showModal) window.addEventListener('keyup', handleKeyup);
