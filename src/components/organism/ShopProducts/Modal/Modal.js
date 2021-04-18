@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -30,10 +30,16 @@ const sliderImages = [
 
 const Modal = ({ showModal, setShowModal }) => {
   const [showSubModal, setSubModal] = useState(false);
+  const handleKeyup = e => e.keyCode === 27 && setSubModal(prev => !prev);
 
   const openSubModal = () => {
     setSubModal(prev => !prev);
   };
+
+  useEffect(() => {
+    if (showSubModal) window.addEventListener('keyup', handleKeyup);
+    return () => window.removeEventListener('keyup', handleKeyup);
+  });
 
   return (
     <>
@@ -72,7 +78,6 @@ const Modal = ({ showModal, setShowModal }) => {
                 </div>
                 <div className="add-section">
                   <AddQuality />
-
                   <div className="row-submodal">
                     <button className="btn-modal" type="button" onClick={openSubModal}>
                       Add to Card
