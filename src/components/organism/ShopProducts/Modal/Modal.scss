@@ -128,13 +128,12 @@
 @media screen and (max-width: 1100px) {
 
   .wrapper-modal{
-
     height:75%;
     margin:5% auto;
     max-height: 57em;
-     max-width:66em;
-     width:85%;
-     display: block;
+    max-width:66em;
+    width:85%;
+    display: block;
      .section-image {
        width:100%;
        margin-bottom:50px;
@@ -147,15 +146,13 @@
     top:16%;
     left:92%;
   }
+}
 
-
-
+.row-submodal {
+  align-items: center;
 }
 @media screen and (min-width: 1100px) and (max-width:1700px){ 
-  // .close-modal{
-  //   top: 10%;
-  //   right: 0%;
-  // }
+
 }
     
 @media screen and (max-width: 870px) {
@@ -172,7 +169,6 @@
   }
   .imgModal{
     @include img-position;
-    // width:100%;
     height:auto;
   }
   .close-modal{
