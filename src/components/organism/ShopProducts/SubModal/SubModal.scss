@@ -15,7 +15,6 @@
     transition: opacity .3s;
     justify-content: center;
     height:100%;
- 
 }
 .wrapper-submodal{
     @include box-effect;
@@ -50,5 +49,22 @@ margin-left:50%;
         padding: 0;
         position: relative;
         box-sizing: content-box;
+        color: $purple-color;
+       
     }
+}
+
+@media screen and (max-width: 415px){
+    .container-submodal {
+        height:1000px;
+    }
+    .wrapper-submodal {
+        height:100%;
+        padding:30px;
+
+    h1 {
+        font-size:$smallfont-size;
+    }
+    }
+  
 }

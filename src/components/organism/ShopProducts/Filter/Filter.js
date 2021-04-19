@@ -61,8 +61,8 @@ class Filter extends Component {
     return (
       <>
         <div className="row-button">
-          {categories.map(({ name, value }) => (
-            <button className="btn-description" type="button" key={name} value={value} onClick={this.handleClick(name)}>
+          {categories.map(({ name, value, index }) => (
+            <button className="btn-description" type="button" key={index} value={value} onClick={this.handleClick(name)}>
               {name}
             </button>
           ))}

@@ -2,10 +2,21 @@
 @import 'theme/mixin';
 
 
-.home-item{
-    background-image: url("https://preview.colorlib.com/theme/cozastore/images/slide-01.jpg");
-    height:800px;
+.wrapper-home{
+    height:700px;
     width:100%;
+    margin-bottom: 100px;
+        display: flex;
     @include img-position;
 
+}
+.section-main-img{
+  
+width:100%;
+ 
+    .imgMain{
+        height:700px;
+        width:100%;
+         object-fit: cover;
+    }
 }
