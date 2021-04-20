@@ -1,0 +1,26 @@
+
+
+
+.wrapper-card{
+    height:500px;
+}
+
+.row-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    max-width:200px;
+    list-style-type: none;
+
+    .banner-link{
+        text-decoration: none;
+        // color: $dark-color;
+    }
+  
+    
+
+    img {
+        width:400px;
+        height:250px;
+    }
+}
