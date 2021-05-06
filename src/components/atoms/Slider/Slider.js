@@ -1,40 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import './Slider.scss';
 
-function Slider({ slides }) {
+const Slider = ({ slides }) => {
   const [current, setCurrent] = useState(0);
-  const length = [slides.length];
+  const [activePlay, setActivePlay] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const autoplayRef = useRef();
 
+  const settings = {
+    maxItems: 3,
+    speed: 1500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
+  const goTo = useCallback(
+    index => {
+      if (!isAnimating) {
+        setCurrent(index);
+        setIsAnimating(true);
+
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, settings.speed);
+      }
+    },
+    [isAnimating, current],
+  );
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
+    goTo(current >= settings.maxItems - 1 ? 0 : current + 1);
   };
-
   const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
+    goTo(current <= 0 ? settings.maxItems - 1 : current - 1);
   };
 
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
-  }
+  const playTimer = () => {
+    setActivePlay(true);
+  };
+
+  const stopTimer = () => {
+    setActivePlay(false);
+  };
+
+  useEffect(() => {
+    if (settings.autoplay && activePlay) {
+      clearTimeout(autoplayRef.current);
+      autoplayRef.current = setTimeout(() => {
+        nextSlide();
+      }, settings.autoplaySpeed);
+    }
+  }, [current, activePlay, isAnimating]);
+
   return (
     <div className="wrapper-slides">
       <div className="prev-icon">
-        <ChevronLeftIcon onClick={prevSlide} />
+        <ChevronLeftIcon onClick={prevSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
       </div>
       {slides.map(slide => (
-        // <div className={slide.id === current ? '<slideactive/>' : '<slide />'} key={slide.id}>
-        <div className={slide.nameclass}>{slide.id === current && <img className={slide.imgclass} src={slide.image} alt="sliderimg" />}</div>
+        <div className={slide.nameclass} key={slide.id}>
+          {slide.id === current && <img className={slide.imgclass} src={slide.image} alt="sliderimg" key={slide.id} />}
+        </div>
       ))}
 
       <div className="next-icon">
-        <ChevronRightIcon onClick={nextSlide} />
+        <ChevronRightIcon onClick={nextSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
       </div>
     </div>
   );
-}
+};
 
 Slider.propTypes = {
   slides: PropTypes.shape([]).isRequired,

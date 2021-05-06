@@ -13,7 +13,6 @@ const SubModal = ({ showSubModal, setSubModal }) => {
       {showSubModal ? (
         <div className="container-submodal" onClick={closeSubModal} onKeyDown={closeSubModal} role="button" tabIndex={0}>
           <div showSubModal={showSubModal}>
-            {/* <div className="container-submodal"> */}
             <div className="wrapper-submodal">
               <div className="box-check">
                 <CheckIcon className="check-icon" />
@@ -35,7 +34,6 @@ const SubModal = ({ showSubModal, setSubModal }) => {
 SubModal.propTypes = {
   showSubModal: PropTypes.func.isRequired,
   setSubModal: PropTypes.func.isRequired,
-  // openSubModal: PropTypes.bool.isRequired,
 };
 
 export default SubModal;

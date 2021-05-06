@@ -48,6 +48,7 @@
   font-size: $smallfont-size;
   color: $white-color;
   font-weight: $bold-weight;
+  border: none;
 }
 
 @mixin hov-one {
@@ -67,12 +68,14 @@
   font-size: $smallfont-size;
   color: $dark-color;
   font-weight: $bold-weight;
+  border: none;
 }
 
 @mixin hov-second {
   transition: all 0.3s ease-out;
   background-color: $dark-color;
   color: $white-color;
+            border: none;
 }
 
 @mixin margY {
@@ -117,4 +120,20 @@
   &:hover{
     transform: scale(1.1);
   }
+}
+
+
+@mixin in-contact {
+  width: 80%;
+  height: 45px;
+  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom:10px;
+ 
+&::placeholder{
+  margin-left: 15px;
+  font-size: $smallfont-size;
+  padding-left: 20px;     
+}
 }

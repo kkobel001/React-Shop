@@ -1,0 +1,111 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+.wrapper-card{
+    @include container;
+    @include margX;
+    @include box-center;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+
+.row-banner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 16px;
+    height:300px;
+    list-style-type: none;
+    max-width: 1400px;
+   
+    .banner-items{
+        border: 1px solid $border-light;
+        position:relative;
+        flex-wrap: wrap;
+        height:auto;
+
+        :hover{
+            .visible-button{
+                position:absolute;
+                z-index:99999;
+                transform: translateY(250%);
+                color:$white-color;
+                text-transform: uppercase;
+                font-weight: bold;
+                position: inherit;
+                margin-left:15px;
+            }
+        }
+
+        ::before,
+        ::after {
+          content: '';
+          background: $purple-color;
+          transform: scale(0);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          transition: all 0.5s ease 0s;
+        }
+        :hover::after {
+          opacity: 0.5;
+          transform: scale(1);
+        }
+        .banner-link{
+            text-decoration: none;
+            width:100%;
+            position: absolute;
+            left: 0;
+            right: 0px;
+            height:100%;
+            color:$dark-color;
+            flex-wrap: wrap;
+           
+            h1{
+                margin-left:15px;   
+            }
+            p{  
+                margin-left:15px;
+            }
+        } 
+    }
+    .visible-button{
+        border-bottom: 2px solid #fff;
+        overflow: hidden;
+        transform: scaleX(0);
+    }
+    img {
+        max-width:350px;
+        height:300px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .row-banner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin:auto;
+        height:auto;
+   }
+
+   .wrapper-card{
+       height:618px;
+   }
+}
+
+@media screen and  (min-width: 1600px){
+    .row-card{
+        max-width: 1200px;
+    }
+}
+@media screen and  (max-width: 745px){
+    .wrapper-card{
+        height:100%;        
+}
+    .row-banner{  
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
