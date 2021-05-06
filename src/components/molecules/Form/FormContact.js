@@ -6,18 +6,8 @@ import './FormContact.scss';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
+import axios from 'axios';
 
-// function sendFormData(name, email, message) {
-//   const database = firebase.database();
-//   const path = `contact/${uuidv4()}`;
-
-//   database.ref(path).set({
-//     name,
-//     email,
-//     message,
-//     timestamp: new Date().toISOString(),
-//   });
-// }
 const validate = form => {
   const errors = {};
 
@@ -34,9 +24,6 @@ const validate = form => {
   if (!form.message) {
     errors.message = 'Email is required';
   }
-  // if (form.message.length > 79) {
-  //   errors.message = 'Text is to short';
-  // }
 
   return errors;
 };
@@ -52,12 +39,30 @@ const FormContact = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const errorText = validate(form);
-    if (errorText) {
+
+    if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
-      // console.log('blad');
+    } else {
+      axios
+        .post('https://api.emailjs.com/api/v1.0/email/send', {
+          service_id: 'service_2osi8ua',
+          template_id: 'template_u34u80w',
+          user_id: 'user_RT9rlIr0lNMPYN7M8kEmW',
+          template_params: {
+            name: form.name,
+            email: form.email,
+            message: form.message,
+          },
+        })
+        .then(
+          response => {
+            console.log(response);
+          },
+          networkError => {
+            console.log(networkError);
+          },
+        );
     }
-    // console.log('form sumbitted', form);
-    // sendFormData(name, email, message);
   };
 
   const updateField = e => {
@@ -83,7 +88,7 @@ const FormContact = () => {
             <textarea className="in-text" placeholder="How Can We Help?" type="message" id="message" name="message" maxLength="20" minLength="5" onChange={updateField} />
             {error && <p>{error.message}</p>}
 
-            <button className="btn-form" type="submit" onClick={() => setForm('')}>
+            <button className="btn-form" type="submit">
               Submit
             </button>
           </div>
