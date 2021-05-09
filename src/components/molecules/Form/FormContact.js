@@ -56,9 +56,11 @@ const FormContact = () => {
         })
         .then(
           response => {
+            // eslint-disable-next-line no-console
             console.log(response);
           },
           networkError => {
+            // eslint-disable-next-line no-console
             console.log(networkError);
           },
         );
