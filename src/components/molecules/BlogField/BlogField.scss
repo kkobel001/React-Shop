@@ -1,22 +1,59 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-.wrapper{
+.wrapper-blog{
     @include wrapper;
-    
-    img {
-        width:100%;
-    }
-
-
+    width: 60%;
+    margin-top: 60px;
+ 
 }
 .blog-items{
-    width:100%;
-    height:100%;
-    @include box-effect;
-    margin-bottom:40px;
+  
+ 
+    margin-bottom: 60px;
+        .image-section{
+            @include margY;
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+                img {
+                    @include image-effect;
+                }
+    }
+    h1{
+        font-size: $bigfont-size;
+        margin-left:20px;
+    }
+    p{
+        font-size: $minfont-size;
+        margin-top:5px;
+        margin-left:20px;
+    }
 }
 
-.btn-blog {
-    @include btn-main ;
+.blog-link{
+    @include links;
 }
+.info{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+
+    .info-list{
+        display: flex; 
+        grid-gap: 10px;
+        list-style-type: none;
+        margin: 5px 0px 0px 0px;
+        font-size: $minfont-size;
+        height: 20px;
+        padding-left: 20px;
+            
+    }
+    h2{
+        font-size: $smallfont-size;
+        text-transform: uppercase;
+        font-weight: $bold-weight;
+        margin: 0px 15px 0px 0px;     
+    }
+}
+

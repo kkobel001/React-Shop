@@ -1,52 +1,81 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './BlogField.scss';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const data = [
-  {
-    image: 'https://preview.colorlib.com/theme/cozastore/images/blog-04.jpg',
-    title: '8 Inspiring Ways to Wear Dresses in the Winterfff',
-    context: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius',
-  },
-  {
-    image: 'https://preview.colorlib.com/theme/cozastore/images/blog-04.jpg',
-    title: '8 Inspiring Ways tfffo Wear Dresses in the Winter',
-    context: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius',
-  },
+const API_TOKEN = '912d5eb47047efc0e6d894bd50bbc0';
 
-  {
-    image: 'https://preview.colorlib.com/theme/cozastore/images/blog-04.jpg',
-    title: '8 Inspiring Ways toffff Wear Dresses in the Winter',
-    context: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius',
-  },
+const BlogField = () => {
+  const [articles, setArticles] = useState([]);
 
-  {
-    image: 'https://preview.colorlib.com/theme/cozastore/images/blog-04.jpg',
-    title: '8 Inspiring Ways to Wear Dresses in the Winter',
-    context: 'Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius',
-  },
-];
+  useEffect(() => {
+    axios
+      .post(
+        ' https://graphql.datocms.com/',
+        {
+          query: `
+                {allArticles{
+                    id
+                    title
+                    context
+                    image
+                    {
+                      url
+                    }
+                    
+                  }},`,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${API_TOKEN}`,
+          },
+        },
+      )
+      .then(({ data: { data } }) => {
+        setArticles(data.allArticles);
+      })
+      .catch(err => console.log(err));
+  });
 
-const BlogField = () => (
-  <div className="wrapper">
-    {data.map(({ title, context, image }) => (
-      <div className="blog-items" key={title}>
-        <img src={image} alt="blog" />
-        <h1>{title}</h1>
-        <p>{context}</p>
-        <div className="info">
-          <ul>
-            <li>By Admin</li>
-            <li>StreetStyle,Fasion,Couple</li>
-            <li>By Admin</li>
-            <li>8 comments</li>
-          </ul>
-          <button type="button" className="btn-blog">
-            View more
-          </button>
+  return (
+    <div className="wrapper-blog">
+      {articles.map(({ title, context, image }) => (
+        <div className="blog-items" key={title}>
+          <div className="image-section">
+            <Link to="./">
+              <img src={image.url} alt="blog" />
+            </Link>
+          </div>
+          <Link to="./" className="blog-link">
+            <h1>{title}</h1>
+          </Link>
+          <p>{context}</p>
+          <div className="info">
+            <ul className="info-list">
+              <li>
+                By Admin <span> |</span>
+              </li>
+
+              <li>
+                Fasion
+                <span> |</span>
+              </li>
+              <li>
+                By Admin
+                <span> |</span>
+              </li>
+              <li>8 comments</li>
+            </ul>
+            <div className="btn-blog">
+              <Link to="./" className="blog-link">
+                <h2>Contunue Reading</h2>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    ))}
-  </div>
-);
+      ))}
+    </div>
+  );
+};
 
 export default BlogField;

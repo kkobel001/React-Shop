@@ -4,7 +4,6 @@ import BlogField from 'components/molecules/BlogField/BlogField';
 
 const Blog = () => (
   <>
-    <h1> Blog</h1>
     <Titlebox names="Blog" />
     <BlogField />
   </>
