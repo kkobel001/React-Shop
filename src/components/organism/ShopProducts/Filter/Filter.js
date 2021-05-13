@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { productsIt } from '../ProductsItems';
+import axios from 'axios';
 import formatCurrency from '../until';
 import '../Products.scss';
 import MainModal from '../Modal/MainModal';
@@ -15,7 +15,7 @@ class Filter extends Component {
   constructor() {
     super();
     this.state = {
-      allProducts: productsIt,
+      allProducts: [],
       filteredProducts: [],
     };
   }
@@ -26,6 +26,37 @@ class Filter extends Component {
     this.setState({
       filteredProducts: allProducts,
     });
+
+    axios
+      .post(
+        ' https://graphql.datocms.com/',
+        {
+          query: `
+          {
+            allProducts {
+              id,
+              title,
+              price,
+              image{
+                url
+              },
+              category,
+              value
+            }
+          }`,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+          },
+        },
+      )
+      .then(({ data: { data } }) => {
+        this.setState({
+          allProducts: data.allProducts,
+          filteredProducts: data.allProducts,
+        });
+      });
   }
 
   handleClick = name => () => {
@@ -47,9 +78,9 @@ class Filter extends Component {
 
     const renderAll = filteredProducts.map(item => (
       <ul className="products">
-        <li key={item.id} item={item}>
+        <li key={item.id}>
           <div className="section">
-            <img src={item.image} alt={item.title} />
+            <img src={item.image.url} alt={item.title} />
             <MainModal />
           </div>
           <h3>{item.title}</h3>
@@ -61,8 +92,8 @@ class Filter extends Component {
     return (
       <>
         <div className="row-button">
-          {categories.map(({ name, value, index }) => (
-            <button className="btn-description" type="button" key={index} value={value} onClick={this.handleClick(name)}>
+          {categories.map(({ name, value }) => (
+            <button className="btn-description" type="button" value={value} onClick={this.handleClick(name)}>
               {name}
             </button>
           ))}
