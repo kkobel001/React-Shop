@@ -49,29 +49,31 @@ const BlogField = () => {
                 <img src={image.url} alt="blog" />
               </Link>
             </div>
-            <Link to="./" className="blog-link">
-              <h1>{title}</h1>
-            </Link>
-            <p>{context}</p>
-            <div className="info">
-              <ul className="info-list">
-                <li>
-                  By Admin <span> |</span>
-                </li>
-                <li>
-                  Fasion
-                  <span> |</span>
-                </li>
-                <li>
-                  By Admin
-                  <span> |</span>
-                </li>
-                <li>8 comments</li>
-              </ul>
-              <div className="btn-blog">
-                <Link to="./" className="blog-link">
-                  <h2>Contunue Reading</h2>
-                </Link>
+            <div className="info-section">
+              <Link to="./" className="blog-link">
+                <h1>{title}</h1>
+              </Link>
+              <p>{context}</p>
+              <div className="info">
+                <ul className="info-list">
+                  <li>
+                    By Admin <span> |</span>
+                  </li>
+                  <li>
+                    Fasion
+                    <span> |</span>
+                  </li>
+                  <li>
+                    By Admin
+                    <span> |</span>
+                  </li>
+                  <li>8 comments</li>
+                </ul>
+                <div className="btn-blog">
+                  <Link to="./" className="blog-link">
+                    <h2>Contunue Reading</h2>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

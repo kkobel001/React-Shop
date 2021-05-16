@@ -5,34 +5,32 @@
     @include wrapper;
     width: 60%;
     margin-top: 60px;
- 
 }
 .blog-items{
-  
- 
     margin-bottom: 60px;
-        .image-section{
+        .image-section {
             @include margY;
             position: relative;
             overflow: hidden;
             margin: auto;
+            object-fit: cover;
                 img {
-                    @include image-effect;
+                    @include image-effect;            
                 }
     }
     h1{
-        font-size: $bigfont-size;
-        margin-left:20px;
+        font-size: $bigfont-size;     
     }
     p{
         font-size: $minfont-size;
-        margin-top:5px;
-        margin-left:20px;
+        margin-top:5px;    
     }
 }
-
 .blog-link{
     @include links;
+}
+.info-section{
+    margin-left:20px;
 }
 .info{
     display: flex;
@@ -46,7 +44,7 @@
         margin: 5px 0px 0px 0px;
         font-size: $minfont-size;
         height: 20px;
-        padding-left: 20px;
+       padding-left:0px;
             
     }
     h2{
@@ -56,4 +54,44 @@
         margin: 0px 15px 0px 0px;     
     }
 }
-
+@media screen and (max-width: 1100px) {
+    .wrapper-blog{
+        width:100%;
+    }
+    img{
+        width:auto;
+        object-fit:scale-down;;
+    }
+}
+@media screen and (max-width: 560px) {
+    .wrapper-blog{
+        width:100%;
+        padding:0px;
+    }
+    .blog-items{
+        @include margX;
+        width: 90%;
+        margin-bottom: 30px;
+            .info-section{
+                margin-left:0px;
+                height:200px;
+            }
+    }
+    .info{
+        display: block;
+            .info-list{
+                margin:0px;
+            }
+            .btn-blog{
+                text-align:end;
+                margin:15px 10px 0px 0px;
+            }
+    }
+    .image-section
+    {
+        img{
+            width:100%;
+            object-fit: scale-down;
+        }
+    }  
+}
