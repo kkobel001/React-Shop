@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// import firebase from 'firebase/app';
-// import 'firebase/database';
-// import uuidv4 from 'helpers/Helpers';
 import './FormContact.scss';
+import Helpers from 'helpers/Helpers';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
@@ -14,15 +12,14 @@ const validate = form => {
   if (!form.name) {
     errors.name = 'Name is required';
   }
-
   if (!form.email) {
     errors.email = 'Email is required';
   }
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email)) {
-    errors.email = 'Zły email';
+  if (!Helpers.validateEmail(form.email)) {
+    errors.email = 'Email is not correct';
   }
   if (!form.message) {
-    errors.message = 'Email is required';
+    errors.message = 'Message is required';
   }
 
   return errors;
@@ -55,13 +52,11 @@ const FormContact = () => {
           },
         })
         .then(
-          response => {
-            // eslint-disable-next-line no-console
-            console.log(response);
+          () => {
+            Helpers.showAlert('Message has been sent succesfully!');
           },
           networkError => {
-            // eslint-disable-next-line no-console
-            console.log(networkError);
+            Helpers.showAlert(networkError);
           },
         );
     }
