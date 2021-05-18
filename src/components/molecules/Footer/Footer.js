@@ -24,13 +24,18 @@ const validateEmail = email => {
 const Footer = () => {
   const [date, setDate] = useState();
   const [sendEmail, setSendEmail] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({});
 
   const getYear = () => setDate(new Date().getFullYear());
 
   useEffect(() => {
     getYear();
   }, []);
+
+  const resetStates = () => {
+    setSendEmail('');
+    setError({});
+  };
 
   const sendNewsletterData = (e, email) => {
     e.preventDefault();
@@ -52,6 +57,7 @@ const Footer = () => {
             Helpers.showAlert('Something went wrong please try again :(');
           } else {
             Helpers.showAlert('You are successfully added to newsletter list!');
+            resetStates();
           }
         },
       );
@@ -98,7 +104,7 @@ const Footer = () => {
           <h4>Newsletter</h4>
           {error && <p className="error-text">{error.email}</p>}
           <div className="newsletter">
-            <input type="text" className="input-newsletter" placeholder="Enter your email" onChange={updateEmailField} />
+            <input type="text" value={sendEmail} className="input-newsletter" placeholder="Enter your email" onChange={updateEmailField} />
             <MailOutlineIcon />
           </div>
 
