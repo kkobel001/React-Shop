@@ -1,11 +1,11 @@
 import React from 'react';
 import Titlebox from 'components/atoms/TitleBox/TitleBox';
-import BlogField from 'components/molecules/BlogField/BlogField';
+import BlogList from 'components/molecules/BlogList/BlogList';
 
 const Blog = () => (
   <>
     <Titlebox names="Blog" />
-    <BlogField />
+    <BlogList />
   </>
 );
 export default Blog;

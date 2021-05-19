@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import './BlogField.scss';
+import './BlogList.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const BlogField = () => {
+const BlogList = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState('');
+  // const { url } = useRouteMatch();
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(process.env.REACT_APP_DATOCMS_TOKEN);
     axios
       .post(
         ' https://graphql.datocms.com/',
@@ -45,7 +44,7 @@ const BlogField = () => {
         articles.map(({ id, title, context, image }) => (
           <div className="blog-items" key={id}>
             <div className="image-section">
-              <Link to="./">
+              <Link to={`blog/${id}`} className="blog-link">
                 <img src={image.url} alt="blog" />
               </Link>
             </div>
@@ -84,4 +83,4 @@ const BlogField = () => {
     </div>
   );
 };
-export default BlogField;
+export default BlogList;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlog';
 import Navbar from 'components/molecules/Navbar/Navbar';
 import Footer from 'components/molecules/Footer/Footer';
 import Home from './Home/Home';
@@ -17,7 +18,8 @@ const Root = () => (
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
-      <Route path="/contact" component={Contact} />
+      <Route path="/blog/:id" component={DetailsItemBlog} />
+      <Route exact path="/contact" component={Contact} />
     </Switch>
     <Footer />
   </Router>
