@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './BlogList.scss';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 
 const BlogList = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState('');
-  // const { url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   useEffect(() => {
     axios
@@ -44,12 +44,12 @@ const BlogList = () => {
         articles.map(({ id, title, context, image }) => (
           <div className="blog-items" key={id}>
             <div className="image-section">
-              <Link to={`blog/${id}`} className="blog-link">
+              <Link to={`${url}/${id}`} className="blog-link">
                 <img src={image.url} alt="blog" />
               </Link>
             </div>
             <div className="info-section">
-              <Link to="./" className="blog-link">
+              <Link to={`${url}/${id}`} className="blog-link">
                 <h1>{title}</h1>
               </Link>
               <p>{context}</p>
@@ -69,7 +69,7 @@ const BlogList = () => {
                   <li>8 comments</li>
                 </ul>
                 <div className="btn-blog">
-                  <Link to="./" className="blog-link">
+                  <Link to={`${url}/${id}`} className="blog-link">
                     <h2>Contunue Reading</h2>
                   </Link>
                 </div>
@@ -78,7 +78,7 @@ const BlogList = () => {
           </div>
         ))
       ) : (
-        <div>{error || 'Loanding ...'}</div>
+        <div>{error || 'Loading ...'}</div>
       )}
     </div>
   );

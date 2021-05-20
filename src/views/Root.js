@@ -18,7 +18,7 @@ const Root = () => (
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
-      <Route path="/blog/:id" component={DetailsItemBlog} />
+      <Route path="/blog/:articleId" component={DetailsItemBlog} />
       <Route exact path="/contact" component={Contact} />
     </Switch>
     <Footer />
