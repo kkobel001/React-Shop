@@ -1,0 +1,6 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.wrapper-blogItems{
+    @include wrapper;
+}
