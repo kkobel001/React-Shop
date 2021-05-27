@@ -34,6 +34,10 @@
 }
 .nav-links {
  @include links;
+
+ &:active{
+  background-color: red;
+}
 }
 .menu-icon {
   display: none;
@@ -72,19 +76,27 @@
       z-index: 1;
       padding: 71px 0px 71px 0px;
     }
+  
   }
   .nav-items {
     width: 100%;
     padding: 20px 0px 20px 0px;
 
+  
+
     &:hover {
       background-color: $inner-color;
 
     }
-  .nav-links {
-    color:$white-color;
+   
+  // .nav-links {
+  //   color:$white-color;
+  //   &active-link{
+  //     color:red;
+  //   }
   }
-  }
+  
+
   .menu-icon {
     display: block;
     position: absolute;
