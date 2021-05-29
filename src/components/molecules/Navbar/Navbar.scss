@@ -33,17 +33,17 @@
   }
 }
 .nav-links {
- @include links;
+  @include links;
 
- &:active{
-  background-color: red;
-}
+  &.active{
+    color: $purple-color;
+    font-weight: $bold-weight;
+  }
 }
 .menu-icon {
   display: none;
   color: $dark-color;
 }
-
 @media screen and (max-width: 960px) {
   .logo {
     margin-left:20px;
@@ -53,7 +53,6 @@
     margin: 0px;
     position: relative;
   }
-
   .nav-menu {
     overflow: visible;
     display: none;
@@ -75,34 +74,26 @@
       opacity: 1;
       z-index: 1;
       padding: 71px 0px 71px 0px;
+      color:white;
     }
-  
   }
   .nav-items {
     width: 100%;
     padding: 20px 0px 20px 0px;
 
-  
-
     &:hover {
       background-color: $inner-color;
-
-    }
-   
-  // .nav-links {
-  //   color:$white-color;
-  //   &active-link{
-  //     color:red;
-  //   }
+    } 
+  .nav-links {
+    color:$white-color; 
   }
-  
-
+}
   .menu-icon {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
+    transform: translate(-100%, 30%);
     font-size: 1.8rem;
     cursor: pointer;
   }

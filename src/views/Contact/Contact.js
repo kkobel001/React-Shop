@@ -1,4 +1,4 @@
-import FormContact from 'components/molecules/Form/FormContact';
+import FormContact from 'components/molecules/FormContact/FormContact';
 import React from 'react';
 import Titlebox from 'components/atoms/TitleBox/TitleBox';
 import './Contact.scss';
