@@ -18,7 +18,7 @@ const BlogList = () => {
                 allArticles {
                     id
                     title
-                    context
+                    description
                     image
                     {
                       url
@@ -41,7 +41,7 @@ const BlogList = () => {
   return (
     <div className="wrapper-blog">
       {articles.length > 0 ? (
-        articles.map(({ id, title, context, image }) => (
+        articles.map(({ id, title, description, image }) => (
           <div className="blog-items" key={id}>
             <div className="image-section">
               <Link to={`${url}/${id}`} className="blog-link">
@@ -52,7 +52,7 @@ const BlogList = () => {
               <Link to={`${url}/${id}`} className="blog-link">
                 <h1>{title}</h1>
               </Link>
-              <p>{context}</p>
+              <p>{description}</p>
               <div className="info">
                 <ul className="info-list">
                   <li>

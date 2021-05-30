@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './DetailsItemBlog.scss';
 
 function DetailsItemBlog() {
   const [detailsArticle, setDetailsArticle] = useState(false);
@@ -17,7 +18,7 @@ function DetailsItemBlog() {
             allArticles(filter: { id: { eq: ${articleId} } }) {
                 id
                 title
-                context
+                description
                 contend
                 image
                 {
@@ -44,7 +45,9 @@ function DetailsItemBlog() {
     <div className="wrapper-blogItems">
       <h2>{detailsArticle.title}</h2>
       <img src={detailsArticle.image.url} alt="blog-img" />
-      <div>{detailsArticle.context}</div>
+      <div className="text-blog">{detailsArticle.description}</div>
+      <br />
+      <div className="text-blog">{detailsArticle.contend}</div>
     </div>
   ) : (
     <div>{error || 'Loading ...'}</div>

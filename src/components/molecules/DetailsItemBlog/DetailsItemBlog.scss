@@ -3,4 +3,47 @@
 
 .wrapper-blogItems{
     @include wrapper;
+    text-align: center;
+    margin:50px auto 50px auto;
+    margin-top: 10px;
+
+    img {
+       margin: 20px 0px 20px 0px;
+        width: 90%;     
+    }
+    .text-blog{
+        text-align: justify;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .wrapper-blogItems{
+        width:100%;
+    }
+    img{
+        width:auto;
+        object-fit:scale-down;
+    }
+}
+@media screen and (max-width: 560px) {
+    .wrapper-blogItems{
+        width:100%;
+        padding:10px;
+        h2{
+            font-size:$smallfont-size;
+        }
+    }
+        img{
+            width:100%;
+            object-fit: scale-down;
+        }
+}
+@media screen and (min-width: 360px) {
+    .wrapper-blogItems{
+        width:100%;
+        padding:10px;
+    }
+        img{
+            width:100%;
+            object-fit: scale-down;
+        }
 }

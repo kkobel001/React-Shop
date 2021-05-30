@@ -100,7 +100,7 @@
 }
 @media screen and (max-width: 1230px) {
   .nav-menu {
-    margin-top: 0px;
-    grid-template-columns: auto auto auto auto;
+  
+    grid-template-columns: repeat(5, 2fr);
   }
 }

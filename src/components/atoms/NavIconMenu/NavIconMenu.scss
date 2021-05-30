@@ -1,48 +1,54 @@
 @import 'theme/variable';
 
-.IconWrapper{
+.icon-wrapper{
   height: 84px;
   margin: 0px;
   flex-grow: 1;
   cursor: pointer;
 
-  // @media screen and (max-width: 960px){
-  //   width:80%;
-    
-  // }
 
-  .IconRow{
+  .icon-row{
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
     list-style-type: none;
     @media screen and (max-width: 960px){
-      width:90%;
-      
+      width:90%;   
     }
    
   }
-
-    .IconItem{
+    .icon-item{
     float: left;
     padding: 0px 10px 0px 10px;
     color: $dark-color;
     justify-content: flex-end;
 
-
-      .ItemLink
+      .item-link
       {
         text-decoration: none;
         color: $dark-color;
 
           &:hover{
             color: $purple-color;
-          }
-          
+          }        
   }
-
-
-  
-
 }
+}
+
+@media screen and (min-width: 400px) {
+  .icon-row {
+  display: flex;
+  justify-content: space-around;
+     padding-left:0px;
+     width: 80%;
+
+  }
+}
+
+@media screen and (min-width: 160px) {
+
+  .icon-row{
+    justify-content: center;
+    display:block;
+  }
 }

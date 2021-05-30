@@ -1,0 +1,97 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+.wrapper-login{
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    box-sizing: border-box;
+    height:100vh;
+    width:100%;
+    display: flex;
+    color:$white-color;
+    font-weight: bold;
+    position:relative;
+
+    h2{
+        @include header;
+        text-align: center;
+        margin-bottom:0px;
+    
+    }
+    input {
+        border: 0;
+		margin-bottom: 10px;
+		padding: 15px;
+		font-size: 1rem;
+		font-family: Nunito, sans-serif;
+		color: #000;
+		border-radius: 5px;
+        width:100%;
+    }
+}
+
+.account-form{
+    display: grid;
+    grid-gap: 10px;
+    margin: auto 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.2);
+    width:400px;
+    height:400px;
+    
+    @include margX;
+    @include margY;
+    
+  
+}
+@keyframes Gradient {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+
+
+.options-accaunt{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    margin-top: 0px;
+    list-style-type: none;
+
+    a {
+        @include links;
+        color:$white-color;
+
+        :hover{
+            font-size: 20px;
+            color:linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+        }
+    }
+}  
+
+.btn-formLog{
+    // @include btn-main;
+    background-color: transparent;
+    color: $white-color;
+    width: 100%;
+    margin-top: 20px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: bold;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.2);    
+    &:hover{   
+       @include hov-one;
+        background-color: $purple-color;
+        color: $white-color;       
+    }
+}

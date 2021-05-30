@@ -28,6 +28,10 @@
   }
 }
 
+@mixin header{
+     transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86); 
+}
+
 @mixin icon {
   text-decoration: none;
   color: $dark-color;
