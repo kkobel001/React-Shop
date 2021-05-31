@@ -10,7 +10,7 @@
     height:100vh;
     width:100%;
     display: flex;
-    color:$white-color;
+    color:$purple-color;
     font-weight: bold;
     position:relative;
 
@@ -18,10 +18,9 @@
         @include header;
         text-align: center;
         margin-bottom:0px;
-    
     }
     input {
-        border: 0;
+        border: solid 1px  $light-color;
 		margin-bottom: 10px;
 		padding: 15px;
 		font-size: 1rem;
@@ -30,8 +29,11 @@
 		border-radius: 5px;
         width:100%;
     }
+    :nth-child(5)
+    {
+        background-color:$lightblue-color;
+    }
 }
-
 .account-form{
     display: grid;
     grid-gap: 10px;
@@ -40,12 +42,10 @@
     border-radius: 10px;
     box-shadow: 0 32px 64px rgba(0,0,0,0.2);
     width:400px;
-    height:400px;
-    
+    height:500px;
+    background-color: white;
     @include margX;
-    @include margY;
-    
-  
+    @include margY; 
 }
 @keyframes Gradient {
     0% {
@@ -58,40 +58,33 @@
       background-position: 0% 50%
     }
   }
-
-
-.options-accaunt{
-    list-style-type: none;
-    display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    margin-top: 0px;
-    list-style-type: none;
-
-    a {
-        @include links;
-        color:$white-color;
-
-        :hover{
-            font-size: 20px;
-            color:linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-        }
-    }
-}  
-
 .btn-formLog{
-    // @include btn-main;
-    background-color: transparent;
+    @include btn-main;
+    text-transform: none;
     color: $white-color;
     width: 100%;
     margin-top: 20px;
     border: 1px solid rgba(0,0,0,0.2);
     border-radius: 5px;
-    padding: 15px;
     font-weight: bold;
     box-shadow: 0 32px 64px rgba(0,0,0,0.2);    
+    @include margY;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   .MuiSvgIcon-root {
+       margin-right:10px;
+   }
     &:hover{   
        @include hov-one;
-        background-color: $purple-color;
-        color: $white-color;       
-    }
+        background-color: $inner-color;
+    } 
+}
+.login-link{
+ @include links;
+ color:$purple-color;
+ text-align:end;
+ font-size: $minfont-size;
+ text-decoration: underline;
 }
