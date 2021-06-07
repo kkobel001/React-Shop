@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const LoginDetails = props => {
+  // eslint-disable-next-line no-unused-vars
   const { email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError } = props;
 
   return (
@@ -19,13 +19,13 @@ const LoginDetails = props => {
       <div className="btnContainer">
         {hasAccount ? (
           <>
-            <button className="btn-formLog" type="submit">
+            <button onClick={handleLogin} className="btn-formLog" type="submit">
               Sign In
             </button>
           </>
         ) : (
           <>
-            <button className="btn-formLog" type="submit">
+            <button onClick={handleSignup} className="btn-formLog" type="submit">
               Sign In
             </button>
           </>
@@ -35,4 +35,17 @@ const LoginDetails = props => {
   );
 };
 
+LoginDetails.propTypes = {
+  email: PropTypes.string.isRequired,
+
+  setEmail: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  setPassword: PropTypes.string.isRequired,
+  handleLogin: PropTypes.string.isRequired,
+  handleSignup: PropTypes.string.isRequired,
+  hasAccount: PropTypes.string.isRequired,
+  setHasAccount: PropTypes.string.isRequired,
+  emailError: PropTypes.string.isRequired,
+  passwordError: PropTypes.string.isRequired,
+};
 export default LoginDetails;

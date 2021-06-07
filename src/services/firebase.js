@@ -16,8 +16,9 @@ const firebaseConfig = {
 
 // export const facebookAuth = () => firebase.auth().signInWithPopup(FacebookProvider);
 
-export const fireAuth = firebase.initiallizeApp(firebaseConfig);
+const fireAuth = firebase.initiallizeApp(firebaseConfig);
+export default fireAuth;
 
-const auth = firebase.auth();
+// const auth = firebase.auth();
 
-export { firebase, auth };
+// export { firebase, auth };

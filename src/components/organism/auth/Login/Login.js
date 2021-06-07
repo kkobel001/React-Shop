@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FacebookIcon from '@material-ui/icons/Facebook';
 // import Button from '@material-ui/core/Button';
-import { fireAuth } from 'services/firebase';
+import firebase from 'services/firebase';
 import LoginDetails from './LoginDetails';
 
 import './Login.scss';
@@ -16,7 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [emailError, setEmailError] = useState('');
-  const [hasAccount, sethasAccount] = useState('');
+  const [hasAccount, setHasAccount] = useState(false);
 
   const clearValue = () => {
     setEmail('');
@@ -27,7 +27,7 @@ const Login = () => {
 
   const handleLogin = () => {
     clearValue();
-    fireAuth
+    firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(err => {
@@ -46,16 +46,16 @@ const Login = () => {
 
   const handleSignup = () => {
     clearValue();
-    fireAuth
+    firebase
       .auth()
-      .newUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .catch(err => {
         switch (err.code) {
-          case 'auth/email-in-use':
-          case 'auth/user-disabled':
+          case 'auth/email-already-in-use':
+          case 'auth/invalid-email':
             setEmailError(err.message);
             break;
-          case 'auth/wrong-password':
+          case 'auth/weak-password':
             setPasswordError(err.message);
             break;
         }
@@ -63,11 +63,11 @@ const Login = () => {
   };
 
   const handleLogOut = () => {
-    fireAuth.auth().signOut();
+    firebase.auth().signOut();
   };
 
   const authStateChanged = () => {
-    fireAuth.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         clearValue();
         setUser(user);
@@ -98,10 +98,9 @@ const Login = () => {
           handleLogin={handleLogin}
           handleSignuo={handleSignup}
           hasAccount={hasAccount}
-          sethasAccount={sethasAccount}
+          sethasAccount={setHasAccount}
           emailError={emailError}
           passwordError={passwordError}
-          s
         />
         <button className="btn-formLog" type="submit">
           Sign In
