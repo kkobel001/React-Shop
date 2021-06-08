@@ -12,13 +12,8 @@ const firebaseConfig = {
   measurementId: 'G-F2ZRRWYXNV',
 };
 
-// const FacebookProvider = new firebase.auth.FacebookAuthProvider();
+firebase.initializeApp(firebaseConfig);
 
-// export const facebookAuth = () => firebase.auth().signInWithPopup(FacebookProvider);
+const auth = firebase.auth();
 
-const fireAuth = firebase.initiallizeApp(firebaseConfig);
-export default fireAuth;
-
-// const auth = firebase.auth();
-
-// export { firebase, auth };
+export { auth };

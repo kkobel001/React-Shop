@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const LoginDetails = props => {
-  // eslint-disable-next-line no-unused-vars
-  const { email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError } = props;
+  const { email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, emailError, passwordError } = props;
 
   return (
     <>
@@ -44,6 +43,7 @@ LoginDetails.propTypes = {
   handleLogin: PropTypes.string.isRequired,
   handleSignup: PropTypes.string.isRequired,
   hasAccount: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/no-unused-prop-types
   setHasAccount: PropTypes.string.isRequired,
   emailError: PropTypes.string.isRequired,
   passwordError: PropTypes.string.isRequired,

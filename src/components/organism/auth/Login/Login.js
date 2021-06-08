@@ -1,122 +1,67 @@
 /* eslint-disable no-shadow */
-/* eslint-disable default-case */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import FacebookIcon from '@material-ui/icons/Facebook';
-// import Button from '@material-ui/core/Button';
-import firebase from 'services/firebase';
-import LoginDetails from './LoginDetails';
+import React, { useState, useEffect, useContext, createContext } from 'react';
+import PropTypes from 'prop-types';
+// import { Link } from 'react-router-dom';
+// import FacebookIcon from '@material-ui/icons/Facebook';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+// import LoginDetails from './LoginDetails';
 
 import './Login.scss';
 
-const Login = () => {
-  const [user, setUser] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordError, setPasswordError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [hasAccount, setHasAccount] = useState(false);
+const AuthContext = createContext();
 
-  const clearValue = () => {
-    setEmail('');
-    setPassword('');
-    setEmailError('');
-    setPasswordError('');
-  };
+export const useAuth = () => useContext(AuthContext);
 
-  const handleLogin = () => {
-    clearValue();
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [isAuthhenticating, setIsAuthenticating] = useState(true);
+
+  const sendSignInLinkToEmail = email =>
     firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch(err => {
-        switch (err.code) {
-          case 'auth/invalid-email':
-          case 'auth/user-disabled':
-          case 'auth/user-not-found':
-            setEmailError(err.message);
-            break;
-          case 'auth/wrong-password':
-            setPasswordError(err.message);
-            break;
-        }
-      });
-  };
+      .sendSignInLinkToEmail(email, {
+        url: 'http://localhost:3000/confirm',
+        handleCodeInApp: true,
+      })
+      .then(() => true);
 
-  const handleSignup = () => {
-    clearValue();
+  const signInLinkToEmail = (email, code) =>
     firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .catch(err => {
-        switch (err.code) {
-          case 'auth/email-already-in-use':
-          case 'auth/invalid-email':
-            setEmailError(err.message);
-            break;
-          case 'auth/weak-password':
-            setPasswordError(err.message);
-            break;
-        }
+      .signInLinkToEmail(email, code)
+      .then(result => {
+        setUser(result.user);
+        return true;
       });
-  };
 
-  const handleLogOut = () => {
-    firebase.auth().signOut();
-  };
+  const handleLogOut = () =>
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser(null);
+      });
 
-  const authStateChanged = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        clearValue();
-        setUser(user);
-      } else {
-        setUser('');
-      }
-    });
-  };
   useEffect(() => {
-    authStateChanged();
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+      setIsAuthenticating(false);
+    });
+    return () => unsubscribe();
   }, []);
 
-  return (
-    <div className="wrapper-login">
-      <div className="account-form">
-        <h2>Sign in to your account</h2>
-        {/* <div className="acconunt-form-fiels">
-          <input type="email" id="email" placeholder="E-mail" />
-        </div>
-        <div className="acconunt-form-fiels">
-          <input type="password" id="password" placeholder="Password" />
-        </div> */}
-        <LoginDetails
-          email={email}
-          setEmail={setEmail}
-          password={password}
-          setPassword={setPassword}
-          handleLogin={handleLogin}
-          handleSignuo={handleSignup}
-          hasAccount={hasAccount}
-          sethasAccount={setHasAccount}
-          emailError={emailError}
-          passwordError={passwordError}
-        />
-        <button className="btn-formLog" type="submit">
-          Sign In
-        </button>
-        <button className="btn-formLog" type="submit">
-          <FacebookIcon />
-          Sign In with Facebook
-        </button>
-        <div>
-          <Link to="/" className="login-link">
-            <p>Forgot yout password?</p>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+  const values = {
+    user,
+    isAuthhenticating,
+    sendSignInLinkToEmail,
+    signInLinkToEmail,
+    handleLogOut,
+  };
+
+  return <AuthContext.Provider value={values}>{!isAuthhenticating && children}</AuthContext.Provider>;
 };
 
-export default Login;
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
