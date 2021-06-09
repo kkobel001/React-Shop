@@ -85,13 +85,13 @@ const FormContact = () => {
           <div className="form-field">
             <h2>Send us a message</h2>
 
-            <input className="in-contact" value={form.name} placeholder="Name" type="name" id="name" name="name" onChange={updateField} />
+            <input className="in-contact" value={form.name} placeholder="Name" type="text" name="name" onChange={updateField} />
             {error && <p>{error.name}</p>}
 
-            <input className="in-contact" value={form.email} placeholder="Your Email Adress" type="email" id="email" name="email" onChange={updateField} />
+            <input className="in-contact" value={form.email} placeholder="Your Email Adress" type="email" name="email" onChange={updateField} />
             {error && <p>{error.email}</p>}
 
-            <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="message" id="message" name="message" maxLength="20" minLength="5" onChange={updateField} />
+            <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" maxLength="20" minLength="5" onChange={updateField} />
             {error && <p>{error.message}</p>}
 
             <button className="btn-form" type="submit">

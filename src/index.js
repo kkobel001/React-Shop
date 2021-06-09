@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from 'services/firebase';
 import Root from './views/Root';
 import reportWebVitals from './reportWebVitals';
+
+initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>

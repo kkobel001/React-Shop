@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import firebase from 'firebase/app';
-import 'firebase/database';
+// import firebase from 'firebase/app';
+import { getDatabase } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
@@ -44,10 +44,9 @@ const Footer = () => {
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
     } else {
-      const database = firebase.database();
       const path = `newsletter/${Helpers.generateUUID()}`;
 
-      database.ref(path).set(
+      getDatabase.ref(path).set(
         {
           email,
           timestamp: new Date().toISOString(),
