@@ -1,67 +1,58 @@
-/* eslint-disable no-shadow */
-import React, { useState, useEffect, useContext, createContext } from 'react';
-import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
-// import FacebookIcon from '@material-ui/icons/Facebook';
-import firebase from 'firebase/app';
-import 'firebase/auth';
-// import LoginDetails from './LoginDetails';
-
+import React from 'react';
+import LoginDetails from './LoginDetails';
 import './Login.scss';
 
-const AuthContext = createContext();
+const Login = () => (
+  // const handleSignup = () => {
+  //   clearValue();
+  //   createUserWithEmailAndPassword(getAuth, email, password)
+  //     .then(userCredential => {
+  //       // Signed in
+  //       // const user = userCredential.user;
+  //       // ...
+  //     })
+  //     .catch(err => {
+  //       switch (err.code) {
+  //         case 'auth/email-in-use':
+  //         case 'auth/user-disabled':
+  //           setEmailError(err.message);
+  //           break;
+  //         case 'auth/wrong-password':
+  //           setPasswordError(err.message);
+  //           break;
+  //       }
+  //     });
+  // };
 
-export const useAuth = () => useContext(AuthContext);
+  // const handleLogOut = () => {
+  //   signOut(getAuth)
+  //     .then(() => {
+  //       // Sign-out successful.
+  //     })
+  //     .catch(error => {
+  //       // An error happened.
+  //     });
+  // };
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [isAuthhenticating, setIsAuthenticating] = useState(true);
+  // const authStateChanged = () => {
+  //   onAuthStateChanged(getAuth, user => {
+  //     if (user) {
+  //       clearValue();
+  //       setUser(user);
+  //     } else {
+  //       setUser('');
+  //     }
+  //   });
+  // };
+  // useEffect(() => {
+  //   authStateChanged();
+  // }, []);
 
-  const sendSignInLinkToEmail = email =>
-    firebase
-      .auth()
-      .sendSignInLinkToEmail(email, {
-        url: 'http://localhost:3000/confirm',
-        handleCodeInApp: true,
-      })
-      .then(() => true);
-
-  const signInLinkToEmail = (email, code) =>
-    firebase
-      .auth()
-      .signInLinkToEmail(email, code)
-      .then(result => {
-        setUser(result.user);
-        return true;
-      });
-
-  const handleLogOut = () =>
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        setUser(null);
-      });
-
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
-      setIsAuthenticating(false);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  const values = {
-    user,
-    isAuthhenticating,
-    sendSignInLinkToEmail,
-    signInLinkToEmail,
-    handleLogOut,
-  };
-
-  return <AuthContext.Provider value={values}>{!isAuthhenticating && children}</AuthContext.Provider>;
-};
-
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+  <div className="wrapper-login">
+    <div className="account-form">
+      <h2>Sign in to your account</h2>
+      <LoginDetails />
+    </div>
+  </div>
+);
+export default Login;

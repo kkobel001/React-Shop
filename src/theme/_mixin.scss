@@ -142,15 +142,20 @@
 }
 }
 
-
 @mixin image-effect{
-
- 
       transition: all 0.3s;
       display: block;
       transform: scale(1);
       &:hover {
         transform: scale(1.1);
       }
+}
 
+@mixin error-mes{
+  margin: -6px 0px 15px 65px;
+  height:12px;
+  padding:0px;
+  color:$error-color;
+  font-size:$minfont-size;
+  text-align: start;
 }
