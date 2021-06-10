@@ -88,6 +88,11 @@ const LoginDetails = () => {
         <input type="password" value={form.password} placeholder="Password" name="password" onChange={updateField} />
         <p className="error-message">{error.password}</p>
       </div>
+      <div>
+        <Link to="/" className="login-link">
+          <p>Forgot yout password?</p>
+        </Link>
+      </div>
       <div className="btn-row">
         <button className="btn-formLog" type="submit">
           Sign In
@@ -97,11 +102,13 @@ const LoginDetails = () => {
           Sign In with Facebook
         </button>
       </div>
-
-      <div>
-        <Link to="/" className="login-link">
-          <p>Forgot yout password?</p>
-        </Link>
+      <div className="section-reg">
+        <span>
+          Dont have account?{' '}
+          <Link to="./" className="reg-link">
+            Sign up
+          </Link>
+        </span>
       </div>
     </form>
   );

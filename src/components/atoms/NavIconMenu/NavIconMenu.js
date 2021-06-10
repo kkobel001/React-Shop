@@ -19,7 +19,7 @@ const NavIconMenu = () => (
         </Link>
       </li>
       <li className="icon-item">
-        <Link to="./" className="item-link">
+        <Link to="/login" className="item-link">
           <PersonIcon />
         </Link>
       </li>
