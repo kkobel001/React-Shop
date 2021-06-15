@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlog';
 import Navbar from 'components/molecules/Navbar/Navbar';
 import Footer from 'components/molecules/Footer/Footer';
-import Login from 'components/organism/auth/Login/Login';
+import LoginDetails from 'components/organism/auth/Login/LoginDetails';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
@@ -26,8 +26,8 @@ const Root = () => (
       <Route exact path="/shop" component={Shop} />
       <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
-      <Route path="/login" component={Login}>
-        <Login />
+      <Route path="/login" component={LoginDetails}>
+        <LoginDetails />
       </Route>
       <Route path="/blog/:articleId" component={DetailsItemBlog} />
       <Route exact path="/contact" component={Contact} />

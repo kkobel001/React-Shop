@@ -3,6 +3,9 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Link } from 'react-router-dom';
 import Helpers from 'helpers/Helpers';
+import './Login.scss';
+
+// import Registration from './Registration';
 
 const validate = form => {
   const errors = {};
@@ -28,6 +31,7 @@ const InitialFormState = {
 const LoginDetails = () => {
   const [error, setError] = useState(false);
   const [form, setForm] = useState(InitialFormState);
+  const [regist, setRegist] = useState(false);
 
   const resetError = () => {
     // setForm(InitialFormState);
@@ -58,6 +62,11 @@ const LoginDetails = () => {
       });
   };
 
+  const handleSetRegist = e => {
+    e.preventDefault();
+    setRegist(!regist);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     const errorText = validate(form);
@@ -78,39 +87,45 @@ const LoginDetails = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input type="text" value={form.email} placeholder="Email" name="email" onChange={updateField} />
-        <p className="error-message">{error.email}</p>
-      </div>
+    <div className="wrapper-login">
+      <div className="account-form">
+        {regist ? <h2>Sign in to your account</h2> : <h2>Create your account</h2>}
+        <h2>Sign in to your account</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input type="text" value={form.email} placeholder="Email" name="email" onChange={updateField} />
+            <p className="error-message">{error.email}</p>
+          </div>
 
-      <div className="login-container">
-        <input type="password" value={form.password} placeholder="Password" name="password" onChange={updateField} />
-        <p className="error-message">{error.password}</p>
+          <div className="login-container">
+            <input type="password" value={form.password} placeholder="Password" name="password" onChange={updateField} />
+            <p className="error-message">{error.password}</p>
+          </div>
+          <div>
+            <Link to="/" className="login-link">
+              <p>Forgot yout password?</p>
+            </Link>
+          </div>
+          <div className="btn-row">
+            <button className="btn-formLog" type="submit" onClick={handleSetRegist}>
+              Sign In
+            </button>
+            <button className="btn-formLog" type="submit">
+              <FacebookIcon />
+              Sign In with Facebook
+            </button>
+          </div>
+          <div className="section-reg">
+            <span>
+              Dont have account?
+              <Link to="./" className="reg-link">
+                Sign up
+              </Link>
+            </span>
+          </div>
+        </form>
       </div>
-      <div>
-        <Link to="/" className="login-link">
-          <p>Forgot yout password?</p>
-        </Link>
-      </div>
-      <div className="btn-row">
-        <button className="btn-formLog" type="submit">
-          Sign In
-        </button>
-        <button className="btn-formLog" type="submit">
-          <FacebookIcon />
-          Sign In with Facebook
-        </button>
-      </div>
-      <div className="section-reg">
-        <span>
-          Dont have account?{' '}
-          <Link to="./" className="reg-link">
-            Sign up
-          </Link>
-        </span>
-      </div>
-    </form>
+    </div>
   );
 };
 
