@@ -39,7 +39,6 @@
     border-radius: 10px;
     box-shadow: 0 32px 64px rgba(0,0,0,0.2);
     width:400px;
-    height:470px;
     background-color: white;
     @include margX;
     @include margY; 
@@ -56,6 +55,7 @@
     }
   }
   .btn-row{
+    margin-top:20px;
         :nth-child(2) {
             background-color: $lightblue-color;
             margin-top:10px;
@@ -97,13 +97,11 @@
     font-weight: $light-weight;   
 }
 .login-link{
-
     p{
         margin-top: -20px;
         margin-bottom: 25px;
     }
 }
-
 .section-reg {
     font-size: $smallfont-size;
     color:$light-color;
@@ -111,9 +109,12 @@
     font-weight:$bold-weight;
     margin-top:25px;
 
-    .reg-link{
+    .btn-switch{
         @include links;
         text-decoration: underline;
+        border: none;
+        font-size:15px;
+        font-weight: bold;;
     }
 }
 @media screen and  (max-width: 450px){
