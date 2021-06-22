@@ -1,37 +1,16 @@
 import React, { useState } from 'react';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import { Link } from 'react-router-dom';
-import Helpers from 'helpers/Helpers';
 import './Login.scss';
-
-// import Registration from './Registration';
-
-const validate = form => {
-  const errors = {};
-  if (!form.name) {
-    errors.name = 'Name is required';
-  }
-  if (!form.surname) {
-    errors.surname = 'Surname is required';
-  }
-
-  if (!form.email) {
-    errors.email = 'Email is required';
-  }
-  if (!Helpers.validateEmail(form.email)) {
-    errors.email = 'Email is not correct';
-  }
-  if (!form.password) {
-    errors.password = 'Password is required';
-  }
-
-  return errors;
-};
+import { validateLogin, validateRegister } from 'helpers/Validate';
 
 const InitialFormState = {
   password: '',
   email: '',
+  name: '',
+  surname: '',
 };
 
 const LoginDetails = () => {
@@ -40,20 +19,51 @@ const LoginDetails = () => {
   const [regist, setRegist] = useState(false);
 
   const resetError = () => {
-    // setForm(InitialFormState);
+    setForm(InitialFormState);
     setError({});
   };
 
-  const handleSignIn = () => {
-    resetError();
+  const sendUserData = uid => {
+    const path = `user/${uid}/userDetails`;
 
+    set(ref(getDatabase(), path), {
+      name: form.name,
+      surname: form.surname,
+    })
+      .then(() => {
+        console.log('Data saved successfully!');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const handleSignUp = () => {
+    createUserWithEmailAndPassword(getAuth(), form.email, form.password)
+      .then(userCredential => {
+        sendUserData(userCredential.user.uid);
+      })
+      .catch(err => {
+        switch (err.code) {
+          case 'auth/email-already-in-use':
+          case 'auth/invalid-email':
+            setError({ email: err.message });
+            break;
+          case 'auth/weak-password':
+            setError({ password: err.message });
+            break;
+          default:
+            setError('Something went wrong');
+        }
+      });
+  };
+
+  const handleSignIn = () => {
     signInWithEmailAndPassword(getAuth(), form.email, form.password)
       .then(userCredential => {
         console.log(userCredential);
       })
       .catch(err => {
-        console.log(err);
-
         switch (err.code) {
           case 'auth/invalid-email':
           case 'auth/user-not-found':
@@ -68,19 +78,35 @@ const LoginDetails = () => {
       });
   };
 
-  // const handleSetRegist = e => {
-  //   e.preventDefault();
-  //   setRegist(!regist);
-  // };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const errorText = validate(form);
+  const handleLoginValidation = () => {
+    const errorText = validateLogin(form);
 
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
     } else {
+      resetError();
       handleSignIn();
+    }
+  };
+
+  const handleRegistrationValidation = () => {
+    const errorText = validateRegister(form);
+
+    if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
+      setError(errorText);
+    } else {
+      resetError();
+      handleSignUp();
+    }
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    if (regist) {
+      handleRegistrationValidation();
+    } else {
+      handleLoginValidation();
     }
   };
 
@@ -90,6 +116,11 @@ const LoginDetails = () => {
       [e.target.name]: e.target.value,
       InitialFormState,
     });
+  };
+
+  const toggleForm = () => {
+    setRegist(!regist);
+    resetError();
   };
 
   return (
@@ -106,7 +137,7 @@ const LoginDetails = () => {
           )}
           {regist && (
             <div className="login-container">
-              <input type="text" value={form.surname} placeholder="Surname" name="Surname" onChange={updateField} />
+              <input type="text" value={form.surname} placeholder="Surname" name="surname" onChange={updateField} />
               <p className="error-message">{error.surname}</p>
             </div>
           )}
@@ -138,7 +169,7 @@ const LoginDetails = () => {
           <div className="section-reg">
             <span>
               {regist ? 'Do you have account' : 'Dont have account?'}
-              <button type="button" className="btn-switch" onClick={() => setRegist(!regist)}>
+              <button type="button" className="btn-switch" onClick={toggleForm}>
                 {regist ? 'Sign in' : 'Sign up'}
               </button>
             </span>

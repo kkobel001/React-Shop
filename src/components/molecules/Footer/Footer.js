@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import firebase from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
+import { validateEmail } from 'helpers/Validate';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import './Footes.scss';
 import { CardOne, CardTwo } from './FooterItems';
 import 'components/atoms/Button/Button.scss';
-
-const validateEmail = email => {
-  const errors = {};
-
-  if (!email) {
-    errors.email = 'Email is required';
-  }
-  if (!Helpers.validateEmail(email)) {
-    errors.email = 'Email is required!';
-  }
-  return errors;
-};
 
 const Footer = () => {
   const [date, setDate] = useState();
@@ -46,20 +34,17 @@ const Footer = () => {
     } else {
       const path = `newsletter/${Helpers.generateUUID()}`;
 
-      getDatabase.ref(path).set(
-        {
-          email,
-          timestamp: new Date().toISOString(),
-        },
-        firebaseError => {
-          if (firebaseError) {
-            Helpers.showAlert('Something went wrong please try again :(');
-          } else {
-            Helpers.showAlert('You are successfully added to newsletter list!');
-            resetStates();
-          }
-        },
-      );
+      set(ref(getDatabase(), path), {
+        email,
+        timestamp: new Date().toISOString(),
+      })
+        .then(() => {
+          Helpers.showAlert('You are successfully added to newsletter list!');
+          resetStates();
+        })
+        .catch(() => {
+          Helpers.showAlert('Something went wrong please try again :(');
+        });
     }
   };
 
