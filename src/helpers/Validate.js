@@ -21,19 +21,19 @@ export const validateRegister = form => {
   if (!form.name) {
     errors.name = 'Name is required';
   }
-  if (!form.surname) {
-    errors.surname = 'Surname is required';
-  }
+  // if (!form.surname) {
+  //   errors.surname = 'Surname is required';
+  // }
 
-  if (!form.email) {
-    errors.email = 'Email is required';
-  }
-  if (!Helpers.validateEmail(form.email)) {
-    errors.email = 'Email is not correct';
-  }
-  if (!form.password) {
-    errors.password = 'Password is required';
-  }
+  // if (!form.email) {
+  //   errors.email = 'Email is required';
+  // }
+  // if (!Helpers.validateEmail(form.email)) {
+  //   errors.email = 'Email is not correct';
+  // }
+  // if (!form.password) {
+  //   errors.password = 'Password is required';
+  // }
 
   return errors;
 };
