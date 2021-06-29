@@ -9,9 +9,9 @@ export default class Helpers {
     });
   }
 
-  static validateEmail(email) {
-    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
-  }
+  // static validateEmail(email) {
+  //   return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
+  // }
 
   static showAlert(message) {
     alert(message);
