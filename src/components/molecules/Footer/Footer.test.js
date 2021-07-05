@@ -33,14 +33,4 @@ describe('Footer Cards', () => {
     const titlefour = screen.getByTestId('testH4four');
     expect(titlefour.textContent).toEqual('Newsletter');
   });
-
-  //   it('render  correct item in  Card', () => {
-  //     render(
-  //       <BrowserRouter>
-  //         <Footer />
-  //       </BrowserRouter>,
-  //     );
-  //     const item1 = screen.getByTestId('testH4second');
-  //     expect(item1.textContent).toEqual('Help');
-  //   });
 });

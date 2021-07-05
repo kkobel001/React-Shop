@@ -1,6 +1,4 @@
 import React from 'react';
-// import RemoveIcon from '@material-ui/icons/Remove';
-// import AddIcon from '@material-ui/icons/Add';
 import './AddQuality.scss';
 
 export default class AddQuality extends React.Component {
@@ -25,7 +23,6 @@ export default class AddQuality extends React.Component {
     return (
       <div className="products-number">
         <button data-testid="button-remove" className="icon-number" type="button" onClick={this.removeQty}>
-          {/* <RemoveIcon className="icon-design" /> */}
           <div className="icon-design">-</div>
         </button>
 
@@ -33,7 +30,6 @@ export default class AddQuality extends React.Component {
           {qty}
         </div>
         <button data-testid="button-add" type="button" className="icon-number" onClick={this.handleClick}>
-          {/* <AddIcon data-testid="bdd" className="icon-design" /> */}
           <div className="icon-design">+</div>
         </button>
       </div>

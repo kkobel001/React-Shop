@@ -57,7 +57,7 @@ const Slider = ({ slides }) => {
   return (
     <div className="wrapper-slides">
       <div className="prev-icon">
-        <ChevronLeftIcon onClick={prevSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
+        <ChevronLeftIcon data-testid="click-prevstate" onClick={prevSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
       </div>
       {slides.map(slide => (
         <div className={slide.nameclass} key={slide.id}>
@@ -66,14 +66,14 @@ const Slider = ({ slides }) => {
       ))}
 
       <div className="next-icon">
-        <ChevronRightIcon onClick={nextSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
+        <ChevronRightIcon data-testid="click-nextstate" onClick={nextSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
       </div>
     </div>
   );
 };
 
 Slider.propTypes = {
-  slides: PropTypes.shape([]).isRequired,
+  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Slider;
