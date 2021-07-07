@@ -5,7 +5,7 @@ import Helpers from 'helpers/Helpers';
 import { validateEmail } from 'helpers/Validate';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
-import './Footes.scss';
+import './Footer.scss';
 import { CardOne, CardTwo } from './FooterItems';
 
 const Footer = () => {

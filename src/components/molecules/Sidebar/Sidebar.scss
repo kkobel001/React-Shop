@@ -1,0 +1,23 @@
+@import 'theme/mixin';
+@import 'theme/variable';
+
+
+
+.panel-list{
+   color:$dark-color;
+list-style-type:none;
+
+}
+.panel-item{
+    margin:10px 0px 10px 0px;
+    
+    .items-link {
+        @include links;
+        font-size:$smallfont-size;
+        font-weight: 300;
+
+        &:hover{ font-weight:bold}
+        &.active{font-weight:bold}
+
+    }
+}

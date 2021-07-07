@@ -1,0 +1,53 @@
+@import 'theme/mixin';
+@import 'theme/variable';
+
+.wrapper-userpanel{
+    @include wrapper;
+    padding: 0 45px;
+    grid-column-gap: 90px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    max-width: 1500px;
+    margin-top: 70px;
+}
+.customer-account-content
+{
+    width:100%;
+  
+
+    h1 {
+        font-size: $bigfont-size;
+        margin-bottom:25px;
+        position: relative;
+
+        &::after{
+         
+            position: absolute;
+            content: '';
+            height: 2px;
+            bottom: -4px; 
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            width: 102%;
+            background: green;
+              
+        }
+        
+    }
+    .input-wrapper{
+        // grid-template-columns: repeat(2, 20px);
+        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr;
+        /* width: 100%; */
+        display: grid;
+       
+        grid-gap: 20px;
+    }
+    .input-row{
+        grid-template-columns: 60px 60px;
+        width:50%;
+       
+    }
+}
+

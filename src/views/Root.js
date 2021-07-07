@@ -4,6 +4,7 @@ import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlo
 import Navbar from 'components/molecules/Navbar/Navbar';
 import Footer from 'components/molecules/Footer/Footer';
 import LoginDetails from 'components/organism/auth/Login/LoginDetails';
+import UserPanel from 'components/molecules/UserPanel/UserPanel';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
@@ -28,6 +29,9 @@ const Root = () => (
       <Route exact path="/blog" component={Blog} />
       <Route path="/login" component={LoginDetails}>
         <LoginDetails />
+      </Route>
+      <Route path="/userpanel" component={UserPanel}>
+        <UserPanel />
       </Route>
       <Route path="/blog/:articleId" component={DetailsItemBlog} />
       <Route exact path="/contact" component={Contact} />
