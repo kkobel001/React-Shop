@@ -3,8 +3,9 @@
 
 .wrapper-userpanel{
     @include wrapper;
-    padding: 0 45px;
-    grid-column-gap: 90px;
+    // padding: 0 45px;
+    padding:0px;
+    // grid-column-gap: 90px;
     display: grid;
     grid-template-columns: 30% 70%;
     max-width: 1500px;
@@ -29,7 +30,7 @@
             margin: 0 auto;
             left: 0;
             right: 0;
-            width: 102%;
+           
             background: green;
               
         }
@@ -37,16 +38,19 @@
     }
     .input-wrapper{
         // grid-template-columns: repeat(2, 20px);
-        grid-template-columns: 1fr 2fr;
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 1fr 1fr;
+
+
         /* width: 100%; */
         display: grid;
        
-        grid-gap: 20px;
+        gap: 20px 5px;
+        &:nth-child(2n+1){
+            width:80%;
+          }
     }
     .input-row{
         grid-template-columns: 60px 60px;
-        width:50%;
        
     }
 }
