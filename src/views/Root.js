@@ -11,13 +11,6 @@ import About from './About/About';
 import Contact from './Contact/Contact';
 import Blog from './Blog/Blog';
 
-// const UnauthenticateApp = () => (
-//   <>
-//     <FormField label="login" name="login" id="login" />
-//     <FormField label="login" name="login" id="login" />
-//   </>
-// );
-
 const Root = () => (
   <Router>
     <Navbar />

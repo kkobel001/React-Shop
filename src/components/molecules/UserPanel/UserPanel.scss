@@ -3,55 +3,54 @@
 
 .wrapper-userpanel{
     @include wrapper;
-    // padding: 0 45px;
     padding:0px;
-    // grid-column-gap: 90px;
     display: grid;
     grid-template-columns: 30% 70%;
     max-width: 1500px;
-    margin-top: 70px;
+    margin: 70px auto 50px auto;
+   
+
 }
 .customer-account-content
 {
-    width:100%;
-  
-
     h1 {
         font-size: $bigfont-size;
         margin-bottom:25px;
         position: relative;
+        font-weight: 600;
+        color: $purple-color;
 
         &::after{
          
             position: absolute;
             content: '';
             height: 2px;
-            bottom: -4px; 
+            bottom: -10px; 
             margin: 0 auto;
             left: 0;
             right: 0;
-           
-            background: green;
-              
-        }
-        
+            background: $light-color;       
+        }   
     }
     .input-wrapper{
-        // grid-template-columns: repeat(2, 20px);
         grid-template-columns: 1fr 1fr;
-
-
-        /* width: 100%; */
         display: grid;
-       
         gap: 20px 5px;
-        &:nth-child(2n+1){
-            width:80%;
-          }
+        margin-top:50px;
+
     }
     .input-row{
-        grid-template-columns: 60px 60px;
-       
+        width:80%;   
+        padding:25px 0px;    
     }
 }
+.btnpanel-row{
+    align-items: flex-end;
+    display: flex;;
+    .btn-panel{
+        @include btn-main;
+        margin-left:auto;
+    }
+}
+
 
