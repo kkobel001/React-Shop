@@ -5,25 +5,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
 import axios from 'axios';
-
-const validate = form => {
-  const errors = {};
-
-  if (!form.name) {
-    errors.name = 'Name is required';
-  }
-  if (!form.email) {
-    errors.email = 'Email is required';
-  }
-  if (!Helpers.validateEmail(form.email)) {
-    errors.email = 'Email is not correct';
-  }
-  if (!form.message) {
-    errors.message = 'Message is required';
-  }
-
-  return errors;
-};
+import { validateContact } from 'helpers/Validate';
 
 const InitialFormState = {
   name: '',
@@ -42,7 +24,7 @@ const FormContact = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const errorText = validate(form);
+    const errorText = validateContact(form);
 
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);

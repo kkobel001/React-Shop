@@ -9,7 +9,6 @@ import { MenuItems } from './MenuItems';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  // const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
 

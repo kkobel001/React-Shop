@@ -8,7 +8,6 @@ const TitleBox = ({ names }) => (
   </div>
 );
 TitleBox.propTypes = {
-  // bgimage: PropTypes.string.isRequired,
   names: PropTypes.string.isRequired,
 };
 

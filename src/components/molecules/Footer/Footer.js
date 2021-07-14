@@ -1,25 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import firebase from 'firebase/app';
-import { getDatabase } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
+import { validateEmail } from 'helpers/Validate';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
-import './Footes.scss';
+import './Footer.scss';
 import { CardOne, CardTwo } from './FooterItems';
-import 'components/atoms/Button/Button.scss';
-
-const validateEmail = email => {
-  const errors = {};
-
-  if (!email) {
-    errors.email = 'Email is required';
-  }
-  if (!Helpers.validateEmail(email)) {
-    errors.email = 'Email is required!';
-  }
-  return errors;
-};
 
 const Footer = () => {
   const [date, setDate] = useState();
@@ -46,20 +33,17 @@ const Footer = () => {
     } else {
       const path = `newsletter/${Helpers.generateUUID()}`;
 
-      getDatabase.ref(path).set(
-        {
-          email,
-          timestamp: new Date().toISOString(),
-        },
-        firebaseError => {
-          if (firebaseError) {
-            Helpers.showAlert('Something went wrong please try again :(');
-          } else {
-            Helpers.showAlert('You are successfully added to newsletter list!');
-            resetStates();
-          }
-        },
-      );
+      set(ref(getDatabase(), path), {
+        email,
+        timestamp: new Date().toISOString(),
+      })
+        .then(() => {
+          Helpers.showAlert('You are successfully added to newsletter list!');
+          resetStates();
+        })
+        .catch(() => {
+          Helpers.showAlert('Something went wrong please try again :(');
+        });
     }
   };
 
@@ -71,7 +55,7 @@ const Footer = () => {
     <div className="container-footer">
       <div className="wrapper-footer">
         <div className="column">
-          <h4>Categories</h4>
+          <h4 data-testid="testH4first">Categories</h4>
           <ul className="footer-list">
             {CardOne.map(item => (
               <li item={item} key={item.id}>
@@ -83,7 +67,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="column">
-          <h4>Help</h4>
+          <h4 data-testid="testH4second">Help</h4>
           <ul className="footer-list">
             {CardTwo.map(item => (
               <li item={item} key={item.id}>
@@ -95,18 +79,17 @@ const Footer = () => {
           </ul>
         </div>
         <div className="column">
-          <h4>Get in touch</h4>
+          <h4 data-testid="testH4third">Get in touch</h4>
           <p>Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879</p>
           <SocialMedia />
         </div>
         <div className="column">
-          <h4>Newsletter</h4>
+          <h4 data-testid="testH4four">Newsletter</h4>
           {error && <p className="error-text">{error.email}</p>}
           <div className="newsletter">
             <input type="text" value={sendEmail} className="input-newsletter" placeholder="Enter your email" onChange={updateEmailField} />
             <MailOutlineIcon />
           </div>
-
           <button className="btn-main" type="button" onClick={e => sendNewsletterData(e, sendEmail)}>
             Subscribe
           </button>
