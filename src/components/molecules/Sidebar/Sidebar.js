@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Sidebar.scss';
 
 const Sidebar = () => {
@@ -7,31 +7,33 @@ const Sidebar = () => {
     {
       id: 1,
       title: 'My order',
-      url: '',
-      cName: 'panel-item',
+      url: 'UserPanel',
+      cName: 'panel-link',
+      activeClassName: 'active-link',
     },
     {
-      id: 1,
-      title: 'My addres',
+      id: 2,
+      title: 'My address',
       url: '',
-      cName: 'panel-item',
+      cName: 'panel-link',
+      activeClassName: 'active-link',
     },
     {
-      id: 1,
+      id: 3,
       title: 'Log out',
-      url: '/sidebar',
-      cName: 'panel-item',
+      url: '/userPanel',
+      cName: 'panel-link',
+      activeClassName: 'active-link',
     },
   ];
-  const click = true;
 
   return (
-    <ul className={click ? 'panel-list active' : 'panel-list'}>
+    <ul className="panel-list">
       {titlePanel.map(({ cName, title, url, id }) => (
-        <li className={cName} key={id}>
-          <Link className="items-link" to={url}>
+        <li className="nav-items" key={id}>
+          <NavLink className={cName} exact to={url}>
             {title}
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>

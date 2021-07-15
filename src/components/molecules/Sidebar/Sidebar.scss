@@ -5,21 +5,32 @@
 
 .panel-list{
    color:$dark-color;
-list-style-type:none;
-margin-top: 30px;
+   list-style-type:none;
+    margin-top: 30px;
     padding-left: 70px;
+  
 
 }
-.panel-item{
-    margin:10px 0px 10px 0px;
+.panel-list{
+    .nav-items {
+        cursor: pointer;
+        margin:10px 0px 10px 0px;
+     
+      }
+}
+.panel-link{
+    @include links;
+  
+    // &:hover
+    // {color:$purple-color;
+    //     font-weight:$bold-weight;
+    // }
+
+    &.active
+    {background: brown;}
+ 
+  }
+
     
-    .items-link {
-        @include links;
-        font-size:$smallfont-size;
-        font-weight: 300;
 
-        &:hover{ font-weight:bold}
-        &.active{font-weight:bold}
-
-    }
-}
+      

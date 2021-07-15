@@ -36,8 +36,7 @@
   @include links;
 
   &.active{
-    color: $purple-color;
-    font-weight: $bold-weight;
+    @include activeLink;
   }
 }
 .menu-icon {
