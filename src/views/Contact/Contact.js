@@ -3,16 +3,19 @@ import React from 'react';
 import Titlebox from 'components/atoms/TitleBox/TitleBox';
 import './Contact.scss';
 import GoogleMap from 'components/atoms/Map/Map';
+import MainTemplates from 'templates/MainTemplates';
 
 const Contact = () => (
-  <div className="wrapper-contact">
-    <Titlebox names="Contact" />
+  <MainTemplates>
+    <div className="wrapper-contact">
+      <Titlebox names="Contact" />
 
-    <FormContact />
-    <div className="Mapname">
-      <GoogleMap />
+      <FormContact />
+      <div className="Mapname">
+        <GoogleMap />
+      </div>
     </div>
-  </div>
+  </MainTemplates>
 );
 
 export default Contact;

@@ -1,10 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlog';
-import Navbar from 'components/molecules/Navbar/Navbar';
 import Footer from 'components/molecules/Footer/Footer';
 import LoginDetails from 'components/organism/auth/Login/LoginDetails';
-import UserTemplates from 'components/organism/Templates/UserTemplates';
+import UserTemplates from 'templates/UserPageTemplates/UserPageTemplates';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
@@ -13,7 +12,6 @@ import Blog from './Blog/Blog';
 
 const Root = () => (
   <Router>
-    <Navbar />
     <Switch>
       <Route exact path="/" render={() => <Redirect to="/home" />} />
       <Route exact path="/home" component={Home} />

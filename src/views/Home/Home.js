@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'components/atoms/Slider/Slider';
 import './Home.scss';
 import CardDetails from 'components/organism/HomeDetails/CardDetails';
+import MainTemplates from 'templates/MainTemplates';
 
 const sliderImages = [
   {
@@ -31,11 +32,11 @@ const sliderImages = [
 ];
 
 const Home = () => (
-  <>
+  <MainTemplates>
     <div className="wrapper-home">
       <Slider slides={sliderImages} />
     </div>
     <CardDetails />
-  </>
+  </MainTemplates>
 );
 export default Home;

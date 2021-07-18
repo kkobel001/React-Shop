@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from 'components/molecules/Sidebar/Sidebar';
+import Sidebar from 'components/organism/Sidebar/Sidebar';
 import UserField from 'components/molecules/UserField/UserField';
 import './UserPanel.scss';
 import { validateContact } from 'helpers/Validate';

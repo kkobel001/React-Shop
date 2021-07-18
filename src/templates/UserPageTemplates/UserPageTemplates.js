@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import SideBar from 'components/molecules/Sidebar/Sidebar';
+import SideBar from 'components/organism/Sidebar/Sidebar';
+import './UserPageTemplates.scss';
 
 const UserTemplates = ({ children }) => (
-  <div>
+  <div className="wrapper-user">
     <SideBar />
     <div>{children}</div>
   </div>

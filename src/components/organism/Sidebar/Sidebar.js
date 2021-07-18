@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.scss';
+import UserPanel from 'components/molecules/UserPanel/UserPanel';
 
 const Sidebar = () => {
   const titlePanel = [
     {
       id: 1,
       title: 'My order',
-      url: 'UserPanel',
+      url: { UserPanel },
       cName: 'panel-link',
       activeClassName: 'active-link',
     },
