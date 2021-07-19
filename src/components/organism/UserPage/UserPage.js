@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SideBar from 'components/organism/Sidebar/Sidebar';
-import './UserPageTemplates.scss';
+import './UserPage.scss';
 
-const UserTemplates = ({ children }) => (
+const UserPage = ({ children }) => (
   <div className="wrapper-user">
     <SideBar />
-    <div>{children}</div>
+    <div className="details">{children}</div>
   </div>
 );
 
-UserTemplates.propTypes = {
+UserPage.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default UserTemplates;
+export default UserPage;

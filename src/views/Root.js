@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlog';
 import Footer from 'components/molecules/Footer/Footer';
 import LoginDetails from 'components/organism/auth/Login/LoginDetails';
-import UserTemplates from 'templates/UserPageTemplates/UserPageTemplates';
+import { routes } from 'routes/routes';
+import UserPage from 'components/organism/UserPage/UserPage';
+import UserAddress from 'components/organism/UserPage/UserAddress/UserAddress';
+import MainTemplates from 'templates/MainTemplates';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
@@ -13,19 +16,19 @@ import Blog from './Blog/Blog';
 const Root = () => (
   <Router>
     <Switch>
-      <Route exact path="/" render={() => <Redirect to="/home" />} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/shop" component={Shop} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/blog" component={Blog} />
-      <Route path="/login" component={LoginDetails}>
-        <LoginDetails />
-      </Route>
-      <Route path="/usertemplates" component={UserTemplates}>
-        <UserTemplates />
-      </Route>
-      <Route path="/blog/:articleId" component={DetailsItemBlog} />
-      <Route exact path="/contact" component={Contact} />
+      <MainTemplates>
+        <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path={routes.shop} component={Shop} />
+        <Route exact path={routes.about} component={About} />
+        <Route exact path={routes.blog} component={Blog} />
+        <Route path={routes.login} component={LoginDetails} />
+        <Route exact path={routes.userPage} component={UserPage} />
+        <Route path={routes.userAddress} component={UserAddress} />
+
+        <Route path={routes.bloges} component={DetailsItemBlog} />
+        <Route exact path={routes.contact} component={Contact} />
+      </MainTemplates>
     </Switch>
     <Footer />
   </Router>

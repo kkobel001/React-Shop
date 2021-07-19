@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Sidebar from 'components/organism/Sidebar/Sidebar';
-import UserField from 'components/molecules/UserField/UserField';
-import './UserPanel.scss';
+import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
+import './UserAddress.scss';
 import { validateContact } from 'helpers/Validate';
 
 const InitialFormState = {
   name: '',
 };
-const userPanel = () => {
+const userAddress = () => {
   const [error, setError] = useState({});
   const [form, setForm] = useState(InitialFormState);
 
@@ -74,4 +74,4 @@ const userPanel = () => {
   );
 };
 
-export default userPanel;
+export default userAddress;

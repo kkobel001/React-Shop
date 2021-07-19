@@ -2,12 +2,11 @@ import React from 'react';
 import Titlebox from 'components/atoms/TitleBox/TitleBox';
 import AbIm01 from 'assets/images/about-01.png';
 import AbIm02 from 'assets/images/about-02.png';
-import MainTemplates from 'templates/MainTemplates';
 import { AboutCardOne, AboutCardTwo } from './AboutItems';
 import './About.scss';
 
 const About = () => (
-  <MainTemplates>
+  <>
     <Titlebox names="About" />
     <div className="container-about">
       <div className="wrapper-about">
@@ -41,7 +40,7 @@ const About = () => (
         </div>
       </div>
     </div>
-  </MainTemplates>
+  </>
 );
 
 export default About;

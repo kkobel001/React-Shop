@@ -1,28 +1,27 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.scss';
-import UserPanel from 'components/molecules/UserPanel/UserPanel';
 
 const Sidebar = () => {
   const titlePanel = [
     {
       id: 1,
       title: 'My order',
-      url: { UserPanel },
+      url: '/orders',
       cName: 'panel-link',
       activeClassName: 'active-link',
     },
     {
       id: 2,
       title: 'My address',
-      url: '',
+      url: '/userAddress',
       cName: 'panel-link',
       activeClassName: 'active-link',
     },
     {
       id: 3,
       title: 'Log out',
-      url: '/userPanel',
+      url: '/home',
       cName: 'panel-link',
       activeClassName: 'active-link',
     },
@@ -32,7 +31,7 @@ const Sidebar = () => {
     <ul className="panel-list">
       {titlePanel.map(({ cName, title, url, id }) => (
         <li className="nav-items" key={id}>
-          <NavLink className={cName} exact to={url}>
+          <NavLink to={url} className={cName}>
             {title}
           </NavLink>
         </li>
