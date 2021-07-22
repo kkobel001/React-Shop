@@ -7,7 +7,7 @@ const Sidebar = () => {
     {
       id: 1,
       title: 'My order',
-      url: '/orders',
+      url: '/userOrder',
       cName: 'panel-link',
       activeClassName: 'active-link',
     },

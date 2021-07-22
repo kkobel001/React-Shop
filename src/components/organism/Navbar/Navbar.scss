@@ -24,7 +24,7 @@
   display: grid;
   grid-template-columns: repeat(5, 2fr);
   grid-gap: 25px;
-  margin-top: 20px;
+  margin-top: 15px;
   list-style-type: none;
 
   .nav-items {
@@ -34,6 +34,7 @@
 }
 .nav-links {
   @include links;
+  color:$light-color;
 
   &.active{
     @include activeLink;
@@ -98,8 +99,10 @@
   }
 }
 @media screen and (max-width: 1230px) {
+  .navbar{
+    width:100%;
+  }
   .nav-menu {
-  
     grid-template-columns: repeat(5, 2fr);
   }
 }

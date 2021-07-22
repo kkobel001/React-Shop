@@ -5,6 +5,7 @@ import Footer from 'components/molecules/Footer/Footer';
 import LoginDetails from 'components/organism/auth/Login/LoginDetails';
 import { routes } from 'routes/routes';
 import UserPage from 'components/organism/UserPage/UserPage';
+import UserOrder from 'components/organism/UserPage/UserOrder/UserOrder';
 import UserAddress from 'components/organism/UserPage/UserAddress/UserAddress';
 import MainTemplates from 'templates/MainTemplates';
 import Home from './Home/Home';
@@ -25,7 +26,7 @@ const Root = () => (
         <Route path={routes.login} component={LoginDetails} />
         <Route exact path={routes.userPage} component={UserPage} />
         <Route path={routes.userAddress} component={UserAddress} />
-
+        <Route path={routes.userOrder} component={UserOrder} />
         <Route path={routes.bloges} component={DetailsItemBlog} />
         <Route exact path={routes.contact} component={Contact} />
       </MainTemplates>
