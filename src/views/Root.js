@@ -7,32 +7,42 @@ import { routes } from 'routes/routes';
 import UserPage from 'components/organism/UserPage/UserPage';
 import UserOrder from 'components/organism/UserPage/UserOrder/UserOrder';
 import UserAddress from 'components/organism/UserPage/UserAddress/UserAddress';
-import MainTemplates from 'templates/MainTemplates';
+import Menu from 'components/organism/Navbar/Navbar';
+import NotFound from 'components/atoms/404/NotFound';
+import Layout from 'components/organism/Layout/Layout';
+// import MainTemplates from 'templates/MainTemplates';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
 import Contact from './Contact/Contact';
 import Blog from './Blog/Blog';
 
-const Root = () => (
-  <Router>
+function Root() {
+  const menu = <Menu />;
+  const content = (
     <Switch>
-      <MainTemplates>
-        <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path={routes.shop} component={Shop} />
-        <Route exact path={routes.about} component={About} />
-        <Route exact path={routes.blog} component={Blog} />
-        <Route path={routes.login} component={LoginDetails} />
-        <Route exact path={routes.userPage} component={UserPage} />
-        <Route path={routes.userAddress} component={UserAddress} />
-        <Route path={routes.userOrder} component={UserOrder} />
-        <Route path={routes.bloges} component={DetailsItemBlog} />
-        <Route exact path={routes.contact} component={Contact} />
-      </MainTemplates>
+      <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path={routes.shop} component={Shop} />
+      <Route exact path={routes.about} component={About} />
+      <Route exact path={routes.blog} component={Blog} />
+      <Route path={routes.login} component={LoginDetails} />
+      <Route exact path={routes.userPage} component={UserPage} />
+      <Route path={routes.userAddress} component={UserAddress} />
+      <Route path={routes.userOrder} component={UserOrder} />
+      <Route path={routes.bloges} component={DetailsItemBlog} />
+      <Route exact path={routes.contact} component={Contact} />
+      <Route component={NotFound} />
     </Switch>
-    <Footer />
-  </Router>
-);
+  );
+
+  const footer = <Footer />;
+
+  return (
+    <Router>
+      <Layout menu={menu} content={content} footer={footer} />
+    </Router>
+  );
+}
 
 export default Root;

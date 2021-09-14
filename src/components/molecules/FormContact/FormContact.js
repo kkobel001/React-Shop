@@ -6,6 +6,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
 import axios from 'axios';
 import { validateContact } from 'helpers/Validate';
+import LoadingButton from 'components/atoms/LoadingButton/LoadingButton';
 
 const InitialFormState = {
   name: '',
@@ -13,9 +14,10 @@ const InitialFormState = {
   message: '',
 };
 
-const FormContact = () => {
+function FormContact() {
   const [error, setError] = useState({});
   const [form, setForm] = useState(InitialFormState);
+  const [loading, setLoading] = useState(false);
 
   const resetStates = () => {
     setForm(InitialFormState);
@@ -24,6 +26,7 @@ const FormContact = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setLoading(true);
     const errorText = validateContact(form);
 
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
@@ -40,7 +43,7 @@ const FormContact = () => {
             message: form.message,
           },
         })
-        .then(
+        .try(
           () => {
             Helpers.showAlert('Message has been sent succesfully!');
             resetStates();
@@ -50,6 +53,7 @@ const FormContact = () => {
           },
         );
     }
+    setLoading(false);
   };
 
   const updateField = e => {
@@ -73,12 +77,10 @@ const FormContact = () => {
             <input className="in-contact" value={form.email} placeholder="Your Email Adress" type="email" name="email" onChange={updateField} />
             {error && <p>{error.email}</p>}
 
-            <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" maxLength="20" minLength="5" onChange={updateField} />
+            <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" onChange={updateField} />
             {error && <p>{error.message}</p>}
 
-            <button className="btn-form" type="submit">
-              Submit
-            </button>
+            <LoadingButton type="submit" loading={loading} className="btn-success" label="Send" />
           </div>
         </form>
         <div className="form-context">
@@ -112,6 +114,6 @@ const FormContact = () => {
       </div>
     </div>
   );
-};
+}
 
 export default FormContact;
