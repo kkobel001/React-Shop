@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import UserField from './UserField';
+import UserField from './UserDetails';
 
 describe('User Field', () => {
   it('Renders the component', () => {

@@ -15,7 +15,9 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <img src={LogoIcon} alt="logo" />
+        <NavLink to="/">
+          <img src={LogoIcon} alt="logo" />
+        </NavLink>
       </div>
       <div className="menu-icon" role="presentation" onClick={handleClick}>
         {click ? <CloseIcon /> : <MenuIcon />}

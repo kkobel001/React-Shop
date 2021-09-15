@@ -7,9 +7,7 @@
     display: grid;
     grid-template-columns: 30% 70%;
     max-width: 1500px;
-    margin: 70px auto 50px auto;
-   
-
+    margin: 30px auto 50px auto;
 }
 .customer-account-content
 {
@@ -26,7 +24,8 @@
             content: '';
             height: 2px;
             bottom: -10px; 
-            margin: 0 auto;
+            width:90%;
+            // margin: 0 auto;
             left: 0;
             right: 0;
             background: $light-color;       
@@ -46,11 +45,51 @@
 }
 .btnpanel-row{
     align-items: flex-end;
-    display: flex;;
+    display: flex;
+    padding-right: 10%;
+
     .btn-panel{
         @include btn-main;
         margin-left:auto;
     }
 }
 
+@media screen and (max-width: 813px) {
+
+    .wrapper-userpanel{
+        display: block;
+        // height:1000px;
+        height:auto;
+        // .customer-account-content{
+        //     height:400px;
+        // }
+    }
+
+  }
+
+@media screen and (max-width: 450px) {
+
+    .wrapper-userpanel{
+        height:auto;
+        .customer-account-content{
+                margin-top:50px;
+                width:100%;
+            .input-wrapper{
+                display: block;
+
+                .input-row{
+                    width:100%;
+                } 
+            }
+            h1{
+                &::after{
+                    width:100%;
+                }
+            }
+            .btnpanel-row{
+                padding-right:0px;
+            }
+        }
+    }
+  }
 

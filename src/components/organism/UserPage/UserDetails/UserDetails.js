@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './UserField.scss';
+import './UserDetails.scss';
 
-const UserField = ({ label, name, value, type }) => (
+const UserDetails = ({ label, name, value, type }) => (
   <div clasName="formField">
     <div className="label-field" htmlFor={name}>
       {label}*
@@ -11,14 +11,14 @@ const UserField = ({ label, name, value, type }) => (
   </div>
 );
 
-UserField.propTypes = {
+UserDetails.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 
-UserField.defaultProps = {
+UserDetails.defaultProps = {
   type: 'text',
 };
-export default UserField;
+export default UserDetails;

@@ -14,7 +14,7 @@ const NavIconMenu = () => (
         </Link>
       </li>
       <li className="icon-item">
-        <Link to="userpanel" className="item-link">
+        <Link to="userPage" className="item-link">
           <FavoriteBorderOutlinedIcon />
         </Link>
       </li>
