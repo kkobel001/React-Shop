@@ -11,6 +11,7 @@ import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
 import Layout from 'components/organism/Layout/Layout';
 // import MainTemplates from 'templates/MainTemplates';
+import ErrorBoundary from 'hoc/ErrorBoundary';
 import Home from './Home/Home';
 import Shop from './Shop/Shop';
 import About from './About/About';
@@ -40,7 +41,9 @@ function Root() {
 
   return (
     <Router>
-      <Layout menu={menu} content={content} footer={footer} />
+      <ErrorBoundary>
+        <Layout menu={menu} content={content} footer={footer} />
+      </ErrorBoundary>
     </Router>
   );
 }
