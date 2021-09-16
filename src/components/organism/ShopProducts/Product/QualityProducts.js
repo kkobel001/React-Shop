@@ -1,7 +1,7 @@
 import React from 'react';
-import './AddQuality.scss';
+import './QualityProducts.scss';
 
-export default class AddQuality extends React.Component {
+export default class QualityProducts extends React.Component {
   constructor(props) {
     super(props);
     this.state = { qty: 1 };

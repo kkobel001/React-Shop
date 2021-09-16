@@ -3,8 +3,9 @@ import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
-import AddQuality from 'components/organism/ShopProducts/AddProducts/AddQuality';
+import QualityProducts from 'components/organism/ShopProducts/Product/QualityProducts';
 import Slider from 'components/atoms/Slider/Slider';
+import InputSelect from 'components/atoms/Input/InputSelect';
 import SubModal from '../SubModal/SubModal';
 
 const sliderImages = [
@@ -55,38 +56,37 @@ const Modal = ({ showModal, setShowModal }) => {
                 <h2>Lighweight Jacket</h2>
                 <div>$57.55</div>
               </div>
-              <div className="section-option">
-                <div className="filter-size">
-                  <h4>Size</h4>
-                  <select className="selected-products">
-                    <option className="option-products">Size XS</option>
-                    <option className="option-products">Size S</option>
-                    <option className="option-products">Size M</option>
-                    <option className="option-products">Size L</option>
-                    <option className="option-products">Size XL</option>
-                  </select>
-                </div>
-                <div className="filter-color">
-                  <h4>Color </h4>
-                  <select className="selected-products">
-                    <option>Red</option>
-                    <option>White</option>
-                    <option>Black</option>
-                    <option>Blue</option>
-                    <option>Yellow</option>
-                  </select>
-                </div>
-                <div className="add-section">
-                  <AddQuality />
-                  <div className="row-submodal">
-                    <button className="btn-modal" type="button" onClick={openSubModal}>
-                      Add to Card
-                    </button>
-                    <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
-                  </div>
-                </div>
-                <SocialMedia />
+
+              <InputSelect
+                titile="Seze"
+                type="select"
+                options={[
+                  { value: 'XS', label: 'XS' },
+                  { value: 'S', label: 'S' },
+                  { value: 'M', label: 'M' },
+                  { value: 'XL', label: 'XL' },
+                ]}
+              />
+              <div className="filter-color">
+                <h4>Color </h4>
+                <select className="selected-products">
+                  <option>Red</option>
+                  <option>White</option>
+                  <option>Black</option>
+                  <option>Blue</option>
+                  <option>Yellow</option>
+                </select>
               </div>
+              <div className="add-section">
+                <QualityProducts />
+                <div className="row-submodal">
+                  <button className="btn-modal" type="button" onClick={openSubModal}>
+                    Add to Card
+                  </button>
+                  <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
+                </div>
+              </div>
+              <SocialMedia />
             </div>
           </div>
         </div>

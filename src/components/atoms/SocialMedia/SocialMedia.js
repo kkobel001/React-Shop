@@ -8,17 +8,17 @@ import './SocialMedia.scss';
 const SocialMedia = () => (
   <ul className="social-list">
     <li className="item-list">
-      <Link to="./" className="linki">
+      <Link to="/" className="linki">
         <FacebookIcon />
       </Link>
     </li>
     <li className="item-list">
-      <Link to="./">
+      <Link to="/">
         <InstagramIcon />
       </Link>
     </li>
     <li className="item-list">
-      <Link to="./">
+      <Link to="/">
         <TwitterIcon />
       </Link>
     </li>
