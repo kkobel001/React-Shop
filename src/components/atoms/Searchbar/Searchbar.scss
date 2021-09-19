@@ -1,0 +1,16 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.btn-search{
+    @include btn-main;
+    background-color: $dark-color;
+    color: $white-color;
+    width: 80%;
+    margin-top: 20px;
+    
+    &:hover{   
+       @include hov-one;
+        background-color: $purple-color;
+        color: $white-color;       
+    }
+}

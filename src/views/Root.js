@@ -10,6 +10,7 @@ import UserAddress from 'components/organism/UserPage/UserAddress/UserAddress';
 import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
 import Layout from 'components/organism/Layout/Layout';
+import Searchbar from 'components/atoms/Searchbar/Searchbar';
 // import MainTemplates from 'templates/MainTemplates';
 import ErrorBoundary from 'hoc/ErrorBoundary';
 import Home from './Home/Home';
@@ -33,6 +34,8 @@ function Root() {
       <Route path={routes.userOrder} component={UserOrder} />
       <Route path={routes.bloges} component={DetailsItemBlog} />
       <Route exact path={routes.contact} component={Contact} />
+      <Route exact path={routes.search} component={Searchbar} />
+
       <Route component={NotFound} />
     </Switch>
   );

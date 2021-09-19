@@ -1,5 +1,11 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+const allertStyles = {
+  backgroundColor: '#e6e6e6',
+  height: '1000vh',
+  fontSize: '20px',
+};
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -18,15 +24,17 @@ class ErrorBoundary extends Component {
 
   render() {
     const { hasError, error } = this.state;
-    const { children } = this.props;
     if (hasError) {
-      return <div className="alert alert-danger">Wystąpił jakiś problem : {error.message}</div>;
+      return (
+        <div className="bgError" style={allertStyles}>
+          Wystąpił jakiś problem : {error.message}
+        </div>
+      );
     }
 
-    return { children };
+    // eslint-disable-next-line react/prop-types
+    return this.props.children;
   }
 }
-ErrorBoundary.propTypes = {
-  children: PropTypes.element.isRequired,
-};
+
 export default ErrorBoundary;

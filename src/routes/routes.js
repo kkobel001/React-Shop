@@ -9,4 +9,5 @@ export const routes = {
   userPage: '/userPage',
   userAddress: '/userAddress',
   userOrder: '/userOrder',
+  search: 'wyszukaj/:contents?',
 };
