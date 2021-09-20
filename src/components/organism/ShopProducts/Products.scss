@@ -6,7 +6,7 @@
   @include box-center;
   flex-wrap: wrap;
   margin-bottom: 150px;
-  position:relative;
+  position: relative;
 }
 .products {
   justify-content: center;
@@ -22,7 +22,9 @@
     font-weight: $bold-weight;
     margin-bottom: 3px;
   }
-
+  .btn-filter{
+  margin-left: 30px;
+  }
   li {
     margin-left: 20px;
     margin-top: 40px;
@@ -39,15 +41,16 @@
         .btn-filter {
           @include btn-second;
           position: absolute;
-          // top: 90%;
-          // left: 30%;
           transform: translate(-50%, -50%);
-          transition: all 0.8s ease;
+          transition: all 1.2s ease;
+          font-size: $minfont-size;
+          padding: 10px 43px;
           bottom: -50px;
-           right: 50%;
+          right: 50%;
+          margin-left:0px;
           margin-bottom: 60px;
+          letter-spacing: 4px;
           left: 50%;
-
           &:hover {
             @include hov-second;
           }
@@ -62,7 +65,6 @@
     }
   }
 }
-
 .product-price {
   display: flex;
   justify-content: space-between;
@@ -79,6 +81,7 @@
   &:hover {
     background-color: $purple-color;
     color: $white-color;
+    transition: all 0.9s ease;
   }
   &:visited {
     background-color: $purple-color;

@@ -1,7 +1,6 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-
 .container-submodal{  
     @include box-center;
     position: absolute;
@@ -14,31 +13,34 @@
     z-index: 10000;
     transition: opacity .3s;
     justify-content: center;
-    height:100%;
+    height: 100%;
 }
 .wrapper-submodal{
     @include box-effect;
     @include margX;
      @include margY;
-    position:static;
+    position: static;
     z-index: 9999999;
     overflow: hidden;
     align-items: center;
-    height:300px;
-    width:478px;
+    height: 300px;
+    width: 478px;
     -webkit-animation: showSweetAlert .3s;
     animation: showSweetAlert .3s;
     background-image: linear-gradient(135deg, #f5f7fa 0%, #b1c6e8 100%);
     box-sizing: border-box;   
 }
 .btn-submodal{
-margin-left:50%;
+    margin-left: 50%;
     @include btn-main ;
+        &:hover{
+            @include btn-dark ;
+        }
 }
 .box-check{
     height: 80px;
     align-items: center;
-    margin-top:20px;
+    margin-top: 20px;
 
     .check-icon {
         width: 70px;
@@ -49,22 +51,18 @@ margin-left:50%;
         padding: 0;
         position: relative;
         box-sizing: content-box;
-        color: $purple-color;
-       
+        color: $purple-color;   
     }
 }
-
 @media screen and (max-width: 415px){
     .container-submodal {
-        height:1000px;
+        height: 1000px;
     }
     .wrapper-submodal {
-        height:100%;
-        padding:30px;
-
+        height: 100%;
+        padding: 30px;
     h1 {
         font-size:$smallfont-size;
     }
     }
-  
 }

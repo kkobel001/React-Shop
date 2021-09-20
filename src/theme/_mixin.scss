@@ -56,14 +56,29 @@
   color: $white-color;
   font-weight: $bold-weight;
   border: none;
+  transition: all 0.9s ease;
 }
 
 @mixin hov-one {
   transition: all 0.3s ease-out;
   background-color: $white-color;
   color: $purple-color;
+  transition: all 0.9s ease;
 }
-
+@mixin btn-dark {
+    display: inline-block;
+  border-radius: $button-border-radius;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: $dark-color;
+  padding: 10px 23px;
+  cursor: pointer;
+  font-size: $smallfont-size;
+  color: $white-color;
+  font-weight: $bold-weight;
+  border: none;
+  transition: all 0.9s ease;
+}
 @mixin btn-second {
   display: inline-block;
   border-radius: $button-border-radius;
@@ -76,13 +91,15 @@
   color: $dark-color;
   font-weight: $bold-weight;
   border: none;
+  transition: all 0.9s ease;
 }
 
 @mixin hov-second {
   transition: all 0.3s ease-out;
   background-color: $dark-color;
   color: $white-color;
-            border: none;
+  border: none;
+  transition: all 0.9s ease;
 }
 
 @mixin margY {
