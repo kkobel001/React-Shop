@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
 import { getDatabase, ref, set } from 'firebase/database';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import { Link } from 'react-router-dom';
 import './Login.scss';
 import { validateLogin, validateRegister } from 'helpers/Validate';
 
 const InitialFormState = {
-  password: '',
-  email: '',
   name: '',
   surname: '',
+  password: '',
+  email: '',
 };
 
 const LoginDetails = () => {
   const [error, setError] = useState(false);
   const [form, setForm] = useState(InitialFormState);
   const [regist, setRegist] = useState(false);
+  const [auth, setAuth] = useAuth();
+  const history = useHistory();
 
   const resetError = () => {
     setForm(InitialFormState);
@@ -62,6 +65,7 @@ const LoginDetails = () => {
     signInWithEmailAndPassword(getAuth(), form.email, form.password)
       .then(userCredential => {
         console.log(userCredential);
+        setAuth(true);
       })
       .catch(err => {
         switch (err.code) {
@@ -105,8 +109,10 @@ const LoginDetails = () => {
 
     if (regist) {
       handleRegistrationValidation();
+      history.push('/');
     } else {
       handleLoginValidation();
+      history.push('/');
     }
   };
 
@@ -122,6 +128,13 @@ const LoginDetails = () => {
     setRegist(!regist);
     resetError();
   };
+  // if (auth) {
+  //   history.push('/');
+  // }
+
+  if (auth) {
+    history.push('/userPage');
+  }
 
   return (
     <div className="wrapper-login">
