@@ -1,30 +1,63 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import useAuth from 'hooks/useAuth';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import PersonIcon from '@material-ui/icons/Person';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
 import './NavIconMenu.scss';
 
-const NavIconMenu = () => (
-  <div className="icon-wrapper">
-    <ul className="icon-row">
-      <li className="icon-item">
-        <Link to="./" className="item-link">
-          <ShoppingCartIcon />
-        </Link>
-      </li>
-      <li className="icon-item">
-        <Link to="userPage" className="item-link">
-          <FavoriteBorderOutlinedIcon />
-        </Link>
-      </li>
-      <li className="icon-item">
-        <Link to="/login" className="item-link">
-          <PersonIcon />
-        </Link>
-      </li>
-    </ul>
-  </div>
-);
+const NavIconMenu = () => {
+  const [auth, setAuth] = useAuth();
+  const history = useHistory();
+
+  const logout = e => {
+    e.preventDefault();
+
+    if (setAuth) {
+      history.push('/Shop');
+    }
+    setAuth(false);
+  };
+
+  if (auth) {
+    history.push('/userPage');
+  }
+
+  return (
+    <div className="icon-wrapper">
+      <ul className="icon-row">
+        <li className="icon-item">
+          <Link to="./" className="item-link">
+            <ShoppingCartIcon />
+          </Link>
+        </li>
+
+        {auth ? (
+          <>
+            <li className="icon-item">
+              <Link to="/userPage" className="item-link">
+                <PersonIcon />
+              </Link>
+            </li>
+            <li>
+              <Link to="/" onClick={logout}>
+                <LogoutIcon />
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li className="icon-item">
+              <Link to="/login" className="item-link">
+                <LoginIcon />
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </div>
+  );
+};
 
 export default NavIconMenu;

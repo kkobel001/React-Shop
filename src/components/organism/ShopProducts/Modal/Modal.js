@@ -56,37 +56,43 @@ const Modal = ({ showModal, setShowModal }) => {
                 <h2>Lighweight Jacket</h2>
                 <div>$57.55</div>
               </div>
-
-              <InputSelect
-                titile="Seze"
-                type="select"
-                options={[
-                  { value: 'XS', label: 'XS' },
-                  { value: 'S', label: 'S' },
-                  { value: 'M', label: 'M' },
-                  { value: 'XL', label: 'XL' },
-                ]}
-              />
-              <div className="filter-color">
-                <h4>Color </h4>
-                <select className="selected-products">
-                  <option>Red</option>
-                  <option>White</option>
-                  <option>Black</option>
-                  <option>Blue</option>
-                  <option>Yellow</option>
-                </select>
-              </div>
-              <div className="add-section">
-                <QualityProducts />
-                <div className="row-submodal">
-                  <button className="btn-modal" type="button" onClick={openSubModal}>
-                    Add to Card
-                  </button>
-                  <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
+              <div className="modal-box">
+                <div className="filter-size">
+                  <InputSelect
+                    title="Size"
+                    type="select"
+                    options={[
+                      { value: 'XS', label: 'XS' },
+                      { value: 'S', label: 'S' },
+                      { value: 'M', label: 'M' },
+                      { value: 'XL', label: 'XL' },
+                    ]}
+                  />
                 </div>
+                <div className="filter-color">
+                  <InputSelect
+                    title="Color"
+                    type="select"
+                    options={[
+                      { value: 'Red', label: 'Red' },
+                      { value: 'White', label: 'White' },
+                      { value: 'Black', label: 'Black' },
+                      { value: 'Blue', label: 'Blue' },
+                      { value: 'Yelllow', label: 'Yelllow' },
+                    ]}
+                  />
+                </div>
+                <div className="add-section">
+                  <QualityProducts />
+                  <div className="row-submodal">
+                    <button className="btn-modal" type="button" onClick={openSubModal}>
+                      Add to Card
+                    </button>
+                    <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
+                  </div>
+                </div>
+                <SocialMedia />
               </div>
-              <SocialMedia />
             </div>
           </div>
         </div>
