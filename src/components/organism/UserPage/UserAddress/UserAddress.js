@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from 'components/organism/Sidebar/Sidebar';
+// import Sidebar from 'components/organism/Sidebar/Sidebar';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import './UserAddress.scss';
 import { validateContact } from 'helpers/Validate';
@@ -36,7 +36,7 @@ const userAddress = () => {
 
   return (
     <div className="wrapper-userpanel">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="customer-account-content">
         <h1>My account </h1>
 

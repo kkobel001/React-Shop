@@ -6,4 +6,7 @@
     padding:0px;
     margin: 70px auto 50px auto;
     @include wrapper;
+    display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-gap: 25px;
 }

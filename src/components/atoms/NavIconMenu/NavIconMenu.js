@@ -21,7 +21,7 @@ const NavIconMenu = () => {
   };
 
   if (auth) {
-    history.push('/userPage');
+    history.push('/UserPage');
   }
 
   return (
@@ -36,7 +36,7 @@ const NavIconMenu = () => {
         {auth ? (
           <>
             <li className="icon-item">
-              <Link to="/userPage" className="item-link">
+              <Link to="/UserPage" className="item-link">
                 <PersonIcon />
               </Link>
             </li>
