@@ -2,11 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './BlogList.scss';
 import { Link, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
+import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 
 const BlogList = () => {
   const [articles, setArticles] = useState([]);
   const [error, setError] = useState('');
   const { url } = useRouteMatch();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 1500);
+  }, []);
 
   useEffect(() => {
     axios
@@ -36,11 +44,13 @@ const BlogList = () => {
         setArticles(data.allArticles);
       })
       .catch(() => setError("Sorry, we couln't load articles for you"));
+
+    setTimeout(false);
   }, []);
 
   return (
     <div className="wrapper-blog">
-      {articles.length > 0 ? (
+      {articles.length > 0 && loading ? (
         articles.map(({ id, title, description, image }) => (
           <div className="blog-items" key={id}>
             <div className="image-section">
@@ -78,7 +88,7 @@ const BlogList = () => {
           </div>
         ))
       ) : (
-        <div>{error || 'Loading ...'}</div>
+        <div>{error || <LoadingIcon />}</div>
       )}
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
@@ -21,37 +21,36 @@ const NavIconMenu = () => {
   };
 
   if (auth) {
-    history.push('/userPage');
+    history.push('/UserPage');
   }
 
   return (
     <div className="icon-wrapper">
       <ul className="icon-row">
         <li className="icon-item">
-          <Link to="./" className="item-link">
+          <NavLink exact to="./" className="item-link" activeClassName="active">
             <ShoppingCartIcon />
-          </Link>
+          </NavLink>
         </li>
-
         {auth ? (
           <>
             <li className="icon-item">
-              <Link to="/userPage" className="item-link">
+              <NavLink to="/UserPage" className="item-link" activeClassName="active">
                 <PersonIcon />
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/" onClick={logout}>
+              <NavLink to="/" onClick={logout}>
                 <LogoutIcon />
-              </Link>
+              </NavLink>
             </li>
           </>
         ) : (
           <>
             <li className="icon-item">
-              <Link to="/login" className="item-link">
+              <NavLink to="/login" className="item-link" activeClassName="active-link">
                 <LoginIcon />
-              </Link>
+              </NavLink>
             </li>
           </>
         )}

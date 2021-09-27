@@ -7,6 +7,7 @@ export const routes = {
   contact: '/contact',
   login: '/login',
   userPage: '/userPage',
+  sidefake: '/Sidefake',
   userAddress: '/userAddress',
   userOrder: '/userOrder',
   search: 'wyszukaj/:contents?',

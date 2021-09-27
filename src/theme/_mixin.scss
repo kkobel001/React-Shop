@@ -29,7 +29,7 @@
 }
 @mixin activeLink{
   color: $purple-color;
-        font-weight: $bold-weight;
+  font-weight: $bold-weight;
 }
 @mixin header{
      transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86); 
