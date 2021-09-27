@@ -23,18 +23,20 @@ const UserPage = () => {
         {auth ? (
           <>
             <li className="nav-item">
-              <NavLink exact to={`${url}`} className="nav-link active">
+              <NavLink exact to={`${url}`} className="nav-link" activeClassName="active">
                 My orders
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to={`${url}/adress`} className="nav-link active">
+              <NavLink exact to={`${url}/adress`} className="nav-link" activeClassName="active">
                 My addres
               </NavLink>
             </li>
-            <NavLink to="/" onClick={logout}>
-              Wyloguj
-            </NavLink>
+            <li className="nav-item">
+              <NavLink exact to="/" onClick={logout} className="nav-link" activeClassName="active">
+                Wyloguj
+              </NavLink>
+            </li>
           </>
         ) : null}
       </ul>

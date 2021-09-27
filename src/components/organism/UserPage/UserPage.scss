@@ -1,12 +1,33 @@
 @import 'theme/mixin';
 @import 'theme/variable';
 
-
 .wrapper-user{
     padding:0px;
     margin: 70px auto 50px auto;
     @include wrapper;
+    width:70%;
     display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  grid-gap: 25px;
+    grid-template-columns: 30% 70%;
 }
+.nav-item{ 
+    padding: 0px 10px 0px 10px;
+    color: $dark-color;
+    justify-content: flex-end;
+      .nav-link
+      {
+        text-decoration: none;
+        color: $dark-color;
+         &:hover{
+            @include activeLink;
+          }      
+        &.active{
+            @include activeLink;
+          }
+  }
+}
+
+// @media screen and (min-width: 1500px)    {
+//     .wrapper-user{
+//         width:60%;
+//     }
+// }

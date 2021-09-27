@@ -3,14 +3,17 @@
 
 .wrapper-userpanel{
     @include wrapper;
+    width:100%;
     padding:0px;
-    display: grid;
-    grid-template-columns: 30% 70%;
-    max-width: 1500px;
-    margin: 30px auto 50px auto;
+    // display: grid;
+    // grid-template-columns: 30% 70%;
+    // max-width: 1500px;
+    // margin: 30px auto 50px auto;
 }
 .customer-account-content
 {
+    width:100%;
+
     h1 {
         font-size: $bigfont-size;
         margin-bottom:25px;

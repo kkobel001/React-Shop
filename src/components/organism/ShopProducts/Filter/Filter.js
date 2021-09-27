@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
+
 import formatCurrency from '../until';
 import '../Products.scss';
 import MainModal from '../Modal/MainModal';
@@ -17,6 +19,7 @@ class Filter extends Component {
     this.state = {
       allProducts: [],
       filteredProducts: [],
+      loading: false,
     };
   }
 
@@ -25,6 +28,7 @@ class Filter extends Component {
 
     this.setState({
       filteredProducts: allProducts,
+      loading: true,
     });
 
     axios
@@ -56,12 +60,15 @@ class Filter extends Component {
           allProducts: data.allProducts,
           filteredProducts: data.allProducts,
         });
+
+        setTimeout(() => {
+          this.setState({ loading: false });
+        }, 1500);
       });
   }
 
   handleClick = name => () => {
     const { allProducts } = this.state;
-
     let filteredProducts = [];
 
     if (name === 'All') {
@@ -69,12 +76,12 @@ class Filter extends Component {
     } else {
       filteredProducts = allProducts.filter(product => product.category === name);
     }
-
     this.setState({ filteredProducts });
   };
 
   render() {
     const { filteredProducts } = this.state;
+    const { loading } = this.state;
 
     const renderAll = filteredProducts.map(item => (
       <ul className="products">
@@ -99,7 +106,7 @@ class Filter extends Component {
           ))}
         </div>
 
-        <div className="wrapper-shop">{renderAll}</div>
+        <div className="wrapper-shop">{loading ? <LoadingIcon /> : [renderAll]}</div>
       </>
     );
   }
