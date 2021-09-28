@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
-
-import formatCurrency from '../until';
+import formatCurrency from '../../../../helpers/until';
 import '../Products.scss';
 import MainModal from '../Modal/MainModal';
 

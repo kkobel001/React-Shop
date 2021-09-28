@@ -31,3 +31,30 @@
 //         width:60%;
 //     }
 // }
+@media screen and (max-width: 1230px) {
+  .wrapper-user{
+    width:100%;
+    display: block;
+  }
+  icon-row{
+    // display: block;
+    margin:auto;
+  }
+  // .nav-menu {
+  //   grid-template-columns: repeat(5, 2fr);
+  // }
+}
+@media screen and (max-width: 1230px) {
+  .wrapper-user{
+    width:100%;
+    display: block;
+  }
+  icon-row{
+    display: block;
+    // margin-left:auto;
+    // margin-right:auto;
+  }
+  // .nav-menu {
+  //   grid-template-columns: repeat(5, 2fr);
+  // }
+}

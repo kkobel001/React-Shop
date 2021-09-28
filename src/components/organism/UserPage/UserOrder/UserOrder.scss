@@ -1,3 +1,59 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
+.wrapper-userOrder{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    position: relative;
+    margin-bottom: 25px;
+
+    &::after{
+        @include underline;  
+    }  
+    h3{
+        font-size: $smallfont-size;
+        font-weight: $light-weight;
+        color: $medium-color;
+        margin: 0px 4px;
+    }
+}
+.order-status{
+    color: $green-color;
+    display: flex;
+    justify-content: flex-end;
+
+    h2 {
+        margin: 0px 0px 0px 10px;
+        font-weight: $bold-weight;
+        font-size: $smallfont-size;
+    }
+}
+.img-order{
+    margin-top: 10px;
+    height: 200px;
+    width: 200px;  
+}
+.row-orderRight{
+    text-align: end;
+    justify-items: end;
+    display: grid;
+    align-content: space-between
+}
+.row-btnOrder{
+    display: flex; 
+    grid-gap: 40px;    
+}
+.btnOrder{
+    border:none;
+    font-size: $smallfont-size;
+    font-weight: $bold-weight;
+    color: $dark-color;
+    letter-spacing: 1.5px;
+    background-color:transparent;
+
+    &:hover {
+        color: $purple-color;
+        font-weight: $bold-weight;
+    }
+}

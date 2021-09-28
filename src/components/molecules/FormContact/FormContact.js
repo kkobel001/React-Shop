@@ -6,7 +6,6 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
 import axios from 'axios';
 import { validateContact } from 'helpers/Validate';
-import LoadingButton from 'components/atoms/LoadingButton/LoadingButton';
 
 const InitialFormState = {
   name: '',
@@ -55,7 +54,6 @@ function FormContact() {
     }
     setLoading(false);
   };
-
   const updateField = e => {
     setForm({
       ...form,
@@ -63,7 +61,6 @@ function FormContact() {
       InitialFormState,
     });
   };
-
   return (
     <div className="container">
       <div className="wrapper">
@@ -80,7 +77,7 @@ function FormContact() {
             <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" onChange={updateField} />
             {error && <p>{error.message}</p>}
 
-            <LoadingButton type="submit" loading={loading} className="btn-success" label="Send" />
+            <buttonICon type="submit" loading={loading} className="btn-success" label="Send" />
           </div>
         </form>
         <div className="form-context">

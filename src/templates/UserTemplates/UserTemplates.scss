@@ -1,0 +1,33 @@
+@import 'theme/mixin';
+@import 'theme/variable';
+
+.wrapper-userpanel{
+    @include wrapper;
+    width:100%;
+    padding:0px;
+}
+.customer-account-content
+{
+    width:100%;
+    h1 {
+        font-size: $bigfont-size;
+        margin-bottom:25px;
+        position: relative;
+        font-weight: 600;
+        color: $purple-color;
+
+        &::after{
+            @include underline;  
+        }   
+    }
+}
+@media screen and (max-width: 813px) {
+    .wrapper-userpanel{
+        display: block;
+        height:auto;
+   
+    }
+  }
+
+
+
