@@ -33,6 +33,7 @@ const Navbar = () => {
         ))}
       </ul>
       <NavIconMenu />
+      {/* <div> {count}</div> */}
     </nav>
   );
 };
