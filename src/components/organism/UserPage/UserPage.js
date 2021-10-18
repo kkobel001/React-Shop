@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, useRouteMatch, NavLink } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, NavLink, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import './UserPage.scss';
 import UserOrder from './UserOrder/UserOrder';
@@ -8,9 +8,14 @@ import userAddress from './UserAddress/UserAddress';
 const UserPage = () => {
   const { path, url } = useRouteMatch();
   const [auth, setAuth] = useAuth();
+  const history = useHistory();
 
   const logout = e => {
     e.preventDefault();
+
+    if (setAuth) {
+      history.push('/Home');
+    }
     setAuth(false);
   };
 
@@ -30,7 +35,7 @@ const UserPage = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink exact to="/" onClick={logout} className="nav-link" activeClassName="active">
+              <NavLink exact to="/home" onClick={logout} className="nav-link" activeClassName="active">
                 Wyloguj
               </NavLink>
             </li>

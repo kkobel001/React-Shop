@@ -3,7 +3,6 @@ import './UserOrder.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import AbIm01 from 'assets/images/about-01.png';
 import CheckIcon from '@mui/icons-material/Check';
-
 import formatCurrency from '../../../../helpers/until';
 
 const UserOrder = () => (
@@ -14,9 +13,8 @@ const UserOrder = () => (
         <div className="product-price">{formatCurrency(39, 99)}</div>
         <img src={AbIm01} alt="picOne" className="img-order" />
       </div>
-
       <div className="row-orderRight">
-        <div>
+        <div className="details-order">
           <h3> Data zamówienia</h3>
           <div className="order-status">
             <CheckIcon />

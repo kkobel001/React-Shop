@@ -10,17 +10,12 @@
   .icon-row{
     display: flex;
     justify-content: flex-end;
-    // text-decoration: none;
-    // list-style-type: none;
-
     @media screen  and (min-width: 360px) and (max-width: 760px){
       justify-content: center;
       flex-direction: row;
     }
- 
   }
     .icon-item{
-   
     float: left;
     padding: 0px 10px 0px 10px;
     color: $dark-color;
@@ -30,7 +25,6 @@
       {
         text-decoration: none;
         color: $dark-color;
-
           &:hover{
             @include activeLink;
           }      
@@ -41,32 +35,12 @@
 }
 }
 @media screen and (min-width: 1230px) {
-   
   .icon-row {
     display: block;
     text-decoration: none;
-    list-style-type: none;
-    
-  
+    list-style-type: none; 
 }
 }
-
-
-// @media screen and (max-width: 960px){
-//   .icon-row {
-//     width:90%;   
-//   }
-// }
-
-// @media screen and (min-width: 400px) {
-//   .icon-row {
-//     list-style-type: none;
-//     display: flex;
-//     justify-content: space-around;
-//      padding-left:0px;
-//      width: 80%;
-//   }
-// }
 @media screen and (min-width: 160px) and (max-width: 1230px) {
   .icon-row{
     justify-content: center;
@@ -74,12 +48,9 @@
     list-style-type: none;
     padding: 0px;
     justify-content: space-between;
-
-
   }
 }
 @media screen and (min-width: 160px) and (max-width: 500px) {
-
 .nav-item{
   font-size: $smallfont-size;
   padding:0px;

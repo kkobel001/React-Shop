@@ -15,7 +15,7 @@ const NavIconMenu = () => {
     e.preventDefault();
 
     if (setAuth) {
-      history.push('/Shop');
+      history.push('/Home');
     }
     setAuth(false);
   };
@@ -40,7 +40,7 @@ const NavIconMenu = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" onClick={logout}>
+              <NavLink exact to="/Home" onClick={logout}>
                 <LogoutIcon />
               </NavLink>
             </li>

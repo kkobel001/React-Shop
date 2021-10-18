@@ -57,3 +57,29 @@
         font-weight: $bold-weight;
     }
 }
+@media screen  and (max-width: 550px) {
+.wrapper-userOrder{
+    display: block;
+}
+.row-orderRight {
+margin-top:10px;
+
+    .row-btnOrder {
+        width: 100%;
+        margin-top: 5px;
+        justify-content: space-between;
+    } 
+}
+.row-orderLeft {
+    .img-order {
+        @include margX;
+        justify-content: end;
+        width:100%;
+    }
+}
+}
+@media screen  and (max-width: 350px) {
+.btnOrder  {
+    font-size: $minfont-size;
+}
+}

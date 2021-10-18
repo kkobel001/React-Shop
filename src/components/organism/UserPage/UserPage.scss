@@ -3,7 +3,7 @@
 
 .wrapper-user{
     padding:0px;
-    margin: 70px auto 50px auto;
+    margin: 50px auto 50px auto;
     @include wrapper;
     width:70%;
     display: grid;
@@ -25,36 +25,18 @@
           }
   }
 }
-
-// @media screen and (min-width: 1500px)    {
-//     .wrapper-user{
-//         width:60%;
-//     }
-// }
 @media screen and (max-width: 1230px) {
   .wrapper-user{
     width:100%;
     display: block;
   }
   icon-row{
-    // display: block;
     margin:auto;
   }
-  // .nav-menu {
-  //   grid-template-columns: repeat(5, 2fr);
-  // }
 }
-@media screen and (max-width: 1230px) {
-  .wrapper-user{
-    width:100%;
-    display: block;
+@media screen and (max-width: 350px) {
+  .nav-link {
+    font-size: $minfont-size;
   }
-  icon-row{
-    display: block;
-    // margin-left:auto;
-    // margin-right:auto;
-  }
-  // .nav-menu {
-  //   grid-template-columns: repeat(5, 2fr);
-  // }
 }
+
