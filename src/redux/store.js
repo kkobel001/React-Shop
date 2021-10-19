@@ -11,6 +11,6 @@ import { countReducer } from './reducers/productReducers.js';
 
 export default configureStore({
   reducer: {
-    counter: countReducer,
+    count: countReducer,
   },
 });

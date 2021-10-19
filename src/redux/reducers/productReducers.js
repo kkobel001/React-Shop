@@ -11,14 +11,20 @@
 //   }
 //   return state;
 // }
-export const countReducer = (state = { count: 0 }, action) => {
+export const countReducer = (state = 0, action) => {
   switch (action.type) {
-    case 'INCREASE_COUNT':
-      return { ...state, count: action.payload };
-    case 'DECREASE_COUNT':
-      return { ...state, count: action.payload };
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case 'REMOVE_TO_CART':
+      return { ...state, count: state.count + 1 };
 
     default:
       return state;
   }
 };
+// export const defaultState = {
+//   count: 0,
+// };
