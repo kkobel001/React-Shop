@@ -10,7 +10,5 @@ import { countReducer } from './reducers/productReducers.js';
 // store.dispatch({ type: 'conter/increment' });
 
 export default configureStore({
-  reducer: {
-    count: countReducer,
-  },
+  reducer: countReducer,
 });
