@@ -5,8 +5,10 @@ import './UserTemplates.scss';
 const UserTemplates = ({ children, title }) => (
   <div className="wrapper-userpanel">
     <div className="customer-account-content">
-      <h1>{title} </h1>
-      <div>{children}</div>
+      <div className="wrapper-userOrder">
+        <h1>{title} </h1>
+        <div>{children}</div>
+      </div>
     </div>
   </div>
 );

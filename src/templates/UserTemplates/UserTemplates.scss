@@ -5,7 +5,26 @@
     @include wrapper;
     width:100%;
     padding:0px;
+
+    .wrapper-userOrder{
+        width: 100%;
+        // display: grid;
+        grid-template-columns: 40% 60%;
+        position: relative;
+        margin-bottom: 25px;
+    
+        &::after{
+            @include underline;  
+        }  
+        h3{
+            font-size: $smallfont-size;
+            font-weight: $light-weight;
+            color: $medium-color;
+            margin: 0px 4px;
+        }
+    }
 }
+
 .customer-account-content
 {
     width:100%;

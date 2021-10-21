@@ -6,10 +6,14 @@ import './QualityProducts.scss';
 
 const QualityProducts = ({ count, increaseCount, decreaseCount }) => (
   <div className="products-number">
-    <button data-testid="button-remove" className="icon-number" type="button" onClick={increaseCount}>
+    <button data-testid="button-add" className="icon-number" type="button" onClick={increaseCount}>
       +
     </button>
-    <div>{count}</div>
+    <div>
+      <div data-testid="counter" className="number-box">
+        {count}
+      </div>
+    </div>
     <button data-testid="button-remove" className="icon-number" type="button" onClick={decreaseCount}>
       -
     </button>
@@ -27,8 +31,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToprops = dispatch => ({
-  // increment: () => dispatch({ type: 'ADD_TO_CART' }),
-  // decrement: () => dispatch({ type: 'REMOVE_TO_CART' }),
   decreaseCount: props => dispatch(decreaseItem(props - 1)),
   increaseCount: props => dispatch(increaseItem(props - 2)),
 });
