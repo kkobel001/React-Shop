@@ -5,6 +5,8 @@ import Footer from 'components/molecules/Footer/Footer';
 import LoginDetails from 'components/organism/auth/Login/LoginDetails';
 import { routes } from 'routes/routes';
 import UserPage from 'components/organism/UserPage/UserPage';
+import OrderPage from 'components/organism/ShopProducts/OrderPage/OrderPage';
+
 import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
 import Layout from 'components/organism/Layout/Layout';
@@ -27,7 +29,6 @@ function Root() {
   const content = (
     <Switch>
       <AuthenticatedRoute path={routes.userPage} component={UserPage} />
-
       <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
       <Route exact path="/home" component={Home} />
       <Route exact path={routes.shop} component={Shop} />
@@ -37,7 +38,7 @@ function Root() {
       <Route path={routes.bloges} component={DetailsItemBlog} />
       <Route exact path={routes.contact} component={Contact} />
       <Route exact path={routes.search} component={Searchbar} />
-
+      <Route exact path={routes.order} component={OrderPage} />
       <Route component={NotFound} />
     </Switch>
   );

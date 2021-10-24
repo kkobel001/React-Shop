@@ -1,0 +1,35 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+// .wrapper-cardPay{
+//     margin-left:20px;
+// }
+.box-orderL {
+    display: flex;
+    width:100%;
+
+    .box-about {
+        width:100%;
+    }
+    .product-price{
+        color: $purple-color;
+    }
+}
+.mr-order {
+  h2 {
+      font-size: $smallfont-size;
+      font-weight: 600;
+  }
+    justify-content: space-between;
+    display: flex;
+    .MuiSvgIcon-root {
+        margin-top:22px;
+    }
+}
+
+.box-quality{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+margin: 0px 5px 0px 5px;
+}

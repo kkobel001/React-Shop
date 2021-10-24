@@ -28,7 +28,7 @@ const NavIconMenu = () => {
     <div className="icon-wrapper">
       <ul className="icon-row">
         <li className="icon-item">
-          <NavLink exact to="./" className="item-link" activeClassName="active">
+          <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
             <ShoppingCartIcon />
           </NavLink>
         </li>

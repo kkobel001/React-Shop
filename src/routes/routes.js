@@ -11,4 +11,5 @@ export const routes = {
   userAddress: '/userAddress',
   userOrder: '/userOrder',
   search: 'wyszukaj/:contents?',
+  order: '/orderPage',
 };

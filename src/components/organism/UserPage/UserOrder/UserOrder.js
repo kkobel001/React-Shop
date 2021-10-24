@@ -3,7 +3,6 @@ import './UserOrder.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import AbIm01 from 'assets/images/about-01.png';
 import CheckIcon from '@mui/icons-material/Check';
-import CardOrder from 'components/organism/ShopProducts/CardOrder/CardOrder';
 import formatCurrency from '../../../../helpers/until';
 
 const UserOrder = () => (
@@ -32,7 +31,6 @@ const UserOrder = () => (
         </div>
       </div>
     </UserTemplates>
-    <CardOrder />
   </>
 );
 

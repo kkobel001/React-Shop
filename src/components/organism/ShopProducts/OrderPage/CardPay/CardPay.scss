@@ -1,0 +1,58 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.wrapper-cardPay{
+    background-color: $bg-light;
+    margin: 0px;
+    width:100%;
+    padding:30px;
+    margin-left:30px;
+
+}
+
+.row-pay{
+    text-transform: uppercase;
+    font-size: $minfont-size;
+    font-weight: 500;
+    line-height: 3.08;
+    letter-spacing: 0.7px;
+    list-style-type: none;
+    padding-left:0px;
+
+
+    .item-pay {
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        h2 {
+            font-size: $minfont-size;
+            font-weight: 600;
+           
+        }
+        .inner-color{
+            color: $purple-color;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+
+            .MuiSvgIcon-root{
+                margin-left:4px;
+            }
+        }
+    }
+}
+
+.btn-order {
+    @include btn-dark;
+    border-radius: 0%;
+justify-content: center;
+margin-left: 40px;
+
+// @include margX;
+&:hover{
+    @include btn-main;
+    border-radius: 0%;
+
+  }  }
