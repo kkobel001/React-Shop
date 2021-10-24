@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import Sidebar from 'components/organism/Sidebar/Sidebar';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import './UserAddress.scss';
 import { validateContact } from 'helpers/Validate';
+import UserTemplates from 'templates/UserTemplates/UserTemplates';
 
 const InitialFormState = {
   name: '',
@@ -35,11 +35,8 @@ const userAddress = () => {
   };
 
   return (
-    <div className="wrapper-userpanel">
-      {/* <Sidebar /> */}
-      <div className="customer-account-content">
-        <h1>My account </h1>
-
+    <>
+      <UserTemplates title="My account">
         <form onSubmit={handleSubmit} className="input-wrapper">
           <div className="input-row">
             <UserField label="Name" value={form.name} name="imie" />
@@ -69,8 +66,8 @@ const userAddress = () => {
             Save changes
           </button>
         </div>
-      </div>
-    </div>
+      </UserTemplates>
+    </>
   );
 };
 

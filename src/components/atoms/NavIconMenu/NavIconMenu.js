@@ -15,7 +15,7 @@ const NavIconMenu = () => {
     e.preventDefault();
 
     if (setAuth) {
-      history.push('/Shop');
+      history.push('/Home');
     }
     setAuth(false);
   };
@@ -28,7 +28,7 @@ const NavIconMenu = () => {
     <div className="icon-wrapper">
       <ul className="icon-row">
         <li className="icon-item">
-          <NavLink exact to="./" className="item-link" activeClassName="active">
+          <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
             <ShoppingCartIcon />
           </NavLink>
         </li>
@@ -40,7 +40,7 @@ const NavIconMenu = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" onClick={logout}>
+              <NavLink exact to="/Home" onClick={logout}>
                 <LogoutIcon />
               </NavLink>
             </li>

@@ -127,6 +127,7 @@ const LoginDetails = () => {
   const toggleForm = () => {
     setRegist(!regist);
     resetError();
+    console.log('clicked');
   };
   // if (auth) {
   //   history.push('/');

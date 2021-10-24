@@ -1,0 +1,10 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+
+.wrapperOrder {
+  @include wrapper;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}

@@ -122,22 +122,17 @@
 -webkit-box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
 -moz-box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);
 }
-
-
 @mixin effect-icon {
-  
     color:$light-color;
     &:hover {
         color:$purple-color;
-    }
-  
+    } 
 }
 @mixin img-position{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
-
 @mixin img-effect{
   transition: transform 1.5s ease-out;
   
@@ -145,8 +140,6 @@
     transform: scale(1.1);
   }
 }
-
-
 @mixin in-contact {
   width: 80%;
   height: 45px;
@@ -161,7 +154,6 @@
   padding-left: 20px;     
 }
 }
-
 @mixin image-effect{
       transition: all 0.3s;
       display: block;
@@ -170,7 +162,6 @@
         transform: scale(1.1);
       }
 }
-
 @mixin error-mes{
   margin: -6px 0px 15px 65px;
   height:12px;
@@ -178,4 +169,13 @@
   color:$error-color;
   font-size:$minfont-size;
   text-align: start;
+}
+@mixin underline{
+  position: absolute;
+  content: '';
+  height: 2px;
+  bottom: -10px; 
+  left: 0;
+  right: 0;
+  background: $light-color;    
 }
