@@ -1,30 +1,45 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import { useClickOutside } from 'hooks/useClickOutside';
 import './CardPay.scss';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import DeliveryModal from './DeliveryModal/DeliveryModal';
+// import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
-const CardPay = () => (
-  <div className="wrapper-cardPay">
-    <ul className="row-pay">
-      <li className="item-pay">
-        <h2>The price of the products</h2>
-        <div> price</div>
-      </li>
-      <li className="item-pay">
-        <h2>Delivery</h2>
-        <div className="inner-color">
-          Free
-          <InfoOutlinedIcon />
-        </div>
-      </li>
-      <li className="item-pay">
-        <h2>The total amount of with vat</h2>
-        <div> price</div>
-      </li>
-    </ul>
-    <button className="btn-order" type="button">
-      Processed ti checkout
-    </button>
-  </div>
-);
+const CardPay = () => {
+  const [isvisibility, setVisibility] = useState(false);
+  const modalRef = useRef(null);
+  useClickOutside(modalRef, setVisibility);
+
+  return (
+    <div className="wrapper-cardPay">
+      <ul className="row-pay">
+        <li className="item-pay">
+          <h2>The price of the products</h2>
+          <div> price</div>
+        </li>
+        <li className="item-pay">
+          <h2>Delivery</h2>
+          <div className="inner-color">
+            Free
+            <button type="button" onClick={() => setVisibility(true)}>
+              openModal
+            </button>
+            {isvisibility && (
+              <div ref={modalRef}>
+                <DeliveryModal />
+              </div>
+            )}
+          </div>
+        </li>
+        <li className="item-pay">
+          <h2>The total amount of with vat</h2>
+          <div> price</div>
+        </li>
+      </ul>
+      <button className="btn-order" type="button">
+        Processed ti checkout
+      </button>
+    </div>
+  );
+};
 
 export default CardPay;

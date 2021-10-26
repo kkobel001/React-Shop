@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { useClickOutside } from 'hooks/useClickOutside';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -31,21 +32,27 @@ const sliderImages = [
 
 const Modal = ({ showModal, setShowModal }) => {
   const [showSubModal, setSubModal] = useState(false);
-  const handleKeyup = e => e.keyCode === 27 && setSubModal(prev => !prev);
+  // const handleKeyup = e => e.keyCode === 27 && setSubModal(prev => !prev);
+  const modalRef = useRef(null);
+  useClickOutside(modalRef, setSubModal);
 
   const openSubModal = () => {
     setSubModal(prev => !prev);
   };
 
-  useEffect(() => {
-    if (showSubModal) window.addEventListener('keyup', handleKeyup);
-    return () => window.removeEventListener('keyup', handleKeyup);
-  });
+  // useEffect(() => {
+  //   if (showSubModal) window.addEventListener('keyup', handleKeyup);
+  //   return () => window.removeEventListener('keyup', handleKeyup);
+  // });
+
+  const closeSubModal = () => {
+    setSubModal(prev => !prev);
+  };
 
   return (
     <>
       {showModal ? (
-        <div className="modal" showModal={showModal}>
+        <div className="modal" showModal={showModal} onKeyDown={closeSubModal} role="button" tabIndex={0}>
           <ClearIcon className="close-modal" onClick={() => setShowModal(prev => !prev)} />
           <div className="wrapper-modal">
             <div className=" section-image">
