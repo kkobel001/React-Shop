@@ -17,6 +17,31 @@
   margin-right: auto;
 }
 
+
+@mixin containerModal{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: rgba(35, 31, 32, 0.4);
+  z-index: 10000;
+  transition: opacity .3s;
+  justify-content: center;
+  height: 100%;
+}
+@mixin wrapperModal {
+  position: static;
+  z-index: 9999999;
+  overflow: hidden;
+  align-items: center;
+  -webkit-animation: showSweetAlert .3s;
+  animation: showSweetAlert .3s;
+  box-sizing: border-box;   
+
+}
+
 @mixin links {
   color: $dark-color;
   text-decoration: none;
@@ -114,8 +139,8 @@
 
 @mixin box-center{
   justify-content: center;
-    align-items: center;
-    display: flex;
+  align-items: center;
+  display: flex;
 }
 @mixin box-effect {
   box-shadow: 5px 10px 44px 5px rgba(0,0,0,0.55);

@@ -1,49 +1,50 @@
 import React from 'react';
+import UserTemplates from 'templates/UserTemplates/UserTemplates';
+import './DeliveryModal.scss';
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 
 const listDelivery = [
   {
     id: 1,
-    // image: 'https://preview.colorlib.com/theme/cozastore/images/banner-01.jpg',
     title: 'Pickup in store',
     subbuton: ' 1 to 5 busines dau',
-    delivery: 'Free',
   },
   {
     id: 2,
-    // image: 'https://preview.colorlib.com/theme/cozastore/images/banner-01.jpg',
-    title: 'Pickup in store',
+    title: 'Delivery to a parcel',
     subbuton: ' 1 to 5 busines dau',
-    delivery: 'Free',
   },
   {
     id: 3,
-    // image: 'https://preview.colorlib.com/theme/cozastore/images/banner-01.jpg',
-    title: 'Pickup in store',
+    title: 'Standard home',
     subbuton: ' 1 to 5 busines dau',
-    delivery: 'Free',
   },
   {
     id: 4,
-    // image: 'https://preview.colorlib.com/theme/cozastore/images/banner-01.jpg',
-    title: 'Pickup in store',
+    title: 'Delivery to: Żabka, DHL Parcel, Inmedio',
     subbuton: ' 1 to 5 busines dau',
-    delivery: 'Free',
   },
 ];
 
 const DeliveryModal = () => (
-  <div className="container-submodal">
-    <div className="wrapper-submodal">
-      {listDelivery.map(({ title, subbuton, delivery, id }) => (
-        <li className="banner-items" key={id}>
-          {/* <img src={image} alt="banner-img" /> */}
-          <h1>{title}</h1>
-          <p>{subbuton}</p>
-          <p>{delivery}</p>
-
-          <div className="visible-button">Shop now!</div>
-        </li>
-      ))}
+  <div className="container-deliverymodal">
+    <div className="wrapper-deliverymodal">
+      <UserTemplates title="Time and cost of delivery">
+        <ul className="delivery-list">
+          {listDelivery.map(({ title, subbuton, id }) => (
+            <li className="item-delivery" key={id}>
+              <div>
+                <LocalShippingOutlinedIcon />
+              </div>
+              <div className="description-modal">
+                <h2>{title}</h2>
+                <p>{subbuton}</p>
+              </div>
+              <p>Free</p>
+            </li>
+          ))}
+        </ul>
+      </UserTemplates>
     </div>
   </div>
 );
