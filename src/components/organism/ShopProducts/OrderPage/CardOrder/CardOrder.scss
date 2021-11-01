@@ -21,15 +21,29 @@
       font-weight: 600;
   }
     justify-content: space-between;
+
+
     display: flex;
     .MuiSvgIcon-root {
         margin-top:22px;
     }
 }
-
 .box-quality{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
 margin: 0px 5px 0px 5px;
 }
+
+@media screen  and (min-width: 200px) and (max-width:500px) {
+    .box-orderL  {
+        display:block;
+        .img-order{width:100%;}
+    }
+     .box-quality {
+         margin-top:-30px;
+     }
+
+   
+    }
+    

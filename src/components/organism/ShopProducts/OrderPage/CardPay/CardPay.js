@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './CardPay.scss';
 import DeliveryModal from './DeliveryModal/DeliveryModal';
-// import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const CardPay = () => {
   const [isvisibility, setVisibility] = useState(false);
@@ -20,8 +20,8 @@ const CardPay = () => {
           <h2>Delivery</h2>
           <div className="inner-color">
             Free
-            <button type="button" onClick={() => setVisibility(true)}>
-              openModal
+            <button type="button" className="btn-none" onClick={() => setVisibility(true)}>
+              <InfoOutlinedIcon />
             </button>
             {isvisibility && (
               <div ref={modalRef}>
