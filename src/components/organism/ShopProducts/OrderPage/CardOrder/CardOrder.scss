@@ -1,9 +1,6 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-// .wrapper-cardPay{
-//     margin-left:20px;
-// }
 .box-orderL {
     display: flex;
     width:100%;
@@ -20,30 +17,26 @@
       font-size: $smallfont-size;
       font-weight: 600;
   }
-    justify-content: space-between;
-
-
-    display: flex;
-    .MuiSvgIcon-root {
-        margin-top:22px;
-    }
+       justify-content: space-between;
+        display: flex;
+            .MuiSvgIcon-root {
+                margin-top:22px;
+            }
 }
 .box-quality{
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-margin: 0px 5px 0px 5px;
+    margin: 0px 5px 0px 5px;
 }
 
 @media screen  and (min-width: 200px) and (max-width:500px) {
     .box-orderL  {
         display:block;
-        .img-order{width:100%;}
+    .img-order{width:100%;}
     }
      .box-quality {
          margin-top:-30px;
      }
-
-   
     }
     

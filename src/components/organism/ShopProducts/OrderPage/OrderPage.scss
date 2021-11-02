@@ -1,14 +1,15 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-.wrapperOrder {
+.wrapper-order {
   @include wrapper;
     display: grid;
     grid-template-columns: 60% 40%;
 }
-@media screen and (min-width: 200px) and (max-width: 800px){
-  .wrapperOrder{
+@media screen and (min-width: 200px) and (max-width: 940px){
+  .wrapper-order{
     display: block;
+    padding:0px 10px;
     width: 100%;
     margin-bottom: 30px;
       }

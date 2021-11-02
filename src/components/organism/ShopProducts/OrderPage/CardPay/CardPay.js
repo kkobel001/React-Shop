@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './CardPay.scss';
+import formatCurrency from 'helpers/until';
+
 import DeliveryModal from './DeliveryModal/DeliveryModal';
 
 const CardPay = () => {
@@ -32,7 +34,7 @@ const CardPay = () => {
         </li>
         <li className="item-pay">
           <h2>The total amount of with vat</h2>
-          <div> price</div>
+          <div className="btn-none"> {formatCurrency(39, 99)}</div>
         </li>
       </ul>
       <button className="btn-order" type="button">

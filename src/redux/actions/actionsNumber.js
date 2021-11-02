@@ -9,3 +9,16 @@ export const increaseCount = count => ({
   type: 'ADD_TO_CART',
   payload: count + 1,
 });
+
+export const addToCart = count => ({
+  type: 'ADD_TO_CART',
+  payload: count + 1,
+});
+export const removeFromCart = count => ({
+  type: 'ADD_TO_CART',
+  payload: count + 1,
+});
+export const currentItem = count => ({
+  type: 'CURRENT_CART',
+  payload: count + 1,
+});
