@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
+import { connect } from 'react-redux';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -7,6 +8,8 @@ import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import QualityProducts from 'components/organism/ShopProducts/Product/QualityProducts';
 import Slider from 'components/atoms/Slider/Slider';
 import InputSelect from 'components/atoms/Input/InputSelect';
+import { addToCartAction } from 'redux/actions/actionsOrder';
+
 import SubModal from '../SubModal/SubModal';
 
 const sliderImages = [
@@ -30,7 +33,7 @@ const sliderImages = [
   },
 ];
 
-const Modal = ({ showModal, setShowModal }) => {
+const Modal = ({ showModal, setShowModal, addToCard }) => {
   const [showSubModal, setSubModal] = useState(false);
   // const handleKeyup = e => e.keyCode === 27 && setSubModal(prev => !prev);
   const modalRef = useRef(null);
@@ -92,7 +95,14 @@ const Modal = ({ showModal, setShowModal }) => {
                 <div className="add-section">
                   <QualityProducts />
                   <div className="row-submodal">
-                    <button className="btn-modal" type="button" onClick={openSubModal}>
+                    <button
+                      className="btn-modal"
+                      type="button"
+                      onClick={() => {
+                        openSubModal();
+                        addToCard();
+                      }}
+                    >
                       Add to Card
                     </button>
                     <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
@@ -111,6 +121,10 @@ const Modal = ({ showModal, setShowModal }) => {
 Modal.propTypes = {
   showModal: PropTypes.func.isRequired,
   setShowModal: PropTypes.func.isRequired,
+  addToCard: PropTypes.func.isRequired,
 };
 
-export default Modal;
+const mapDispatchToprops = dispatch => ({
+  addToCard: () => dispatch(addToCartAction),
+});
+export default connect(mapDispatchToprops)(Modal);

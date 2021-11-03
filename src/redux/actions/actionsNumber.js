@@ -10,15 +10,22 @@ export const increaseCount = count => ({
   payload: count + 1,
 });
 
-export const addToCart = count => ({
-  type: 'ADD_TO_CART',
-  payload: count + 1,
-});
-export const removeFromCart = count => ({
-  type: 'ADD_TO_CART',
-  payload: count + 1,
-});
 export const currentItem = count => ({
   type: 'CURRENT_CART',
   payload: count + 1,
 });
+
+// export const addToCartAction = itemID => ({
+//   type: ADDED_TO_CART,
+//   payload: { id: itemID },
+// });
+
+// export const removeCartUnits = itemID => ({
+//   type: REMOVE_FROM_CART,
+//   payload: { id: itemID },
+// });
+
+// export const UpdateQty = (itemID, value) => ({
+//   type: UPDATE_QTY,
+//   payload: { id: itemID, count: value },
+// });
