@@ -1,16 +1,24 @@
-export const ADD_TO_CART = 'ADD_TO_CART';
-export const UPDATE_CART_UNITS = 'UPDATE_CART_UNITS';
+export const ADDED_TO_CART = 'ADD_TO_CART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART ';
+export const UPDATE_QTY = 'UPDATE_QTY ';
+export const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM ';
 
-export function addToCartAction({ id, title, price, image, value }) {
-  return {
-    type: ADD_TO_CART,
-    payload: { id, title, price, image, value },
-  };
-}
+export const addToCartAction = itemID => ({
+  type: ADDED_TO_CART,
+  payload: { id: itemID },
+});
 
-export function updateCartUnits({ id, value }) {
-  return {
-    type: UPDATE_CART_UNITS,
-    payload: { id, value },
-  };
-}
+export const removeCartUnits = itemID => ({
+  type: REMOVE_FROM_CART,
+  payload: { id: itemID },
+});
+
+export const UpdateQty = (itemID, qty) => ({
+  type: UPDATE_QTY,
+  payload: { id: itemID, qty },
+});
+
+export const loadCurrentItem = item => ({
+  type: LOAD_CURRENT_ITEM,
+  payload: item,
+});

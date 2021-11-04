@@ -1,0 +1,50 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+.container-deliverymodal{
+    @include box-center;
+    @include containerModal;
+    background: rgba(35, 31, 32, 0.4);
+    position: fixed;
+    inset: 0px;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 1000;
+    color:$green-color;
+}
+.wrapper-deliverymodal{
+    @include margX;
+    @include margY;
+    @include wrapperModal;
+    padding: 15px 20px;
+    width: 60vh;
+    bottom: auto;
+    background-color: white;
+}
+.delivery-list{
+    padding-left: 0px;
+    .item-delivery {
+        align-items: baseline;
+        display: grid;
+        grid-template-columns: 10% 60% 30%;
+        grid-gap: 10px;
+        align-items: center;
+        color:$purple-color;
+
+}
+}
+.description-modal {
+    text-align: start;
+    color:black;
+
+    h2 {
+        margin: 0px;
+        height: 20px;
+    }
+    p {
+        margin: 0px;
+        align-content: flex-start;
+        font-weight: $light-weight;
+    }
+}
