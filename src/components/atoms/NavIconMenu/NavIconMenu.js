@@ -30,6 +30,7 @@ const NavIconMenu = () => {
         <li className="icon-item">
           <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
             <ShoppingCartIcon />
+            <span className="minicart-count">5</span>
           </NavLink>
         </li>
         {auth ? (

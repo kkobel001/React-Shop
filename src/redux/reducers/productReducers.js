@@ -29,8 +29,9 @@ export const countReducer = (state = defaultState, action) => {
     case 'ADDED_TO_CART': {
       const item = state.products.find(product => product.id === action.payload.id);
       // Check if Item is in cart already
+
       // eslint-disable-next-line no-shadow
-      const inCart = state.cart.find(item => item.id === action.payload.id);
+      const inCart = !!state.cart.find(item => item.id === action.payload.id);
 
       return {
         ...state,
@@ -48,7 +49,6 @@ export const countReducer = (state = defaultState, action) => {
         ...state,
         currentItem: action.payload,
       };
-
     case 'LOAD_CURRENT_ITEM':
       return {
         ...state,

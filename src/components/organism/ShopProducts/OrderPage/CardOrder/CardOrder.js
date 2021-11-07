@@ -1,18 +1,25 @@
 import React from 'react';
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+// import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import './CardOrder.scss';
 // import formatCurrency from 'helpers/until';
+// import {removeCartUnits} from '/redux/actions/actionsOrder';
 import PropTypes from 'prop-types';
 import QualityProducts from '../../Product/QualityProducts';
 
 const CardOrder = ({ productData }) => (
+  // const handleRemoveNote = () => {
+  //   removeNote({ id: id });
+  // };
+
   <>
     <div className="box-orderL">
       <img src={productData.img} alt="banner-img" className="img-order" />
       <div className="box-about">
         <div className="mr-order">
           <h2>{productData.title}</h2>
-          <DeleteOutlineIcon />
+          {/* <button type="button" className="btn-none" onClick={() => setVisibility(true)}>
+            <DeleteOutlineIcon />
+          </button> */}
         </div>
         <h3> Color: {productData.color} </h3>
         <h3> Size: {productData.size} </h3>

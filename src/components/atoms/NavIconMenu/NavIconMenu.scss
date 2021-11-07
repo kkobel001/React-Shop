@@ -25,14 +25,36 @@
       {
         text-decoration: none;
         color: $dark-color;
+        position:relative;
           &:hover{
             @include activeLink;
           }      
           &.active{
             @include activeLink;
-          }
+          }      
   }
 }
+}
+.minicart-count {
+  font-size: $minfont-size;
+  letter-spacing: normal;
+  width: 15px;
+  background-color: $purple-color;
+  color: white;
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  left: calc(50% - 1px);
+  line-height: 11px;
+  overflow: hidden;
+  padding: 0px;
+  margin: 0px 0px 0px 5px;
+  border-radius: 7px;
+  height: 15px;
+  border: 2px
+  solid transparent;
+  text-align: center;
+  box-sizing: border-box;
 }
 @media screen and (min-width: 1230px) {
   .icon-row {
