@@ -5,14 +5,18 @@
     @include wrapper;
     text-align: center;
     margin:50px auto 50px auto;
-    margin-top: 10px;
+    margin-top: 50px;
 
     img {
        margin: 20px 0px 20px 0px;
-        width: 90%;     
+        width: 100%;     
     }
     .text-blog{
         text-align: justify;
+    }
+    h2 {
+        letter-spacing: 2px;
+        margin-bottom: 0px;
     }
 }
 @media screen and (max-width: 1100px) {
@@ -37,10 +41,11 @@
             object-fit: scale-down;
         }
 }
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 450px) {
     .wrapper-blogItems{
         width:100%;
         padding:10px;
+        margin-top:0px;
     }
         img{
             width:100%;

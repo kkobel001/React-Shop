@@ -7,23 +7,23 @@ import CardOrder from './CardOrder/CardOrder';
 import CardPay from './CardPay/CardPay';
 import './OrderPage.scss';
 
-const OrderPage = ({ products }) => (
-  <div className="wrapper-order">
-    <UserTemplates title="Order">
-      {products.map(prod => (
-        <CardOrder key={prod.id} productData={prod} />
-      ))}
-    </UserTemplates>
-    <CardPay />
-  </div>
-);
+const OrderPage = ({ allProducts }) => {
+  const isQtyProducts = allProducts.length > 0;
+  const hasProducts = isQtyProducts ? allProducts.map(prod => <CardOrder key={prod.id} productData={prod} />) : <div> Please add some products to cart</div>;
+  return (
+    <div className="wrapper-order">
+      <UserTemplates title="Order">{hasProducts}</UserTemplates>
+      <CardPay />
+    </div>
+  );
+};
 
 const mapStateToProps = state => ({
-  products: state.products,
+  allProducts: state.allProducts,
 });
 
 OrderPage.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  allProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default connect(mapStateToProps)(OrderPage);

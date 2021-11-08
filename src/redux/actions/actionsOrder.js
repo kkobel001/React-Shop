@@ -13,9 +13,9 @@ export const removeCartUnits = itemID => ({
   payload: { id: itemID },
 });
 
-export const UpdateQty = (itemID, qty) => ({
+export const UpdateQty = (itemID, count) => ({
   type: UPDATE_QTY,
-  payload: { id: itemID, qty },
+  payload: { id: itemID, count },
 });
 
 export const loadCurrentItem = item => ({

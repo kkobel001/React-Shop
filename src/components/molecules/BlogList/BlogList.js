@@ -52,7 +52,7 @@ const BlogList = () => {
     <div className="wrapper-blog">
       {articles.length > 0 && loading ? (
         articles.map(({ id, title, description, image }) => (
-          <div className="blog-items" key={id}>
+          <div className="blog-items" key={title}>
             <div className="image-section">
               <Link to={`${url}/${id}`} className="blog-link">
                 <img src={image.url} alt="blog" />

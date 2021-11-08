@@ -1,15 +1,27 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
+// import { PropTypes } from 'prop-types';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import './NavIconMenu.scss';
+// import { connect } from 'react-redux';
 
 const NavIconMenu = () => {
   const [auth, setAuth] = useAuth();
   const history = useHistory();
+  // const [cartCount, setCartCount] = useState(0);
+
+  // useEffect(() => {
+  //   let count = 0;
+  //   cart.forEach(item => {
+  //     count += item.qty;
+  //   });
+
+  //   setCartCount(count);
+  // }, [cart, cartCount]);
 
   const logout = e => {
     e.preventDefault();
@@ -59,5 +71,13 @@ const NavIconMenu = () => {
     </div>
   );
 };
+
+// NavIconMenu.propTypes = {
+//   cart: PropTypes.arrayOf(PropTypes.object).isRequired,
+// };
+
+// const mapStateToProps = state => ({
+//   cart: state.shop.cart,
+// });
 
 export default NavIconMenu;
