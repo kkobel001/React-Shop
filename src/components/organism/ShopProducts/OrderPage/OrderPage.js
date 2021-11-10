@@ -24,6 +24,7 @@ const mapStateToProps = state => ({
 
 OrderPage.propTypes = {
   allProducts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // item: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default connect(mapStateToProps)(OrderPage);

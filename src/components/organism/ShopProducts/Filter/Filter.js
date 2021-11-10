@@ -87,7 +87,7 @@ class Filter extends Component {
         <li key={item.title}>
           <div className="section">
             <img src={item.image.url} alt={item.title} />
-            <MainModal />
+            <MainModal item={item} />
           </div>
           <h3>{item.title}</h3>
           <div className="product-price">{formatCurrency(item.price)}</div>

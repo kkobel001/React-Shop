@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addProduct } from 'redux/reducers/productReducers';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -8,8 +9,6 @@ import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import QualityProducts from 'components/organism/ShopProducts/Product/QualityProducts';
 import Slider from 'components/atoms/Slider/Slider';
 import InputSelect from 'components/atoms/Input/InputSelect';
-import { addToCartAction } from 'redux/actions/actionsOrder';
-
 import SubModal from '../SubModal/SubModal';
 
 const sliderImages = [
@@ -33,23 +32,21 @@ const sliderImages = [
   },
 ];
 
-const Modal = ({ showModal, setShowModal, addToCard }) => {
+const Modal = ({ item, showModal, setShowModal }) => {
   const [showSubModal, setSubModal] = useState(false);
-  // const handleKeyup = e => e.keyCode === 27 && setSubModal(prev => !prev);
   const modalRef = useRef(null);
   useClickOutside(modalRef, setSubModal);
+  const dispatch = useDispatch;
 
-  const openSubModal = () => {
+  // const openSubModal = () => {
+  //   setSubModal(prev => !prev);
+  // };
+  const closeSubModal = () => {
     setSubModal(prev => !prev);
   };
 
-  // useEffect(() => {
-  //   if (showSubModal) window.addEventListener('keyup', handleKeyup);
-  //   return () => window.removeEventListener('keyup', handleKeyup);
-  // });
-
-  const closeSubModal = () => {
-    setSubModal(prev => !prev);
+  const handleAddToCart = allproduct => {
+    dispatch(addProduct(allproduct));
   };
 
   return (
@@ -63,8 +60,8 @@ const Modal = ({ showModal, setShowModal, addToCard }) => {
             </div>
             <div className="section-add">
               <div className="section-text">
-                <h2>Lighweight Jacket</h2>
-                <div>$57.55</div>
+                <h2>{item.item.title}</h2>
+                <div>${item.item.price}</div>
               </div>
               <div className="modal-box">
                 <div className="filter-size">
@@ -99,8 +96,8 @@ const Modal = ({ showModal, setShowModal, addToCard }) => {
                       className="btn-modal"
                       type="button"
                       onClick={() => {
-                        openSubModal();
-                        addToCard();
+                        // openSubModal();
+                        handleAddToCart(item);
                       }}
                     >
                       Add to Card
@@ -119,12 +116,13 @@ const Modal = ({ showModal, setShowModal, addToCard }) => {
 };
 
 Modal.propTypes = {
+  item: PropTypes.instanceOf(Object).isRequired,
   showModal: PropTypes.func.isRequired,
   setShowModal: PropTypes.func.isRequired,
-  addToCard: PropTypes.func.isRequired,
+  // addToCard: PropTypes.func.isRequired,
 };
 
-const mapDispatchToprops = dispatch => ({
-  addToCard: () => dispatch(addToCartAction),
-});
-export default connect(mapDispatchToprops)(Modal);
+// const mapDispatchToprops = dispatch => ({
+//   addToCard: () => dispatch(addToCartAction),
+// });
+export default Modal;

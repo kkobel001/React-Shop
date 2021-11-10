@@ -1,19 +1,19 @@
 import React from 'react';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import { removeCartUnits as removeFromCart } from 'redux/actions/actionsOrder';
+// import { removeCartUnits as removeFromCart } from 'redux/actions/actionsOrder';
 import './CardOrder.scss';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import QualityProducts from '../../Product/QualityProducts';
 
-const CardOrder = ({ productData, removeCartUnits }) => (
+const CardOrder = ({ productData }) => (
   <>
     <div className="box-orderL">
       <img src={productData.img} alt="banner-img" className="img-order" />
       <div className="box-about">
         <div className="mr-order">
           <h2>{productData.title}</h2>
-          <button type="button" className="btn-none" onClick={removeCartUnits}>
+          <button type="button" className="btn-none">
             <DeleteOutlineIcon />
           </button>
         </div>
@@ -37,15 +37,15 @@ CardOrder.propTypes = {
     size: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }),
-  removeCartUnits: PropTypes.func.isRequired,
+  // item: PropTypes.instanceOf(Object).isRequired,
 };
 
 CardOrder.defaultProps = {
   productData: null,
 };
 
-const mapDispatchToProps = dispatch => ({
-  removeCartUnits: id => dispatch(removeFromCart(id)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   removeCartUnits: id => dispatch(removeFromCart(id)),
+// });
 
-export default connect(null, mapDispatchToProps)(CardOrder);
+export default CardOrder;

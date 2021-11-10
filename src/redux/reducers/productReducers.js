@@ -1,22 +1,33 @@
-// import Filter from "components/organism/ShopProducts/Filter/Filter";
+import { createSlice } from '@reduxjs/toolkit';
+
 import AbIm01 from 'assets/images/about-01.png';
 
-const defaultState = {
-  count: 1,
-  // products: [
-  //   { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01 },
-  //   { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01 },
-  //   { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01 },
-  // ], // {id, title, desc, price,img}
+const initialOrderState = {
+  count: 0,
   allProducts: [
-    { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01 },
-    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01 },
-    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01 },
+    { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01, count: 5 },
+    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01, count: 1 },
+    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01, count: 8 },
   ],
-  cart: [],
+  cartItems: [],
+  cartTotal: 0,
 };
 
-export const countReducer = (state = defaultState, action) => {
+const orderSlice = createSlice({
+  name: 'cart',
+  initialState: initialOrderState,
+  reducers: {
+    addProduct(state, action) {
+      state.cartItems.push(action.payload);
+    },
+    // removeProduct(state, action) {},
+  },
+});
+
+export const { addProduct } = orderSlice.actions;
+export default orderSlice.reducer;
+
+export const countReducer = (state = initialOrderState, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       if (state.count === 15) {
@@ -31,30 +42,32 @@ export const countReducer = (state = defaultState, action) => {
         return state;
       }
       return { ...state, count: state.count - 1 };
-    case 'ADDED_TO_CART': {
-      const item = state.allProducts.find(product => product.id === action.payload.id);
+    // case 'ADD_ITEM_TO_CART':
+    //   if (state.count > 0) return state;
+    //   return {
+    //     ...state,
+    //     cartItems: state.count,
+    //   };
+
+    case 'ADD_ITEM_TO_CART':
+      // eslint-disable-next-line no-case-declarations
+      // const item = state.allProducts.find(product => product.id === action.payload.id);
+
+      //     const inCart = state.cart.find((item) =>
+      //   item.id === action.payload.id
+      // );
 
       return {
         ...state,
-        // eslint-disable-next-line no-shadow
-        cart: item ? state.cart.map(item => (item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item)) : [...state.cart, { ...item, qty: 1 }],
+        cart: [...state.cart, action.payload],
       };
-    }
-    case 'REMOVE_FROM_CART ':
+
+    case 'UPDATE_CART_ITEM':
       return {
         ...state,
-        product: state.cart.filter(item => item.id !== action.payload.id),
+        // cart: state.cart.map(item => (item.id === action.payload.id ? { ...item, count: +action.payload.count } : item)),
       };
-    case 'UPDATE_QTY':
-      return {
-        ...state,
-        count: action.payload,
-      };
-    case 'LOAD_CURRENT_ITEM':
-      return {
-        ...state,
-        count: action.payload,
-      };
+
     default:
       return state;
   }

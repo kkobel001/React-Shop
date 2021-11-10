@@ -13,6 +13,7 @@
   "rules": {
     "import/prefer-default-export": 0,
     "import/no-unresolved": 1,
+      "no-shadow": "off",
     "react/jsx-filename-extension": [
       1,
       {
