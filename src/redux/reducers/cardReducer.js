@@ -1,12 +1,12 @@
-import AbIm01 from 'assets/images/about-01.png';
+// import AbIm01 from 'assets/images/about-01.png';
 
 const defaultState = {
   count: 1,
-  products: [
-    { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01 },
-    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01 },
-    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01 },
-  ], // {id, title, desc, price,img}
+  // products: [
+  //   { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01 },
+  //   { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01 },
+  //   { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01 },
+  // ], // {id, title, desc, price,img}
   currentItem: null,
   cart: [],
 };

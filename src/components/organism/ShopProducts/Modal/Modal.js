@@ -36,17 +36,17 @@ const Modal = ({ item, showModal, setShowModal }) => {
   const [showSubModal, setSubModal] = useState(false);
   const modalRef = useRef(null);
   useClickOutside(modalRef, setSubModal);
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
-  // const openSubModal = () => {
-  //   setSubModal(prev => !prev);
-  // };
+  const openSubModal = () => {
+    setSubModal(prev => !prev);
+  };
   const closeSubModal = () => {
     setSubModal(prev => !prev);
   };
 
-  const handleAddToCart = allproduct => {
-    dispatch(addProduct(allproduct));
+  const handleAddToCart = item => {
+    dispatch(addProduct(item));
   };
 
   return (
@@ -96,7 +96,7 @@ const Modal = ({ item, showModal, setShowModal }) => {
                       className="btn-modal"
                       type="button"
                       onClick={() => {
-                        // openSubModal();
+                        openSubModal();
                         handleAddToCart(item);
                       }}
                     >

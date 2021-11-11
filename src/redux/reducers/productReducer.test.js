@@ -1,4 +1,4 @@
-import countReducer from './productReducers';
+import { countReducer } from './productReducers';
 
 describe('productReducer', ({ state }) => {
   // describe('counter', () => {

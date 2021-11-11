@@ -23,14 +23,14 @@ export const currentItem = item => ({
 //   payload: { id, ...payload },
 // });
 
-export const updateCartItem = (itemID, count) => ({
-  type: 'UPDATE_CART_ITEM',
-  payload: {
-    id: itemID,
-    count,
-  },
-});
-export const removeProduct = payload => ({
-  type: 'REMOVE_STOCK_ITEM',
-  payload: { payload },
-});
+// export const updateCartItem = (itemID, count) => ({
+//   type: 'UPDATE_CART_ITEM',
+//   payload: {
+//     id: itemID,
+//     count,
+//   },
+// });
+// export const removeProduct = payload => ({
+//   type: 'REMOVE_STOCK_ITEM',
+//   payload: { payload },
+// });

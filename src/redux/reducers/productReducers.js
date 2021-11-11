@@ -1,25 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import AbIm01 from 'assets/images/about-01.png';
-
-const initialOrderState = {
+const initialState = {
   count: 0,
-  allProducts: [
-    { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01, count: 5 },
-    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01, count: 1 },
-    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01, count: 8 },
-  ],
-  cartItems: [],
+  cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
   cartTotal: 0,
 };
 
 const orderSlice = createSlice({
   name: 'cart',
-  initialState: initialOrderState,
+  initialState,
   reducers: {
     addProduct(state, action) {
-      state.cartItems.push(action.payload);
+      const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+      if (itemIndex >= 0) {
+        state.cartItems[itemIndex].cartQuantity += 1;
+      } else {
+        const conProduct = { ...action.payload, cartQuantity: 1 };
+        state.cartItems.push(conProduct);
+      }
+
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
+
     // removeProduct(state, action) {},
   },
 });
@@ -27,7 +29,7 @@ const orderSlice = createSlice({
 export const { addProduct } = orderSlice.actions;
 export default orderSlice.reducer;
 
-export const countReducer = (state = initialOrderState, action) => {
+export const countReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       if (state.count === 15) {
