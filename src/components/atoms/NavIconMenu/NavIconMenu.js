@@ -12,16 +12,6 @@ import { connect } from 'react-redux';
 const NavIconMenu = ({ count }) => {
   const [auth, setAuth] = useAuth();
   const history = useHistory();
-  // const [cartCount, setCartCount] = useState(0);
-
-  // useEffect(() => {
-  //   let count = 0;
-  //   cart.forEach(item => {
-  //     count += item.qty;
-  //   });
-
-  //   setCartCount(count);
-  // }, [cart, cartCount]);
 
   const logout = e => {
     e.preventDefault();

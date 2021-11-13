@@ -100,19 +100,18 @@
 }
 @media screen and (max-width: 460px){
   .wrapper-shop{
-    padding:0px;
+    padding: 0px;
   }
   .btn-description{
     font-size: 14px;
     padding: 5px 10px 5px 10px;
   }
   .products {
-
-    li {
-      margin-left:0px;
-    }
+      li {
+        margin-left:0px;
+      }
   }
-    .section {
+  .section {
       height:200px;
     }
 }

@@ -1,0 +1,109 @@
+.wrapper-faq {
+  width: 100%;
+  padding: 100px;
+}
+
+@-webkit-keyframes boxshow {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@keyframes boxshow {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes content {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2%);
+            transform: translateX(-2%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes content {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-2%);
+            transform: translateX(-2%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.wrapper-items {
+  width: 600px;
+  margin: 30px 0;
+  position: relative;
+}
+
+.wrapper-items summary {
+  font-size: 24px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.wrapper-items summary::after {
+  position: absolute;
+  left: -50px;
+  display: inline-block;
+  content: '>';
+  margin-left: 20px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.wrapper-items summary:focus-visible {
+  outline: 3px solid #f9e852;
+}
+
+.wrapper-items summary::after {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+details {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-animation: 0.5s ease-in-out 1 forwards boxshow;
+          animation: 0.5s ease-in-out 1 forwards boxshow;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 20px 0;
+  padding: 20px 40px 20px 20px;
+  border-left: 10px solid black;
+}
+
+details p {
+  opacity: 0;
+  -webkit-animation: 0.3s 0.6s ease-in 1 forwards content;
+          animation: 0.3s 0.6s ease-in 1 forwards content;
+  background-color: #f9e852;
+}
+/*# sourceMappingURL=Faq.css.map */

@@ -3,7 +3,7 @@
 
 .container-submodal{  
     @include box-center;
-@include containerModal;
+    @include containerModal;
 }
 .wrapper-submodal{
     @include box-effect;

@@ -47,7 +47,7 @@ export const CardTwo = [
   {
     id: 12,
     title: 'FAQs',
-    url: './',
+    url: '/faq',
     cName: 'nav-links',
   },
 ];

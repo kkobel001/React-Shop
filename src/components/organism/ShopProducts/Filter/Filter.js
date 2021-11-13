@@ -62,7 +62,7 @@ class Filter extends Component {
 
         setTimeout(() => {
           this.setState({ loading: false });
-        }, 1500);
+        }, 500);
       });
   }
 

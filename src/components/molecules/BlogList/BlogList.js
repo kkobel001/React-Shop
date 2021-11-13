@@ -13,7 +13,7 @@ const BlogList = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 1500);
+    }, 500);
   }, []);
 
   useEffect(() => {

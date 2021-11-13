@@ -1,9 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
-// import { increaseCount as increaseItem } from 'redux/actions/actionsNumber';
-// import { PropTypes } from 'prop-types';
-// import { connect } from 'react-redux';
-
 import Modal from './Modal';
 
 const MainModal = item => {
@@ -26,16 +22,5 @@ const MainModal = item => {
     </>
   );
 };
-// MainModal.propTypes = {
-//   increaseCount: PropTypes.func.isRequired,
-// };
-
-// const mapStateToProps = state => ({
-//   count: state.count,
-// });
-
-// const mapDispatchToprops = dispatch => ({
-//   increaseCount: props => dispatch(increaseItem(props - 2)),
-// });
 
 export default MainModal;

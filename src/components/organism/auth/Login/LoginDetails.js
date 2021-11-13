@@ -129,19 +129,14 @@ const LoginDetails = () => {
     resetError();
     console.log('clicked');
   };
-  // if (auth) {
-  //   history.push('/');
-  // }
 
   if (auth) {
     history.push('/userPage');
   }
-
   return (
     <div className="wrapper-login">
       <div className="account-form">
         {regist ? <h2>Create your account</h2> : <h2>Sign in to your account</h2>}
-
         <form onSubmit={handleSubmit}>
           {regist && (
             <div className="login-container">

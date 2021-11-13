@@ -1,0 +1,72 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.wrapper-faq {
+@include wrapper;
+}
+@keyframes boxshow {
+    0% {
+        transform: scaleY(0);
+       }
+    100% {
+         transform: scaleY(1);
+        }
+}
+@keyframes content {
+    0% {
+         opacity: 0;
+         transform: translateX(-2%);
+        }
+    100% {
+         opacity: 100%;
+         transform: translateX(0);
+        }
+}
+.wrapper-items {
+    width: 600px;
+    margin: 30px 0;
+    position: relative;
+      summary {
+        font-size: 24px;
+        list-style: none;
+        cursor: pointer;
+        color:$purple-color;
+      }
+      summary::after {
+        position: absolute;
+        left: -50px;
+        display: inline-block;
+        content: '>';
+        margin-left: 20px;
+        transition: transform 0.2s ease-in-out;
+        transform: rotate(90deg);
+      }
+      summary:focus-visible {
+        outline: 3px solid $purple-color;
+      }
+      summary::after {
+          transform: rotate(-90deg);
+        }
+    }
+    details{
+            transform: scaleY(0);
+            transform-origin: 0 0;
+            animation: 0.5s ease-in-out 1 forwards boxshow;
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 20px 0;
+            padding: 20px 40px 20px 20px;
+            border-left: 5px solid $purple-color;
+            p {
+              opacity: 0;
+              animation: 0.3s 0.6s ease-in 1 forwards content;
+              padding: 10px 5px;
+            }
+    }
+
+
+
+  
+
+
+
