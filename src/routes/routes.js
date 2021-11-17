@@ -13,4 +13,5 @@ export const routes = {
   search: 'wyszukaj/:contents?',
   order: '/orderPage',
   faq: '/faq',
+  regulation: '/regulation',
 };

@@ -1,0 +1,30 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+@mixin header {
+    line-height: 1.41;
+    font-weight: 600;
+}
+.wrapper-regulation{
+    @include wrapper;
+    justify-content:center;
+
+
+    h1 {
+        text-align: center;
+        margin-top:40px;
+        font-size: 32px;
+      @include header;
+    }
+
+    h2{
+        text-align: center;
+        @include header;
+
+    }
+}
+
+.reg-content{
+text-align: justify;
+margin: 40px 0px;
+}
