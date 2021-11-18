@@ -1,6 +1,6 @@
 // import React from "react";
 
-// const withModal = Component => {
+// const useModal = Component => {
 //   return class ModalComponent extends React.Component {
 //     state = {
 //       isCollapsed: true,
@@ -26,4 +26,4 @@
 //   };
 // };
 
-// export default withCollapse;
+// export default useModal;

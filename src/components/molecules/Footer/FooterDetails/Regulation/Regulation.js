@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TitleBox from 'components/atoms/TitleBox/TitleBox';
 import './Regulation.scss';
-import axios from 'axios';
+import { useAxios } from 'hooks/useAxios';
 
 const Regulation = () => {
-  const [isRegulation, setRegulation] = useState(false);
-
-  useEffect(() => {
-    axios
-      .post(
-        'https://graphql.datocms.com/',
-        {
-          query: `
+  const { response } = useAxios({
+    method: 'POST',
+    url: 'https://graphql.datocms.com/',
+    headers: {
+      authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+    },
+    data: {
+      query: `
             {
                 return {
                     id
@@ -21,29 +21,47 @@ const Regulation = () => {
                     statut
                 }
             }`,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        },
-      )
+    },
+  });
 
-      .then(({ data: { data } }) => {
-        setRegulation(data.return);
-      })
-      .catch();
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .post(
+  //       'https://graphql.datocms.com/',
+  //       {
+  //         query: `
+  //           {
+  //               return {
+  //                   id
+  //                   title
+  //                   content
+  //                   subtitle
+  //                   statut
+  //               }
+  //           }`,
+  //       },
+  //       {
+  //         headers: {
+  //           authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+  //         },
+  //       },
+  //     )
 
-  return isRegulation ? (
+  //     .then(({ data: { data } }) => {
+  //       setRegulation(data.return);
+  //     })
+  //     .catch();
+  // }, []);
+
+  return response ? (
     <>
       <TitleBox names="Regulation" />
-      <div className="wrapper-regulation " id={isRegulation.id}>
-        <h1>{isRegulation.title}</h1>
-        <div className="reg-content"> {isRegulation.content}</div>
-        <h2>{isRegulation.subtitle}</h2>
+      <div className="wrapper-regulation " id={response.data.return.id}>
+        <h1>{response.data.return.title}</h1>
+        <div className="reg-content"> {response.data.return.content}</div>
+        <h2>{response.data.return.subtitle}</h2>
         <p> $2 </p>
-        <div className="reg-content">{isRegulation.statut}</div>
+        <div className="reg-content">{response.data.return.statut}</div>
       </div>
     </>
   ) : (
