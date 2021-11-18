@@ -62,7 +62,7 @@ class Filter extends Component {
 
         setTimeout(() => {
           this.setState({ loading: false });
-        }, 1500);
+        }, 500);
       });
   }
 
@@ -84,10 +84,10 @@ class Filter extends Component {
 
     const renderAll = filteredProducts.map(item => (
       <ul className="products">
-        <li key={item.id}>
+        <li key={item.title}>
           <div className="section">
             <img src={item.image.url} alt={item.title} />
-            <MainModal />
+            <MainModal item={item} />
           </div>
           <h3>{item.title}</h3>
           <div className="product-price">{formatCurrency(item.price)}</div>

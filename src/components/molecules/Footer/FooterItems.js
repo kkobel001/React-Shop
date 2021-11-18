@@ -2,25 +2,25 @@ export const CardOne = [
   {
     id: 5,
     title: 'Women',
-    url: './',
+    url: '/shop',
     cName: 'nav-links',
   },
   {
     id: 6,
     title: 'Men',
-    url: './',
+    url: '/shop',
     cName: 'nav-links',
   },
   {
     id: 7,
     title: 'Shoes',
-    url: './',
+    url: '/shop',
     cName: 'nav-links',
   },
   {
     id: 8,
     title: 'Watches',
-    url: './',
+    url: '/shop',
     cName: 'nav-links',
   },
 ];
@@ -35,7 +35,7 @@ export const CardTwo = [
   {
     id: 10,
     title: 'Returns',
-    url: './',
+    url: '/regulation',
     cName: 'nav-links',
   },
   {
@@ -47,7 +47,7 @@ export const CardTwo = [
   {
     id: 12,
     title: 'FAQs',
-    url: './',
+    url: '/faq',
     cName: 'nav-links',
   },
 ];

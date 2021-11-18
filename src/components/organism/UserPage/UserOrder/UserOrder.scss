@@ -1,23 +1,7 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-// .wrapper-userOrder{
-//     width: 100%;
-//     display: grid;
-//     grid-template-columns: 40% 60%;
-//     position: relative;
-//     margin-bottom: 25px;
 
-//     &::after{
-//         @include underline;  
-//     }  
-//     h3{
-//         font-size: $smallfont-size;
-//         font-weight: $light-weight;
-//         color: $medium-color;
-//         margin: 0px 4px;
-//     }
-// }
 .order-status{
     color: $green-color;
     display: flex;

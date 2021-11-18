@@ -25,8 +25,7 @@ const SubModal = ({ showSubModal, setSubModal }) => {
             </div>
           </div>
         </div>
-      ) : // </div>
-      null}
+      ) : null}
     </>
   );
 };

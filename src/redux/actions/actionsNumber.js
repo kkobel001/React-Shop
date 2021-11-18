@@ -1,5 +1,8 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_TO_CART = 'REMOVE_TO_CART';
+export const CURRENT_ITEM = 'CURRENT_ITEM';
+export const REMOVE_STOCK_ITEM = 'REMOVE_STOCK_ITEM';
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
 
 export const decreaseCount = count => ({
   type: 'REMOVE_TO_CART',
@@ -10,22 +13,24 @@ export const increaseCount = count => ({
   payload: count + 1,
 });
 
-export const currentItem = count => ({
-  type: 'CURRENT_CART',
-  payload: count + 1,
+export const currentItem = item => ({
+  type: 'CURRENT_ITEM',
+  payload: item,
 });
 
-// export const addToCartAction = itemID => ({
-//   type: ADDED_TO_CART,
-//   payload: { id: itemID },
+// export const addProduct = (payload, id) => ({
+//   type: 'ADD_ITEM_TO_CART',
+//   payload: { id, ...payload },
 // });
 
-// export const removeCartUnits = itemID => ({
-//   type: REMOVE_FROM_CART,
-//   payload: { id: itemID },
+// export const updateCartItem = (itemID, count) => ({
+//   type: 'UPDATE_CART_ITEM',
+//   payload: {
+//     id: itemID,
+//     count,
+//   },
 // });
-
-// export const UpdateQty = (itemID, value) => ({
-//   type: UPDATE_QTY,
-//   payload: { id: itemID, count: value },
+// export const removeProduct = payload => ({
+//   type: 'REMOVE_STOCK_ITEM',
+//   payload: { payload },
 // });

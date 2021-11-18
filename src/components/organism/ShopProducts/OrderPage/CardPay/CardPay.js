@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { useClickOutside } from 'hooks/useClickOutside';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import './CardPay.scss';
 import formatCurrency from 'helpers/until';
-
 import DeliveryModal from './DeliveryModal/DeliveryModal';
 
 const CardPay = () => {
@@ -38,7 +38,9 @@ const CardPay = () => {
         </li>
       </ul>
       <button className="btn-order" type="button">
-        Processed ti checkout
+        <Link className="btn-order" to="/login">
+          Processed ti checkout
+        </Link>
       </button>
     </div>
   );

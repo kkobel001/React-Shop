@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { countReducer } from './reducers/productReducers.js';
-import { cardReducer } from './reducers/cardReducer.js';
-
-// import { composeWithDevTools } from '@reduxjs/toolkit/dist/devtoolsExtension';
+import productReducers from './reducers/productReducers.js';
 
 export default configureStore({
-  reducer: countReducer,
-  cardReducer,
+  reducer: {
+    order: productReducers,
+  },
 });

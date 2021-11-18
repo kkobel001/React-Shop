@@ -12,4 +12,6 @@ export const routes = {
   userOrder: '/userOrder',
   search: 'wyszukaj/:contents?',
   order: '/orderPage',
+  faq: '/faq',
+  regulation: '/regulation',
 };

@@ -6,11 +6,12 @@ import LoginDetails from 'components/organism/auth/Login/LoginDetails';
 import { routes } from 'routes/routes';
 import UserPage from 'components/organism/UserPage/UserPage';
 import OrderPage from 'components/organism/ShopProducts/OrderPage/OrderPage';
-
 import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
 import Layout from 'components/organism/Layout/Layout';
 import Searchbar from 'components/atoms/Searchbar/Searchbar';
+import Faq from 'components/molecules/Footer/FooterDetails/FAQ/Faq';
+import Regulation from 'components/molecules/Footer/FooterDetails/Regulation/Regulation';
 import ErrorBoundary from 'hoc/ErrorBoundary';
 import { reducer, initialState } from '../reducer';
 import AuthenticatedRoute from '../hoc/AuthenticatedRoute';
@@ -39,6 +40,9 @@ function Root() {
       <Route exact path={routes.contact} component={Contact} />
       <Route exact path={routes.search} component={Searchbar} />
       <Route exact path={routes.order} component={OrderPage} />
+      <Route exact path={routes.faq} component={Faq} />
+      <Route exact path={routes.regulation} component={Regulation} />
+
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,29 +1,41 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
 import React from 'react';
-import PropTypes from 'prop-types';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
+// import PropTypes from 'prop-types';
 import CardOrder from './CardOrder/CardOrder';
 import CardPay from './CardPay/CardPay';
 import './OrderPage.scss';
 
-const OrderPage = ({ products }) => (
-  <div className="wrapper-order">
-    <UserTemplates title="Order">
-      {products.map(prod => (
-        <CardOrder key={prod.id} productData={prod} />
-      ))}
-    </UserTemplates>
-    <CardPay />
-  </div>
-);
+const OrderPage = () => {
+  const cart = useSelector(state => state.cart);
+  const { cartItems } = cart;
 
-const mapStateToProps = state => ({
-  products: state.products,
-});
+  // {cart.cartItems.map(prod =>  <CardOrder key={prod.id} productData={prod} /> : null )}
 
-OrderPage.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  return (
+    <div className="wrapper-order">
+      <UserTemplates title="Order">
+        {cartItems && cart.length === 0 ? (
+          <div> Please add some products to cart</div>
+        ) : (
+          <div className="box-orderL">
+            <div className="box-about">
+              <div className="mr-order">{cartItems && cart.cartItems.map(cartItem => <CardOrder productData={cartItem} />)}</div>
+            </div>
+          </div>
+        )}
+      </UserTemplates>
+      <CardPay />
+    </div>
+  );
 };
 
-export default connect(mapStateToProps)(OrderPage);
+// OrderPage.propTypes = {
+//   cartItems: PropTypes.objectOf(PropTypes.object),
+// };
+
+// OrderPage.defaultProps = {
+//   cartItems: 'addd something',
+// };
+
+export default OrderPage;

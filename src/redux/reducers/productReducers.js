@@ -1,17 +1,35 @@
-import AbIm01 from 'assets/images/about-01.png';
+import { createSlice } from '@reduxjs/toolkit';
 
-const defaultState = {
-  count: 1,
-  products: [
-    { id: 1, title: 'Jacket', color: 'red', size: 'XS', price: 339.22, img: AbIm01 },
-    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22, img: AbIm01 },
-    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22, img: AbIm01 },
-  ], // {id, title, desc, price,img}
-  currentItem: null,
-  cart: [],
+const initialState = {
+  count: 0,
+  cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
+  cartTotal: 0,
 };
 
-export const countReducer = (state = defaultState, action) => {
+const orderSlice = createSlice({
+  name: 'cart',
+  initialState,
+  reducers: {
+    addProduct(state, action) {
+      const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+      if (itemIndex >= 0) {
+        state.cartItems[itemIndex].cartQuantity += 1;
+      } else {
+        const conProduct = { ...action.payload, cartQuantity: 1 };
+        state.cartItems.push(conProduct);
+      }
+
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+    },
+
+    // removeProduct(state, action) {},
+  },
+});
+
+export const { addProduct } = orderSlice.actions;
+export default orderSlice.reducer;
+
+export const countReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       if (state.count === 15) {
@@ -26,34 +44,32 @@ export const countReducer = (state = defaultState, action) => {
         return state;
       }
       return { ...state, count: state.count - 1 };
-    case 'ADDED_TO_CART': {
-      const item = state.products.find(product => product.id === action.payload.id);
-      // Check if Item is in cart already
-      // eslint-disable-next-line no-shadow
-      const inCart = state.cart.find(item => item.id === action.payload.id);
+    // case 'ADD_ITEM_TO_CART':
+    //   if (state.count > 0) return state;
+    //   return {
+    //     ...state,
+    //     cartItems: state.count,
+    //   };
+
+    case 'ADD_ITEM_TO_CART':
+      // eslint-disable-next-line no-case-declarations
+      // const item = state.allProducts.find(product => product.id === action.payload.id);
+
+      //     const inCart = state.cart.find((item) =>
+      //   item.id === action.payload.id
+      // );
 
       return {
         ...state,
-        // eslint-disable-next-line no-shadow
-        cart: inCart ? state.cart.map(item => (item.id === action.payload.id ? { ...item, qty: item.qty + 1 } : item)) : [...state.cart, { ...item, qty: 1 }],
-      };
-    }
-    case 'REMOVE_FROM_CART ':
-      return {
-        ...state,
-        cart: state.cart.filter(item => item.id !== action.payload.id),
-      };
-    case 'UPDATE_QTY':
-      return {
-        ...state,
-        currentItem: action.payload,
+        cart: [...state.cart, action.payload],
       };
 
-    case 'LOAD_CURRENT_ITEM':
+    case 'UPDATE_CART_ITEM':
       return {
         ...state,
-        currentItem: action.payload,
+        // cart: state.cart.map(item => (item.id === action.payload.id ? { ...item, count: +action.payload.count } : item)),
       };
+
     default:
       return state;
   }

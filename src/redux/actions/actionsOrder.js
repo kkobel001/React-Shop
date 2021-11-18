@@ -1,24 +1,35 @@
-export const ADDED_TO_CART = 'ADD_TO_CART';
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART ';
-export const UPDATE_QTY = 'UPDATE_QTY ';
-export const LOAD_CURRENT_ITEM = 'LOAD_CURRENT_ITEM ';
+// export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
+export const REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART';
 
-export const addToCartAction = itemID => ({
-  type: ADDED_TO_CART,
-  payload: { id: itemID },
+// export const addItemToCart = payload => ({
+//   type: ADD_ITEM_TO_CART,
+//   payload,
+// });
+
+export const removeItemFromCart = payload => ({
+  type: REMOVE_ITEM_FROM_CART,
+  payload,
 });
 
-export const removeCartUnits = itemID => ({
-  type: REMOVE_FROM_CART,
-  payload: { id: itemID },
-});
+const initialState = {
+  order: [
+    { id: 2, title: 'blouse ', color: 'red', size: 'XS', price: 319.22 },
+    { id: 3, title: 'dress', color: 'red', size: 'XS', price: 3229.22 },
+  ],
+};
 
-export const UpdateQty = (itemID, qty) => ({
-  type: UPDATE_QTY,
-  payload: { id: itemID, qty },
-});
+export const orderReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'ADD_ITEM_TO_CART':
+      return {
+        ...state,
+        order: [...state.order, action.payload],
+      };
 
-export const loadCurrentItem = item => ({
-  type: LOAD_CURRENT_ITEM,
-  payload: item,
-});
+    case 'REMOVE_ITEM_FROM_CART':
+      return {};
+
+    default:
+      return state;
+  }
+};

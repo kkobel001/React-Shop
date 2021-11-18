@@ -9,7 +9,6 @@ const Searchbar = props => {
 
   const search = () => {
     history.push(`/Wyszukaj/${contents}`);
-    // console.log('szukaj!', term);
     props.onSearch(contents);
   };
 

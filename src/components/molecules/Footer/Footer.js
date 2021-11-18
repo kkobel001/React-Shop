@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getDatabase, ref, set } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
 import { validateEmail } from 'helpers/Validate';
@@ -59,9 +59,9 @@ const Footer = () => {
           <ul className="footer-list">
             {CardOne.map(item => (
               <li item={item} key={item.id}>
-                <Link className={item.cName} exact="true" to={item.url}>
+                <NavLink className={item.cName} exact="true" to={item.url}>
                   {item.title}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -71,9 +71,9 @@ const Footer = () => {
           <ul className="footer-list">
             {CardTwo.map(item => (
               <li item={item} key={item.id}>
-                <Link className={item.cName} exact="true" to={item.url}>
+                <NavLink className={item.cName} exact="true" to={item.url}>
                   {item.title}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
