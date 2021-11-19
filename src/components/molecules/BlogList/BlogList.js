@@ -1,58 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './BlogList.scss';
 import { Link, useRouteMatch } from 'react-router-dom';
-import axios from 'axios';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 
+// import axios from 'axios';
+import { useAxios } from 'hooks/useAxios';
+import Error from 'components/atoms/Error/Error';
+
 const BlogList = () => {
-  const [articles, setArticles] = useState([]);
-  const [error, setError] = useState('');
   const { url } = useRouteMatch();
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(true);
-    }, 500);
+    setTimeout(() => {}, 500);
   }, []);
 
-  useEffect(() => {
-    axios
-      .post(
-        ' https://graphql.datocms.com/',
-        {
-          query: `
-                {
-                allArticles {
-                    id
-                    title
-                    description
-                    image
-                    {
-                      url
-                    }
-                  }
-                },`,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        },
-      )
-      .then(({ data: { data } }) => {
-        setArticles(data.allArticles);
-      })
-      .catch(() => setError("Sorry, we couln't load articles for you"));
-
-    setTimeout(false);
-  }, []);
-
+  const { response, error } = useAxios({
+    method: 'POST',
+    url: 'https://graphql.datocms.com/',
+    headers: {
+      authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+    },
+    data: {
+      query: `{
+        allArticles {
+          id
+          title
+          description
+          image {
+                url
+              }
+          }
+        },`,
+    },
+  });
   return (
     <div className="wrapper-blog">
-      {articles.length > 0 && loading ? (
-        articles.map(({ id, title, description, image }) => (
-          <div className="blog-items" key={title}>
+      {response ? (
+        response.data.allArticles.map(({ id, title, description, image }) => (
+          <div className="blog-items" key={id}>
             <div className="image-section">
               <Link to={`${url}/${id}`} className="blog-link">
                 <img src={image.url} alt="blog" />
@@ -88,7 +73,7 @@ const BlogList = () => {
           </div>
         ))
       ) : (
-        <div>{error || <LoadingIcon />}</div>
+        <div>{error ? <Error>Sorry, we coulnd not load articles for you</Error> : <LoadingIcon />}</div>
       )}
     </div>
   );

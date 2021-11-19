@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAxios } from 'hooks/useAxios';
 import './DetailsItemBlog.scss';
-import { datocmsconfig } from 'services/datocms';
+import Error from 'components/atoms/Error/Error';
+import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 
 function DetailsItemBlog() {
   const { articleId } = useParams();
+
+  useEffect(() => {
+    setTimeout(() => {}, 500);
+  }, []);
+
   const { response, error } = useAxios({
     method: 'POST',
-    datocmsconfig,
+    url: 'https://graphql.datocms.com/',
+    headers: {
+      authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+    },
     data: {
       query: `
       {
-        allArticles(filter: { id: { eq: ${articleId} } }) {
+        article(filter: { id: { eq: ${articleId} } }) {
             id
             title
             description
@@ -28,14 +37,14 @@ function DetailsItemBlog() {
 
   return response ? (
     <div className="wrapper-blogItems">
-      <h2>{response.data.allArticles.title}</h2>
-      <img src={response.data.allArticles.image.url} alt="blog-img" />
-      <div className="text-blog">{response.data.allArticles.description}</div>
+      <h2>{response.data.article.title}</h2>
+      <img src={response.data.article.image.url} alt="blog-img" />
+      <div className="text-blog">{response.data.article.description}</div>
       <br />
-      <div className="text-blog">{response.data.allArticles.contend}</div>
+      <div className="text-blog">{response.data.article.contend}</div>
     </div>
   ) : (
-    <div>{error || 'Loading ...'}</div>
+    <div>{error ? <Error>Sorry, we coulnd not load articles for you</Error> : <LoadingIcon />}</div>
   );
 }
 export default DetailsItemBlog;
