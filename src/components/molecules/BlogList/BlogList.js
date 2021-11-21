@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import './BlogList.scss';
 import { Link, useRouteMatch } from 'react-router-dom';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
-
-// import axios from 'axios';
 import { useAxios } from 'hooks/useAxios';
 import Error from 'components/atoms/Error/Error';
 

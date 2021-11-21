@@ -9,7 +9,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import './NavIconMenu.scss';
 import { connect } from 'react-redux';
 
-const NavIconMenu = ({ count }) => {
+const NavIconMenu = ({ cartQuantity }) => {
   const [auth, setAuth] = useAuth();
   const history = useHistory();
 
@@ -32,7 +32,7 @@ const NavIconMenu = ({ count }) => {
         <li className="icon-item">
           <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
             <ShoppingCartIcon />
-            <span className="minicart-count">{count}</span>
+            <span className="minicart-count">{cartQuantity}</span>
           </NavLink>
         </li>
         {auth ? (
@@ -63,7 +63,7 @@ const NavIconMenu = ({ count }) => {
 };
 
 NavIconMenu.propTypes = {
-  count: PropTypes.number.isRequired,
+  cartQuantity: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = state => ({

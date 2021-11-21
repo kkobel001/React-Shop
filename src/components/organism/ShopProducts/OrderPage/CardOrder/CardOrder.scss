@@ -2,11 +2,12 @@
 @import 'theme/mixin';
 
 .box-orderL {
-    display: flex;
     width:100%;
+    display: flex;
 
     .box-about {
         width:100%;
+
     }
     .product-price{
         color: $purple-color;

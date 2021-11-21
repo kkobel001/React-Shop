@@ -77,7 +77,9 @@ function FormContact() {
             <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" onChange={updateField} />
             {error && <p>{error.message}</p>}
 
-            <buttonICon type="submit" loading={loading} className="btn-success" label="Send" />
+            <button type="submit" loading={loading} className="btn-form">
+              Send
+            </button>
           </div>
         </form>
         <div className="form-context">

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import CardOrder from './CardOrder/CardOrder';
 import CardPay from './CardPay/CardPay';
 import './OrderPage.scss';
+// import { element } from 'prop-types';
 
 const OrderPage = () => {
   const cart = useSelector(state => state.cart);
@@ -15,13 +16,13 @@ const OrderPage = () => {
   return (
     <div className="wrapper-order">
       <UserTemplates title="Order">
-        {cartItems && cart.length === 0 ? (
-          <div> Please add some products to cart</div>
+        {cartItems.length === 0 ? (
+          <div>Please add some products to cart</div>
         ) : (
-          <div className="box-orderL">
-            <div className="box-about">
-              <div className="mr-order">{cartItems && cart.cartItems.map(cartItem => <CardOrder productData={cartItem} />)}</div>
-            </div>
+          <div>
+            {cartItems.map(element => (
+              <CardOrder key={element.item.id} item={element.item} />
+            ))}
           </div>
         )}
       </UserTemplates>

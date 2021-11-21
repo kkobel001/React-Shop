@@ -8,7 +8,7 @@ import QualityProducts from '../../Product/QualityProducts';
 const CardOrder = ({ item }) => (
   <>
     <div className="box-orderL">
-      <img src={item.img} alt="banner-img" className="img-order" />
+      <img src={item.image.url} alt="banner-img" className="img-order" />
       <div className="box-about">
         <div className="mr-order">
           <h2>{item.title}</h2>
@@ -29,8 +29,8 @@ const CardOrder = ({ item }) => (
 
 CardOrder.propTypes = {
   item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    img: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    image: PropTypes.instanceOf(Object).isRequired,
     title: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     size: PropTypes.string.isRequired,

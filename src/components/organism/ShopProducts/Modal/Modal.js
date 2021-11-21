@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useDispatch } from 'react-redux';
-import { addProduct } from 'redux/reducers/productReducers';
+import { addProduct } from 'redux/reducers/sliceCart';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
