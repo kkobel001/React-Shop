@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
-import QualityProducts from './QualityProducts';
+import QualityProducts from './QuantityProducts';
 
 describe('QualityProducts', () => {
   it(' correct render counter', () => {

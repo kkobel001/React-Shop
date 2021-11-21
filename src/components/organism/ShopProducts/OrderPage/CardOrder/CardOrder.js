@@ -1,46 +1,43 @@
 import React from 'react';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-// import { removeCartUnits as removeFromCart } from 'redux/actions/actionsOrder';
+import { useDispatch } from 'react-redux';
+import { removeProduct } from 'redux/reducers/sliceCart';
 import './CardOrder.scss';
 import PropTypes from 'prop-types';
-import QualityProducts from '../../Product/QualityProducts';
+import QuantityProducts from '../../Product/QuantityProducts';
 
-const CardOrder = ({ item }) => (
-  <>
-    <div className="box-orderL">
-      <img src={item.image.url} alt="banner-img" className="img-order" />
-      <div className="box-about">
-        <div className="mr-order">
-          <h2>{item.title}</h2>
-          <button type="button" className="btn-none">
-            <DeleteOutlineIcon />
-          </button>
-        </div>
-        <h3> Color: {item.color} </h3>
-        <h3> Size: {item.size} </h3>
-        <div className="box-quality">
-          <QualityProducts />
-          <div className="product-price">{item.price}</div>
+const CardOrder = ({ item, cartQuantity }) => {
+  const dispatch = useDispatch();
+
+  const handleRemoveProduct = item => {
+    dispatch(removeProduct(item));
+  };
+  return (
+    <>
+      <div className="box-orderL">
+        <img src={item.image.url} alt="banner-img" className="img-order" />
+        <div className="box-about">
+          <div className="mr-order">
+            <h2>{item.title}</h2>
+            <button type="button" className="btn-none" onClick={() => handleRemoveProduct(item)}>
+              <DeleteOutlineIcon />
+            </button>
+          </div>
+          <h3> Color: {item.color} </h3>
+          <h3> Size: {item.size} </h3>
+          <div className="box-quality">
+            <QuantityProducts item={item} cartQuantity={cartQuantity} />
+            <div className="product-price">{item.price}</div>
+          </div>
         </div>
       </div>
-    </div>
-  </>
-);
-
-CardOrder.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    image: PropTypes.instanceOf(Object).isRequired,
-    title: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    size: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-  }),
-  // item: PropTypes.instanceOf(Object).isRequired,
+    </>
+  );
 };
 
-CardOrder.defaultProps = {
-  item: null,
+CardOrder.propTypes = {
+  item: PropTypes.instanceOf(Object).isRequired,
+  cartQuantity: PropTypes.number.isRequired,
 };
 
 // const mapDispatchToProps = dispatch => ({

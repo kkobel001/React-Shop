@@ -7,7 +7,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import './NavIconMenu.scss';
-import { connect } from 'react-redux';
 
 const NavIconMenu = ({ cartQuantity }) => {
   const [auth, setAuth] = useAuth();
@@ -66,8 +65,4 @@ NavIconMenu.propTypes = {
   cartQuantity: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = state => ({
-  count: state.count,
-});
-
-export default connect(mapStateToProps)(NavIconMenu);
+export default NavIconMenu;

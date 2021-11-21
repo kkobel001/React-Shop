@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  count: 0,
   cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
   cartTotal: 0,
 };
@@ -10,8 +9,9 @@ const orderSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addProduct(state, action) {
-      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.item.id === action.payload.item.id);
+    increaseProduct(state, action) {
+      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.item.id === action.payload.id);
+      console.log(itemIndex);
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
@@ -22,24 +22,28 @@ const orderSlice = createSlice({
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
 
-    // removeProduct(state, action) {},
-  },
-  decreaseCart(state, action) {
-    const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+    decreaseProduct(state, action) {
+      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.item.id === action.payload.id);
 
-    if (state.cartItems[itemIndex].cartQuantity > 1) {
-      state.cartItems[itemIndex].cartQuantity -= 1;
-    } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-      const nextCartItems = state.cartItems.filter(item => item.id !== action.payload.id);
+      if (state.cartItems[itemIndex].cartQuantity > 1) {
+        state.cartItems[itemIndex].cartQuantity -= 1;
+      } else if (state.cartItems[itemIndex].cartQuantity === 1) {
+        const nextCartItems = state.cartItems.filter(cartElement => cartElement.item.id !== action.payload.id);
+        state.cartItems = nextCartItems;
+      }
 
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+    },
+
+    removeProduct(state, action) {
+      const nextCartItems = state.cartItems.filter(cartElement => cartElement.item.id !== action.payload.id);
       state.cartItems = nextCartItems;
-    }
-
-    localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+    },
   },
 });
 
-export const { addProduct } = orderSlice.actions;
+export const { increaseProduct, decreaseProduct, removeProduct } = orderSlice.actions;
 export default orderSlice.reducer;
 
 // export const countReducer = (state, action) => {
