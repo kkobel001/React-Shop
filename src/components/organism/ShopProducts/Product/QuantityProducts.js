@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { increaseProduct, decreaseProduct } from 'redux/reducers/sliceCart';
 import './QuantityProducts.scss';
 
-const QuantityProducts = ({ item, cartQuantity }) => {
+const QuantityProducts = ({ item }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = item => {
@@ -22,7 +22,7 @@ const QuantityProducts = ({ item, cartQuantity }) => {
       </button>
       <div>
         <div data-testid="counter" className="number-box">
-          {cartQuantity}
+          {item.cartQuantity}
         </div>
       </div>
       <button data-testid="button-remove" className="icon-number" type="button" onClick={() => handleRemoveFromCart(item)}>
@@ -34,7 +34,6 @@ const QuantityProducts = ({ item, cartQuantity }) => {
 
 QuantityProducts.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
-  cartQuantity: PropTypes.number.isRequired,
 };
 
 export default QuantityProducts;

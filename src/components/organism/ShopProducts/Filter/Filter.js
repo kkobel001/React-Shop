@@ -84,6 +84,7 @@ class Filter extends Component {
 
     const renderAll = filteredProducts.map(item => (
       <ul className="products">
+        {/* {localStorage.clear()} */}
         <li key={item.title}>
           <div className="section">
             <img src={item.image.url} alt={item.title} />

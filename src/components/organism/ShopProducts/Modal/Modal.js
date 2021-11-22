@@ -59,8 +59,8 @@ const Modal = ({ item, showModal, setShowModal }) => {
             </div>
             <div className="section-add">
               <div className="section-text">
-                <h2>{item.item.title}</h2>
-                <div>${item.item.price}</div>
+                <h2>{item.title}</h2>
+                <div>${item.price}</div>
               </div>
               <div className="modal-box">
                 <div className="filter-size">
@@ -117,10 +117,6 @@ Modal.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
   showModal: PropTypes.func.isRequired,
   setShowModal: PropTypes.func.isRequired,
-  // addToCard: PropTypes.func.isRequired,
 };
 
-// const mapDispatchToprops = dispatch => ({
-//   addToCard: () => dispatch(addToCartAction),
-// });
 export default Modal;
