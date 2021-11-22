@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { useSelector } from 'react-redux';
 import LogoIcon from '../../../assets/images/logo-01.png';
 import './Navbar.scss';
 import NavIconMenu from '../../atoms/NavIconMenu/NavIconMenu';
@@ -9,6 +10,7 @@ import { MenuItems } from './MenuItems';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
+  const cartQuantity = useSelector(state => state.cart.cartItems.length);
 
   const handleClick = () => setClick(!click);
 
@@ -32,8 +34,7 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
-      <NavIconMenu />
-      {/* <div> {count}</div> */}
+      <NavIconMenu cartQuantity={cartQuantity} />
     </nav>
   );
 };

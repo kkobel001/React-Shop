@@ -1,0 +1,10 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.error-box{
+    justify-content: center;
+    .error-design {
+        color: $purple-color;
+        font-weight: bold;
+    }
+}

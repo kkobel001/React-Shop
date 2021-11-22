@@ -24,35 +24,6 @@ const Regulation = () => {
     },
   });
 
-  // useEffect(() => {
-  //   axios
-  //     .post(
-  //       'https://graphql.datocms.com/',
-  //       {
-  //         query: `
-  //           {
-  //               return {
-  //                   id
-  //                   title
-  //                   content
-  //                   subtitle
-  //                   statut
-  //               }
-  //           }`,
-  //       },
-  //       {
-  //         headers: {
-  //           authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-  //         },
-  //       },
-  //     )
-
-  //     .then(({ data: { data } }) => {
-  //       setRegulation(data.return);
-  //     })
-  //     .catch();
-  // }, []);
-
   return response ? (
     <>
       <TitleBox names="Regulation" />
@@ -60,7 +31,6 @@ const Regulation = () => {
         <h1>{response.data.return.title}</h1>
         <div className="reg-content"> {response.data.return.content}</div>
         <h2>{response.data.return.subtitle}</h2>
-        <p> $2 </p>
         <div className="reg-content">{response.data.return.statut}</div>
       </div>
     </>

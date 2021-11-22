@@ -17,20 +17,3 @@ export const currentItem = item => ({
   type: 'CURRENT_ITEM',
   payload: item,
 });
-
-// export const addProduct = (payload, id) => ({
-//   type: 'ADD_ITEM_TO_CART',
-//   payload: { id, ...payload },
-// });
-
-// export const updateCartItem = (itemID, count) => ({
-//   type: 'UPDATE_CART_ITEM',
-//   payload: {
-//     id: itemID,
-//     count,
-//   },
-// });
-// export const removeProduct = payload => ({
-//   type: 'REMOVE_STOCK_ITEM',
-//   payload: { payload },
-// });

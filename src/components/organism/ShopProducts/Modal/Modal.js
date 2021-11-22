@@ -1,12 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useDispatch } from 'react-redux';
-import { addProduct } from 'redux/reducers/productReducers';
+import { increaseProduct } from 'redux/reducers/sliceCart';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
-import QualityProducts from 'components/organism/ShopProducts/Product/QualityProducts';
 import Slider from 'components/atoms/Slider/Slider';
 import InputSelect from 'components/atoms/Input/InputSelect';
 import SubModal from '../SubModal/SubModal';
@@ -46,7 +45,7 @@ const Modal = ({ item, showModal, setShowModal }) => {
   };
 
   const handleAddToCart = item => {
-    dispatch(addProduct(item));
+    dispatch(increaseProduct(item));
   };
 
   return (
@@ -90,7 +89,6 @@ const Modal = ({ item, showModal, setShowModal }) => {
                   />
                 </div>
                 <div className="add-section">
-                  <QualityProducts />
                   <div className="row-submodal">
                     <button
                       className="btn-modal"
