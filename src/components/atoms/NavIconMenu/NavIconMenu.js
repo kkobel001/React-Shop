@@ -62,7 +62,7 @@ const NavIconMenu = ({ cartQuantity }) => {
 };
 
 NavIconMenu.propTypes = {
-  cartQuantity: PropTypes.number.isRequired,
+  cartQuantity: PropTypes.string.isRequired,
 };
 
 export default NavIconMenu;

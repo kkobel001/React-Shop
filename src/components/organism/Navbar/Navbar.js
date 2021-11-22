@@ -10,7 +10,7 @@ import { MenuItems } from './MenuItems';
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
-  const cartQuantity = useSelector(state => state.cart.cartItems.length);
+  const cartQuantity = useSelector(state => state.cart.cartTotalQuantity);
 
   const handleClick = () => setClick(!click);
 

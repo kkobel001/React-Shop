@@ -1,8 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
+import PropTypes from 'prop-types';
 import Modal from './Modal';
 
-const MainModal = item => {
+const MainModal = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
   useClickOutside(modalRef, setShowModal);
@@ -21,6 +22,10 @@ const MainModal = item => {
       </div>
     </>
   );
+};
+
+MainModal.propTypes = {
+  item: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default MainModal;

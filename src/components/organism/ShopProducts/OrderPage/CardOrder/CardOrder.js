@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { removeProduct } from 'redux/reducers/sliceCart';
 import './CardOrder.scss';
 import PropTypes from 'prop-types';
+import formatCurrency from 'helpers/until';
 import QuantityProducts from '../../Product/QuantityProducts';
 
-const CardOrder = ({ item, cartQuantity }) => {
+const CardOrder = ({ item }) => {
   const dispatch = useDispatch();
 
   const handleRemoveProduct = item => {
@@ -26,8 +27,8 @@ const CardOrder = ({ item, cartQuantity }) => {
           <h3> Color: {item.color} </h3>
           <h3> Size: {item.size} </h3>
           <div className="box-quality">
-            <QuantityProducts item={item} cartQuantity={cartQuantity} />
-            <div className="product-price">{item.price}</div>
+            <QuantityProducts item={item} cartQuantity={item.cartQuantity} />
+            <div className="product-price">{formatCurrency(item.price * item.cartQuantity)}</div>
           </div>
         </div>
       </div>
@@ -37,11 +38,6 @@ const CardOrder = ({ item, cartQuantity }) => {
 
 CardOrder.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
-  cartQuantity: PropTypes.number.isRequired,
 };
-
-// const mapDispatchToProps = dispatch => ({
-//   removeCartUnits: id => dispatch(removeFromCart(id)),
-// });
 
 export default CardOrder;

@@ -16,8 +16,8 @@ const OrderPage = () => {
           <div>Please add some products to cart</div>
         ) : (
           <div>
-            {cartItems.map(element => (
-              <CardOrder key={element.item.id} item={element.item} cartQuantity={element.cartQuantity} />
+            {cartItems.map(item => (
+              <CardOrder key={item.id} item={item} />
             ))}
           </div>
         )}
