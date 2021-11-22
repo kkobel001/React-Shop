@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useClickOutside } from 'hooks/useClickOutside';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { useSelector } from 'react-redux';
 import './CardPay.scss';
 import formatCurrency from 'helpers/until';
 import DeliveryModal from './DeliveryModal/DeliveryModal';
@@ -10,13 +11,13 @@ const CardPay = () => {
   const [isvisibility, setVisibility] = useState(false);
   const modalRef = useRef(null);
   useClickOutside(modalRef, setVisibility);
+  const cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);
 
   return (
     <div className="wrapper-cardPay">
       <ul className="row-pay">
         <li className="item-pay">
           <h2>The price of the products</h2>
-          <div> price</div>
         </li>
         <li className="item-pay">
           <h2>Delivery</h2>
@@ -33,8 +34,8 @@ const CardPay = () => {
           </div>
         </li>
         <li className="item-pay">
-          <h2>The total amount of with vat</h2>
-          <div className="btn-none"> {formatCurrency(39, 99)}</div>
+          <h2>Total</h2>
+          <div className="btn-none">{formatCurrency(cartTotalAmount)}</div>
         </li>
       </ul>
       <button className="btn-order" type="button">

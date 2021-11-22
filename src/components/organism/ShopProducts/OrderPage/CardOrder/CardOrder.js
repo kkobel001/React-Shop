@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removeProduct } from 'redux/reducers/sliceCart';
 import './CardOrder.scss';
 import PropTypes from 'prop-types';
+import formatCurrency from 'helpers/until';
 import QuantityProducts from '../../Product/QuantityProducts';
 
 const CardOrder = ({ item }) => {
@@ -27,7 +28,7 @@ const CardOrder = ({ item }) => {
           <h3> Size: {item.size} </h3>
           <div className="box-quality">
             <QuantityProducts item={item} cartQuantity={item.cartQuantity} />
-            <div className="product-price">{item.price}</div>
+            <div className="product-price">{formatCurrency(item.price * item.cartQuantity)}</div>
           </div>
         </div>
       </div>
