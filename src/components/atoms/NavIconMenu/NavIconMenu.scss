@@ -38,7 +38,6 @@
 .minicart-count {
   font-size: $minfont-size;
   letter-spacing: normal;
-  width: 15px;
   background-color: $purple-color;
   color: white;
   position: absolute;
@@ -47,10 +46,9 @@
   left: calc(50% - 1px);
   line-height: 11px;
   overflow: hidden;
-  padding: 0px;
+  padding: 1px;
   margin: 0px 0px 0px 5px;
-  border-radius: 7px;
-  height: 15px;
+  border-radius: 50%;
   border: 2px
   solid transparent;
   text-align: center;

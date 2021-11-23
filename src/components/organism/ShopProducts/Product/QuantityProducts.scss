@@ -2,8 +2,8 @@
 @import 'theme/mixin';
 
 .products-number{
-    width: 135px;
-    height: 45px;
+    // width: 135px;
+    height: 40px;
     border: 1px solid #e6e6e6;
     border-radius: 3px;
     margin-top:40px;
@@ -12,9 +12,9 @@
   }
   .number-box{
    width:45px;
-    height:100%;
+    // height:100%;
     color:$dark-color;
-    margin-top:8px;
+    margin-top:5px;
     text-align: center;
     border:$medium-color;
   }

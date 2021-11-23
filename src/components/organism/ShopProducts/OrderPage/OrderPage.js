@@ -6,9 +6,7 @@ import CardPay from './CardPay/CardPay';
 import './OrderPage.scss';
 
 const OrderPage = () => {
-  const cart = useSelector(state => state.cart);
-  const { cartItems } = cart;
-
+  const cartItems = useSelector(state => state.cart.cartItems);
   return (
     <div className="wrapper-order">
       <UserTemplates title="Order">

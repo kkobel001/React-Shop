@@ -127,6 +127,15 @@
   transition: all 0.9s ease;
 }
 
+@mixin btn-none {
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  color: $purple-color;
+  font-weight: 600;
+
+}
+
 @mixin margY {
   margin-top: auto;
   margin-bottom: auto;
