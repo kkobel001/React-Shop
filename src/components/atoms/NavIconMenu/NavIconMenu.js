@@ -21,9 +21,9 @@ const NavIconMenu = ({ cartQuantity }) => {
     setAuth(false);
   };
 
-  if (auth) {
-    history.push('/UserPage');
-  }
+  // if (auth) {
+  //   history.push('/UserPage');
+  // }
 
   return (
     <div className="icon-wrapper">

@@ -38,11 +38,11 @@ const CardPay = () => {
           <div className="btn-none">{formatCurrency(cartTotalAmount)}</div>
         </li>
       </ul>
-      <button className="btn-order" type="button">
-        <Link className="btn-order" to="/login">
-          Processed ti checkout
-        </Link>
-      </button>
+      {/* <button className="btn-order" type="button"> */}
+      <Link className="btn-order" to="/login">
+        Processed ti checkout
+      </Link>
+      {/* </button> */}
     </div>
   );
 };

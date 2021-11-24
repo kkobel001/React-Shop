@@ -2,27 +2,33 @@
 @import 'theme/mixin';
 
 .box-orderL {
-    width:100%;
+    width: 100%;
     display: flex;
 
     .box-about {
-        width:100%;
-
+        width: 100%;
+        margin-left: 20px;    
     }
     .product-price{
         color: $purple-color;
+        font-size: $bigfont-size;
+        font-weight: $light-weight;
     }
 }
 .mr-order {
+    justify-content: space-between;
+    display: flex;
+    
+        .icon-del {
+            font-size: $bigfont-size;
+            margin-top: 20px;
+            @include btn-none;
+    }
   h2 {
       font-size: $smallfont-size;
       font-weight: 600;
-  }
-       justify-content: space-between;
-        display: flex;
-            .MuiSvgIcon-root {
-                margin-top:22px;
-            }
+      letter-spacing: 1px;
+  }        
 }
 .box-quality{
     display: flex;
@@ -30,10 +36,12 @@
     justify-content: space-between;
     margin: 0px 5px 0px 5px;
 }
-
 @media screen  and (min-width: 200px) and (max-width:500px) {
     .box-orderL  {
         display:block;
+        .box-about{
+            margin-left:0px;
+        }
     .img-order{width:100%;}
     }
      .box-quality {

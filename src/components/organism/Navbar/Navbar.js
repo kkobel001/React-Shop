@@ -24,7 +24,6 @@ const Navbar = () => {
       <div className="menu-icon" role="presentation" onClick={handleClick}>
         {click ? <CloseIcon /> : <MenuIcon />}
       </div>
-
       <ul className={click ? 'nav-menu active' : 'nav-menu'}>
         {MenuItems.map(item => (
           <li className="nav-items" item={item} key={item.id}>

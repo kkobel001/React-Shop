@@ -23,6 +23,17 @@ import About from './About/About';
 import Contact from './Contact/Contact';
 import Blog from './Blog/Blog';
 
+class DebugRouter extends Router {
+  constructor(props) {
+    super(props);
+    console.log('initial history is: ', JSON.stringify(this.history, null, 2));
+    this.history.listen((location, action) => {
+      console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`);
+      console.log(`The last navigation action was ${action}`, JSON.stringify(this.history, null, 2));
+    });
+  }
+}
+
 function Root() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -50,7 +61,7 @@ function Root() {
   const footer = <Footer />;
 
   return (
-    <Router>
+    <DebugRouter>
       <AuthContext.Provider
         value={{
           user: state.user,
@@ -64,7 +75,7 @@ function Root() {
           </ErrorBoundary>
         </ReducerContext.Provider>
       </AuthContext.Provider>
-    </Router>
+    </DebugRouter>
   );
 }
 

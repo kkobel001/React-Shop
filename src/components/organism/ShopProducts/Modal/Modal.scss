@@ -17,9 +17,10 @@
   transform: translateY(-50%);
   background-color: $white-color;
   padding: 20px;
+  margin-top:30px;
   left: 100px;
   width: 90%;
-  height: 630px;
+  height: 80%;
   @include box-effect;
   opacity: 1;
   display: flex;
@@ -176,3 +177,12 @@
     margin-bottom:5px;
   }
 }
+
+// @media screen and (min-width: 1300px) {
+
+//   .wrapper-modal {
+//     height:80%;
+//     margin-top:20px;
+
+//   }
+// }
