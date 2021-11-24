@@ -102,6 +102,7 @@
     z-index: 1;
     padding: 71px 0px 71px 0px;
     color: white;
+    margin-top:-5px;
   }
   .nav-items {
     width: 100%;
