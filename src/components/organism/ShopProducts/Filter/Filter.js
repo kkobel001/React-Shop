@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
-import formatCurrency from '../../../../helpers/until';
 import '../Products.scss';
-import MainModal from '../Modal/MainModal';
+import SimpleButton from 'components/atoms/SimpleButton/SimpleButton';
+import ItemListFooter from './ItemListFooter';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -81,31 +81,15 @@ class Filter extends Component {
   render() {
     const { filteredProducts } = this.state;
     const { loading } = this.state;
-
-    const renderAll = filteredProducts.map(item => (
-      <ul className="products">
-        {/* {localStorage.clear()} */}
-        <li key={item.title}>
-          <div className="section">
-            <img src={item.image.url} alt={item.title} />
-            <MainModal item={item} />
-          </div>
-          <h3>{item.title}</h3>
-          <div className="product-price">{formatCurrency(item.price)}</div>
-        </li>
-      </ul>
-    ));
+    const renderAll = filteredProducts.map(item => <ItemListFooter key={item.id} item={item} />);
 
     return (
       <>
         <div className="row-button">
           {categories.map(({ name, value }) => (
-            <button className="btn-description" type="button" value={value} onClick={this.handleClick(name)}>
-              {name}
-            </button>
+            <SimpleButton value={value} onClick={this.handleClick(name)} key={name} />
           ))}
         </div>
-
         <div className="wrapper-shop">{loading ? <LoadingIcon /> : [renderAll]}</div>
       </>
     );
