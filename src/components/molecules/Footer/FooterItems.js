@@ -7,20 +7,20 @@ export const CardOne = [
   },
   {
     id: 6,
-    title: 'Men',
-    url: '/shop',
+    title: 'Blog',
+    url: '/blog',
     cName: 'nav-links',
   },
   {
     id: 7,
-    title: 'Shoes',
-    url: '/shop',
+    title: 'About',
+    url: '/about',
     cName: 'nav-links',
   },
   {
     id: 8,
-    title: 'Watches',
-    url: '/shop',
+    title: 'Contact',
+    url: '/contact',
     cName: 'nav-links',
   },
 ];

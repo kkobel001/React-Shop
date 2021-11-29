@@ -1,0 +1,24 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+.btn-description {
+    border: none;
+    padding: 10px 20px 10px 20px;
+    background-color: transparent;
+    font-size: $bigfont-size;
+  
+    &:hover {
+      background-color: $purple-color;
+      color: $white-color;
+      transition: all 0.9s ease;
+    }
+    &:visited {
+      background-color: $purple-color;
+      color: $white-color;
+    }
+    &.active{
+        @include activeLink;
+        background-color: brown;
+      }     
+  }
