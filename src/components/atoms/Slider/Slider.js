@@ -64,7 +64,6 @@ const Slider = ({ slides }) => {
           {slide.id === current && <img className={slide.imgclass} src={slide.image} alt="sliderimg" key={slide.id} />}
         </div>
       ))}
-
       <div className="next-icon">
         <ChevronRightIcon data-testid="click-nextstate" onClick={nextSlide} onMouseEnter={stopTimer} onMouseLeave={playTimer} />
       </div>

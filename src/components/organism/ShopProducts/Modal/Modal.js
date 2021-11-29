@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useDispatch } from 'react-redux';
-import { increaseProduct } from 'redux/reducers/sliceCart';
+import { increaseProduct } from 'redux/slice/sliceCart';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
@@ -29,6 +29,20 @@ const sliderImages = [
     nameclass: 'presentation-img',
     imgclass: 'imgModal',
   },
+];
+
+const optionsSize = [
+  { value: 'XS', label: 'XS' },
+  { value: 'S', label: 'S' },
+  { value: 'M', label: 'M' },
+  { value: 'XL', label: 'XL' },
+];
+const optionColor = [
+  { value: 'Red', label: 'Red' },
+  { value: 'White', label: 'White' },
+  { value: 'Black', label: 'Black' },
+  { value: 'Blue', label: 'Blue' },
+  { value: 'Yelllow', label: 'Yelllow' },
 ];
 
 const Modal = ({ item, showModal, setShowModal }) => {
@@ -64,29 +78,10 @@ const Modal = ({ item, showModal, setShowModal }) => {
               </div>
               <div className="modal-box">
                 <div className="filter-size">
-                  <InputSelect
-                    title="Size"
-                    type="select"
-                    options={[
-                      { value: 'XS', label: 'XS' },
-                      { value: 'S', label: 'S' },
-                      { value: 'M', label: 'M' },
-                      { value: 'XL', label: 'XL' },
-                    ]}
-                  />
+                  <InputSelect title="Size" type="select" options={optionsSize} defaultValue="XS" />
                 </div>
                 <div className="filter-color">
-                  <InputSelect
-                    title="Color"
-                    type="select"
-                    options={[
-                      { value: 'Red', label: 'Red' },
-                      { value: 'White', label: 'White' },
-                      { value: 'Black', label: 'Black' },
-                      { value: 'Blue', label: 'Blue' },
-                      { value: 'Yelllow', label: 'Yelllow' },
-                    ]}
-                  />
+                  <InputSelect title="Color" type="select" options={optionColor} defaultValue="Red" />
                 </div>
                 <div className="add-section">
                   <div className="row-submodal">
@@ -95,6 +90,8 @@ const Modal = ({ item, showModal, setShowModal }) => {
                       type="button"
                       onClick={() => {
                         openSubModal();
+                        item.size = 'XS';
+                        console.log(item);
                         handleAddToCart(item);
                       }}
                     >
