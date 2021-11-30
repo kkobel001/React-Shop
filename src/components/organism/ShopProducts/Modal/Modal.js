@@ -37,7 +37,7 @@ const optionsSize = [
   { value: 'M', label: 'M' },
   { value: 'XL', label: 'XL' },
 ];
-const optionColor = [
+const optionsColor = [
   { value: 'Red', label: 'Red' },
   { value: 'White', label: 'White' },
   { value: 'Black', label: 'Black' },
@@ -47,6 +47,9 @@ const optionColor = [
 
 const Modal = ({ item, showModal, setShowModal }) => {
   const [showSubModal, setSubModal] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(optionsSize[0].value);
+  const [selectedColor, setSelectedColor] = useState(optionsColor[0].value);
+
   const modalRef = useRef(null);
   useClickOutside(modalRef, setSubModal);
   const dispatch = useDispatch();
@@ -59,9 +62,19 @@ const Modal = ({ item, showModal, setShowModal }) => {
   };
 
   const handleAddToCart = item => {
+    item.size = selectedSize;
+    item.color = selectedColor;
     dispatch(increaseProduct(item));
   };
 
+  const handleSizeOnChange = size => {
+    console.log('size', size);
+    setSelectedSize(size);
+  };
+  const handleColorOnChange = color => {
+    console.log('color', color);
+    setSelectedColor(color);
+  };
   return (
     <>
       {showModal ? (
@@ -78,10 +91,10 @@ const Modal = ({ item, showModal, setShowModal }) => {
               </div>
               <div className="modal-box">
                 <div className="filter-size">
-                  <InputSelect title="Size" type="select" options={optionsSize} defaultValue="XS" />
+                  <InputSelect title="Size" type="select" onChange={handleSizeOnChange} options={optionsSize} />
                 </div>
                 <div className="filter-color">
-                  <InputSelect title="Color" type="select" options={optionColor} defaultValue="Red" />
+                  <InputSelect title="Color" type="select" onChange={handleColorOnChange} options={optionsColor} />
                 </div>
                 <div className="add-section">
                   <div className="row-submodal">
@@ -90,8 +103,6 @@ const Modal = ({ item, showModal, setShowModal }) => {
                       type="button"
                       onClick={() => {
                         openSubModal();
-                        item.size = 'XS';
-                        console.log(item);
                         handleAddToCart(item);
                       }}
                     >

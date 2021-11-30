@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputSelect = ({ title, value, options, defaultValue }) => {
-  const [currentValue, setCurrentValue] = useState(defaultValue);
+const InputSelect = ({ title, value, options, onChange }) => {
   const handleChange = e => {
-    setCurrentValue(e.target.value);
+    onChange(e.target.value);
   };
+
   return (
     <div className="selected-products">
       <h4>{title}</h4>
       <select value={value} className="selected-products" onChange={handleChange}>
         {options.map(option => (
-          <option value={option.value} key={option.value} currentValue={currentValue} className="option-products">
+          <option value={option.value} key={option.value} className="option-products">
             {option.label}
           </option>
         ))}
@@ -23,7 +23,7 @@ const InputSelect = ({ title, value, options, defaultValue }) => {
 InputSelect.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
-  defaultValue: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+import _uniqueId from 'lodash/uniqueId';
+
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { useSelector } from 'react-redux';
 import CardOrder from './CardOrder/CardOrder';
@@ -7,6 +9,8 @@ import './OrderPage.scss';
 
 const OrderPage = () => {
   const cartItems = useSelector(state => state.cart.cartItems);
+  const [id] = useState(_uniqueId('prefix-'));
+
   return (
     <div className="wrapper-order">
       <UserTemplates title="Order">
@@ -15,7 +19,8 @@ const OrderPage = () => {
         ) : (
           <div>
             {cartItems.map(item => (
-              <CardOrder key={item.id} item={item} />
+              // eslint-disable-next-line react/no-array-index-key
+              <CardOrder key={id} item={item} />
             ))}
           </div>
         )}

@@ -21,7 +21,7 @@ const CardOrder = ({ item }) => {
           <div className="mr-order">
             <h2>{item.title}</h2>
             <button type="button" className="icon-del" onClick={() => handleRemoveProduct(item)}>
-              <DeleteOutlineIcon className="" />
+              <DeleteOutlineIcon />
             </button>
           </div>
           <h3> Color: {item.color} </h3>

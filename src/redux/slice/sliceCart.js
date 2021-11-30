@@ -27,24 +27,26 @@ const orderSlice = createSlice({
   initialState,
   reducers: {
     increaseProduct(state, action) {
-      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id);
+      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
-        const conProduct = { ...action.payload, cartQuantity: 1 };
-        state.cartItems.push(conProduct);
+        const product = { ...action.payload, cartQuantity: 1 };
+        state.cartItems.push(product);
       }
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
       prepareCartTotal(state);
     },
 
     decreaseProduct(state, action) {
-      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id);
+      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-        const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id);
+        const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id && cartElement.color !== action.payload.color && cartElement.size !== action.payload.size);
+        console.log(nextCartItems);
+
         state.cartItems = nextCartItems;
       }
 
