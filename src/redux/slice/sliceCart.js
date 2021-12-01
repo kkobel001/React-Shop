@@ -44,9 +44,7 @@ const orderSlice = createSlice({
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-        const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id && cartElement.color !== action.payload.color && cartElement.size !== action.payload.size);
-        console.log(nextCartItems);
-
+        const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
         state.cartItems = nextCartItems;
       }
 
@@ -55,7 +53,7 @@ const orderSlice = createSlice({
     },
 
     removeProduct(state, action) {
-      const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id);
+      const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
       state.cartItems = nextCartItems;
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
       prepareCartTotal(state);
