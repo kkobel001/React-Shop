@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { increaseProduct, decreaseProduct } from 'redux/reducers/sliceCart';
+import { increaseProduct, decreaseProduct } from 'redux/slice/sliceCart';
 import './QuantityProducts.scss';
 
 const QuantityProducts = ({ item }) => {

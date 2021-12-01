@@ -21,10 +21,6 @@ const NavIconMenu = ({ cartQuantity }) => {
     setAuth(false);
   };
 
-  // if (auth) {
-  //   history.push('/UserPage');
-  // }
-
   return (
     <div className="icon-wrapper">
       <ul className="icon-row">
@@ -62,7 +58,7 @@ const NavIconMenu = ({ cartQuantity }) => {
 };
 
 NavIconMenu.propTypes = {
-  cartQuantity: PropTypes.string.isRequired,
+  cartQuantity: PropTypes.number.isRequired,
 };
 
 export default NavIconMenu;

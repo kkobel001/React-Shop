@@ -115,7 +115,6 @@ const LoginDetails = () => {
       history.push('/');
     }
   };
-
   const updateField = e => {
     setForm({
       ...form,
@@ -123,7 +122,6 @@ const LoginDetails = () => {
       InitialFormState,
     });
   };
-
   const toggleForm = () => {
     setRegist(!regist);
     resetError();
@@ -133,6 +131,7 @@ const LoginDetails = () => {
   if (auth) {
     history.push('/userPage');
   }
+
   return (
     <div className="wrapper-login">
       <div className="account-form">

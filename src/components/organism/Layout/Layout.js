@@ -10,7 +10,6 @@ function Layout({ menu, content, footer }) {
     </>
   );
 }
-
 Layout.propTypes = {
   menu: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
