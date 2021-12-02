@@ -19,5 +19,6 @@ export default function useAuth() {
       window.localStorage.removeItem('token-data');
     }
   };
+
   return [auth, setAuth];
 }

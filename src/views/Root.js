@@ -8,6 +8,7 @@ import UserPage from 'components/organism/UserPage/UserPage';
 import OrderPage from 'components/organism/ShopProducts/OrderPage/OrderPage';
 import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
+import Error from 'components/atoms/Error/Error';
 import Layout from 'components/organism/Layout/Layout';
 import Searchbar from 'components/atoms/Searchbar/Searchbar';
 import Faq from 'components/molecules/Footer/FooterDetails/FAQ/Faq';
@@ -43,6 +44,7 @@ function Root() {
       <Route exact path={routes.faq} component={Faq} />
       <Route exact path={routes.regulation} component={Regulation} />
       <Route component={NotFound} />
+      <Route component={Error} />
     </Switch>
   );
 

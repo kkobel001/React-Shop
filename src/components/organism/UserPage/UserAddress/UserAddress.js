@@ -1,74 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import './UserAddress.scss';
-import { validateContact } from 'helpers/Validate';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 
-const InitialFormState = {
-  name: '',
-};
-const userAddress = () => {
-  const [error, setError] = useState({});
-  const [form, setForm] = useState(InitialFormState);
-
-  const resetError = () => {
-    setForm(InitialFormState);
-    setError({});
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    const errorText = validateContact(form);
-
-    if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
-      setError(errorText);
-    } else {
-      resetError();
-    }
-  };
-  const updateField = e => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-      InitialFormState,
-    });
-  };
-
-  return (
-    <>
-      <UserTemplates title="My account">
-        <form onSubmit={handleSubmit} className="input-wrapper">
-          <div className="input-row">
-            <UserField label="Name" value={form.name} name="imie" />
-            {error && <p>{error.name}</p>}
-          </div>
-          <div className="input-row">
-            <UserField label="Surname" value={form.name} onChange={updateField} name="imie" />
-          </div>
-          <div className="input-row">
-            <UserField label="Street" value={form.name} onChange={updateField} />
-          </div>
-          <div className="input-row">
-            <UserField label="House / flat number" value={form.name} />
-          </div>
-          <div className="input-row">
-            <UserField label="City" value={form.name} i />
-          </div>
-          <div className="input-row">
-            <UserField label="Postal Code" value={form.name} />
-          </div>
-          <div className="input-row">
-            <UserField label="Telephone" value={form.name} />
-          </div>
-        </form>
-        <div className="btnpanel-row">
-          <button type="button" className="btn-panel">
-            Save changes
-          </button>
+const userAddress = () => (
+  <>
+    <UserTemplates title="My account">
+      <form className="input-wrapper">
+        <div className="input-row">
+          <UserField label="Name" name="imie" />
         </div>
-      </UserTemplates>
-    </>
-  );
-};
-
+        <div className="input-row">
+          <UserField label="Surname" name="imie" />
+        </div>
+        <div className="input-row">
+          <UserField label="Street" />
+        </div>
+        <div className="input-row">
+          <UserField label="House / flat number" />
+        </div>
+        <div className="input-row">
+          <UserField label="City" />
+        </div>
+        <div className="input-row">
+          <UserField label="Postal Code" />
+        </div>
+        <div className="input-row">
+          <UserField label="Telephone" />
+        </div>
+      </form>
+      <div className="btnpanel-row">
+        <button type="button" className="btn-panel">
+          Save changes
+        </button>
+      </div>
+    </UserTemplates>
+  </>
+);
 export default userAddress;

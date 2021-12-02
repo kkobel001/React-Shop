@@ -4,6 +4,7 @@ import useAuth from 'hooks/useAuth';
 import './UserPage.scss';
 import UserOrder from './UserOrder/UserOrder';
 import userAddress from './UserAddress/UserAddress';
+import userData from './UserDate/UserData';
 
 const UserPage = () => {
   const { path, url } = useRouteMatch();
@@ -30,8 +31,13 @@ const UserPage = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink exact to={`${url}/adress`} className="nav-link" activeClassName="active">
-                My addres
+              <NavLink exact to={`${url}/address`} className="nav-link" activeClassName="active">
+                My address
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink exact to={`${url}/data`} className="nav-link" activeClassName="active">
+                My data
               </NavLink>
             </li>
             <li className="nav-item">
@@ -44,7 +50,8 @@ const UserPage = () => {
       </ul>
 
       <Switch>
-        <Route path={`${path}/adress`} component={userAddress} />
+        <Route path={`${path}/address`} component={userAddress} />
+        <Route path={`${path}/data`} component={userData} />
         <Route path={`${path}`} component={UserOrder} />
       </Switch>
     </div>
