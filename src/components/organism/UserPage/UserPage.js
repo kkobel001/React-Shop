@@ -42,7 +42,7 @@ const UserPage = () => {
             </li>
             <li className="nav-item">
               <NavLink exact to="/home" onClick={logout} className="nav-link" activeClassName="active">
-                Wyloguj
+                Log out
               </NavLink>
             </li>
           </>

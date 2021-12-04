@@ -5,5 +5,5 @@ import ReducerContext from '../context/reducerContext';
 export default function AuthenticatedRoute(props) {
   const context = useContext(ReducerContext);
   // eslint-disable-next-line react/destructuring-assignment
-  return context.state.user ? <Route {...props} /> : <Redirect to="/zaloguj" />;
+  return context.state.user ? <Route {...props} /> : <Redirect to="/login" />;
 }

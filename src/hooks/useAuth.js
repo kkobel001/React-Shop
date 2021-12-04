@@ -6,7 +6,7 @@ export default function useAuth() {
 
   const auth = authContext.user;
 
-  useDebugValue(auth ? 'Zalogowany' : 'Wylogowany');
+  useDebugValue(auth ? 'Login in' : 'Log out');
 
   const setAuth = user => {
     if (user) {
