@@ -1,31 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const InitialFormState = {
-  street: '',
-  numberHouse: '',
-  city: '',
+  name: '',
+  surname: '',
+  address: {},
   telephone: '',
-  postalCode: '',
 };
 
 const userAddress = () => {
-  // const [ setAuth] = useAuth();
   const [form, setForm] = useState(InitialFormState);
 
   const sendUserData = uid => {
     const path = `user/${uid}/userDetails`;
 
     set(ref(getDatabase(), path), {
-      street: form.street,
-      numberHouse: form.numberHouse,
-      city: form.city,
+      address: {
+        city: form.city,
+        flatNumber: form.flatNumber,
+        postalCode: form.postalCode,
+        street: form.street,
+      },
+      name: form.name,
+      surname: form.surname,
       telephone: form.telephone,
-      postalCode: form.postalCode,
     })
       .then(() => {
         console.log('Data saved successfully!');
@@ -36,14 +38,33 @@ const userAddress = () => {
   };
 
   const handleSendInfo = () => {
-    onAuthStateChanged(getAuth(), form.street, form.city, form.telephone, form.postalCode).then(userCredential => {
-      sendUserData(userCredential.user.uid);
+    onAuthStateChanged(getAuth(), user => {
+      sendUserData(user.uid);
     });
   };
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, user => setAuth(user));
-  // }, []);
+  useEffect(() => {
+    onAuthStateChanged(getAuth(), user => {
+      const db = getDatabase();
+      const reference = `user/${user.uid}/userDetails`;
+      const userDetailsRef = ref(db, reference);
+      onValue(userDetailsRef, snapshot => {
+        const data = snapshot.val();
+        setForm({
+          address: {
+            city: data.address.city,
+            flatNumber: data.address.flatNumber,
+            postalCode: data.address.postalCode,
+            street: data.address.street,
+          },
+          name: data.name,
+          surname: data.surname,
+          telephone: data.telephone,
+        });
+        console.log(form);
+      });
+    });
+  }, []);
 
   const updateField = e => {
     setForm({
@@ -57,27 +78,25 @@ const userAddress = () => {
       <UserTemplates title="My account">
         <form className="input-wrapper">
           <div className="input-row">
-            <UserField label="Name" name="name" value={form.city} />
+            <UserField label="Name" name="name" onChange={updateField} value={form.name} />
           </div>
           <div className="input-row">
-            <UserField label="Surname" name="surname" value={form.city} />
+            <UserField label="Surname" name="surname" onChange={updateField} value={form.surname} />
           </div>
           <div className="input-row">
-            <UserField label="Street" value={form.city} onChange={updateField} />
+            <UserField label="Street" name="street" onChange={updateField} value={form.address.street} />
           </div>
           <div className="input-row">
-            <UserField label="House / flat number" />
+            <UserField label="House / flat number" name="flatNumber" type="number" value={form.address.flatNumber} onChange={updateField} />
           </div>
           <div className="input-row">
-            <UserField label="City" value={form.city} onChange={updateField} />
+            <UserField label="City" name="city" onChange={updateField} value={form.address.city} />
           </div>
           <div className="input-row">
-            <UserField label="Postal Code" value={form.postalCode} onChange={updateField}>
-              {form.postalCode}
-            </UserField>
+            <UserField label="Postal Code" name="postalCode" value={form.address.postalCode} onChange={updateField} />
           </div>
           <div className="input-row">
-            <UserField label="Telephone" value={form.telephone} onChange={updateField} />
+            <UserField label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
           </div>
         </form>
         <div className="panel-row">

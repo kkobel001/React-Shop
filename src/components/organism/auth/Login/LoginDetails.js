@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import { getDatabase, ref, set } from 'firebase/database';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import './Login.scss';
 import { validateLogin, validateRegister } from 'helpers/Validate';
@@ -37,8 +37,6 @@ const LoginDetails = () => {
       .then(() => {
         setAuth(true, {
           email: form.email,
-          token: form.idToken,
-          userId: form.localId,
         });
       })
       .catch(err => {
@@ -46,6 +44,16 @@ const LoginDetails = () => {
       });
   };
 
+  const stateChange = () => {
+    onAuthStateChanged(getAuth(), user => {
+      if (user) {
+        sendUserData();
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  };
   const handleSignUp = () => {
     createUserWithEmailAndPassword(getAuth(), form.email, form.password)
       .then(userCredential => {
@@ -125,6 +133,7 @@ const LoginDetails = () => {
       ...form,
       [e.target.name]: e.target.value,
       InitialFormState,
+      stateChange,
     });
   };
   const toggleForm = () => {
