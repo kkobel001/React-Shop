@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
 import { getDatabase, ref, set } from 'firebase/database';
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import './Login.scss';
 import { validateLogin, validateRegister } from 'helpers/Validate';
@@ -17,7 +17,7 @@ const InitialFormState = {
 const LoginDetails = () => {
   const [error, setError] = useState(false);
   const [form, setForm] = useState(InitialFormState);
-  const [regist, setRegist] = useState(false);
+  const [register, setRegister] = useState(false);
   const [auth, setAuth] = useAuth();
   const history = useHistory();
 
@@ -32,15 +32,28 @@ const LoginDetails = () => {
     set(ref(getDatabase(), path), {
       name: form.name,
       surname: form.surname,
+      email: form.email,
     })
       .then(() => {
-        console.log('Data saved successfully!');
+        setAuth(true, {
+          email: form.email,
+        });
       })
       .catch(err => {
         console.log(err);
       });
   };
 
+  const stateChange = () => {
+    onAuthStateChanged(getAuth(), user => {
+      if (user) {
+        sendUserData();
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
+  };
   const handleSignUp = () => {
     createUserWithEmailAndPassword(getAuth(), form.email, form.password)
       .then(userCredential => {
@@ -107,7 +120,7 @@ const LoginDetails = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (regist) {
+    if (register) {
       handleRegistrationValidation();
       history.push('/');
     } else {
@@ -120,10 +133,11 @@ const LoginDetails = () => {
       ...form,
       [e.target.name]: e.target.value,
       InitialFormState,
+      stateChange,
     });
   };
   const toggleForm = () => {
-    setRegist(!regist);
+    setRegister(!register);
     resetError();
     console.log('clicked');
   };
@@ -135,15 +149,15 @@ const LoginDetails = () => {
   return (
     <div className="wrapper-login">
       <div className="account-form">
-        {regist ? <h2>Create your account</h2> : <h2>Sign in to your account</h2>}
+        {register ? <h2>Create your account</h2> : <h2>Sign in to your account</h2>}
         <form onSubmit={handleSubmit}>
-          {regist && (
+          {register && (
             <div className="login-container">
               <input type="text" value={form.name} placeholder="Name" name="name" onChange={updateField} />
               <p className="error-message">{error.name}</p>
             </div>
           )}
-          {regist && (
+          {register && (
             <div className="login-container">
               <input type="text" value={form.surname} placeholder="Surname" name="surname" onChange={updateField} />
               <p className="error-message">{error.surname}</p>
@@ -158,16 +172,16 @@ const LoginDetails = () => {
             <input type="password" value={form.password} placeholder="Password" name="password" onChange={updateField} />
             <p className="error-message">{error.password}</p>
           </div>
-          {!regist && (
+          {!register && (
             <div>
               <Link to="/" className="login-link">
-                <p>Forgot yout password?</p>
+                <p>Forgot you password?</p>
               </Link>
             </div>
           )}
           <div className="btn-row">
             <button className="btn-formLog" type="submit">
-              {regist ? 'Sign up' : 'Sign in'}
+              {register ? 'Sign up' : 'Sign in'}
             </button>
             <button className="btn-formLog" type="submit">
               <FacebookIcon />
@@ -176,9 +190,9 @@ const LoginDetails = () => {
           </div>
           <div className="section-reg">
             <span>
-              {regist ? 'Do you have account' : 'Dont have account?'}
+              {register ? 'Do you have account' : 'Dont have account?'}
               <button type="button" className="btn-switch" onClick={toggleForm}>
-                {regist ? 'Sign in' : 'Sign up'}
+                {register ? 'Sign in' : 'Sign up'}
               </button>
             </span>
           </div>

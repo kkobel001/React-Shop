@@ -44,7 +44,7 @@ function DetailsItemBlog() {
       <div className="text-blog">{response.data.article.contend}</div>
     </div>
   ) : (
-    <div>{error ? <Error>Sorry, we coulnd not load articles for you</Error> : <LoadingIcon />}</div>
+    <div>{error ? <Error>Sorry, we not load articles for you</Error> : <LoadingIcon />}</div>
   );
 }
 export default DetailsItemBlog;

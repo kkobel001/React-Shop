@@ -19,7 +19,6 @@ const OrderPage = () => {
         ) : (
           <div>
             {cartItems.map(item => (
-              // eslint-disable-next-line react/no-array-index-key
               <CardOrder key={id} item={item} />
             ))}
           </div>
