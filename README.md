@@ -1,8 +1,8 @@
-# Demo
+## Demo
 
 https://clothes-shop-react-a38fe.firebaseapp.com/
 
-## Available Scripts
+## About
 
 This project has integrations with few services:
 - products, blog articles are downloaded from DatoCMS API,
@@ -14,6 +14,7 @@ This project has integrations with few services:
 
 Product cart is managed with redux.
 
+## Available Scripts
 
 ### `npm start`
 
