@@ -10,6 +10,11 @@ const AboutDetailsItem = ({ item }) => (
 );
 
 AboutDetailsItem.propTypes = {
-  item: PropTypes.instanceOf(Object).isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    contextOne: PropTypes.string.isRequired,
+    contextTwo: PropTypes.string.isRequired,
+  }).isRequired,
 };
 export default AboutDetailsItem;

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 import '../Products.scss';
 import SimpleButton from 'components/atoms/SimpleButton/SimpleButton';
 import ItemListFooter from './ItemListFooter';
+import CatchErrorFilter from './CatchErrorFilter';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -30,40 +31,15 @@ class Filter extends Component {
       loading: true,
     });
 
-    axios
-      .post(
-        ' https://graphql.datocms.com/',
-        {
-          query: `
-          {
-            allProducts {
-              id,
-              title,
-              price,
-              image{
-                url
-              },
-              category,
-              value
-            }
-          }`,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        },
-      )
-      .then(({ data: { data } }) => {
-        this.setState({
-          allProducts: data.allProducts,
-          filteredProducts: data.allProducts,
-        });
-
-        setTimeout(() => {
-          this.setState({ loading: false });
-        }, 500);
-      });
+    CatchErrorFilter(
+      this.setState({
+        allProducts,
+        filteredProducts: allProducts,
+      }),
+      setTimeout(() => {
+        this.setState({ loading: false });
+      }, 500),
+    );
   }
 
   handleClick = name => () => {
