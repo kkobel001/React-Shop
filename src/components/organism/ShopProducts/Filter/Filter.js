@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 import '../Products.scss';
 import SimpleButton from 'components/atoms/SimpleButton/SimpleButton';
 import ItemListFooter from './ItemListFooter';
+import { useAxios } from '../../../../hooks/useAxios';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -12,29 +12,17 @@ const categories = [
   { name: 'Accessories', value: 'Accessories' },
 ];
 
-class Filter extends Component {
-  constructor() {
-    super();
-    this.state = {
-      allProducts: [],
-      filteredProducts: [],
-      loading: false,
-    };
-  }
-
-  componentDidMount() {
-    const { allProducts } = this.state;
-
-    this.setState({
-      filteredProducts: allProducts,
-      loading: true,
-    });
-
-    axios
-      .post(
-        ' https://graphql.datocms.com/',
-        {
-          query: `
+const Filter = () => {
+  const [allProducts, setAllProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const { response, error, loading } = useAxios({
+    method: 'POST',
+    url: 'https://graphql.datocms.com/',
+    headers: {
+      authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+    },
+    data: {
+      query: `
           {
             allProducts {
               id,
@@ -47,53 +35,42 @@ class Filter extends Component {
               value
             }
           }`,
-        },
-        {
-          headers: {
-            authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        },
-      )
-      .then(({ data: { data } }) => {
-        this.setState({
-          allProducts: data.allProducts,
-          filteredProducts: data.allProducts,
-        });
+    },
+  });
 
-        setTimeout(() => {
-          this.setState({ loading: false });
-        }, 500);
-      });
-  }
+  const filterProducts = (products, category) => (category === 'All' ? products : products.filter(product => product.category === category));
 
-  handleClick = name => () => {
-    const { allProducts } = this.state;
-    let filteredProducts = [];
+  useEffect(() => {
+    setAllProducts(response?.data?.allProducts ?? []);
+  }, [response, loading]);
 
-    if (name === 'All') {
-      filteredProducts = allProducts;
-    } else {
-      filteredProducts = allProducts.filter(product => product.category === name);
-    }
-    this.setState({ filteredProducts });
+  // TODO manage selected category via useState
+  useEffect(() => {
+    setFilteredProducts(filterProducts(allProducts, 'All'));
+  }, [response, loading]);
+
+  const handleClick = category => () => {
+    const filteredProducts = filterProducts(allProducts, category);
+    setFilteredProducts(filteredProducts);
   };
 
-  render() {
-    const { filteredProducts } = this.state;
-    const { loading } = this.state;
-    const renderAll = filteredProducts.map(item => <ItemListFooter key={item.id} item={item} />);
+  const areProductsVisible = !loading && !error;
+  const isErrorVisible = !loading && error;
 
-    return (
-      <>
-        <div className="row-button">
-          {categories.map(({ name, value }) => (
-            <SimpleButton value={value} onClick={this.handleClick(name)} key={name} />
-          ))}
-        </div>
-        <div className="wrapper-shop">{loading ? <LoadingIcon /> : [renderAll]}</div>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <div className="row-button">
+        {categories.map(({ name, value }) => (
+          <SimpleButton value={value} onClick={handleClick(name)} key={name} />
+        ))}
+      </div>
+      <div className="wrapper-shop">
+        {loading && <LoadingIcon />}
+        {areProductsVisible && filteredProducts.map(item => <ItemListFooter key={item.id} item={item} />)}
+        {isErrorVisible && <div> Something went wrong 🤷‍ try again</div>}
+      </div>
+    </>
+  );
+};
 
 export default Filter;
