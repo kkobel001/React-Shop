@@ -6,12 +6,15 @@
     grid-template-columns: 1fr 1fr;
     display: grid;
     gap: 20px 5px;
-    margin-top:50px;
-
+    margin:50px 0px;
+ 
 }
 .input-row{
     width:80%;   
-    padding:25px 0px;    
+    p {
+        @include error-mes;
+        margin: 40px;      
+    }
 }
 .panel-row{
     align-items: flex-end;
@@ -23,10 +26,8 @@
         margin-left:auto;
     }
 }
-
 @media screen and (max-width: 450px) {
 
-   
             .input-wrapper{
                 display: block;
 

@@ -1,48 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-// import { getAuth } from 'firebase/auth';
-// import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const InitialFormState = {
   password: '',
-  email: 'kasia@kasia.pl',
+  email: '',
 };
 
 const userData = () => {
-  const [form] = useState(InitialFormState);
+  const [form, setForm] = useState(InitialFormState);
   const [password, setPassword] = useState('');
-  // const [auth] = useAuth();
 
-  // const user = getAuth().currentUser;
-  // if (user !== null) {
-  //   const email = user.email;
+  const sendUserData = uid => {
+    const path = `user/${uid}/userDetails`;
 
-  //   const path = `user/${uid}/userDetails`;
+    set(ref(getDatabase(), path), {
+      email: form.email,
+    })
+      .then(() => {
+        console.log('Data saved successfully!');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-  //   set(ref(getDatabase(), path), {
-  //     name: form.name,
-  //     surname: form.surname,
-  //     email: form.email,
+  const handleSendInfo = () => {
+    onAuthStateChanged(getAuth(), user => {
+      sendUserData(user.uid);
+    });
+  };
 
-  // })}
+  useEffect(() => {
+    onAuthStateChanged(getAuth(), user => {
+      setForm({
+        email: user.email,
+      });
+    });
+  }, []);
+
+  const updateField = e => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <>
-      <UserTemplates title="My account">
+      <UserTemplates title="My data">
         <form className="input-wrapper">
           <div className="input-row">
-            <UserField label="E-mail" name="email" />
-            {form.email}
+            <UserField label="E-mail" name="email" onChange={updateField} value={form.email} />
           </div>
-          {console.log(form.email)}
-
           <div className="input-row">
             <UserField label="Password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
           </div>
         </form>
         <div className="panel-row">
-          <button type="button" className="btn-panel">
+          <button type="button" className="btn-panel" onClick={handleSendInfo}>
             Save changes
           </button>
         </div>
@@ -50,4 +68,5 @@ const userData = () => {
     </>
   );
 };
+
 export default userData;

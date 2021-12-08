@@ -44,7 +44,7 @@ function FormContact() {
         })
         .try(
           () => {
-            Helpers.showAlert('Message has been sent succesfully!');
+            Helpers.showAlert('Message has been sent successfully!');
             resetStates();
           },
           networkError => {
@@ -71,7 +71,7 @@ function FormContact() {
             <input className="in-contact" value={form.name} placeholder="Name" type="text" name="name" onChange={updateField} />
             {error && <p>{error.name}</p>}
 
-            <input className="in-contact" value={form.email} placeholder="Your Email Adress" type="email" name="email" onChange={updateField} />
+            <input className="in-contact" value={form.email} placeholder="Your Email Address" type="email" name="email" onChange={updateField} />
             {error && <p>{error.email}</p>}
 
             <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" onChange={updateField} />
@@ -87,7 +87,7 @@ function FormContact() {
             <li>
               <div className="text-section">
                 <PlaceIcon className="icon-contact" />
-                <h2>Adress</h2>
+                <h2>Address</h2>
               </div>
               <p>
                 Coza Store Center 8th floor, <br />
