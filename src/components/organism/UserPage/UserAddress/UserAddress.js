@@ -4,43 +4,52 @@ import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { validateAddressForm } from 'helpers/Validate';
 
 const InitialFormState = {
   name: '',
   surname: '',
-  address: {},
+  street: '',
+  city: '',
+  flatNumber: '',
+  postalCode: '',
   telephone: '',
 };
 
 const userAddress = () => {
   const [form, setForm] = useState(InitialFormState);
+  const [error, setError] = useState({});
 
   const sendUserData = uid => {
     const path = `user/${uid}/userDetails`;
 
     set(ref(getDatabase(), path), {
-      address: {
-        city: form.city,
-        flatNumber: form.flatNumber,
-        postalCode: form.postalCode,
-        street: form.street,
-      },
+      city: form.city,
+      flatNumber: form.flatNumber,
+      postalCode: form.postalCode,
+      street: form.street,
       name: form.name,
       surname: form.surname,
       telephone: form.telephone,
     })
-      .then(() => {
-        console.log('Data saved successfully!');
-      })
+      .then(() => {})
       .catch(err => {
         console.log(err);
       });
   };
 
-  const handleSendInfo = () => {
-    onAuthStateChanged(getAuth(), user => {
-      sendUserData(user.uid);
-    });
+  const handleSendInfo = e => {
+    e.preventDefault();
+
+    const errorText = validateAddressForm(form);
+    if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
+      setError(errorText);
+    } else {
+      onAuthStateChanged(getAuth(), user => {
+        sendUserData(user.uid);
+      });
+    }
+    console.log(error);
   };
 
   useEffect(() => {
@@ -51,12 +60,10 @@ const userAddress = () => {
       onValue(userDetailsRef, snapshot => {
         const data = snapshot.val();
         setForm({
-          address: {
-            city: data.address.city,
-            flatNumber: data.address.flatNumber,
-            postalCode: data.address.postalCode,
-            street: data.address.street,
-          },
+          city: data.city,
+          flatNumber: data.flatNumber,
+          postalCode: data.postalCode,
+          street: data.street,
           name: data.name,
           surname: data.surname,
           telephone: data.telephone,
@@ -79,24 +86,31 @@ const userAddress = () => {
         <form className="input-wrapper">
           <div className="input-row">
             <UserField label="Name" name="name" onChange={updateField} value={form.name} />
+            {error && <p>{error.name}</p>}
           </div>
           <div className="input-row">
             <UserField label="Surname" name="surname" onChange={updateField} value={form.surname} />
+            {error && <p>{error.surname}</p>}
+          </div>
+
+          <div className="input-row">
+            <UserField label="Street" name="street" onChange={updateField} value={form.street} />
+            {error && <p>{error.street}</p>}
           </div>
           <div className="input-row">
-            <UserField label="Street" name="street" onChange={updateField} value={form.address.street} />
+            <UserField label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
           </div>
           <div className="input-row">
-            <UserField label="House / flat number" name="flatNumber" type="number" value={form.address.flatNumber} onChange={updateField} />
+            <UserField label="City" name="city" onChange={updateField} value={form.city} />
+            {error && <p>{error.city}</p>}
           </div>
           <div className="input-row">
-            <UserField label="City" name="city" onChange={updateField} value={form.address.city} />
-          </div>
-          <div className="input-row">
-            <UserField label="Postal Code" name="postalCode" value={form.address.postalCode} onChange={updateField} />
+            <UserField label="Postal Code" name="postalCode" value={form.postalCode} onChange={updateField} />
+            {error && <p>{error.postalCode}</p>}
           </div>
           <div className="input-row">
             <UserField label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
+            {error && <p>{error.telephone}</p>}
           </div>
         </form>
         <div className="panel-row">
