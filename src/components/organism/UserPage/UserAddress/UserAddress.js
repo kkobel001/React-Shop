@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
 import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getDatabase, onValue, ref } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateAddressForm } from 'helpers/Validate';
+import { useSetData } from '../../../../hooks/useSetData';
 
 const InitialFormState = {
   name: '',
@@ -19,37 +20,30 @@ const InitialFormState = {
 const userAddress = () => {
   const [form, setForm] = useState(InitialFormState);
   const [error, setError] = useState({});
-
-  const sendUserData = uid => {
-    const path = `user/${uid}/userDetails`;
-
-    set(ref(getDatabase(), path), {
-      city: form.city,
-      flatNumber: form.flatNumber,
-      postalCode: form.postalCode,
-      street: form.street,
-      name: form.name,
-      surname: form.surname,
-      telephone: form.telephone,
-    })
-      .then(() => {})
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  const [setData] = useSetData();
 
   const handleSendInfo = e => {
     e.preventDefault();
-
     const errorText = validateAddressForm(form);
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
+      console.log(error);
     } else {
       onAuthStateChanged(getAuth(), user => {
-        sendUserData(user.uid);
+        const { uid } = user;
+        const path = `user/${uid}/userDetails`;
+
+        setData(path, {
+          city: form.city,
+          flatNumber: form.flatNumber,
+          postalCode: form.postalCode,
+          street: form.street,
+          name: form.name,
+          surname: form.surname,
+          telephone: form.telephone,
+        });
       });
     }
-    console.log(error);
   };
 
   useEffect(() => {
