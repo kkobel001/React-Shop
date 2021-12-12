@@ -65,9 +65,14 @@ padding-left:20px;
             }
     }
 
-
-
-  
-
-
+    @media not all and (min-resolution:.001dpcm)
+    { @supports (-webkit-appearance:none) and (stroke-color:transparent) {
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      
+      summary:focus {
+        outline: 3px solid $purple-color;
+      }
+    }}
 

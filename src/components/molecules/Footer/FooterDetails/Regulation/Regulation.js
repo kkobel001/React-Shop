@@ -34,9 +34,7 @@ const Regulation = () => {
         <div className="reg-content">{response.data.return.statut}</div>
       </div>
     </>
-  ) : (
-    <h2> fooor</h2>
-  );
+  ) : null;
 };
 
 export default Regulation;
