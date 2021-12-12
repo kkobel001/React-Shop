@@ -5,7 +5,7 @@ import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateAddressForm } from 'helpers/Validate';
-import { useSetData } from '../../../../hooks/useSetData';
+import { useSetDataWithAuth } from '../../../../hooks/useSetDataWithAuth';
 
 const InitialFormState = {
   name: '',
@@ -20,7 +20,7 @@ const InitialFormState = {
 const userAddress = () => {
   const [form, setForm] = useState(InitialFormState);
   const [error, setError] = useState({});
-  const [setData] = useSetData();
+  const [setData] = useSetDataWithAuth();
 
   const handleSendInfo = e => {
     e.preventDefault();
@@ -29,19 +29,16 @@ const userAddress = () => {
       setError(errorText);
       console.log(error);
     } else {
-      onAuthStateChanged(getAuth(), user => {
-        const { uid } = user;
-        const path = `user/${uid}/userDetails`;
+      const getPath = user => `user/${user.uid}/userDetails`;
 
-        setData(path, {
-          city: form.city,
-          flatNumber: form.flatNumber,
-          postalCode: form.postalCode,
-          street: form.street,
-          name: form.name,
-          surname: form.surname,
-          telephone: form.telephone,
-        });
+      setData(getPath, {
+        city: form.city,
+        flatNumber: form.flatNumber,
+        postalCode: form.postalCode,
+        street: form.street,
+        name: form.name,
+        surname: form.surname,
+        telephone: form.telephone,
       });
     }
   };
