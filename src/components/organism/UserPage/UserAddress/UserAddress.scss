@@ -5,12 +5,13 @@
 .input-wrapper{
     grid-template-columns: 1fr 1fr;
     display: grid;
+    justify-items: end;
     gap: 20px 5px;
     margin:50px 0px;
  
 }
 .input-row{
-    width:80%;   
+    width:85%;   
     p {
         @include error-mes;
         margin: 40px;      
