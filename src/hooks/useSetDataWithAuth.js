@@ -19,5 +19,5 @@ export const useSetDataWithAuth = () => {
       }
     });
   };
-  return { setData, err, isSaving };
+  return [setData, err, isSaving];
 };

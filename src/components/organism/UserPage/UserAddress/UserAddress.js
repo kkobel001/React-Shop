@@ -20,9 +20,11 @@ const InitialFormState = {
 const userAddress = () => {
   const [form, setForm] = useState(InitialFormState);
   const [error, setError] = useState({});
-  const [setData] = useSetDataWithAuth();
+  const [setData, err, isSaving] = useSetDataWithAuth();
 
   const handleSendInfo = e => {
+    console.log(setData, err, isSaving, form);
+
     e.preventDefault();
     const errorText = validateAddressForm(form);
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
