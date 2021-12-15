@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-// import { getDatabase, ref } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
 import { validateEmail } from 'helpers/Validate';
 import { useSetData } from 'hooks/useSetData';

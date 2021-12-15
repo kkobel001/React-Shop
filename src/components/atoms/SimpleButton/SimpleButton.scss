@@ -19,6 +19,8 @@
     }
     &.active{
         @include activeLink;
-        background-color: brown;
+        font-weight: 300;
+        background-color: $purple-color;
+        color:$white-color;
       }     
   }
