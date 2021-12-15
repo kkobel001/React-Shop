@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getDatabase, ref, set } from 'firebase/database';
+// import { getDatabase, ref } from 'firebase/database';
 import Helpers from 'helpers/Helpers';
 import { validateEmail } from 'helpers/Validate';
+import { useSetData } from 'hooks/useSetData';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import './Footer.scss';
@@ -12,6 +13,7 @@ const Footer = () => {
   const [date, setDate] = useState();
   const [sendEmail, setSendEmail] = useState('');
   const [error, setError] = useState({});
+  const [setData] = useSetData();
 
   const getYear = () => setDate(new Date().getFullYear());
 
@@ -31,19 +33,13 @@ const Footer = () => {
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
     } else {
-      const path = `newsletter/${Helpers.generateUUID()}`;
-
-      set(ref(getDatabase(), path), {
+      const getPath = `newsletter/${Helpers.generateUUID()}`;
+      setData(getPath, {
         email,
         timestamp: new Date().toISOString(),
-      })
-        .then(() => {
-          Helpers.showAlert('You are successfully added to newsletter list!');
-          resetStates();
-        })
-        .catch(() => {
-          Helpers.showAlert('Something went wrong please try again :(');
-        });
+      });
+      Helpers.showAlert('Message has been sent successfully!');
+      resetStates();
     }
   };
 
