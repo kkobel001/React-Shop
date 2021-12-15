@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import Slider from 'components/atoms/Slider/Slider';
-import InputSelect from 'components/atoms/Input/InputSelect';
+import SelectInput from 'components/atoms/SelectInput/SelectInput';
 import SubModal from '../SubModal/SubModal';
 
 const sliderImages = [
@@ -91,10 +91,10 @@ const Modal = ({ item, showModal, setShowModal }) => {
               </div>
               <div className="modal-box">
                 <div className="filter-size">
-                  <InputSelect title="Size" type="select" onChange={handleSizeOnChange} options={optionsSize} />
+                  <SelectInput title="Size" type="select" onChange={handleSizeOnChange} options={optionsSize} />
                 </div>
                 <div className="filter-color">
-                  <InputSelect title="Color" type="select" onChange={handleColorOnChange} options={optionsColor} />
+                  <SelectInput title="Color" type="select" onChange={handleColorOnChange} options={optionsColor} />
                 </div>
                 <div className="add-section">
                   <div className="row-submodal">

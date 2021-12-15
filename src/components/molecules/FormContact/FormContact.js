@@ -4,8 +4,8 @@ import Helpers from 'helpers/Helpers';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
 import PlaceIcon from '@material-ui/icons/Place';
-import axios from 'axios';
 import { validateContact } from 'helpers/Validate';
+import { usePostAxios } from 'hooks/usePostAxios';
 
 const InitialFormState = {
   name: '',
@@ -13,10 +13,10 @@ const InitialFormState = {
   message: '',
 };
 
-function FormContact() {
+const FormContact = () => {
   const [error, setError] = useState({});
   const [form, setForm] = useState(InitialFormState);
-  const [loading, setLoading] = useState(false);
+  const [postData] = usePostAxios();
 
   const resetStates = () => {
     setForm(InitialFormState);
@@ -25,14 +25,17 @@ function FormContact() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setLoading(true);
+    setError({});
+
     const errorText = validateContact(form);
 
     if (!(Object.keys(errorText).length === 0 && errorText.constructor === Object)) {
       setError(errorText);
     } else {
-      axios
-        .post('https://api.emailjs.com/api/v1.0/email/send', {
+      postData({
+        method: 'POST',
+        url: 'https://api.emailjs.com/api/v1.0/email/send',
+        data: {
           service_id: 'service_2osi8ua',
           template_id: 'template_u34u80w',
           user_id: 'user_RT9rlIr0lNMPYN7M8kEmW',
@@ -41,19 +44,14 @@ function FormContact() {
             email: form.email,
             message: form.message,
           },
-        })
-        .try(
-          () => {
-            Helpers.showAlert('Message has been sent successfully!');
-            resetStates();
-          },
-          networkError => {
-            Helpers.showAlert(networkError);
-          },
-        );
+        },
+      });
+
+      Helpers.showAlert('Message has been sent successfully!');
+      resetStates();
     }
-    setLoading(false);
   };
+
   const updateField = e => {
     setForm({
       ...form,
@@ -61,23 +59,20 @@ function FormContact() {
       InitialFormState,
     });
   };
+
   return (
     <div className="container">
       <div className="wrapper">
         <form onSubmit={handleSubmit} className="form-wrapper">
           <div className="form-field">
             <h2>Send us a message</h2>
-
             <input className="in-contact" value={form.name} placeholder="Name" type="text" name="name" onChange={updateField} />
             {error && <p>{error.name}</p>}
-
             <input className="in-contact" value={form.email} placeholder="Your Email Address" type="email" name="email" onChange={updateField} />
             {error && <p>{error.email}</p>}
-
             <textarea className="in-text" value={form.message} placeholder="How Can We Help?" type="text" name="message" onChange={updateField} />
             {error && <p>{error.message}</p>}
-
-            <button type="submit" loading={loading} className="btn-form">
+            <button type="submit" className="btn-form">
               Send
             </button>
           </div>
@@ -113,6 +108,6 @@ function FormContact() {
       </div>
     </div>
   );
-}
+};
 
 export default FormContact;

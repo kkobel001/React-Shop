@@ -1,6 +1,6 @@
 export const validateEmailSyntax = email => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email);
 export const validatePasswordSyntax = password => /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/i.test(password);
-const validateCityOrPostalCode = postalCode => /^([0-9]{5}|[a-zA-Z][a-zA-Z ]{0,49})$/.test(postalCode);
+const validateCityOrPostalCode = postalCode => /^(\d{2}-\d{3})$/.test(postalCode);
 const validateCity = city => /^[a-zA-Z',.\s-]{1,25}$/.test(city);
 const validateNumberTelephone = telephone => /^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/.test(telephone);
 
@@ -9,7 +9,7 @@ const InitialStateMessage = {
   password: 'Password is not correct',
   telephone: 'Telephone is not correct',
   postalCode: 'Postal Code not correct',
-  house: 'House number is required',
+  flatNumber: 'House number is required',
   city: 'City is required',
   surname: 'Surname is required',
   street: 'Street is required',
@@ -81,7 +81,7 @@ export const validateContact = form => {
 
 export const validateAddressForm = form => {
   const errors = {};
-
+  console.log(form);
   if (!form.name) {
     errors.name = InitialStateMessage.name;
   }
@@ -91,11 +91,8 @@ export const validateAddressForm = form => {
   if (!form.street) {
     errors.street = InitialStateMessage.street;
   }
-  if (!form.house) {
-    errors.house = InitialStateMessage.house;
-  }
-  if (!validateEmailSyntax(form.email)) {
-    errors.email = InitialStateMessage.email;
+  if (!form.flatNumber) {
+    errors.flatNumber = InitialStateMessage.flatNumber;
   }
   if (!validateCityOrPostalCode(form.postalCode)) {
     errors.postalCode = InitialStateMessage.postalCode;

@@ -20,5 +20,5 @@ export const useSetData = () => {
     });
   };
 
-  return { setData, err, isSaving };
+  return [setData, err, isSaving];
 };
