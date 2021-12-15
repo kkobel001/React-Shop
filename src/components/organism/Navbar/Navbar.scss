@@ -45,18 +45,7 @@
   color: $dark-color;
 }
 
-.nav-items:after {
-  content: "";
-  display: block;
-  height: 3px;
-  width: 0;
-  background: transparent;
-  transition: width 0.7s ease, background-color 0.5s ease;
-}
-.nav-items:hover:after {
-  width: 100%;
-  background: $purple-color;
-}
+
 @media screen and (max-width: 960px) {
   .logo {
     margin-left:20px;
@@ -89,6 +78,19 @@
       padding: 71px 0px 71px 0px;
       color:white;
       margin-top:-5px;
+    }
+
+    .nav-items:after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 0;
+      background: transparent;
+      transition: width 0.7s ease, background-color 0.5s ease;
+    }
+    .nav-items:hover:after {
+      width: 100%;
+      background: $purple-color;
     }
   }
   .nav-items {

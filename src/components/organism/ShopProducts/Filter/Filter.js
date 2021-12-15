@@ -14,6 +14,7 @@ const categories = [
 
 const Filter = () => {
   const [allProducts, setAllProducts] = useState([]);
+  const [activeFilter, setActiveFilter] = useState(categories[0].name);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { response, error, loading } = useAxios({
     method: 'POST',
@@ -44,14 +45,13 @@ const Filter = () => {
     setAllProducts(response?.data?.allProducts ?? []);
   }, [response, loading]);
 
-  // TODO manage selected category via useState
   useEffect(() => {
-    setFilteredProducts(filterProducts(allProducts, 'All'));
+    setFilteredProducts(filterProducts(allProducts, activeFilter));
   }, [response, loading]);
 
   const handleClick = category => () => {
-    const filteredProducts = filterProducts(allProducts, category);
-    setFilteredProducts(filteredProducts);
+    setFilteredProducts(filterProducts(allProducts, category));
+    setActiveFilter(category);
   };
 
   const areProductsVisible = !loading && !error;
@@ -61,7 +61,7 @@ const Filter = () => {
     <>
       <div className="row-button">
         {categories.map(({ name, value }) => (
-          <SimpleButton value={value} onClick={handleClick(name)} key={name} />
+          <SimpleButton value={value} onClick={handleClick(name)} key={name} isActive={activeFilter === name} />
         ))}
       </div>
       <div className="wrapper-shop">
