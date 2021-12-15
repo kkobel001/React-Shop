@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
-export const useAxios = axiosParams => {
+export const usePostAxios = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  const fetchData = async params => {
+  const postData = async params => {
+    setLoading(true);
     try {
       const result = await axios.request(params);
       setResponse(result.data);
@@ -17,9 +18,5 @@ export const useAxios = axiosParams => {
     }
   };
 
-  useEffect(() => {
-    fetchData(axiosParams);
-  }, []);
-
-  return { response, error, loading };
+  return [postData, response, error, loading];
 };

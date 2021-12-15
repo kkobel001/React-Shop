@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './UserDetails.scss';
+import './SimpleInput.scss';
 
-const UserDetails = ({ label, name, value, type, onChange }) => (
+const SimpleInput = ({ label, name, value, type, onChange }) => (
   <div className="formField">
     <div className="label-field" htmlFor={name}>
       {label}*
@@ -11,7 +11,7 @@ const UserDetails = ({ label, name, value, type, onChange }) => (
   </div>
 );
 
-UserDetails.propTypes = {
+SimpleInput.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
@@ -19,7 +19,7 @@ UserDetails.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-UserDetails.defaultProps = {
+SimpleInput.defaultProps = {
   type: 'text',
 };
-export default UserDetails;
+export default SimpleInput;

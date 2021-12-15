@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 import '../Products.scss';
 import SimpleButton from 'components/atoms/SimpleButton/SimpleButton';
+import { useAxios } from 'hooks/useAxios';
 import ItemListFooter from './ItemListFooter';
-import { useAxios } from '../../../../hooks/useAxios';
 
 const categories = [
   { name: 'All', value: 'All' },

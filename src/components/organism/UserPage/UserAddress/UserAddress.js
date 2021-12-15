@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import UserField from 'components/organism/UserPage/UserDetails/UserDetails';
+import SimpleInput from 'components/atoms/SimpleInput/SimpleInput';
 import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getDatabase, onValue, ref } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateAddressForm } from 'helpers/Validate';
-import { useSetDataWithAuth } from '../../../../hooks/useSetDataWithAuth';
+import { useSetDataWithAuth } from 'hooks/useSetDataWithAuth';
 
 const InitialFormState = {
   name: '',
@@ -78,31 +78,30 @@ const userAddress = () => {
       <UserTemplates title="My account">
         <form className="input-wrapper">
           <div className="input-row">
-            <UserField label="Name" name="name" onChange={updateField} value={form.name} />
+            <SimpleInput label="Name" name="name" onChange={updateField} value={form.name} />
             {error && <p>{error.name}</p>}
           </div>
           <div className="input-row">
-            <UserField label="Surname" name="surname" onChange={updateField} value={form.surname} />
+            <SimpleInput label="Surname" name="surname" onChange={updateField} value={form.surname} />
             {error && <p>{error.surname}</p>}
           </div>
-
           <div className="input-row">
-            <UserField label="Street" name="street" onChange={updateField} value={form.street} />
+            <SimpleInput label="Street" name="street" onChange={updateField} value={form.street} />
             {error && <p>{error.street}</p>}
           </div>
           <div className="input-row">
-            <UserField label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
+            <SimpleInput label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
           </div>
           <div className="input-row">
-            <UserField label="City" name="city" onChange={updateField} value={form.city} />
+            <SimpleInput label="City" name="city" onChange={updateField} value={form.city} />
             {error && <p>{error.city}</p>}
           </div>
           <div className="input-row">
-            <UserField label="Postal Code" name="postalCode" value={form.postalCode} onChange={updateField} />
+            <SimpleInput label="Postal Code" name="postalCode" value={form.postalCode} onChange={updateField} />
             {error && <p>{error.postalCode}</p>}
           </div>
           <div className="input-row">
-            <UserField label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
+            <SimpleInput label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
             {error && <p>{error.telephone}</p>}
           </div>
         </form>
