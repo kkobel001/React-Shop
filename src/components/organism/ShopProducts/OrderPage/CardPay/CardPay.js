@@ -1,17 +1,36 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useClickOutside } from 'hooks/useClickOutside';
+import { useSetDataWithAuth } from 'hooks/useSetDataWithAuth';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { useSelector } from 'react-redux';
 import './CardPay.scss';
 import formatCurrency from 'helpers/until';
+import Helpers from 'helpers/Helpers';
 import DeliveryModal from './DeliveryModal/DeliveryModal';
 
 const CardPay = () => {
   const [isvisibility, setVisibility] = useState(false);
   const modalRef = useRef(null);
+  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector(state => state.cart);
+  const [setData] = useSetDataWithAuth();
   useClickOutside(modalRef, setVisibility);
-  const cartTotalAmount = useSelector(state => state.cart.cartTotalAmount);
+
+  // const refreshPage = () => {
+  //   localStorage.clear();
+  //   window.location.reload(false);
+  // };
+
+  const handleSendOrder = e => {
+    e.preventDefault();
+    const getPath = user => `orders/${user.uid}/${Helpers.generateNumber()}`;
+    setData(getPath, {
+      cartTotalAmount,
+      cartTotalQuantity,
+      orderDate: new Date().toISOString(),
+      products: cartItems,
+    });
+  };
 
   return (
     <div className="wrapper-cardPay">
@@ -38,9 +57,9 @@ const CardPay = () => {
           <div className="btn-none">{formatCurrency(cartTotalAmount)}</div>
         </li>
       </ul>
-      <Link className="btn-order" to="/login">
-        Processed ti checkout
-      </Link>
+      <button type="button" className="btn-order" onClick={handleSendOrder}>
+        Processed to checkout
+      </button>
     </div>
   );
 };

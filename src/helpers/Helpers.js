@@ -9,6 +9,10 @@ export default class Helpers {
     });
   }
 
+  static generateNumber() {
+    return Math.floor(Math.random() * 99999999 + 1);
+  }
+
   static showAlert(message) {
     alert(message);
   }

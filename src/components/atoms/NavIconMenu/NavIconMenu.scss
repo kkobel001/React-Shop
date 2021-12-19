@@ -10,9 +10,17 @@
   .icon-row{
     display: flex;
     justify-content: flex-end;
-    @media screen  and (min-width: 360px) and (max-width: 760px){
+    @media screen  and (min-width: 300px) and (max-width: 450px){
       justify-content: center;
       flex-direction: row;
+      justify-content: start;
+      flex-direction: row;
+      margin-left: 10px;
+    }
+    @media screen  and (min-width: 451px) {
+
+      margin-right: 60px;
+    
     }
   }
     .icon-item{
