@@ -1,37 +1,36 @@
-import React from 'react';
-import './UserOrder.scss';
+import React, { useState } from 'react';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-import AbIm01 from 'assets/images/about-01.png';
-import CheckIcon from '@mui/icons-material/Check';
-import formatCurrency from '../../../../helpers/until';
+import './UserOrder.scss';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import UserOrderDetails from './UserOrderDetails';
 
-const UserOrder = () => (
-  <>
+const OrderTable = [{ title: 'Date' }, { title: 'Number' }, { title: 'Total value' }, { title: 'Status' }, { title: 'Expand' }];
+
+const UserOrder = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
     <UserTemplates title="My order">
-      <div className="row-orderLeft">
-        <h3>Nr 15525353535353535</h3>
-        <div className="product-price">{formatCurrency(39, 99)}</div>
-        <img src={AbIm01} alt="picOne" className="img-order" />
-      </div>
-      <div className="row-orderRight">
-        <div className="details-order">
-          <h3> Data zamówienia</h3>
-          <div className="order-status">
-            <CheckIcon />
-            <h2>Paid</h2>
-          </div>
-        </div>
-        <div className="row-btnOrder">
-          <button className="btnOrder" type="button">
-            Order again
-          </button>
-          <button className="btnOrder" type="button">
-            Details
-          </button>
-        </div>
-      </div>
+      <ul className="ordersTable">
+        {OrderTable.map(({ title }) => (
+          <li className="item-orderTable" key={title.id}>
+            <h4>{title}</h4>
+          </li>
+        ))}
+      </ul>
+      <ul className="ordersTable">
+        <li>13.11.2021</li>
+        <li>73746646464</li>
+        <li>4</li>
+        <li>Received</li>
+        <li>
+          <KeyboardArrowDownIcon onClick={() => setOpen(!open)} />
+        </li>
+      </ul>
+
+      {open ? <UserOrderDetails /> : null}
     </UserTemplates>
-  </>
-);
+  );
+};
 
 export default UserOrder;
