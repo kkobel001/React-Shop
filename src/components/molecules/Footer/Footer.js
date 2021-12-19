@@ -50,7 +50,7 @@ const Footer = () => {
     <div className="container-footer">
       <div className="wrapper-footer">
         <div className="column">
-          <h4 data-testid="testH4first">Categories</h4>
+          <h4 data-testid="testH4first">Pages</h4>
           <ul className="footer-list">
             {CardOne.map(item => (
               <li item={item} key={item.id}>
