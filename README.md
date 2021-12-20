@@ -2,6 +2,10 @@
 
 https://clothes-shop-react-a38fe.firebaseapp.com/
 
+Login:
+test@test.pl
+hasło: Test123!
+
 ## About
 
 This project has integrations with few services:
