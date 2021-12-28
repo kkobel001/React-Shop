@@ -27,7 +27,6 @@ const UserOrder = () => {
           <KeyboardArrowDownIcon onClick={() => setOpen(!open)} />
         </li>
       </ul>
-
       {open ? <UserOrderDetails /> : null}
     </UserTemplates>
   );

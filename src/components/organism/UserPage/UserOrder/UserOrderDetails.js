@@ -3,7 +3,7 @@ import './UserOrderDetails.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import AbIm01 from 'assets/images/about-01.png';
 import CheckIcon from '@mui/icons-material/Check';
-import formatCurrency from '../../../../helpers/until';
+import formatCurrency from 'helpers/until';
 
 const UserOrderDetails = () => (
   <>

@@ -13,6 +13,7 @@ import Layout from 'components/organism/Layout/Layout';
 import Searchbar from 'components/atoms/Searchbar/Searchbar';
 import Faq from 'components/molecules/Footer/FooterDetails/FAQ/Faq';
 import Regulation from 'components/molecules/Footer/FooterDetails/Regulation/Regulation';
+import ScrollToTop from 'components/molecules/ScrollToTop/ScrollToTop';
 import ErrorBoundary from 'hoc/ErrorBoundary';
 import { reducer, initialState } from '../reducer';
 import AuthenticatedRoute from '../hoc/AuthenticatedRoute';
@@ -29,23 +30,26 @@ function Root() {
 
   const menu = <Menu />;
   const content = (
-    <Switch>
-      <AuthenticatedRoute path={routes.userPage} component={UserPage} />
-      <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path={routes.shop} component={Shop} />
-      <Route exact path={routes.about} component={About} />
-      <Route exact path={routes.blog} component={Blog} />
-      <Route path={routes.login} component={LoginDetails} />
-      <Route path={routes.bloges} component={DetailsItemBlog} />
-      <Route exact path={routes.contact} component={Contact} />
-      <Route exact path={routes.search} component={Searchbar} />
-      <Route exact path={routes.order} component={OrderPage} />
-      <Route exact path={routes.faq} component={Faq} />
-      <Route exact path={routes.regulation} component={Regulation} />
-      <Route component={NotFound} />
-      <Route component={Error} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <AuthenticatedRoute path={routes.userPage} component={UserPage} />
+        <Route exact path={routes.home} render={() => <Redirect to="/home" />} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path={routes.shop} component={Shop} />
+        <Route exact path={routes.about} component={About} />
+        <Route exact path={routes.blog} component={Blog} />
+        <Route path={routes.login} component={LoginDetails} />
+        <Route path={routes.bloges} component={DetailsItemBlog} />
+        <Route exact path={routes.contact} component={Contact} />
+        <Route exact path={routes.search} component={Searchbar} />
+        <Route exact path={routes.order} component={OrderPage} />
+        <Route exact path={routes.faq} component={Faq} />
+        <Route exact path={routes.regulation} component={Regulation} />
+        <Route component={NotFound} />
+        <Route component={Error} />
+      </Switch>
+    </>
   );
 
   const footer = <Footer />;

@@ -22,9 +22,7 @@
     font-weight: $bold-weight;
     margin-bottom: 3px;
   }
-  .btn-filter{
-  margin-left: 30px;
-  }
+  
   li {
     margin-left: 20px;
     margin-top: 40px;
@@ -36,7 +34,12 @@
       padding: 0px;
       height: 330px;
       overflow: hidden;
+      .btn-filter{
+        margin-left: 30px;
+        overflow: hidden;
+// background-position: ;   
 
+}
       &:hover {
         .btn-filter {
           @include btn-second;
