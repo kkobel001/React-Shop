@@ -26,7 +26,7 @@ const Navbar = () => {
       <ul className={click ? 'nav-menu active' : 'nav-menu'}>
         {MenuItems.map(item => (
           <li className="nav-items" item={item} key={item.id}>
-            <NavLink className={item.cName} exact to={item.url}>
+            <NavLink className={item.cName} exact to={item.url} onClick={handleClick}>
               {item.title}
             </NavLink>
           </li>
