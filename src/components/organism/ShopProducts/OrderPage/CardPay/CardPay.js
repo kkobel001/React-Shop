@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-// import { Link } from 'react-router-dom';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useSetDataWithAuth } from 'hooks/useSetDataWithAuth';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -16,10 +15,10 @@ const CardPay = () => {
   const [setData] = useSetDataWithAuth();
   useClickOutside(modalRef, setVisibility);
 
-  // const refreshPage = () => {
-  //   localStorage.clear();
-  //   window.location.reload(false);
-  // };
+  const refreshPage = () => {
+    localStorage.clear();
+    window.location.reload(false);
+  };
 
   const handleSendOrder = e => {
     e.preventDefault();
@@ -30,6 +29,8 @@ const CardPay = () => {
       orderDate: new Date().toISOString(),
       products: cartItems,
     });
+
+    refreshPage();
   };
 
   return (

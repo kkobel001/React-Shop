@@ -42,6 +42,12 @@
 .menu-icon {
   display: none;
   color: $dark-color;
+
+  @media screen and (max-width:300px) {
+    .menu-icon {
+      margin-right: 20px;
+    }
+  }
 }
 @media screen and (max-width: 960px) {
   .logo {
@@ -69,6 +75,7 @@
     align-items: center;
     list-style: none;
     padding-left: 15px;
+
     &.active {
       overflow: visible;
       display: block;
@@ -89,8 +96,6 @@
           width:100%;
       }
     }
-
-
     .nav-items:after {
       content: "";
       display: block;
@@ -137,3 +142,4 @@
     margin-left: 20px;
   }
 }
+

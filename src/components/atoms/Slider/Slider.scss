@@ -1,25 +1,16 @@
-.prev-icon {
-    left: 10px;
-    position: absolute;
-    top: 50%;
-    font-size: 15px;
-    color: #000000;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-    transition: 1.2s ease;
+@import 'theme/variable';
+@import 'theme/mixin';
 
+
+.prev-icon {
+  @include nexticon;
+    left: 20px;
+ 
 }
 .next-icon{
-  right: 10px;
-  position: absolute;
+  @include nexticon;
+  right: 20px;
   top: 50%;
-  font-size: 15px;
-  color: #000000;
-  z-index: 10;
-  cursor: pointer;
-  user-select: none;
-  transition: 1.2s ease;
 
 }
 .wrapper-slides { 
@@ -28,8 +19,9 @@
   align-items: center;
   margin-top: 0;
   overflow: hidden;
+  height:100%;
   position: relative;
-  transition: 1.2s ease;
+  transition: opacity ease-in-out 0.4s;
 
 
  }

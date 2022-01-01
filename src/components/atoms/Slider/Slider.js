@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -7,34 +7,35 @@ import './Slider.scss';
 const Slider = ({ slides }) => {
   const [current, setCurrent] = useState(0);
   const [activePlay, setActivePlay] = useState(true);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating] = useState(false);
   const autoplayRef = useRef();
 
   const settings = {
-    maxItems: 3,
-    speed: 1500,
+    maxItems: 2,
+    speed: 2000,
     autoplay: true,
     autoplaySpeed: 3000,
   };
 
-  const goTo = useCallback(
-    index => {
-      if (!isAnimating) {
-        setCurrent(index);
-        setIsAnimating(true);
+  // const goTo = useCallback(
+  //   index => {
+  //     if (!isAnimating) {
+  //       setCurrent(index);
+  //       setIsAnimating(true);
 
-        setTimeout(() => {
-          setIsAnimating(false);
-        }, settings.speed);
-      }
-    },
-    [isAnimating, current],
-  );
+  //       setTimeout(() => {
+  //         setIsAnimating(false);
+  //       }, settings.speed);
+  //     }
+  //   },
+  //   [isAnimating, current],
+  // );
+
   const nextSlide = () => {
-    goTo(current >= settings.maxItems - 1 ? 0 : current + 1);
+    setCurrent(current >= settings.maxItems - 1 ? 0 : current + 1);
   };
   const prevSlide = () => {
-    goTo(current <= 0 ? settings.maxItems - 1 : current - 1);
+    setCurrent(current <= 0 ? settings.maxItems - 1 : current - 1);
   };
 
   const playTimer = () => {

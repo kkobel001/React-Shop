@@ -35,10 +35,8 @@
       height: 330px;
       overflow: hidden;
       .btn-filter{
-        margin-left: 30px;
         overflow: hidden;
-// background-position: ;   
-
+        opacity: 0;
 }
       &:hover {
         .btn-filter {
@@ -54,6 +52,8 @@
           margin-bottom: 60px;
           letter-spacing: 4px;
           left: 50%;
+          opacity: 1;
+
           &:hover {
             @include hov-second;
           }
