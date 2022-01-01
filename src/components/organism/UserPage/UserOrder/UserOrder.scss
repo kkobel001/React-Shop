@@ -17,5 +17,16 @@
     justify-content: space-between;
 
     // width: 70vw;
-
+    // .downroll{
+    //     position:absolute;
+    //     width:100%;
+    // }
+    .closeIcon {
+        transition: transform 0.2s ease-in-out;
+    }
+    .openIcon {
+        transform: rotate(-180deg);
+        transition: transform 0.2s ease-in-out;
+    }
 }
+

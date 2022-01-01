@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import SimpleInput from 'components/atoms/SimpleInput/SimpleInput';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
-// import { getDatabase, ref, set } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateEmail } from 'helpers/Validate';
-import { useSetDataWithAuth } from '../../../../hooks/useSetDataWithAuth';
+import { useSetDataWithAuth } from 'hooks/useSetDataWithAuth';
 
 const InitialFormState = {
   password: '',

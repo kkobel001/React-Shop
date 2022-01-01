@@ -12,17 +12,10 @@ const sliderImages = [
     title: 'Women Collection 2021',
     contex: 'New Season',
   },
-  {
-    image: 'https://preview.colorlib.com/theme/cozastore/images/slide-02.jpg',
-    id: 1,
-    nameclass: 'section-main-img',
-    imgclass: 'img-main',
-    title: 'Women Collection 2021',
-    contex: 'New Season',
-  },
+
   {
     image: 'https://preview.colorlib.com/theme/cozastore/images/slide-03.jpg',
-    id: 2,
+    id: 1,
     nameclass: 'section-main-img',
     imgclass: 'img-main',
     title: 'Women Collection 2021',

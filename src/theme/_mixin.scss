@@ -4,10 +4,6 @@
   margin-right: auto;
   margin-left: auto;
 }
-// @media screen and (max-width: 991px) {
-//   padding-right: 30px;
-//   padding-left: 30px;
-
 @mixin wrapper {
   height: auto;
   width: 80%;
@@ -16,8 +12,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-
 @mixin containerModal{
   position: absolute;
   top: 0;
@@ -41,7 +35,6 @@
   box-sizing: border-box;   
 
 }
-
 @mixin links {
   color: $dark-color;
   text-decoration: none;
@@ -59,7 +52,6 @@
 @mixin header{
      transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86); 
 }
-
 @mixin icon {
   text-decoration: none;
   color: $dark-color;
@@ -68,7 +60,6 @@
     color: $purple-color;
   }
 }
-
 @mixin btn-main {
   display: inline-block;
   border-radius: $button-border-radius;
@@ -83,7 +74,6 @@
   border: none;
   transition: all 0.9s ease;
 }
-
 @mixin hov-one {
   transition: all 0.3s ease-out;
   background-color: $white-color;
@@ -118,7 +108,6 @@
   border: none;
   transition: all 0.9s ease;
 }
-
 @mixin hov-second {
   transition: all 0.3s ease-out;
   background-color: $dark-color;
@@ -126,26 +115,21 @@
   border: none;
   transition: all 0.9s ease;
 }
-
 @mixin btn-none {
   border: none;
   background-color: transparent;
   padding: 0px;
   color: $purple-color;
   font-weight: 600;
-
 }
-
 @mixin margY {
   margin-top: auto;
   margin-bottom: auto;
 }
-
 @mixin margX {
   margin-left: auto;
   margin-right: auto;
 }
-
 @mixin box-center{
   justify-content: center;
   align-items: center;
@@ -212,4 +196,27 @@
   left: 0;
   right: 0;
   background: $light-color;    
+}
+@mixin nexticon{
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  transition:all 0.5s ease-in-out;
+  font-size: 12px;
+  letter-spacing: normal;
+  background-color: $purple-color;
+  color: white;
+  line-height: 11px;
+  overflow: hidden;
+  padding: 2px;
+  border-radius: 50%;
+  border: 2px solid  $purple-color ;
+  text-align: center;
+  box-sizing: border-box;
+
+  :hover {
+    color:#7f8ef0;
+  }
 }
