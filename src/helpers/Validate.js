@@ -2,7 +2,7 @@ export const validateEmailSyntax = email => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{
 export const validatePasswordSyntax = password => /^(?=.{5,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W])/i.test(password);
 const validateCityOrPostalCode = postalCode => /^(\d{2}-\d{3})$/.test(postalCode);
 const validateCity = city => /^[a-zA-Z',.\s-]{1,25}$/.test(city);
-const validateNumberTelephone = telephone => /^(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)/.test(telephone);
+const validateNumberTelephone = telephone => /^(\+{0,})(\d{0,})([(]{1}\d{1,3}[)]{0,}){0,}(\s?\d+|\+\d{2,3}\s{1}\d+|\d+){1}[\s|-]?\d+([\s|-]?\d+){1,2}(\s){0,}/.test(telephone);
 
 const InitialStateMessage = {
   email: 'Email is not correct',
