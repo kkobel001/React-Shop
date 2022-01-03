@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useGetData } from 'hooks/useGetData';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import './UserOrder.scss';
-import { useGetData } from 'hooks/useGetData';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import UserOrderDetails from './UserOrderDetails';
+import UserOrderItem from './UserOrderItem/UserOrderItem';
 
 const OrderTable = [{ title: 'Number' }, { title: 'Data' }, { title: 'Total value' }, { title: 'Status' }, { title: 'Expand' }];
 
 const UserOrder = () => {
-  const [open, setOpen] = useState(false);
   const [getData, data] = useGetData();
 
   useEffect(() => {
@@ -16,7 +14,7 @@ const UserOrder = () => {
     getData(getPath);
   }, []);
 
-  const orders = Object.keys(data ?? {}).map(key => [Number(key), data[key]]);
+  const orders = Object.keys(data ?? {}).map(key => Object({ id: Number(key), data: data[key] }));
 
   return (
     <UserTemplates title="My order">
@@ -28,17 +26,8 @@ const UserOrder = () => {
         ))}
       </ul>
       {orders.map(order => (
-        <ul className="ordersTable">
-          <li>{order[0]}</li>
-          <li>{order[1].orderDate.split('T')[0]}</li>
-          <li>{order[1].cartTotalQuantity}</li>
-          <li>Received</li>
-          <li>
-            <KeyboardArrowDownIcon onClick={() => setOpen(!open)} className={open ? 'openIcon' : 'closeIcon'} />
-          </li>
-        </ul>
+        <UserOrderItem order={order} />
       ))}
-      {open ? <UserOrderDetails /> : null}
     </UserTemplates>
   );
 };
