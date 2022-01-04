@@ -7,7 +7,7 @@ export default function LoadingIcon() {
       <div className="row-loading">
         <div className="icon-loading" />
       </div>
-      <span className="sr-only">Ładowanie...</span>
+      <span className="sr-only">Loading...</span>
     </div>
   );
 }

@@ -220,3 +220,19 @@
     color:#7f8ef0;
   }
 }
+
+@mixin table {
+  list-style-type: none; 
+  padding-left:0px;
+  z-index: 99999;
+  font-weight: 300;
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  color: rgb(105, 99, 105);
+  justify-content: center;
+  height: 55px;
+  text-align: center;
+  font-size: 12px;
+  justify-content: space-between;
+
+}

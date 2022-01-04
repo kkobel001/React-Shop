@@ -7,7 +7,6 @@
 	height: 125px;
 	margin-bottom: 40px;
     margin-top: 40px;
-
     text-align: center;
 }
 .row-loading {
@@ -15,6 +14,10 @@
 	height: 32px;
 	clear: both;
 	margin: 20px auto;
+}
+.sr-only{
+	margin-left:-20px;
+	letter-spacing: 1px;	
 }
 
 .icon-loading {

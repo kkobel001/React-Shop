@@ -1,25 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './UserOrderDetails.scss';
-import AbIm01 from 'assets/images/about-01.png';
 import CheckIcon from '@mui/icons-material/Check';
 import formatCurrency from 'helpers/until';
 
 const UserOrderDetails = ({ order }) => (
   <>
-    <div className="row-orderLeft">
-      <h3>{order.id}</h3>
-      <div className="product-price">{formatCurrency(order.data.cartTotalAmount)}</div>
-      <img src={AbIm01} alt="picOne" className="img-order" />
-    </div>
-    <div className="row-orderRight">
-      <div className="details-order">
-        <h3> Date order</h3>
-        <div className="order-status">
-          <CheckIcon />
-          <h2>Paid</h2>
+    {order.data.products.map(product => (
+      <div className="box-order">
+        <img src={product.image.url} alt="banner-img" className="img-ordered" />
+        <div className="box-aboutOrder">
+          <div className="details-left">
+            <h2>{product.title}</h2>
+            <h3>Color: {product.color} </h3>
+            <h3>Size: {product.size} </h3>
+            <h3>Quantity: {product.cartQuantity} </h3>
+          </div>
+          <div className="details-right">
+            <div className="product-price">{formatCurrency(product.price)}</div>
+          </div>
         </div>
       </div>
+    ))}
+    <div className="order-status">
+      <h3>
+        Total:
+        <div className="product-price">{formatCurrency(order.data.cartTotalAmount)}</div>
+      </h3>
+      <CheckIcon />
+      <h2>Paid</h2>
     </div>
   </>
 );

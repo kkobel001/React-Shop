@@ -1,25 +1,30 @@
 import { useState } from 'react';
-import { getDatabase, onValue, ref } from 'firebase/database';
+import { getDatabase, query, onValue, ref } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const useGetData = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const getData = getPath => {
+    setLoading(true);
+
     onAuthStateChanged(getAuth(), async user => {
       const db = getDatabase();
       const userDetailsRef = ref(db, getPath(user));
-
+      const getQuery = query(userDetailsRef);
       try {
-        onValue(userDetailsRef, snapshot => {
+        onValue(getQuery, snapshot => {
           const data = snapshot.val();
           setData(data);
         });
       } catch (error) {
         setError(error);
+      } finally {
+        setLoading(false);
       }
     });
   };
-  return [getData, data, error];
+  return [getData, data, loading, error];
 };

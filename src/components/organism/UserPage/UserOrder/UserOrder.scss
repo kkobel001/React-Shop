@@ -1,32 +1,27 @@
 @import 'theme/variable';
 @import 'theme/mixin';
 
-.ordersTable{
-    list-style-type: none; 
-    // margin: 15px auto auto auto;
-    padding-left:0px;
-    z-index: 99999;
-    font-weight: 300;
-    display: grid;
-    grid-template-columns: repeat(5, 2fr);
-    color: rgb(105, 99, 105);
-    justify-content: center;
-    height: 65px;
-    text-align: center;
-    font-size: 12px;
-    justify-content: space-between;
+.ordersTableTitle{
+    @include table;   
+}
+.ordersTableDetails {
+    @include table;
+    position:relative;
 
-    // width: 70vw;
-    // .downroll{
-    //     position:absolute;
-    //     width:100%;
-    // }
+    &::after{
+        @include underline;  
+        height: 1px;
+        background-color:$light-grey;
+    }  
+    li {
+       @include margY;
+    }
     .closeIcon {
         transition: transform 0.2s ease-in-out;
     }
     .openIcon {
         transform: rotate(-180deg);
         transition: transform 0.2s ease-in-out;
+        color:$purple-color;
     }
 }
-

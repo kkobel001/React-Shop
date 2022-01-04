@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import formatCurrency from 'helpers/until';
 import MainModal from '../Modal/MainModal';
-import formatCurrency from '../../../../helpers/until';
 
 const ItemListFooter = ({ item }) => (
   <ul className="products">

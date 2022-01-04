@@ -8,7 +8,7 @@ const UserOrderItem = ({ order }) => {
 
   return (
     <>
-      <ul className="ordersTable">
+      <ul className="ordersTableDetails">
         <li>{order.id}</li>
         <li>{order.data.orderDate.split('T')[0]}</li>
         <li>{order.data.cartTotalQuantity}</li>
