@@ -1,0 +1,82 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.box-order{
+    @include wrapper;
+    display: inline-flex;
+    width: 100%;
+    margin-top: 10px;
+}
+.box-aboutOrder{
+    justify-content: space-between;
+    display: flex;
+    font-size: 12px;
+    width: 100%;
+
+    .details-left {
+        margin-left:15px;
+
+        h2 {
+            font-size: $smallfont-size;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0px;
+            color: $medium-color;
+        }   
+        h3 {
+            font-size: 12px;
+            margin-left: 0px;}  
+    }
+    .details-right{
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin-top: 12.45px;  
+    }
+}
+.order-status{
+    @include wrapper;
+    width:100%;
+    color: $green-color;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+    position:relative;
+
+    h2 {
+        margin: 0px 0px 0px 10px;
+        font-weight: $bold-weight;
+        font-size: $smallfont-size;
+    }
+
+    h3 {
+        display: flex;
+
+        &:first-child {
+            margin-right: 20px;
+        }
+        .product-price{
+            margin-left: 6px;
+        }
+    }
+    &::after{
+        @include underline;  
+        height: 2px;
+        background-color: $purple-color;
+    } 
+}
+.img-ordered{
+    margin-top: 10px;
+    height: 120px;
+}
+
+@media screen  and (max-width: 555px) {
+    .box-order {
+        padding:0px;
+    }
+    .order-status {
+        padding:0px;
+    }
+}
+
+
