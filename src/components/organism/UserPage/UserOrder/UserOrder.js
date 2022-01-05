@@ -20,17 +20,22 @@ const UserOrder = () => {
 
   return (
     <UserTemplates title="My order">
-      <ul className="ordersTableTitle">
-        {OrderTable.map(({ title }) => (
-          <li className="item-orderTable" key={title.id}>
-            <h4>{title}</h4>
-          </li>
+      <div className="table-wrapper">
+        <ul className="ordersTableTitle">
+          {OrderTable.map(({ title }) => (
+            <li className="item-orderTable" key={title.id}>
+              <h4>{title}</h4>
+            </li>
+          ))}
+        </ul>
+        {loading && <LoadingIcon />}
+        {orders.map(order => (
+          <UserOrderItem className="ordersTableDetails" order={order} />
         ))}
-      </ul>
-      {loading && <LoadingIcon />}
-      {orders.map(order => (
-        <UserOrderItem className="ordersTableDetails" order={order} />
-      ))}
+        <button className="btn-pagination" type="button">
+          More
+        </button>
+      </div>
     </UserTemplates>
   );
 };
