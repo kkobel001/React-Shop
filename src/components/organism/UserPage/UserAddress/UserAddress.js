@@ -89,6 +89,7 @@ const userAddress = () => {
           </div>
           <div className="input-row">
             <SimpleInput label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
+            {error && <p>{error.flatNumber}</p>}
           </div>
           <div className="input-row">
             <SimpleInput label="City" name="city" onChange={updateField} value={form.city} />

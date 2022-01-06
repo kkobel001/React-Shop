@@ -5,7 +5,6 @@ const SelectInput = ({ title, value, options, onChange }) => {
   const handleChange = e => {
     onChange(e.target.value);
   };
-
   return (
     <div className="selected-products">
       <h4>{title}</h4>

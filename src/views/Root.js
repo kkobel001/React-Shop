@@ -2,7 +2,8 @@ import React, { useReducer } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import DetailsItemBlog from 'components/molecules/DetailsItemBlog/DetailsItemBlog';
 import Footer from 'components/molecules/Footer/Footer';
-import LoginDetails from 'components/organism/auth/Login/LoginDetails';
+import Login from 'components/organism/auth/Login/Login';
+import Register from 'components/organism/auth/Register/Register';
 import { routes } from 'routes/routes';
 import UserPage from 'components/organism/UserPage/UserPage';
 import OrderPage from 'components/organism/ShopProducts/OrderPage/OrderPage';
@@ -39,7 +40,8 @@ function Root() {
         <Route exact path={routes.shop} component={Shop} />
         <Route exact path={routes.about} component={About} />
         <Route exact path={routes.blog} component={Blog} />
-        <Route path={routes.login} component={LoginDetails} />
+        <Route path={routes.login} component={Login} />
+        <Route path={routes.register} component={Register} />
         <Route path={routes.bloges} component={DetailsItemBlog} />
         <Route exact path={routes.contact} component={Contact} />
         <Route exact path={routes.search} component={Searchbar} />

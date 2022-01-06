@@ -1,0 +1,46 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+
+
+.wrapper-login{
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    box-sizing: border-box;
+    height:100vh;
+    width:100%;
+    display: flex;
+    color:$purple-color;
+    font-weight: bold;
+    position:relative;
+
+    h2{
+        @include header;
+        text-align: center;
+        margin-bottom:0px;
+       
+    }
+    input {
+        border: solid 1px  $light-color;
+		margin-bottom: 10px;
+		padding: 15px;
+		font-size: 1rem;
+		font-family: Nunito, sans-serif;
+		color: #000;
+		border-radius: 5px;
+        width:100%;
+    }
+}
+
+@keyframes Gradient {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
