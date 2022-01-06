@@ -36,7 +36,7 @@ const UserOrder = () => {
   };
 
   return (
-    <UserTemplates title="My order">
+    <UserTemplates title="My orders">
       <div className="table-wrapper">
         <ul className="ordersTableTitle">
           {OrderTable.map(({ title }) => (
@@ -49,11 +49,13 @@ const UserOrder = () => {
         {orders.map(order => (
           <UserOrderItem className="ordersTableDetails" order={order} />
         ))}
-
-        <button className="btn-pagination" type="button" onClick={handleClick}>
-          More
-        </button>
-        {isEmpty && <h1>There are no more orders</h1>}
+        {isEmpty ? (
+          <h3>There are no more orders</h3>
+        ) : (
+          <button className="btn-pagination" type="button" onClick={handleClick}>
+            More
+          </button>
+        )}
       </div>
     </UserTemplates>
   );

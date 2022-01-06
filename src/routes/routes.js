@@ -6,6 +6,7 @@ export const routes = {
   bloges: '/blog/:articleId',
   contact: '/contact',
   login: '/login',
+  register: '/register',
   userPage: '/userPage',
   sidefake: '/Sidefake',
   userAddress: '/userAddress',
