@@ -16,7 +16,6 @@ const CardPay = () => {
   const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector(state => state.cart);
   const [setData] = useSetDataWithAuth();
   useClickOutside(modalRef, setVisibility);
-  const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const isEmptyOrders = cartItems.length === 0;
 
@@ -37,7 +36,6 @@ const CardPay = () => {
       refreshPage();
       setSubModal(prev => !prev);
     } else {
-      setButtonDisabled(true);
       console.log(!isEmptyOrders, 'ok');
     }
   };
@@ -68,9 +66,9 @@ const CardPay = () => {
         </li>
       </ul>
       <button
-        disabled={buttonDisabled}
+        disabled={isEmptyOrders}
         type="button"
-        className="btn-order"
+        className={isEmptyOrders ? 'btn-disabled' : 'btn-order'}
         onClick={() => {
           handleSendOrder();
         }}

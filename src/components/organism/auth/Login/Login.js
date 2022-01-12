@@ -6,6 +6,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import './Login.scss';
 import { validateLogin } from 'helpers/Validate';
 import AuthTemplates from 'templates/AuthTempletes/AuthTemplates';
+// import Error from '../../../atoms/Error/Error';
 
 const InitialFormState = {
   password: '',
@@ -42,6 +43,7 @@ const Login = () => {
           case 'auth/invalid-email':
           case 'auth/user-not-found':
             setError({ email: err.message });
+            // <Error />;
             break;
           case 'auth/wrong-password':
             setError({ password: err.message });
@@ -105,7 +107,7 @@ const Login = () => {
         <div className="section-reg">
           <span>
             Dont have account?
-            <Link to="/register">Sign out</Link>
+            <Link to="/register">Sign up</Link>
           </span>
         </div>
       </form>
