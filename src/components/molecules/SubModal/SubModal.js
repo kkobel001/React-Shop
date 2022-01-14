@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './SubModal.scss';
 import CheckIcon from '@material-ui/icons/Check';
 
-const SubModal = ({ showSubModal, setSubModal }) => {
+const SubModal = ({ showSubModal, setSubModal, title, information }) => {
   const closeSubModal = () => {
     setSubModal(prev => !prev);
   };
@@ -17,8 +17,8 @@ const SubModal = ({ showSubModal, setSubModal }) => {
               <div className="box-check">
                 <CheckIcon className="check-icon" />
               </div>
-              <h1>Lightweight Jacket</h1>
-              <p>is added to card</p>
+              <h1>{title}</h1>
+              <p>{information}</p>
               <button type="button" className="btn-submodal">
                 OK
               </button>
@@ -33,6 +33,8 @@ const SubModal = ({ showSubModal, setSubModal }) => {
 SubModal.propTypes = {
   showSubModal: PropTypes.func.isRequired,
   setSubModal: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  information: PropTypes.string.isRequired,
 };
 
 export default SubModal;

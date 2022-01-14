@@ -8,7 +8,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
 import Slider from 'components/atoms/Slider/Slider';
 import SelectInput from 'components/atoms/SelectInput/SelectInput';
-import SubModal from '../SubModal/SubModal';
+import SubModal from '../../../molecules/SubModal/SubModal';
 
 const sliderImages = [
   {
@@ -108,7 +108,7 @@ const Modal = ({ item, showModal, setShowModal }) => {
                     >
                       Add to Card
                     </button>
-                    <SubModal showSubModal={showSubModal} setSubModal={setSubModal} />
+                    <SubModal showSubModal={showSubModal} setSubModal={setSubModal} title={item.title} information="is added to card" />
                   </div>
                 </div>
                 <SocialMedia />
