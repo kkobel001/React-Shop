@@ -2,6 +2,10 @@
 
 https://clothes-shop-react-a38fe.firebaseapp.com/
 
+Login:
+test@test.pl
+hasło: Test123!
+
 ## About
 
 This project has integrations with few services:
@@ -11,6 +15,7 @@ This project has integrations with few services:
 - email from newsletter field is saved in firebase real-time database,
 - contact form is connected with EmailJS API which allow to redirect informations to connected mailbox,
 - project has live demo hosted on Firebase Hosting with configured automatic deploy with GitHub Actions after successfully merge pull requests
+- unit testing- JEST
 
 Product cart is managed with redux.
 
