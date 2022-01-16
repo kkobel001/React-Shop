@@ -6,12 +6,12 @@ const initialState = {
   cartTotalAmount: localStorage.getItem('cartTotalAmount') ? JSON.parse(localStorage.getItem('cartTotalAmount')) : 0,
 };
 
-const prepareCartTotal = state => {
+const prepareCartTotal = (state) => {
   console.log(state);
   let cartTotalQuantity = 0;
   let cartTotalAmount = 0;
 
-  state.cartItems.forEach(item => {
+  state.cartItems.forEach((item) => {
     cartTotalQuantity = item.cartQuantity + cartTotalQuantity;
     cartTotalAmount = item.price * item.cartQuantity + cartTotalAmount;
   });
@@ -29,7 +29,7 @@ const orderSlice = createSlice({
   initialState,
   reducers: {
     increaseProduct(state, action) {
-      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
+      const itemIndex = state.cartItems.findIndex((cartElement) => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
@@ -50,12 +50,12 @@ const orderSlice = createSlice({
     },
 
     decreaseProduct(state, action) {
-      const itemIndex = state.cartItems.findIndex(cartElement => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
+      const itemIndex = state.cartItems.findIndex((cartElement) => cartElement.id === action.payload.id && cartElement.color === action.payload.color && cartElement.size === action.payload.size);
 
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-        const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
+        const nextCartItems = state.cartItems.filter((cartElement) => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
         state.cartItems = nextCartItems;
         // prepareCartTotal({
         //   ...state,
@@ -68,13 +68,22 @@ const orderSlice = createSlice({
     },
 
     removeProduct(state, action) {
-      const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
+      const nextCartItems = state.cartItems.filter((cartElement) => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
       state.cartItems = nextCartItems;
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
       prepareCartTotal(state);
     },
+
+    resetCart() {
+      localStorage.clear();
+      const updatedState = {
+        ...initialState,
+      };
+      prepareCartTotal(updatedState);
+      return updatedState;
+    },
   },
 });
 
-export const { increaseProduct, decreaseProduct, removeProduct } = orderSlice.actions;
+export const { increaseProduct, decreaseProduct, removeProduct, resetCart } = orderSlice.actions;
 export default orderSlice.reducer;

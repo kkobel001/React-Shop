@@ -1,40 +1,37 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useClickOutside } from 'hooks/useClickOutside';
 import { useSetDataWithAuth } from 'hooks/useSetDataWithAuth';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SubModal from 'components/molecules/SubModal/SubModal';
 import './CardPay.scss';
 import formatCurrency from 'helpers/until';
 import Helpers from 'helpers/Helpers';
 import DeliveryModal from './DeliveryModal/DeliveryModal';
+import { resetCart } from '../../../../../redux/slice/sliceCart';
 
 const CardPay = () => {
   const [isvisibility, setVisibility] = useState(false);
   const [showSubModal, setSubModal] = useState(false);
   const modalRef = useRef(null);
-  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector(state => state.cart);
+  const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector((state) => state.cart);
   const [setData] = useSetDataWithAuth();
+  const dispatch = useDispatch();
   useClickOutside(modalRef, setVisibility);
 
   const isEmptyOrders = cartItems.length === 0;
 
-  const refreshPage = () => {
-    localStorage.clear();
-    window.location.reload(false);
-  };
-
   const handleSendOrder = () => {
     if (!isEmptyOrders) {
-      const getPath = user => `orders/${user.uid}/${Helpers.generateNumber()}`;
+      const getPath = (user) => `orders/${user.uid}/${Helpers.generateNumber()}`;
       setData(getPath, {
         cartTotalAmount,
         cartTotalQuantity,
         orderDate: new Date().toISOString(),
         products: cartItems,
       });
-      refreshPage();
-      setSubModal(prev => !prev);
+      dispatch(resetCart());
+      setSubModal((prev) => !prev);
     } else {
       console.log(!isEmptyOrders, 'ok');
     }
