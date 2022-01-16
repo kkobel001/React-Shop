@@ -9,7 +9,7 @@
     "build-ci": "CI=false react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "eslint --fix --ext .js,.jsx.",
+    "lint": "eslint --fix src/**/*.{js,jsx}",
     "precommit": "lint-staged",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -76,7 +76,7 @@
   "lint-staged": {
     "*.js": [
       "prettier --config .prettierrc --write",
-      "eslint --fix",
+      "eslint --fix src/**/*.{js,jsx}",
       "git add"
     ]
   }
