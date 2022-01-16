@@ -1,18 +1,21 @@
 import React from 'react';
-import UserTemplates from 'templates/UserTemplates/UserTemplates';
+// import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import PropTypes from 'prop-types';
 import './Error.scss';
 
-const Error = ({ children }) => {
-  <UserTemplates>
+const errorMessage = 'Something went wrong. Please try again, or contact our support.';
+
+const Error = ({ massage = errorMessage }) => (
+  <div className="err-row">
     <div className="error-box">
-      <p className="error-design">{children}</p>
+      <h1>Oops!</h1>
+      <p className="error-design">{massage}</p>
     </div>
-  </UserTemplates>;
-};
+  </div>
+);
 
 Error.propTypes = {
-  children: PropTypes.string.isRequired,
+  massage: PropTypes.string.isRequired,
 };
 
 export default Error;
