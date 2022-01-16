@@ -11,30 +11,29 @@ import DeliveryModal from './DeliveryModal/DeliveryModal';
 import { resetCart } from '../../../../../redux/slice/sliceCart';
 
 const CardPay = () => {
-  const [isvisibility, setVisibility] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [showSubModal, setSubModal] = useState(false);
   const modalRef = useRef(null);
   const { cartItems, cartTotalAmount, cartTotalQuantity } = useSelector((state) => state.cart);
   const [setData] = useSetDataWithAuth();
   const dispatch = useDispatch();
-  useClickOutside(modalRef, setVisibility);
+  useClickOutside(modalRef, setIsVisible);
 
   const isEmptyOrders = cartItems.length === 0;
 
   const handleSendOrder = () => {
-    if (!isEmptyOrders) {
-      const getPath = (user) => `orders/${user.uid}/${Helpers.generateNumber()}`;
-      setData(getPath, {
-        cartTotalAmount,
-        cartTotalQuantity,
-        orderDate: new Date().toISOString(),
-        products: cartItems,
-      });
-      dispatch(resetCart());
-      setSubModal((prev) => !prev);
-    } else {
-      console.log(!isEmptyOrders, 'ok');
+    if (isEmptyOrders) {
+      return;
     }
+    const getPath = (user) => `orders/${user.uid}/${Helpers.generateNumber()}`;
+    setData(getPath, {
+      cartTotalAmount,
+      cartTotalQuantity,
+      orderDate: new Date().toISOString(),
+      products: cartItems,
+    });
+    dispatch(resetCart());
+    setSubModal((prev) => !prev);
   };
 
   return (
@@ -47,10 +46,10 @@ const CardPay = () => {
           <h2>Delivery</h2>
           <div className="inner-color">
             Free
-            <button type="button" className="btn-none" onClick={() => setVisibility(true)}>
+            <button type="button" className="btn-none" onClick={() => setIsVisible(true)}>
               <InfoOutlinedIcon />
             </button>
-            {isvisibility && (
+            {isVisible && (
               <div ref={modalRef}>
                 <DeliveryModal />
               </div>
@@ -70,9 +69,9 @@ const CardPay = () => {
           handleSendOrder();
         }}
       >
-        Processed to checkout
+        Proceed to checkout
       </button>
-      <SubModal showSubModal={showSubModal} setSubModal={setSubModal} title="Paid" information="Your order was sent to process" />
+      <SubModal showSubModal={showSubModal} setSubModal={setSubModal} title="Success!" information="Your order is on its way!" />
     </div>
   );
 };

@@ -26,7 +26,7 @@
         h2 {
             font-size: 15px;
             font-weight: 600;
-           
+
         }
         .inner-color{
             color: $purple-color;
@@ -62,7 +62,7 @@
     width: 100%;
     text-align: center;
     background-color: $medium-color;
- 
+    cursor: auto;
 }
 
 
@@ -81,7 +81,7 @@
         font-size: $minfont-size;
         .item-pay{
             h2{ font-size: $minfont-size;}
-        } 
+        }
     }
 }
 @media screen and (max-width: 1500px) {
@@ -96,4 +96,3 @@
 
 }
 
- 

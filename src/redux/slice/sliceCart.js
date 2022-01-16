@@ -37,13 +37,6 @@ const orderSlice = createSlice({
         console.log(product);
 
         state.cartItems.push(product);
-        // const updatedCartItems = [...state.cartItems] ;
-        // console.log(updatedCartItems);
-
-        // prepareCartTotal({
-        //   ...state,
-        //   cartItems: updatedCartItems,
-        // });
       }
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
       prepareCartTotal(state);
@@ -57,10 +50,6 @@ const orderSlice = createSlice({
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter((cartElement) => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
         state.cartItems = nextCartItems;
-        // prepareCartTotal({
-        //   ...state,
-        //   cartItems: nextCartItems,
-        // });
       }
 
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
