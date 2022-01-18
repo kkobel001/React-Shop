@@ -6,6 +6,8 @@
     background-color: $light-grey;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    bottom: 0%;
 
     .btn-cookies{
         @include btn-dark;
