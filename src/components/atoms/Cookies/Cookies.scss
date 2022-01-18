@@ -1,0 +1,30 @@
+@import 'theme/variable';
+@import 'theme/mixin';
+
+.cookies-wrap {
+    width: 100%;
+    background-color: $light-grey;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0%;
+
+    .btn-cookies{
+        @include btn-dark;
+        border-radius: 0%;
+        text-align: center;
+    &:hover{
+        @include btn-main;
+        border-radius: 0%;
+      }   
+    }
+    .cookies-link
+    {
+        margin-left: 5px;
+        color: $purple-color;
+        &:hover{
+            @include activeLink;
+            font-weight: 600;
+        }   
+    } 
+}

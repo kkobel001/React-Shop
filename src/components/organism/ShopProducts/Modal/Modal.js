@@ -42,7 +42,7 @@ const optionsColor = [
   { value: 'White', label: 'White' },
   { value: 'Black', label: 'Black' },
   { value: 'Blue', label: 'Blue' },
-  { value: 'Yelllow', label: 'Yelllow' },
+  { value: 'Yellow', label: 'Yellow' },
 ];
 
 const Modal = ({ item, showModal, setShowModal }) => {
