@@ -8,14 +8,18 @@
     justify-content: space-between;
     position: fixed;
     bottom: 0%;
+    padding-left:10px;
 
     .btn-cookies{
         @include btn-dark;
         border-radius: 0%;
         text-align: center;
+        background-color:$purple-color;
     &:hover{
         @include btn-main;
         border-radius: 0%;
+        background-color:$dark-color;
+
       }   
     }
     .cookies-link

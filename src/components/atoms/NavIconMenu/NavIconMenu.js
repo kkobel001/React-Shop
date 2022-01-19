@@ -33,7 +33,7 @@ const NavIconMenu = ({ cartQuantity }) => {
         {auth ? (
           <>
             <li className="icon-item">
-              <NavLink to="/UserPage" className="item-link" activeClassName="active">
+              <NavLink to="/UserPage" className="item-link" activeClassName="active" data-testid="testnavlog">
                 <PersonIcon />
               </NavLink>
             </li>

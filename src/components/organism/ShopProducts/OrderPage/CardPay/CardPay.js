@@ -21,7 +21,9 @@ const CardPay = () => {
 
   const refreshPage = () => {
     localStorage.clear();
-    window.location.reload(false);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 4000);
   };
 
   const handleSendOrder = () => {

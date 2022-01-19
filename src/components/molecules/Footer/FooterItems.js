@@ -1,7 +1,7 @@
 export const CardOne = [
   {
     id: 5,
-    title: 'Women',
+    title: 'Shop',
     url: '/shop',
     cName: 'nav-links',
   },
