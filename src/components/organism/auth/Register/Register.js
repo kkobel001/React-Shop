@@ -6,6 +6,7 @@ import { validateRegister } from 'helpers/Validate';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import useAuth from 'hooks/useAuth';
 import AuthTemplates from 'templates/AuthTempletes/AuthTemplates';
+import Error from 'components/atoms/Error/Error';
 
 const InitialFormState = {
   name: '',
@@ -62,10 +63,10 @@ const Register = () => {
         switch (err.code) {
           case 'auth/email-already-in-use':
           case 'auth/invalid-email':
-            setError({ email: err.message });
+            <Error />;
             break;
           case 'auth/weak-password':
-            setError({ password: err.message });
+            <Error />;
             break;
           default:
             setError('Something went wrong');

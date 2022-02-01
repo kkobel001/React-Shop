@@ -43,7 +43,6 @@ const Login = () => {
           case 'auth/invalid-email':
           case 'auth/user-not-found':
             setError({ email: err.message });
-            // <Error />;
             break;
           case 'auth/wrong-password':
             setError({ password: err.message });
