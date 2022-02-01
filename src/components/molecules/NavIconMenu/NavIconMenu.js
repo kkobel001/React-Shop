@@ -6,6 +6,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
+import IconLink from '../../atoms/IconLink/IconLink';
 import './NavIconMenu.scss';
 
 const NavIconMenu = ({ cartQuantity }) => {
@@ -24,19 +25,16 @@ const NavIconMenu = ({ cartQuantity }) => {
   return (
     <div className="icon-wrapper">
       <ul className="icon-row">
-        <li className="icon-item">
-          <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
-            <ShoppingCartIcon />
-            <span className="minicart-count">{cartQuantity}</span>
-          </NavLink>
-        </li>
+        <IconLink>
+          <ShoppingCartIcon />
+          <span className="minicart-count">{cartQuantity}</span>
+        </IconLink>
+
         {auth ? (
           <>
-            <li className="icon-item">
-              <NavLink to="/UserPage" className="item-link" activeClassName="active" data-testid="testnavlog">
-                <PersonIcon />
-              </NavLink>
-            </li>
+            <IconLink>
+              <PersonIcon />
+            </IconLink>
             <li>
               <NavLink exact to="/Home" onClick={logout}>
                 <LogoutIcon />

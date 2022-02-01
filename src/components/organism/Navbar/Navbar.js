@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { useSelector } from 'react-redux';
-import NavIconMenu from 'components/atoms/NavIconMenu/NavIconMenu';
+import NavIconMenu from 'components/molecules/NavIconMenu/NavIconMenu';
 import LogoIcon from 'assets/images/logo-01.png';
 import './Navbar.scss';
 import { MenuItems } from './MenuItems';
