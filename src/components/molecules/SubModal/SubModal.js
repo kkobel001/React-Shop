@@ -31,7 +31,7 @@ const SubModal = ({ showSubModal, setSubModal, title, information }) => {
 };
 
 SubModal.propTypes = {
-  showSubModal: PropTypes.func.isRequired,
+  showSubModal: PropTypes.bool.isRequired,
   setSubModal: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   information: PropTypes.string.isRequired,

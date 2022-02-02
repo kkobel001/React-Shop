@@ -23,7 +23,7 @@ const UserOrderItem = ({ order }) => {
 };
 
 UserOrderItem.propTypes = {
-  order: PropTypes.objectOf(PropTypes.object).isRequired,
+  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default UserOrderItem;

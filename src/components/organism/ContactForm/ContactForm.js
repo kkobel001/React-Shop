@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './FormContact.scss';
+import './ContactForm.scss';
 import Helpers from 'helpers/Helpers';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -13,7 +13,7 @@ const InitialFormState = {
   message: '',
 };
 
-const FormContact = () => {
+const ContactForm = () => {
   const [error, setError] = useState({});
   const [form, setForm] = useState(InitialFormState);
   const [postData] = usePostAxios();
@@ -110,4 +110,4 @@ const FormContact = () => {
   );
 };
 
-export default FormContact;
+export default ContactForm;

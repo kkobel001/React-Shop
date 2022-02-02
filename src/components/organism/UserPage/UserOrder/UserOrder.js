@@ -40,7 +40,7 @@ const UserOrder = () => {
       <div className="table-wrapper">
         <ul className="ordersTableTitle">
           {OrderTable.map(({ title }) => (
-            <li className="item-orderTable" key={title.id}>
+            <li className="item-orderTable" key={title}>
               <h4>{title}</h4>
             </li>
           ))}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './BlogList.scss';
 import { Link, useRouteMatch } from 'react-router-dom';
 import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
@@ -7,10 +7,6 @@ import Error from 'components/atoms/Error/Error';
 
 const BlogList = () => {
   const { url } = useRouteMatch();
-
-  useEffect(() => {
-    setTimeout(() => {}, 500);
-  }, []);
 
   const { response, error } = useAxios({
     method: 'POST',

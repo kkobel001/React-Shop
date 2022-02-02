@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAxios } from 'hooks/useAxios';
 import './DetailsItemBlog.scss';
@@ -7,10 +7,6 @@ import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 
 function DetailsItemBlog() {
   const { articleId } = useParams();
-
-  useEffect(() => {
-    setTimeout(() => {}, 500);
-  }, []);
 
   const { response, error } = useAxios({
     method: 'POST',

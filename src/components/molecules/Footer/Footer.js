@@ -4,7 +4,7 @@ import Helpers from 'helpers/Helpers';
 import { validateEmail } from 'helpers/Validate';
 import { useSetData } from 'hooks/useSetData';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
+import SocialMedia from 'components/molecules/SocialMedia/SocialMedia';
 import './Footer.scss';
 import { CardOne, CardTwo } from './FooterItems';
 

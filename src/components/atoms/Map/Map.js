@@ -29,5 +29,5 @@ MapContainer.defaultProps = {
 
 MapContainer.propTypes = {
   google: PropTypes.objectOf(PropTypes.object),
-  center: PropTypes.objectOf(PropTypes.object),
+  center: PropTypes.objectOf(PropTypes.number),
 };
