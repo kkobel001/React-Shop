@@ -53,6 +53,7 @@ const Slider = ({ slides }) => {
         nextSlide();
       }, settings.autoplaySpeed);
     }
+    return () => clearTimeout(autoplayRef.current);
   }, [current, activePlay, isAnimating]);
 
   return (

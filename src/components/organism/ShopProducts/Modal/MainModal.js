@@ -1,12 +1,9 @@
-import React, { useState, useRef } from 'react';
-import { useClickOutside } from 'hooks/useClickOutside';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Modal from './Modal';
 
 const MainModal = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
-  const modalRef = useRef(null);
-  useClickOutside(modalRef, setShowModal);
 
   const showModaled = () => {
     setShowModal(true);
@@ -18,7 +15,7 @@ const MainModal = ({ item }) => {
         <button className="btn-filter" type="button" onClick={showModaled} onKeyDown={setShowModal}>
           view more
         </button>
-        {showModal && <Modal item={item} showModal={showModal} setShowModal={setShowModal} ref={modalRef} />}
+        {showModal && <Modal item={item} showModal={showModal} setShowModal={setShowModal} />}
       </div>
     </>
   );

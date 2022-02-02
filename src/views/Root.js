@@ -11,7 +11,7 @@ import Menu from 'components/organism/Navbar/Navbar';
 import NotFound from 'components/atoms/404/NotFound';
 import Error from 'components/atoms/Error/Error';
 import Layout from 'components/organism/Layout/Layout';
-import Searchbar from 'components/atoms/Searchbar/Searchbar';
+import Searchbar from 'components/molecules/Searchbar/Searchbar';
 import Faq from 'components/molecules/Footer/FooterDetails/FAQ/Faq';
 import Regulation from 'components/molecules/Footer/FooterDetails/Regulation/Regulation';
 import ScrollToTop from 'components/molecules/ScrollToTop/ScrollToTop';

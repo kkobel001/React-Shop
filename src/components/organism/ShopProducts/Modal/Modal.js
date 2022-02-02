@@ -5,7 +5,7 @@ import { increaseProduct } from 'redux/slice/sliceCart';
 import './Modal.scss';
 import PropTypes from 'prop-types';
 import ClearIcon from '@material-ui/icons/Clear';
-import SocialMedia from 'components/atoms/SocialMedia/SocialMedia';
+import SocialMedia from 'components/molecules/SocialMedia/SocialMedia';
 import Slider from 'components/atoms/Slider/Slider';
 import SelectInput from 'components/atoms/SelectInput/SelectInput';
 import SubModal from '../../../molecules/SubModal/SubModal';
@@ -123,7 +123,7 @@ const Modal = ({ item, showModal, setShowModal }) => {
 
 Modal.propTypes = {
   item: PropTypes.instanceOf(Object).isRequired,
-  showModal: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
 };
 

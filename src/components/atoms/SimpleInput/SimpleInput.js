@@ -26,7 +26,7 @@ const SimpleInput = ({ label, name, value, type, onChange }) => {
 SimpleInput.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };

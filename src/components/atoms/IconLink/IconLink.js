@@ -14,5 +14,5 @@ export default function IconLink({ children }) {
 }
 
 IconLink.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

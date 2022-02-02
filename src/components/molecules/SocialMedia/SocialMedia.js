@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -8,19 +7,19 @@ import './SocialMedia.scss';
 const SocialMedia = () => (
   <ul className="social-list">
     <li className="item-list">
-      <Link to="/" className="linki">
+      <a href="https://www.facebook.com/" className="social-link">
         <FacebookIcon />
-      </Link>
+      </a>
     </li>
     <li className="item-list">
-      <Link to="/">
+      <a href="https://www.instagram.com/" className="social-link">
         <InstagramIcon />
-      </Link>
+      </a>
     </li>
     <li className="item-list">
-      <Link to="/">
+      <a href="https://twitter.com/?lang=pl" className="social-link">
         <TwitterIcon />
-      </Link>
+      </a>
     </li>
   </ul>
 );

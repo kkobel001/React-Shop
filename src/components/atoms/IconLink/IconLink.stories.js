@@ -1,7 +1,6 @@
 import React from 'react';
 import StoryRouter from 'storybook-react-router';
 import IconLink from './IconLink';
-// import LoginIcon from '@mui/icons-material/Login';
 
 export default {
   title: 'Atoms/IconLink',

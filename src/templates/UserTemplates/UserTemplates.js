@@ -14,7 +14,7 @@ const UserTemplates = ({ children, title }) => (
 );
 
 UserTemplates.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
   title: PropTypes.string.isRequired,
 };
 
