@@ -13,7 +13,7 @@
   "rules": {
     "import/prefer-default-export": 0,
     "import/no-unresolved": 1,
-      "no-shadow": "off",
+    "no-shadow": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -26,18 +26,46 @@
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
     "arrow-body-style": ["error", "as-needed"],
-      "jsx-a11y/label-has-associated-control": [ "error", {
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
         "required": {
-          "some": [ "nesting", "id"  ]
+          "some": ["nesting", "id"]
         }
-      }],
-      "jsx-a11y/label-has-for": [ "error", {
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
         "required": {
-          "some": [ "nesting", "id"  ]
+          "some": ["nesting", "id"]
         }
-      }]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": "**/*.+(ts|tsx)",
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended", // removes redundant warnings between TS & ESLint
+        "plugin:@typescript-eslint/recommended", // rules specific to typescript, e.g., writing interfaces
+        "eslint-config-prettier/@typescript-eslint" // ensure rule set doesn't conflict with prettier for TS files too
+      ]
     },
-
+    {
+      "files": "**/*.+(ts|tsx)",
+      "rules": {
+        "react/prop-types": 0,
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"]
+      }
+    }
+  ],
   "settings": {
     "import/resolver": {
       "node": {
