@@ -1,8 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {FC} from 'react';
 import './UserTemplates.scss';
 
-const UserTemplates = ({ children, title }) => (
+
+interface UserTemplatesProps {
+  title: string;
+  children: string[];
+}
+
+const UserTemplates :FC<UserTemplatesProps> = ({ children, title }) => (
   <div className="wrapper-userpanel">
     <div className="customer-account-content">
       <div className="wrapper-userOrder">
@@ -13,9 +18,5 @@ const UserTemplates = ({ children, title }) => (
   </div>
 );
 
-UserTemplates.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default UserTemplates;
