@@ -1,5 +1,4 @@
 import React from 'react';
-// import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import PropTypes from 'prop-types';
 import './Error.scss';
 

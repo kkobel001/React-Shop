@@ -17,20 +17,6 @@ const Slider = ({ slides }) => {
     autoplaySpeed: 3000,
   };
 
-  // const goTo = useCallback(
-  //   index => {
-  //     if (!isAnimating) {
-  //       setCurrent(index);
-  //       setIsAnimating(true);
-
-  //       setTimeout(() => {
-  //         setIsAnimating(false);
-  //       }, settings.speed);
-  //     }
-  //   },
-  //   [isAnimating, current],
-  // );
-
   const nextSlide = () => {
     setCurrent(current >= settings.maxItems - 1 ? 0 : current + 1);
   };
