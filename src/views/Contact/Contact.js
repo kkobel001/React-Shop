@@ -8,7 +8,7 @@ const Contact = () => (
   <div className="wrapper-contact">
     <Titlebox names="Contact" />
     <FormContact />
-    <div className="Mapname">
+    <div className="mapname">
       <GoogleMap />
     </div>
   </div>
