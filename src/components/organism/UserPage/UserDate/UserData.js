@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SimpleInput from 'components/atoms/SimpleInput/SimpleInput';
+import SimpleInput from 'components/atoms/Input/Input';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateEmail } from 'helpers/Validate';

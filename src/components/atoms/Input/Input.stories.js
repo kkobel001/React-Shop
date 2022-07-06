@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleInput from './SimpleInput';
+import SimpleInput from './Input';
 
 export default {
   title: 'Atoms/Input',
