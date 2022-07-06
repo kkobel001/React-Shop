@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SimpleInput from 'components/atoms/SimpleInput/SimpleInput';
+import SimpleInput from 'components/atoms/Input/Input';
 import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getDatabase, onValue, ref } from 'firebase/database';

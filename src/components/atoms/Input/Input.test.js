@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import SimpleInput from './SimpleInput';
+import SimpleInput from './Input';
 
 describe('User Field', () => {
   it('Renders the component', () => {
