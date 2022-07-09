@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './SimpleInput.scss';
+import './Input.scss';
 
 interface Props {
   label: string;
