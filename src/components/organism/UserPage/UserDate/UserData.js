@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import SimpleInput from 'components/atoms/Input/Input';
+import Input from 'components/atoms/Input/Input';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { validateEmail } from 'helpers/Validate';
@@ -50,10 +50,10 @@ const userData = () => {
       <UserTemplates title="My data">
         <form className="input-wrapper">
           <div className="input-row">
-            <SimpleInput label="E-mail" name="email" onChange={updateField} value={form.email} />
+            <Input label="E-mail" name="email" onChange={updateField} value={form.email} />
           </div>
           <div className="input-row">
-            <SimpleInput label="Password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <Input label="Password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
           </div>
         </form>
         <div className="panel-row">

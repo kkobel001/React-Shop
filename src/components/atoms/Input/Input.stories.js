@@ -1,11 +1,11 @@
 import React from 'react';
-import SimpleInput from './Input';
+import Input from './Input';
 
 export default {
   title: 'Atoms/Input',
-  component: SimpleInput,
+  component: Input,
 };
-const Template = args => <SimpleInput name="Men" {...args} />;
+const Template = args => <Input name="Men" {...args} />;
 
 export const TextInput = Template.bind({});
 TextInput.args = {

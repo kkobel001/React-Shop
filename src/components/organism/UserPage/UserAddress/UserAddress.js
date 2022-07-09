@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import SimpleInput from 'components/atoms/Input/Input';
+import Input from 'components/atoms/Input/Input';
 import './UserAddress.scss';
 import UserTemplates from 'templates/UserTemplates/UserTemplates';
 import { getDatabase, onValue, ref } from 'firebase/database';
@@ -76,31 +76,31 @@ const userAddress = () => {
       <UserTemplates title="My account">
         <form className="input-wrapper">
           <div className="input-row">
-            <SimpleInput label="Name" name="name" onChange={updateField} value={form.name} />
+            <Input label="Name" name="name" onChange={updateField} value={form.name} />
             {error && <p>{error.name}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="Surname" name="surname" onChange={updateField} value={form.surname} />
+            <Input label="Surname" name="surname" onChange={updateField} value={form.surname} />
             {error && <p>{error.surname}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="Street" name="street" onChange={updateField} value={form.street} />
+            <Input label="Street" name="street" onChange={updateField} value={form.street} />
             {error && <p>{error.street}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
+            <Input label="House / flat number" name="flatNumber" type="number" value={form.flatNumber} onChange={updateField} />
             {error && <p>{error.flatNumber}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="City" name="city" onChange={updateField} value={form.city} />
+            <Input label="City" name="city" onChange={updateField} value={form.city} />
             {error && <p>{error.city}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="Postal Code" name="postalCode" value={form.postalCode} onChange={updateField} />
+            <Input label="Postal Code" name="postalCode" value={form.postalCode} onChange={updateField} />
             {error && <p>{error.postalCode}</p>}
           </div>
           <div className="input-row">
-            <SimpleInput label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
+            <Input label="Telephone" type="number" name="telephone" value={form.telephone} onChange={updateField} />
             {error && <p>{error.telephone}</p>}
           </div>
         </form>
