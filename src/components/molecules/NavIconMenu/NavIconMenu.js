@@ -36,7 +36,7 @@ const NavIconMenu = ({ cartQuantity }) => {
               <PersonIcon />
             </IconLink>
             <li>
-              <NavLink exact to="/Home" onClick={logout}>
+              <NavLink exact to="/Home" onClick={logout} data-testid="logout-element">
                 <LogoutIcon />
               </NavLink>
             </li>
@@ -44,7 +44,7 @@ const NavIconMenu = ({ cartQuantity }) => {
         ) : (
           <>
             <li className="icon-item">
-              <NavLink to="/login" className="item-link" activeClassName="active-link">
+              <NavLink to="/login" className="item-link" activeClassName="active-link" data-testid="login-element">
                 <LoginIcon />
               </NavLink>
             </li>
