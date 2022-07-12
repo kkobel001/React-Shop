@@ -1,16 +1,12 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 type childrenBrowser = {
-    children: React.ReactElement | React.ReactElement[];
+    children: JSX.Element | JSX.Element[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const BrowserRouterTemplates = ({ children }: childrenBrowser) => {
-
-
-
-
-
-}
+const BrowserRouterTemplates = ({ children }: childrenBrowser) => (
+    { children }
+)
 
 export default BrowserRouterTemplates;
