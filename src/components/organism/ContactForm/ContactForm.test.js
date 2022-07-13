@@ -5,11 +5,9 @@ import ContactForm from './ContactForm';
 describe('correct render in components', () => {
   it('Render the component', () => {
     render(<ContactForm />);
-    screen.getByRole('textbox', {
-      name: /name/i,
-    });
-    fireEvent.change(screen.getByText('email'), { target: { value: 'kasia.kobel@interia.pl' } });
-    fireEvent.change(screen.getByText('message'), { target: { value: 'Jak wylgląda polityka zwrotów?' } });
+    fireEvent.change(screen.getByPlaceholderText('Name'), { target: { value: 'Kasia' } });
+    fireEvent.change(screen.getByPlaceholderText('Your Email Address'), { target: { value: 'kasia.kobel@interia.pl' } });
+    fireEvent.change(screen.getByPlaceholderText('Name'), { target: { value: 'How Can We Help?' } });
     fireEvent.click(screen.getByText('Send'));
   });
 });
