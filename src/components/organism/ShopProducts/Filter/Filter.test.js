@@ -1,10 +1,16 @@
 import React from 'react';
-import { render, screen } from '@testing-library/dom';
+import { render, screen } from '@testing-library/react';
+
 import Filter from './Filter';
 
 describe('Filter Component', () => {
   it('Should render component', () => {
     render(<Filter />);
-    screen.debug();
+  });
+
+  it('Should verify renderen image', async () => {
+    render(<Filter />);
+    const imgElement = await screen.findByTestId('image-item-0');
+    console.log(imgElement);
   });
 });
