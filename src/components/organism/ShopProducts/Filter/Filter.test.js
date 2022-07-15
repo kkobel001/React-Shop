@@ -10,7 +10,7 @@ describe('Filter Component', () => {
 
   it('Should verify renderen image', async () => {
     render(<Filter />);
-    const imgElement = await screen.findByTestId('image-item-0');
+    const imgElement = await screen.findAllByTestId(/image-item-0/i);
     console.log(imgElement);
   });
 });
