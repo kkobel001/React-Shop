@@ -1,5 +1,11 @@
 {
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "plugin:cypress/recommended",
+
+  ],
   "env": {
     "jest": true,
     "browser": true,
@@ -17,20 +23,33 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx"]
+        "extensions": [
+          ".tsx"
+        ]
       }
     ],
     "no-plusplus": "off",
     "no-param-reassign": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
     "import/extensions": "off",
     "react/jsx-props-no-spreading": "off",
-    "arrow-body-style": ["error", "as-needed"],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
         "required": {
-          "some": ["nesting", "id"]
+          "some": [
+            "nesting",
+            "id"
+          ]
         }
       }
     ],
@@ -38,7 +57,10 @@
       "error",
       {
         "required": {
-          "some": ["nesting", "id"]
+          "some": [
+            "nesting",
+            "id"
+          ]
         }
       }
     ]
@@ -50,11 +72,13 @@
       "parserOptions": {
         "project": "./tsconfig.json"
       },
-      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "plugins": [
+        "@typescript-eslint/eslint-plugin"
+      ],
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended", // removes redundant warnings between TS & ESLint
         "plugin:@typescript-eslint/recommended", // rules specific to typescript, e.g., writing interfaces
-        "eslint-config-prettier/@typescript-eslint" // ensure rule set doesn't conflict with prettier for TS files too
+        "eslint-config-prettier/@typescript-eslint", // ensure rule set doesn't conflict with prettier for TS files too
       ]
     },
     {
@@ -62,15 +86,24 @@
       "rules": {
         "react/prop-types": 0,
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error"]
+        "@typescript-eslint/no-use-before-define": [
+          "error"
+        ]
       }
     }
   ],
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": ["./src"],
-        "extensions": [".js", ".jsx", ".ts", "tsx"]
+        "paths": [
+          "./src"
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          "tsx"
+        ]
       }
     }
   },
