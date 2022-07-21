@@ -37,6 +37,7 @@
       .btn-filter{
         overflow: hidden;
         opacity: 0;
+        width:100px;
 }
       &:hover {
         .btn-filter {
@@ -45,7 +46,7 @@
           transform: translate(-50%, -50%);
           transition: all 1.2s ease;
           font-size: $minfont-size;
-          padding: 10px 43px;
+          // padding: 10px 43px;
           bottom: -50px;
           right: 50%;
           margin-left:0px;
@@ -53,9 +54,15 @@
           letter-spacing: 4px;
           left: 50%;
           opacity: 1;
+          width:150px;
+          height:30px;
+
 
           &:hover {
             @include hov-second;
+            // width:250px;
+
+
           }
         }
       }

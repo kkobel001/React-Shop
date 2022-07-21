@@ -3,7 +3,7 @@ import LoadingIcon from 'components/atoms/LoadingIcon/LoadingIcon';
 import '../Products.scss';
 import SimpleButton from 'components/atoms/SimpleButton/SimpleButton';
 import { useAxios } from 'hooks/useAxios';
-import ItemListFooter from './ItemListFilter';
+import ItemListFilter from './ItemListFilter';
 
 const categories = [
   { name: 'All', value: 'All' },
@@ -66,7 +66,7 @@ const Filter = () => {
       </div>
       <div className="wrapper-shop">
         {loading && <LoadingIcon />}
-        {areProductsVisible && filteredProducts.map((item, testID) => <ItemListFooter testID={testID} key={item.id} item={item} />)}
+        {areProductsVisible && filteredProducts.map((item, testID) => <ItemListFilter testID={testID} key={item.id} item={item} />)}
         {isErrorVisible && <div> Something went wrong 🤷‍ try again</div>}
       </div>
     </>

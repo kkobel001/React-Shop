@@ -100,7 +100,6 @@
   text-decoration: none;
   text-transform: uppercase;
   background-color: $white-color;
-  padding: 10px 23px;
   cursor: pointer;
   font-size: $smallfont-size;
   color: $dark-color;
@@ -114,6 +113,7 @@
   color: $white-color;
   border: none;
   transition: all 0.9s ease;
+
 }
 @mixin btn-none {
   border: none;
