@@ -1,3 +1,7 @@
 {
-    "baseUrl": "http://localhost:3006"
+  "baseUrl": "http://localhost:3000/home",
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
   }
+}
