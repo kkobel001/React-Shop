@@ -47,7 +47,7 @@ const Filter = () => {
 
   useEffect(() => {
     setFilteredProducts(filterProducts(allProducts, activeFilter));
-  }, [response, loading]);
+  }, [allProducts]);
 
   const handleClick = category => () => {
     setFilteredProducts(filterProducts(allProducts, category));
