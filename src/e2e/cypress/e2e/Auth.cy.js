@@ -1,14 +1,12 @@
 import '@testing-library/cypress/add-commands';
 
 describe('react-shop', () => {
-  it('Renders unauthenticated app', () => {
+  beforeEach(() => {
     cy.visit('/home');
-    cy.findByText(/login/i).should('exist');
   });
 
-  it('Renders user to authenticate app', () => {
-    cy.visit('/home');
-    cy.findByText(/login/i).should('exist');
+  it('Renders unauthenticated app', () => {
+    cy.get('[data-testid="login-element"]').click();
     cy.findByText(/login/i)
       .click()
       .type(process.env.AUTH_LOGIN_TEST);
