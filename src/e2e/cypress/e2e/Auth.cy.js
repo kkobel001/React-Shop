@@ -7,12 +7,11 @@ describe('react-shop', () => {
 
   it('Renders unauthenticated app', () => {
     cy.get('[data-testid="login-element"]').click();
-    cy.findByText(/login/i)
-      .click()
-      .type(process.env.AUTH_LOGIN_TEST);
-    cy.findByText(/password/i)
-      .click()
-      .type(process.env.AUTH_PASSWORD_TEST);
-    cy.findByText(/sing in/i).click();
+    cy.get('input').should('have.attr', 'placeholder', 'Email');
+    cy.get('[name="email"]').type('test@test.pl');
+    cy.get('[name="password"]').type('Test123!');
+    cy.get('button')
+      .first()
+      .click();
   });
 });
