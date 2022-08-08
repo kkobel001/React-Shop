@@ -25,16 +25,21 @@ const NavIconMenu = ({ cartQuantity }) => {
   return (
     <div className="icon-wrapper">
       <ul className="icon-row">
-        <IconLink switchpath="OrderPage">
-          <ShoppingCartIcon data-testid="nav-element" />
-          <span className="minicart-count">{cartQuantity}</span>
-        </IconLink>
+        <li>
+          <IconLink switchpath="OrderPage">
+            <ShoppingCartIcon data-testid="nav-element" />
+            <span className="minicart-count">{cartQuantity}</span>
+          </IconLink>
+        </li>
 
         {auth ? (
           <>
-            <IconLink switchpath="UserPage">
-              <PersonIcon />
-            </IconLink>
+            <li>
+              <IconLink switchpath="UserPage">
+                <PersonIcon />
+              </IconLink>
+            </li>
+
             <li>
               <NavLink exact to="/Home" onClick={logout} data-testid="logout-element">
                 <LogoutIcon />
