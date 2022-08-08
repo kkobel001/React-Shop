@@ -26,7 +26,7 @@ const NavIconMenu = ({ cartQuantity }) => {
     <div className="icon-wrapper">
       <ul className="icon-row">
         <IconLink>
-          <ShoppingCartIcon />
+          <ShoppingCartIcon data-testid="nav-element" />
           <span className="minicart-count">{cartQuantity}</span>
         </IconLink>
 
