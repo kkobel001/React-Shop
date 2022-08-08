@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './IconLink.scss';
 
-export default function IconLink({ children }) {
+export default function IconLink({ children, switchpath }) {
   return (
     <li className="icon-item">
-      <NavLink exact to="/OrderPage" className="item-link" activeClassName="active">
+      <NavLink exact to={`/${switchpath}`} className="item-link" activeClassName="active">
         {children}
       </NavLink>
     </li>
@@ -15,4 +15,5 @@ export default function IconLink({ children }) {
 
 IconLink.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  switchpath: PropTypes.string.isRequired,
 };
