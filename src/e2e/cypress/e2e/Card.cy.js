@@ -1,8 +1,10 @@
 describe('Card', () => {
   it('adds products to cart', () => {
-    cy.visit('http://localhost:3000');
-    cy.contains('button', 'view more').click({ force: true });
-    cy.contains('button', 'Add to Card');
-    cy.contains('a.item-link', 1);
+    cy.visit('/shop');
+    cy.contains('button', 'view more').click();
+    cy.contains('button', 'Add to Card').click();
+    cy.get('[data-testid="nav-element"]').click();
+    cy.get('[data-testid="button-add"]').click();
+    cy.get('.btn-order').click();
   });
 });
