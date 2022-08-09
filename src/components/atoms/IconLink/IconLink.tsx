@@ -8,8 +8,10 @@ type IconLinkProps = {
 }
 
 const IconLink = ({ children, switchpath }: IconLinkProps) => (
-  <NavLink exact to={`/${switchpath}`} className="item-link" activeClassName="active">
-    {children}
-  </NavLink>
+  <li className="icon-item">
+    <NavLink exact to={`/${switchpath}`} className="item-link" activeClassName="active">
+      {children}
+    </NavLink>
+  </li>
 )
 export default IconLink; 

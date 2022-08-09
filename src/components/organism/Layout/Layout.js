@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Cookies from 'components/atoms/Cookies/Cookies';
+import { Cookies } from 'components/atoms/Cookies/Cookies';
 
 function Layout({ menu, content, footer }) {
   const [isCookie, setCookie] = useState(false);
