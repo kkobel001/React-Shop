@@ -1,8 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 import './Cookies.scss';
 
-export default function Cookies({ setCookie }) {
+
+type CookiesProps = {
+  setCookie: (p: unknown) => void;
+}
+
+
+export const Cookies: FunctionComponent<CookiesProps> = ({ setCookie }) => {
+
   const closeCookie = () => {
     setCookie(prev => !prev);
   };
@@ -22,6 +28,3 @@ export default function Cookies({ setCookie }) {
   );
 }
 
-Cookies.propTypes = {
-  setCookie: PropTypes.func.isRequired,
-};
