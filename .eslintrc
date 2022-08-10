@@ -3,8 +3,7 @@
     "airbnb",
     "prettier",
     "prettier/react",
-    "plugin:cypress/recommended",
-
+    "plugin:cypress/recommended"
   ],
   "env": {
     "jest": true,
@@ -78,7 +77,7 @@
       "extends": [
         "plugin:@typescript-eslint/eslint-recommended", // removes redundant warnings between TS & ESLint
         "plugin:@typescript-eslint/recommended", // rules specific to typescript, e.g., writing interfaces
-        "eslint-config-prettier/@typescript-eslint", // ensure rule set doesn't conflict with prettier for TS files too
+        "eslint-config-prettier/@typescript-eslint" // ensure rule set doesn't conflict with prettier for TS files too
       ]
     },
     {
@@ -88,6 +87,14 @@
         "no-use-before-define": "off",
         "@typescript-eslint/no-use-before-define": [
           "error"
+        ]
+      }
+    },
+    {
+      "files": "['*.jsx', '*.tsx']",
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "off"
         ]
       }
     }

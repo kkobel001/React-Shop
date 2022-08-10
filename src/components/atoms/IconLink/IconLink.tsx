@@ -7,7 +7,7 @@ type IconLinkProps = {
   children: React.ReactNode;
 }
 
-const IconLink = ({ children, switchpath }: IconLinkProps) => (
+const IconLink: React.FC<IconLinkProps> = ({ children, switchpath }): JSX.Element => (
   <li className="icon-item">
     <NavLink exact to={`/${switchpath}`} className="item-link" activeClassName="active">
       {children}

@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
-import IconLink from '../../atoms/IconLink/IconLink';
+import IconLink from '../../atoms/IconLink/IconLink.tsx';
 import './NavIconMenu.scss';
 
 const NavIconMenu = ({ cartQuantity }) => {
@@ -32,13 +32,10 @@ const NavIconMenu = ({ cartQuantity }) => {
 
         {auth ? (
           <>
-            <li>
-              <IconLink switchpath="UserPage">
-                <PersonIcon />
-              </IconLink>
-            </li>
-
-            <li>
+            <IconLink switchpath="UserPage">
+              <PersonIcon />
+            </IconLink>
+            <li className="icon-item">
               <NavLink exact to="/Home" onClick={logout} data-testid="logout-element">
                 <LogoutIcon />
               </NavLink>
