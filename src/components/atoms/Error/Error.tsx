@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './Error.scss';
+
+type ErrorProps = {
+  massage: string;
+}
 
 const errorMessage = 'Something went wrong. Please try again, or contact our support.';
 
-const Error = ({ massage = errorMessage }) => (
+const Error: React.FC<ErrorProps> = ({ massage = errorMessage }) => (
   <div className="err-row">
     <div className="error-box">
       <h1>Oops!</h1>
@@ -13,8 +16,5 @@ const Error = ({ massage = errorMessage }) => (
   </div>
 );
 
-Error.propTypes = {
-  massage: PropTypes.string.isRequired,
-};
 
 export default Error;
