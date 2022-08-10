@@ -1,15 +1,20 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from 'hooks/useAuth';
-import { PropTypes } from 'prop-types';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
-import IconLink from '../../atoms/IconLink/IconLink.tsx';
+import IconLink from '../../atoms/IconLink/IconLink';
 import './NavIconMenu.scss';
 
-const NavIconMenu = ({ cartQuantity }) => {
+
+type NavIconProps = {
+
+  cartQuantity: number
+}
+
+const NavIconMenu: React.FC<NavIconProps> = ({ cartQuantity }: NavIconProps) => {
   const [auth, setAuth] = useAuth();
   const history = useHistory();
 
@@ -55,8 +60,8 @@ const NavIconMenu = ({ cartQuantity }) => {
   );
 };
 
-NavIconMenu.propTypes = {
-  cartQuantity: PropTypes.number.isRequired,
-};
+// NavIconMenu.propTypes = {
+//   cartQuantity: PropTypes.number.isRequired,
+// };
 
 export default NavIconMenu;
