@@ -22,7 +22,6 @@ const prepareCartTotal = state => {
   state.cartTotalAmount = cartTotalAmount;
   localStorage.setItem('cartTotalAmount', JSON.stringify(cartTotalAmount));
 };
-// const isItemTypeInCart = (cartItems, newItem) => cartItems.findIndex(cartElement => cartElement.id === newItem.id && cartElement.color === newItem.color && cartElement.size === newItem.size) !== -1
 
 const orderSlice = createSlice({
   name: 'cart',
@@ -34,16 +33,7 @@ const orderSlice = createSlice({
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
         const product = { ...action.payload, cartQuantity: 1 };
-        console.log(product);
-
         state.cartItems.push(product);
-        // const updatedCartItems = [...state.cartItems] ;
-        // console.log(updatedCartItems);
-
-        // prepareCartTotal({
-        //   ...state,
-        //   cartItems: updatedCartItems,
-        // });
       }
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
       prepareCartTotal(state);
@@ -57,10 +47,6 @@ const orderSlice = createSlice({
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const nextCartItems = state.cartItems.filter(cartElement => cartElement.id !== action.payload.id || cartElement.color !== action.payload.color || cartElement.size !== action.payload.size);
         state.cartItems = nextCartItems;
-        // prepareCartTotal({
-        //   ...state,
-        //   cartItems: nextCartItems,
-        // });
       }
 
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
