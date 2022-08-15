@@ -1,7 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 
-const SelectInput = ({ title, options, onChange }) => {
+interface propsOption {
+  value: string,
+  label: string,
+
+}
+
+type SelectInputProps = {
+  title: string,
+  options: propsOption[],
+  onChange: (p: unknown) => void;
+}
+
+
+const SelectInput: FunctionComponent<SelectInputProps> = ({ title, options, onChange }) => {
   const handleChange = e => {
     onChange(e.target.value);
   };
@@ -19,10 +31,5 @@ const SelectInput = ({ title, options, onChange }) => {
   );
 };
 
-SelectInput.propTypes = {
-  title: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default SelectInput;
