@@ -1,9 +1,22 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, FC } from 'react';
+// import PropTypes, { number } from 'prop-types';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import UserOrderDetails from '../UserOrderDetails/UserOrderDetails';
 
-const UserOrderItem = ({ order }) => {
+
+interface dataProps {
+  orderDate: string,
+  cartTotalQuantity: number
+}
+interface orderProps {
+  id: number,
+  data: dataProps
+}
+interface UserOrderProps {
+  order: any
+}
+
+const UserOrderItem: FC<UserOrderProps> = ({ order }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -22,8 +35,6 @@ const UserOrderItem = ({ order }) => {
   );
 };
 
-UserOrderItem.propTypes = {
-  order: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-};
+
 
 export default UserOrderItem;
