@@ -1,10 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FC } from 'react';
 import './UserOrderDetails.scss';
 import CheckIcon from '@mui/icons-material/Check';
 import formatCurrency from 'helpers/until';
 
-const UserOrderDetails = ({ order }) => (
+interface imageProps {
+  url: string
+}
+
+interface ProductProps {
+  title: string,
+  color: string,
+  size: string,
+  cartQuantity: number,
+  price: number,
+  image: imageProps,
+
+}
+interface dataProps {
+  products: ProductProps[],
+  cartTotalAmount: number,
+
+}
+interface ordersProps {
+  data: dataProps
+}
+interface UserOrderDetailsProps {
+  order: ordersProps
+}
+
+
+
+const UserOrderDetails: FC<UserOrderDetailsProps> = ({ order }) => (
   <>
     {order.data.products.map(product => (
       <div className="box-order">
@@ -33,8 +59,5 @@ const UserOrderDetails = ({ order }) => (
   </>
 );
 
-UserOrderDetails.propTypes = {
-  order: PropTypes.instanceOf(Array).isRequired,
-};
 
 export default UserOrderDetails;
