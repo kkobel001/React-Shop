@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { FC } from 'react';
 import TitleBox from 'components/atoms/TitleBox/TitleBox';
 import { data } from './data';
 import './Faq.scss';
 
-const Faq = () => (
+interface itemProps {
+  title: string,
+  content: string,
+}
+
+interface dataProps {
+  data: itemProps[]
+}
+
+const Faq: FC<dataProps> = () => (
   <>
     <TitleBox names="FAQ" />
     <div className="wrapper-faq">
