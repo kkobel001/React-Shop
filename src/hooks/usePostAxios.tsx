@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export const usePostAxios = () => {
   const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const postData = async params => {
     setLoading(true);
@@ -12,7 +12,7 @@ export const usePostAxios = () => {
       const result = await axios.request(params);
       setResponse(result.data);
     } catch (error) {
-      setError(error);
+      setError(true);
     } finally {
       setLoading(false);
     }

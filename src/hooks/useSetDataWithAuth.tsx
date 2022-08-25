@@ -3,8 +3,8 @@ import { getDatabase, ref, set } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export const useSetDataWithAuth = () => {
-  const [err, setError] = useState(null);
-  const [isSaving, setIsSaving] = useState(false);
+  const [err, setError] = useState<boolean>(false);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
 
   const setData = async (getPath, data) => {
     onAuthStateChanged(getAuth(), async user => {
@@ -13,7 +13,7 @@ export const useSetDataWithAuth = () => {
         await set(ref(getDatabase(), getPath(user)), data);
         console.log('Data saved successfully!');
       } catch (err) {
-        setError(err);
+        setError(true);
       } finally {
         setIsSaving(false);
       }
