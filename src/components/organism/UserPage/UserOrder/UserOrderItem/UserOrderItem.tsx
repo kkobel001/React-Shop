@@ -1,5 +1,4 @@
 import React, { useState, FC } from 'react';
-// import PropTypes, { number } from 'prop-types';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import UserOrderDetails from '../UserOrderDetails/UserOrderDetails';
 
@@ -13,7 +12,7 @@ interface orderProps {
   data: dataProps
 }
 interface UserOrderProps {
-  order: any
+  order: any,
 }
 
 const UserOrderItem: FC<UserOrderProps> = ({ order }) => {
